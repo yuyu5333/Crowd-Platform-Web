@@ -15,10 +15,11 @@
               <Col span="8">
                 <p class="text-font-parameter">
                   <!--  -->
+                  {{ UserModelStatus.Computation }}
                 </p>
               </Col>
             </Row>
-            <br/>
+            <br />
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 计算量 end 参数量 start -->
@@ -32,11 +33,11 @@
             <Row>
               <Col span="8">
                 <p class="text-font-parameter">
-                  <!-- {{ sysmodelStatus.Parameter }} -->
+                  {{ UserModelStatus.Parameter }}
                 </p>
               </Col>
             </Row>
-            <br>
+            <br />
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 参数量 end 存储量 start -->
@@ -50,11 +51,11 @@
             <Row>
               <Col span="8">
                 <p class="text-font-parameter">
-                  <!-- {{ sysmodelStatus.Storage }} -->
+                  {{ UserModelStatus.Storage }}
                 </p>
               </Col>
             </Row>
-            <br>
+            <br />
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 存储量 end 时延 start -->
@@ -66,6 +67,9 @@
             </Row>
             <Divider style="margin: 12px 0px" />
             <Row>
+              <p class="text-font-parameter">
+                {{ UserModelStatus.Latency }}
+              </p>
               <!-- <Col span="8" class="text-font-device"
                 >Windows：
                 <p class="text-font-parameter">
@@ -85,7 +89,7 @@
                 </p>
               </Col> -->
             </Row>
-            <br>
+            <br />
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 时延 end 能耗 start -->
@@ -99,11 +103,11 @@
             <Row>
               <Col span="8">
                 <p class="text-font-parameter">
-                  <!-- {{ sysmodelStatus.Energy }} -->
+                  {{ UserModelStatus.Energy }}
                 </p>
               </Col>
             </Row>
-            <br>
+            <br />
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 能耗 end 精确度 start -->
@@ -117,11 +121,11 @@
             <Row>
               <Col span="8">
                 <p class="text-font-parameter">
-                  <!-- {{ sysmodelStatus.Accuracy }} -->
+                  {{ UserModelStatus.Accuracy }}
                 </p>
               </Col>
             </Row>
-            <br>
+            <br />
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 精确度 end -->
@@ -130,23 +134,30 @@
       <template #right>
         <div class="demo-split-pane">
           <card shadow title="自定义模型" size="large">
-            <Form model="formItem" :label-width="80">
-              <row class="model-upload">
-                <Upload action="//jsonplaceholder.typicode.com/posts/">
-                  <Button icon="ios-cloud-upload-outline" style="margin: 10px"
-                    >点击上传模型</Button
-                  >
-                </Upload>
-              </row>
-              <row class="model-upload" style="margin-top: 10px">
-                <Button type="primary" style="margin-left: 8px"
-                  >模型检验</Button
+            <row class="model-upload">
+              <upload :before-upload="beforeUpload" action="upload-usermodel/">
+                <Button icon="ios-cloud-upload-outline" style="margin-top: 10px"
+                  >点击上传模型</Button
                 >
-                <Button type="primary" style="margin-left: 8px"
-                  >模型评估</Button
-                >
-              </row>
-            </Form>
+              </upload>
+              <!-- <row><p>只能上传Python文件</p></row> -->
+            </row>
+            <row class="model-upload" style="margin-top: 10px">
+              <p style="margin-left: 0px">{{ CheckModel_Value.CheckStatus }}</p>
+              <Button
+                type="primary"
+                @click="CheckModel()"
+                style="margin-right: 8px"
+                >模型检验</Button
+              >
+              <Button
+                type="primary"
+                style="margin-left: 8px"
+                @click="getUserModelChange()"
+                >模型评估</Button
+              >
+            </row>
+            <row> </row>
           </card>
         </div>
         <div>
@@ -154,10 +165,10 @@
             <div class="demo-split-pane">
               <card shadow title="模型总览" size="large">
                 <Row>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
                 </Row>
               </card>
             </div>
@@ -169,6 +180,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -177,7 +190,46 @@ export default {
       formItem: {
         系统模型: "",
       },
+      CheckModel_Value: [],
+      UserModelStatus: [],
     };
+  },
+  methods: {
+    getUserModelChange() {
+      let that = this;
+      axios
+        .post("get-usermodel/", {
+          UserModelName: true,
+        })
+        .then((response) => {
+          that.UserModelStatus = response.data;
+          console.log(response.data);
+        });
+    },
+    CheckModel() {
+      let that = this;
+      axios
+        .post("check-usermodel/", {
+          CheckModelValue: "True",
+        })
+        .then((response) => {
+          that.CheckModel_Value = response.data;
+          console.log(that.CheckModel_Value);
+        });
+    },
+    beforeUpload(file) {
+      let nameSplit = file.name.split(".");
+      let format = nameSplit[nameSplit.length - 1];
+      if (format === "py") {
+        return true;
+      } else {
+        this.$Notice.warning({
+          title: "只能上传Python文件",
+          desc: "只能上传Python文件，请重新上传",
+        });
+      }
+      return false;
+    },
   },
 };
 </script>
@@ -199,19 +251,19 @@ export default {
 }
 .head-font-parameter {
   font-weight: bolder;
-  font-size: 18px;
+  font-size: 16px;
 }
 .text-font-parameter {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #6b25d3;
 }
 .text-font-information {
-  font-size: 18px;
+  font-size: 16px;
 }
 .text-font-device {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #0b5fdd;
 }
 .model-upload {

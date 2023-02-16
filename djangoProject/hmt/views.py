@@ -1,6 +1,7 @@
 import json
-import os
+import shutil, os, sys
 import re
+from tabnanny import check
 
 from django.conf import settings
 from django.http import Http404, JsonResponse, StreamingHttpResponse
@@ -9,7 +10,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from djangoProject.settings import MEDIA_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT, DOWNLOADFILEDIR_ROOT
+from djangoProject.settings import MEDIA_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
+from djangoProject.settings import DOWNLOADFILEDIR_ROOT, UPLOADUSERMODEL_ROOT
 from hmt.models import Device, Mission, ImageClassification
 from hmt.serializers import DeviceSerializer, ImageClassificationSerializer
 
@@ -18,6 +20,14 @@ from hmt.serializers import SysModelSerializer, SysDeviceLatencySerializer
 
 from operator import itemgetter
 from pynvml import *
+
+import uuid
+import torch
+import time
+from thop import clever_format
+from uploadusermodel.profile_my import profile
+from uploadusermodel.checkmodel_util import test
+from uploadusermodel.checkmodel_util import model_user
 
 # Create your views here.
 class ReturnSysModelStatus(APIView):
@@ -28,7 +38,179 @@ class ReturnSysModelStatus(APIView):
         sysmodel_serializer = SysModelSerializer(sysmodel)
         return Response(sysmodel_serializer.data)
 
-class ReturnSysDeviceLatency(APIView):
+
+class UploadUserModel(APIView):
+    def post(self, request):
+        print(request.FILES)
+        # 接收文件
+        file_obj = request.FILES.get('file', None)
+        print("file_obj", file_obj.name)
+
+        # 文件上传至根目录/upload/json文件夹下
+        head_path = UPLOADUSERMODEL_ROOT
+        print("head_path", head_path)
+        # 判断是否存在文件夹
+        # 如果没有就创建文件路径
+        if not os.path.exists(head_path):
+            os.makedirs(head_path)
+
+        # 判断文件大小不能超过5M
+        if file_obj.size > 5242880:
+            return JsonResponse({'status': status.HTTP_403_FORBIDDEN, 'msg': '文件过大'},
+                                status=status.HTTP_403_FORBIDDEN)
+
+        # 文件后缀
+        suffix = file_obj.name.split(".").pop()
+        print("文件后缀", suffix)
+
+        # 判断文件后缀
+        suffix_list = ["py"]
+        if suffix not in suffix_list:
+            return JsonResponse({'status': status.HTTP_403_FORBIDDEN, 'msg': '只能选择py文件'},
+                                status=status.HTTP_403_FORBIDDEN)
+
+        # # 重命名文件
+        # file_name = '%s.%s' % (uuid.uuid4(), suffix)
+        # print("file_name", file_name)
+
+        # file_name = file_obj
+        file_name = "UserModel.py"
+
+        # 储存路径
+        file_path = os.path.join(head_path, file_name)
+        print("储存路径", file_path)
+
+        # 写入文件到指定路径
+        with open(file_path, 'wb') as f:
+            for chunk in file_obj.chunks():
+                f.write(chunk)
+
+        data = {}
+        data['name'] = file_name
+
+        return JsonResponse({'status': status.HTTP_200_OK, 'data': data}, status=status.HTTP_200_OK)
+
+
+class CheckUserModel(APIView):
+    def post(self, request):
+
+        file_name = "UserModel.py"
+
+        getCheck = modelCheck(file_name)
+
+        print("getCheck: ", getCheck)
+
+        if getCheck == False:
+            return({"CheckStatus": "模型检测失败"})
+
+        print("return")
+
+        # return JsonResponse({'status': status.HTTP_200_OK, 'data': data}, status=status.HTTP_200_OK)
+        return Response({"CheckStatus": "模型检测成功"})
+
+
+class ReturnUserModelStatus(APIView):
+    def post(self, request):
+
+        print("get user model status")
+
+        # getCheck = modelCheck("UserModel.py")
+
+        # if getCheck == True:
+            # model, input = model_user()
+
+        model, input = model_user()
+        
+
+        print("Check pass cal start")
+
+        Macs, Params = modelCalculate(model, input)
+        Latency = modelLatency(model, input)
+        Storage = modelStorage(model)
+
+        Latency = ('%.2f' % (Latency * 1000))
+        Storage = ('%.2f' % Storage)
+
+        return_data = {
+            "Computation": Macs[0:-1], "Parameter": Params[0:-1], "Latency": Latency, "Storage": Storage,
+            "Energy": "None", "Accuracy": "None"
+        }
+
+        print("return_data: ", return_data)
+
+        return Response(return_data)
+        
+
+def modelStorage(model):
+    torch.save(model, "./uploadusermodel_temp.pth")
+    print("Saving model successfully!")
+    Storage = os.path.getsize("./uploadusermodel_temp.pth")
+    Storage = Storage / 2**20
+    return Storage
+
+def modelCalculate(model, input):
+    Macs, Params = profile(model, inputs=(input, ))
+    Macs, Params = clever_format([Macs, Params], "%.2f")
+    return Macs, Params
+
+def modelLatency(model, input):
+    out = model(input)
+    starttime = time.time()
+    for i in range(10):
+        out = model(input)
+    endtime = time.time()
+    Latency = (endtime - starttime) / 10
+    print("Latency: ", Latency)
+    return Latency
+
+def modelCheck(filename):
+    is_error = 0
+    ChangeUserModelCodeName(filename)
+    print("修改数据完成")
+    try:
+        test_result = test()
+        model, input = model_user()
+        x = model(input)
+        print("x.size(): ", x.size())
+        print("test_result: ", test_result)
+    except:
+        is_error = 1
+        print("model test fail")
+        return False
+    if is_error == 0 and test_result == x.size():
+        print("model test pass")
+        return True
+    
+    print("Check pass")
+    return True
+
+def ChangeUserModelCodeName(filename):
+    # 修改文件名（修改内容重新到新的文件）
+    # 再去获得数据（）
+    # 注意查看import的内容会不会变化（import新的模型还是旧的 需要测试）
+    # 需要添加新的url和前端点击动作
+    sys.path.append("../")
+
+    newfilename = "checkmodel_util.py"
+
+    shutil.copy("uploadusermodel/" + filename, "uploadusermodel/" + newfilename)
+
+    """
+    将替换的字符串写到一个新的文件中，然后将原文件删除，新文件改为原来文件的名字
+    :param file: 文件路径
+    :param old_str: 需要替换的字符串
+    :param new_str: 替换的字符串
+    :return: None
+    """
+    # with open(newfilename, "r", encoding="utf-8") as f1,open("%s.bak" % newfilename, "w", encoding="utf-8") as f2:
+    #     for line in f1:
+    #         if old_str in line:
+    #             line = line.replace(old_str, new_str)
+    #         f2.write(line)
+    # os.remove(file)
+    # os.rename("%s.bak" % file, file)
+
+class ReturnSysModelDeviceLatency(APIView):
     def post(self, request):
         sysmodel_obj = json.loads(request.body)
         sysmodel_name = sysmodel_obj.get('SysModelName')

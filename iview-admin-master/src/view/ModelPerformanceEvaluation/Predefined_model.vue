@@ -123,10 +123,6 @@
           <Divider style="margin: 10px 0px" />
           <!-- 精确度 end -->
         </div>
-      
-      
-      
-      
       </template>
       <!-- 系统模型 -->
       <template #right>
@@ -284,19 +280,19 @@ export default {
 }
 .head-font-parameter {
   font-weight: bolder;
-  font-size: 18px;
+  font-size: 16px;
 }
 .text-font-parameter {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #6b25d3;
 }
 .text-font-information {
-  font-size: 18px;
+  font-size: 16px;
 }
 .text-font-device {
     font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #0b5fdd;
 }
 </style>
