@@ -125,3 +125,5 @@ SYSMODELDIA_ROOT = os.path.join(BASE_DIR, 'sysmodel')
 SYSMODELCODEDIA_ROOT = os.path.join(BASE_DIR, 'sysmodelcode')
 
 DOWNLOADFILEDIR_ROOT = os.path.join(BASE_DIR, 'downloadfile')
+
+UPLOADUSERMODEL_ROOT = os.path.join(BASE_DIR, 'uploadusermodel')
