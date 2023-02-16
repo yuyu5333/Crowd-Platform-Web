@@ -3,9 +3,10 @@ from . import views
 
 urlpatterns = [
 
-    # path('get-sysmodel/', views.ReturnSysModelStatus.as_view()),
-    # path('get-sysdevicelatency/', views.ReturnSysDeviceLatency.as_view()),
-    path('get-sysmodel/', views.ReturnSysDeviceLatency.as_view()),
+    path('get-sysmodel/', views.ReturnSysModelDeviceLatency.as_view()),
+    path('upload-usermodel/', views.UploadUserModel.as_view()),
+    path('check-usermodel/', views.CheckUserModel.as_view()),
+    path('get-usermodel/', views.ReturnUserModelStatus.as_view()),
     
     path('get-device/', views.ReturnDeviceStatus.as_view()),
     path('get-mission/', views.ReturnMissionStatus.as_view()),
