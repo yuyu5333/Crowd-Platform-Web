@@ -1,34 +1,14 @@
 <template>
   <div>
-    <select id="modelselect" name="modelselect" onchange="selectModelChange()">
-      <option>---请选择模型---</option>
-      <option>AlexNet</option>
-      <option>MobileNet</option>
-      <option>ResNet</option>
-      <option>VGG</option>
-    </select>
-    <div>
-      <button @click="increase">Count is: {{ count }}</button>
+
+
+  <div>
+      <button @click="goToAbout">点击跳转</button>
     </div>
-    <ur>
-      <li>My cont is : {{ count }}</li>
-    </ur>
-    <hr />
-    <prism-editor
-      class="my-editor height-300"
-      v-model="code"
-      :highlight="highlighter"
-      :line-numbers="lineNumbers"
-      :readonly="readonlyType"
-    >
-    </prism-editor>
-    <el-form>
-      <input type="text" name="user" placeholder="用户名" />
-      <input type="password" name="pwd" placeholder="密码" />
-      <input type="submit" value="提交" />
-    </el-form>
+
 
   </div>
+  
 </template>
 
 <script>
@@ -61,7 +41,15 @@ export default {
     highlighter(code) {
       return highlight(code, languages.js); //returns html
     },
+    goToAbout() {
+      this.$router.push({ name: 'segmentation' })
+      // this.$router.push({ name: '_ModelPerformaceEvaluation-Predefined_model' });
+      // this.$router.push({ path: '../Predefined_model' });
+    }
+
   },
+
+
 };
 </script>
 

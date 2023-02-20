@@ -46,6 +46,7 @@ export default [
           notCache: true,
           icon: 'md-home'
         },
+        // component: () => import('@/view/single-page/home')
         component: () => import('@/view/single-page/home')
       }
     ]
@@ -78,126 +79,9 @@ export default [
       }
     ]
   },
-
-//  {
-//     path: '/inference',
-//     name: 'inference',
-//     component: Main,
-//     meta: {
-//       hideInBread: true
-//     },
-//     children: [
-//       {
-//         path: 'inference',
-//         name: 'inference',
-//         meta: {
-//           icon: 'ios-bug',
-//           title: '模型推理'
-//         },
-//         component: () => import('@/view/inference/inference.vue')
-//       }
-//     ]
-//   }, 
-
-  
-  // {
-  //   path: '/firstpage',
-  //   name: 'firstpage',
-  //   component: Main,
-  //   meta: {
-  //     hideInBread: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'firstpage',
-  //       name: 'firstpage',
-  //       meta: {
-  //         icon: 'ios-bug',
-  //         title: '模型评估'
-  //       },
-  //       component: () => import('@/view/evalutation/firstpage.vue')
-  //     }
-  //   ]
-  // }, 
-  // {
-  //   path: '/lsq',
-  //   name: 'lsq',
-  //   component: Main,
-  //   meta: {
-  //     hideInBread: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'lsq',
-  //       name: 'lsq',
-  //       meta: {
-  //         icon: 'ios-bug',
-  //         title: 'lsq'
-  //       },
-  //       component: () => import('@/view/evalutation/lsq.vue')
-  //     }
-  //   ]
-  // }, 
-  // {
-  //   path: '/predifined',
-  //   name: 'predifined',
-  //   component: Main,
-  //   meta: {
-  //     hideInBread: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'predifined',
-  //       name: 'predifined',
-  //       meta: {
-  //         icon: 'ios-bug',
-  //         title: '预定义模型'
-  //       },
-  //       component: () => import('@/view/evalutation/predifined.vue')
-  //     }
-  //   ]
-  // }, 
-  // {
-  //   path: '/userdefined',
-  //   name: '/userdefined',
-  //   component: Main,
-  //   meta: {
-  //     hideInBread: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'userdefined',
-  //       name: 'userdefined',
-  //       meta: {
-  //         icon: 'ios-bug',
-  //         title: '用户自定义'
-  //       },
-  //       component: () => import('@/view/evalutation/userdefined.vue')
-  //     }
-  //   ]
-  // }, 
-  // {
-  //   path: '/test',
-  //   name: '/test',
-  //   component: Main,
-  //   meta: {
-  //     hideInBread: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'test',
-  //       name: 'test',
-  //       meta: {
-  //         icon: 'ios-bug',
-  //         title: '测试模块'
-  //       },
-  //       component: () => import('@/view/evalutation/test.vue')
-  //     }
-  //   ]
-  // }, 
   {
     path: '/ModelPerformaceEvaluation',
-    name: 'ModelPerformaceEvaluation',
+    name: '_ModelPerformaceEvaluation',
     meta: {
       icon: 'md-cloud-upload',
       title: '模型性能评估'
@@ -209,7 +93,7 @@ export default [
         name: 'firstpage',
         meta: {
           icon: 'md-planet',
-          title: '评估首页'
+          title: '功能说明'
         },
         component: () => import('@/view/ModelPerformanceEvaluation/firstpage.vue')
       },
@@ -218,7 +102,7 @@ export default [
         name: 'Predefined_model',
         meta: {
           icon: 'ios-document',
-          title: '预定义模型'
+          title: '系统模型'
         },
         component: () => import('@/view/ModelPerformanceEvaluation/Predefined_model.vue')
       },
@@ -227,46 +111,37 @@ export default [
         name: 'User_defined_model',
         meta: {
           icon: 'md-clipboard',
-          title: '自定义模型'
+          title: '上传模型'
         },
         component: () => import('@/view/ModelPerformanceEvaluation/User_defined_model.vue')
       },
-      // {
-      //   path: 'model-test',
-      //   name: 'model-test',
-      //   meta: {
-      //     icon: 'md-clipboard',
-      //     title: '测试'
-      //   },
-      //   component: () => import('@/view/ModelPerformanceEvaluation/test.vue')
-      // },
-      // {
-      //   path: 'test-lsq',
-      //   name: 'test-lsq',
-      //   meta: {
-      //     icon: 'md-clipboard',
-      //     title: 'lsq'
-      //   },
-      //   component: () => import('@/view/ModelPerformanceEvaluation/lsq.vue')
-      // },
+      {
+        path: 'model-test',
+        name: 'model-test',
+        meta: {
+          icon: 'md-clipboard',
+          title: '测试'
+        },
+        component: () => import('@/view/ModelPerformanceEvaluation/test.vue')
+      },
     ]
   },
   {
-    path: '/deploy',
-    name: 'deploy',
+    path: '/ModelCompress',
+    name: 'ModelCompress',
     component: Main,
     meta: {
       hideInBread: true
     },
     children: [
       {
-        path: 'deploy',
-        name: 'deploy',
+        path: 'ModelCompress',
+        name: 'ModelCompress',
         meta: {
           icon: 'md-grid',
           title: '模型压缩'
         },
-        component: () => import('@/view/deploy/deploy.vue')
+        component: () => import('@/view/ModelCompress/SystemModel.vue')
       }
     ]
   }, 
