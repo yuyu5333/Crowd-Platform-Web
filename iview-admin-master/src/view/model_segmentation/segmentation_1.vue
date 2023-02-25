@@ -4,7 +4,8 @@
       <card shadow>
         <Row>
           <Col span="3">
-            <p class="head-font">已启用设备：</p>
+            <p class="head-font">已启用设备</p>
+            <Button  type="primary" @click="addData">感知模型</Button>
           </Col>
           <!-- <Col span="6">
             <Select v-model="device" @on-change="checkDeviceChange" style="width:100px;margin-right: 20px">
@@ -14,20 +15,20 @@
         </Row>
         <Divider style="margin: 12px 0px"/>
         <Row>
-          <Col span="6">设备名:
-            <p class="text-font">{{ deviceStatus.DeviceName }}</p>
-          </Col>
-          <Col span="6">GPU:
-            <p class="text-font">{{ deviceStatus.BatteryVolume }}</p>
+          <Col span="6">OS_Version:
+            <p class="text-font">{{ OS_Version }}</p>
           </Col>
           <Col span="6">CPU:
-            <p class="text-font">{{ deviceStatus.CPU }}</p>
+            <p class="text-font">{{ CPU_Use }}</p>
           </Col>
-          <Col span="6">DRAM(GB):
-            <p class="text-font">{{ deviceStatus.DRam }}</p>
+          <Col span="6">MEM:
+            <p class="text-font">{{ MEM_Use }}</p>
+          </Col>
+          <Col span="6">CPU_Arch:
+            <p class="text-font">{{ CPU_Arch }}</p>
           </Col>
         </Row>
-        <Divider style="margin: 12px 0px"/>
+        <!-- <Divider style="margin: 12px 0px"/>
         <Row>
           <Col span="6">设备名:
             <p class="text-font">{{ deviceStatus.DeviceName }}</p>
@@ -41,12 +42,12 @@
           <Col span="6">DRAM(GB):
             <p class="text-font">{{ deviceStatus.DRam }}</p>
           </Col>
-        </Row>
+        </Row> -->
       </card>
       <div>
         <br>
       </div>
-      <card shadow>
+      <!-- <card shadow>
         <Row>
           <Col span="3">
             <p class="head-font">剩余设备：</p>
@@ -82,7 +83,7 @@
             <p class="text-font">{{ deviceStatus.DRam }}</p>
           </Col>
         </Row>
-      </card>
+      </card> -->
     </div>
     <div>
       <br>
@@ -193,6 +194,13 @@ export default {
       deviceStatus: [],
       missionStatus: [],
       compressStatus: [],
+      CPU_Use: "",
+      OS_Version : "",
+      RAM_Total : 0.0,
+      DeviceName: "",
+      MEM_Use: 0.0,
+      CPU_Arch: "",
+      DISK_Free: "10",
       formItem: {
                 任务类型: "",
                 模型选择: ""
@@ -200,16 +208,43 @@ export default {
     }
   },
   mounted() {
+    this.timer = setInterval(() => {
+        this.addData()
+      },1000
+    )
   },
   watch: {},
-  addData : function() {
-            //let that = this;
-            axios.get('/resourceinfo/').then(response => {
-                this.CPU_Use.push(parseFloat(response.data.CPU_Use));
-                this.DISK_Free.push(parseFloat(response.data.DISK_Free));
-                this.GPU_Use.push(parseFloat(response.data.GPU_Use).toFixed(3));
-            })
-          }
+
+  methods: {
+    // 3.发送axios无参数请求
+    addData() {
+      axios
+        // 3.1url地址
+        .get("/socket/")
+        // 3.2成功时回调函数
+        .then((response) => {
+          console.log(response);
+          // this.CPU_Use.push(parseFloat(response.data.CPU_Use));
+          // this.DISK_Free.push(parseFloat(response.data.DISK_Free));
+          // this.GPU_Use.push(parseFloat(response.data.GPU_Use).toFixed(3));
+          this.CPU_Use = response.data.CPU_Use
+          this.OS_Version = response.data.OS_Version
+          this.RAM_Total  = response.data.RAM_Total 
+          this.DeviceName = response.data.DeviceName
+          this.MEM_Use = response.data.MEM_Use
+          this.CPU_Arch = response.data.CPU_Arch
+          this.DISK_Free = response.data.DISK_Free 
+
+          // this.DISK_Free
+          // this.GPU_Use.p
+        })
+        // //3.3失败时回调函数
+        // .catch((err) => {
+        //   console.log(err);
+        // });
+    },
+  }
+  
 }
 </script>
 

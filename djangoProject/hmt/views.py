@@ -1,12 +1,16 @@
 import json
 import shutil, os, sys
 import re
+import socket
+import pickle
+import threading
 from tabnanny import check
 
 from django.conf import settings
 from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.utils.encoding import escape_uri_path
 from rest_framework import status
+from rest_framework import response
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -597,3 +601,66 @@ def get_resourceinfo(request):
         'MEM_Use':MEM_Use,
         'DISK_Free':DISK_Free,
     })
+data = {"CPU_Arch": "", 
+        "OS_Version": "", 
+        "RAM_Total": 0, 
+        "CPU_Use": "", 
+        "MEM_Use": 0,
+        "DISK_Free": ""}
+# class GetRaspberry(APIView):
+    # def post(self,request):
+    #     data=request.body    
+    #     return response.Response()
+
+    # def get(self, request):
+    #     print('GET方法')
+    #     return response.Response()
+    
+def check(request):
+    global data
+    if request.method == 'POST':
+        data=request.body   
+        # print(data)
+        # return response.Response('我是post请求')
+        return JsonResponse({"errorcode":0})
+    elif request.method == 'GET':
+        print(data)
+        return JsonResponse(json.loads(data))
+
+
+
+
+# def source_show(request,data):
+    
+#     HOST = '192.168.1.102'
+#     PORT = 8080
+#     # 创建套接字并开始监听连接
+#     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     sock.bind((HOST, PORT))
+#     sock.listen(1)
+#     # 处理客户端连接
+#     while True:
+#         conn, addr = sock.accept()
+#         get_length = False
+#         count = 0
+
+#         while True:
+#             if not get_length:
+#                 lengthData = conn.recv(6)
+#                 length = int.from_bytes(lengthData, byteorder='big')
+#                 b = bytes()
+#                 if length == 0:
+#                     continue
+#                 else:
+#                     get_length = True
+#             else:
+#                 value = conn.recv(length)
+#                 b = b+value
+#                 count += len(value)
+#                 if count >= length:
+#                     break
+#                 data = pickle.loads(b)
+#                 print(data)
+#     if request.method == 'POST':
+#         return JsonResponse({'data':data})
+#     # 定义服务器端口号和主机名
