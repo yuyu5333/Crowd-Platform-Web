@@ -10,7 +10,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from djangoProject.settings import MEDIA_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
+from djangoProject.settings import COMPRESSSYSTEMMODEL_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
 from djangoProject.settings import DOWNLOADFILEDIR_ROOT, UPLOADUSERMODEL_ROOT
 from hmt.models import Device, Mission, ImageClassification
 from hmt.serializers import DeviceSerializer, ImageClassificationSerializer
@@ -30,6 +30,12 @@ from uploadusermodel.checkmodel_util import test
 from uploadusermodel.checkmodel_util import model_user
 
 # Create your views here.
+
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'index.html', {'STATIC_URL': '/static/vue/'})
+
 class ReturnSysModelStatus(APIView):
     def post(self, request):
         sysmodel_obj = json.loads(request.body)
@@ -120,7 +126,6 @@ class ReturnUserModelStatus(APIView):
             # model, input = model_user()
 
         model, input = model_user()
-        
 
         print("Check pass cal start")
 
@@ -439,7 +444,7 @@ class DownloadCompressModel(APIView):
         filename = request.GET.get('model')
         filename = filename + ".pth"
         print(filename)
-        download_file_path = os.path.join(MEDIA_ROOT, filename)
+        download_file_path = os.path.join(COMPRESSSYSTEMMODEL_ROOT, filename)
         print("download_file_path", download_file_path)
 
         response = self.big_file_download(download_file_path, filename)

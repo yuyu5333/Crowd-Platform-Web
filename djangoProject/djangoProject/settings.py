@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hmt'
+    'hmt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'djangoProject.urls'
@@ -113,17 +115,25 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+COMPRESSSYSTEMMODEL_ROOT = os.path.join(BASE_DIR, 'downloadfile/CompressSystemModel')
 
-SYSMODELDIA_ROOT = os.path.join(BASE_DIR, 'sysmodel')
+SYSMODELDIA_ROOT = os.path.join(BASE_DIR, 'downloadfile/ModelEvaluateSysmodel')
 
-SYSMODELCODEDIA_ROOT = os.path.join(BASE_DIR, 'sysmodelcode')
+SYSMODELCODEDIA_ROOT = os.path.join(BASE_DIR, 'downloadfile/ModelEvaluateSysmodelCode')
 
 DOWNLOADFILEDIR_ROOT = os.path.join(BASE_DIR, 'downloadfile')
 
 UPLOADUSERMODEL_ROOT = os.path.join(BASE_DIR, 'uploadusermodel')
+
+
+
+CORS_ORIGIN_ALLOW_ALL = True
