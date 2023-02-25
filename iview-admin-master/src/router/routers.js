@@ -61,6 +61,25 @@ export default [
   //   }
   // },
   {
+    path: '/hmthome',
+    name: '_hmthome',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'hmthome',
+        name: 'hmthome',
+        meta: {
+          icon: 'ios-book',
+          title: '首页'
+        },
+        component: () => import('@/view/hmthome/hmthome.vue')
+      }
+    ]
+  },
+  {
     path: '/cog_natural',
     name: 'cog_natural',
     meta: {
@@ -116,13 +135,22 @@ export default [
         component: () => import('@/view/ModelPerformanceEvaluation/User_defined_model.vue')
       },
       {
-        path: 'model-test',
-        name: 'model-test',
+        path: 'model-test1',
+        name: 'model-test1',
         meta: {
           icon: 'md-clipboard',
           title: '测试'
         },
         component: () => import('@/view/ModelPerformanceEvaluation/test.vue')
+      },
+      {
+        path: 'model-test2',
+        name: 'model-test2',
+        meta: {
+          icon: 'md-clipboard',
+          title: '测试'
+        },
+        component: () => import('@/view/ModelPerformanceEvaluation/test2.vue')
       },
     ]
   },
