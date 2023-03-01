@@ -1,18 +1,12 @@
 <template>
     <div id="app">
-          <el-container>
-            <!--<el-header>
-              <div style="margin-top: 15px;">
-                  <el-progress :percentage="percentage" :color="customColor"></el-progress>
-              </div>
-          </el-header>-->
             <el-container>
               <el-aside width="250px">
                 <div style="margin-top: 10px;height: 65px;">
                     <div style="margin-left: 5px">
                         <div class="firstBlock"><el-avatar :size="50" :src="imgUrl"></el-avatar></div>
                         <div class="secondBlock">{{this.name}}</div>
-                        <div class="thirdBlock"><el-button type="primary" circle icon="el-icon-video-play" @click="openEcharts"></el-button></div>
+                        <div class="thirdBlock"><el-button type="primary" circle icon="el-icon-video-play"></el-button></div>
                     </div>
                 </div>
                 <hr>
@@ -29,55 +23,88 @@
                             <td>Value</td>
                         </tr>
                         <tr>
-                            <td>CPU Architecture</td>
+                            <td style="font-size:larger;">CPU Architecture</td>
                             <td>{{this.CPU_Arch}}</td>
                         </tr>
                         <tr>
-                            <td>CPU Type</td>
+                            <td style="font-size:larger;">CPU Type</td>
                             <td>{{this.CPU_Type}}</td>
                         </tr>
                         <tr>
-                            <td>OS Version</td>
+                            <td style="font-size:larger;">OS Version</td>
                             <td>{{this.OS_Version}}</td>
                         </tr>
                         <tr>
-                            <td>Physical Memory</td>
+                            <td style="font-size:larger;">Physical Memory</td>
                             <td>{{this.RAM_Total}}</td>
                         </tr>
                         <tr>
-                            <td>GPU Type</td>
+                            <td style="font-size:larger;">GPU Type</td>
                             <td>{{this.GPU_Type}}</td>
                         </tr>
                     </table>
                 </div>  
             </el-aside>
-            
-              <el-main>
-                <div id="main" style="width: 800px;height:1500px;margin-left: 0px;">
-                    <card style="width: 800px;height: 370px;margin-bottom: 10px;">
+            <el-main>
+                <div id="main" style="height:1500px;margin-left: 0px;">
+                    <card style="height: 300px;margin-bottom: 10px;">
+                      <Row>
+                        <h1 style="color:#2867a8">Show pictures</h1>
+                      </Row>
+                      <Row>
+                        <Col :md="24" :lg="24" :xl="24">
+                          <show_img ref="showImage"></show_img>
+                        </Col>
+                      </Row>
+                    </card>
+                    <card style="height: 370px;margin-bottom: 10px;">
+                      <Row>
                         <h1 style="color:#2867a8">CPU Usage</h1>
-                        <CPU_usage></CPU_usage>
+                      </Row>
+                      <Row>
+                        <Col :md="24" :lg="24" :xl="24">
+                          <CPU_usage :DeviceName=device style="height:330px"></CPU_usage>
+                        </Col>
+                      </Row>  
                     </card>
                     
-                    <card style="width: 800px;height: 370px;margin-bottom: 10px;">
+                    <card style="height: 370px;margin-bottom: 10px;">
+                      <Row>
                         <h1 style="color:#2867a8">GPU Usage</h1>
-                        <GPU_usage></GPU_usage>
+                      </Row>
+                      <Row>
+                        <Col :md="24" :lg="24" :xl="24">
+                          <GPU_usage :DeviceName=device style="height:330px"></GPU_usage>
+                        </Col>
+                      </Row>
+                        
                     </card>
 
-                    <card style="width: 800px;height: 370px;margin-bottom: 10px;">
+                    <card style="height: 370px;margin-bottom: 10px;">
+                      <Row>
                         <h1 style="color:#2867a8">Memory Usage</h1>
-                        <Memory_usage></Memory_usage>
+                      </Row>
+                      <Row>
+                        <Col :md="24" :lg="24" :xl="24">
+                          <Memory_usage :DeviceName=device style="height:330px"></Memory_usage>
+                        </Col>
+                      </Row>
                     </card>
 
-                    <card style="width: 800px;height: 370px;margin-bottom: 10px;">
+                    <card style="height: 370px;margin-bottom: 10px;">
+                      <Row>
                         <h1 style="color:#2867a8">Disk Free</h1>
-                        <Disk_free></Disk_free>
+                      </Row>
+                      <Row>
+                        <Col :md="24" :lg="24" :xl="24">
+                          <Disk_free :DeviceName=device style="height:330px"></Disk_free>
+                        </Col>
+                      </Row>
                     </card>
                 </div>
             </el-main>
-            
             </el-container>
-          </el-container>
+          
     </div>
     </template>
     
@@ -87,159 +114,69 @@
     import GPU_usage from "@/components/natural/GPU_usage.vue";
     import Memory_usage from "@/components/natural/Memory_usage.vue";
     import Disk_free from "@/components/natural/Disk_free.vue";
+    import show_img from "@/components/natural/show_img.vue";
     import imgUrl from '@/assets/images/dog.jpg';
     import axios from "axios";
     export default {
         name:'cog_natural',
-        components:{CPU_usage,GPU_usage,Memory_usage,Disk_free},
+        components:{CPU_usage,GPU_usage,Memory_usage,Disk_free,show_img},
         data() {
               return {
-                 DeviceOptions: [
-                        {
-                          value: '选项1',
-                          label: 'Device1',
-                        }, 
-                        {
-                          value: '选项2',
-                          label: 'Device2'
-                        }, 
-                        {
-                          value: '选项3',
-                          label: 'Device3'
-                        }, 
-                        {
-                          value: '选项4',
-                          label: 'Device4'
-                        }, 
-                        {
-                          value: '选项5',
-                          label: 'Device5'
-                        }],
-                        value: '选择测试设备',
-                        device:'',
-                        CPU_Arch:'',
-                        CPU_Type:'',
-                        GPU_Type:'',
-                        OS_Version:'',
-                        RAM_Total:'',
-                        imgUrl:imgUrl,
-                        name:'李瑶',
-                        //percentage: 20,
-                        //customColor: '#409eff',
+                DeviceOptions: [
+                  {
+                    value: 'test',
+                    label: 'test',
+                  }, 
+                  {
+                    value: 'Raspberry',
+                    label: 'Raspberry'
+                  }, 
+                  {
+                    value: 'Jetson',
+                    label: 'Jetson'
+                  }, 
+                  {
+                    value: 'Device4',
+                    label: 'Device4'
+                  }, 
+                  {
+                    value: 'Device5',
+                    label: 'Device5'
+                  }
+                ],
+                value: '选择测试设备',
+                device:'',
+                CPU_Arch:'',
+                CPU_Type:'',
+                GPU_Type:'',
+                OS_Version:'',
+                RAM_Total:'',
+                imgUrl:imgUrl,
+                name:'李瑶',
               }
+        },
+        mounted(){
+        },
+        watch:{},
+        methods:{
+          checkDeviceChange(device){
+            let that = this;
+            //const img_show = that.$refs.img_show;
+            //img_show.getDeviceName();
+            //this.$refs.show_img.getDeviceName();
+            //that.$refs.show_img.getChange(device);
+            that.$refs.showImage.getChange(device);
+            axios.post('/deviceinfo/',{
+              DeviceName:device
+            }).then(response => {
+              that.CPU_Type = response.data.CPU_Type;
+              that.GPU_Type = response.data.GPU_Type;
+              that.CPU_Arch = response.data.CPU_Arch;
+              that.OS_Version = response.data.OS_Version;
+              that.RAM_Total = response.data.RAM_Total;
+            })
+            
           },
-          mounted(){
-          },
-          watch:{},
-          methods:{
-            checkDeviceChange(device){
-              let that = this;
-              if (device == '选项1'){
-                axios.get('/deviceinfo/').then(response => {
-                that.CPU_Type = response.data.CPU_Type;
-                that.GPU_Type = response.data.GPU_Type;
-                that.CPU_Arch = response.data.CPU_Arch;
-                that.OS_Version = response.data.OS_Version;
-                that.RAM_Total = response.data.RAM_Total;
-              })
-              }
-              else{
-                that.CPU_Type = '';
-                that.GPU_Type = '';
-                that.CPU_Arch = '';
-                that.OS_Version = '';
-                that.RAM_Total = '';
-              }
-              
-            },
-            /*openEcharts(){
-                // 基于准备好的dom，初始化echarts实例
-                let $echarts = inject("echarts");
-                var myChart = $echarts.init(document.getElementById('chart'));
-                            
-                // prettier-ignore
-                const data = [["2000-06-05", 116], ["2000-06-06", 129], ["2000-06-07", 135], ["2000-06-08", 86], ["2000-06-09", 73], ["2000-06-10", 85], ["2000-06-11", 73], ["2000-06-12", 68], ["2000-06-13", 92], ["2000-06-14", 130], ["2000-06-15", 245], ["2000-06-16", 139], ["2000-06-17", 115], ["2000-06-18", 111], ["2000-06-19", 309], ["2000-06-20", 206], ["2000-06-21", 137], ["2000-06-22", 128], ["2000-06-23", 85], ["2000-06-24", 94], ["2000-06-25", 71], ["2000-06-26", 106], ["2000-06-27", 84], ["2000-06-28", 93], ["2000-06-29", 85], ["2000-06-30", 73], ["2000-07-01", 83], ["2000-07-02", 125], ["2000-07-03", 107], ["2000-07-04", 82], ["2000-07-05", 44], ["2000-07-06", 72], ["2000-07-07", 106], ["2000-07-08", 107], ["2000-07-09", 66], ["2000-07-10", 91], ["2000-07-11", 92], ["2000-07-12", 113], ["2000-07-13", 107], ["2000-07-14", 131], ["2000-07-15", 111], ["2000-07-16", 64], ["2000-07-17", 69], ["2000-07-18", 88], ["2000-07-19", 77], ["2000-07-20", 83], ["2000-07-21", 111], ["2000-07-22", 57], ["2000-07-23", 55], ["2000-07-24", 60]];
-                const dateList = data.map(function (item) {
-                  return item[0];
-                });
-                const valueList = data.map(function (item) {
-                  return item[1];
-                });
-                option = {
-                  // Make gradient line here
-                  visualMap: [
-                    {
-                      show: false,
-                      type: 'continuous',
-                      seriesIndex: 0,
-                      min: 0,
-                      max: 400
-                    },
-                    {
-                      show: false,
-                      type: 'continuous',
-                      seriesIndex: 1,
-                      dimension: 0,
-                      min: 0,
-                      max: dateList.length - 1
-                    }
-                  ],
-                  title: [
-                    {
-                      left: 'center',
-                      text: 'Gradient along the y axis'
-                    },
-                    {
-                      top: '55%',
-                      left: 'center',
-                      text: 'Gradient along the x axis'
-                    }
-                  ],
-                  tooltip: {
-                    trigger: 'axis'
-                  },
-                  xAxis: [
-                    {
-                      data: dateList
-                    },
-                    {
-                      data: dateList,
-                      gridIndex: 1
-                    }
-                  ],
-                  yAxis: [
-                    {},
-                    {
-                      gridIndex: 1
-                    }
-                  ],
-                  grid: [
-                    {
-                      bottom: '60%'
-                    },
-                    {
-                      top: '60%'
-                    }
-                  ],
-                  series: [
-                    {
-                      type: 'line',
-                      showSymbol: false,
-                      data: valueList
-                    },
-                    {
-                      type: 'line',
-                      showSymbol: false,
-                      data: valueList,
-                      xAxisIndex: 1,
-                      yAxisIndex: 1
-                    }
-                  ]
-                };
-                            
-                // 使用刚指定的配置项和数据显示图表。
-                myChart.setOption(option,true);
-            },*/
         },
     
     }
@@ -295,7 +232,7 @@
             }
             
             .first{
-                font-size: large;
+                font-size: x-large;
                 color: darkgrey;
             }
             
