@@ -24,5 +24,6 @@ urlpatterns = [
     path('deviceinfo/',views.get_deviceinfo),
     path('resourceinfo/',views.get_resourceinfo),
     # path('socket/',views.GetRaspberry.as_view())
-    path('socket/',views.check)
+    path('socket/',views.check),
+    path('jetson/',views.jetson)
 ]

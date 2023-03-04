@@ -5,7 +5,7 @@
         <Row>
           <Col span="3">
             <p class="head-font">已启用设备</p>
-            <Button  type="primary" @click="addData">感知模型</Button>
+            <!-- <Button  type="primary" @click="addData_jetson">感知模型</Button> -->
           </Col>
           <!-- <Col span="6">
             <Select v-model="device" @on-change="checkDeviceChange" style="width:100px;margin-right: 20px">
@@ -15,34 +15,34 @@
         </Row>
         <Divider style="margin: 12px 0px"/>
         <Row>
-          <Col span="6">OS_Version:
-            <p class="text-font">{{ OS_Version }}</p>
+          <Col span="6">设备名:
+            <p class="text-font">{{ OS_Version_rasp }}</p>
           </Col>
-          <Col span="6">CPU:
-            <p class="text-font">{{ CPU_Use }}</p>
+          <Col span="6">CPU_Use:
+            <p class="text-font">{{ CPU_Use_rasp }}</p>
           </Col>
-          <Col span="6">MEM:
-            <p class="text-font">{{ MEM_Use }}</p>
+          <Col span="6">MEM_Use:
+            <p class="text-font">{{ MEM_Use_rasp }}</p>
           </Col>
-          <Col span="6">CPU_Arch:
-            <p class="text-font">{{ CPU_Arch }}</p>
+          <Col span="6">DISK_Free:
+            <p class="text-font">{{ DISK_Free_rasp }}</p>
           </Col>
         </Row>
-        <!-- <Divider style="margin: 12px 0px"/>
+        <Divider style="margin: 12px 0px"/>
         <Row>
           <Col span="6">设备名:
-            <p class="text-font">{{ deviceStatus.DeviceName }}</p>
+            <p class="text-font">{{ DEVICE_name_JET }}</p>
           </Col>
-          <Col span="6">GPU:
-            <p class="text-font">{{ deviceStatus.BatteryVolume }}</p>
+          <Col span="6">CPU_Use:
+            <p class="text-font">{{ CPU_Use_JET }}</p>
           </Col>
-          <Col span="6">CPU:
-            <p class="text-font">{{ deviceStatus.CPU }}</p>
+          <Col span="6">GPU_Use:
+            <p class="text-font">{{ GPU_Use_JET }}</p>
           </Col>
-          <Col span="6">DRAM(GB):
-            <p class="text-font">{{ deviceStatus.DRam }}</p>
+          <Col span="6">MEM_Use:
+            <p class="text-font">{{ MEM_Use_JET }}</p>
           </Col>
-        </Row> -->
+        </Row>
       </card>
       <div>
         <br>
@@ -194,13 +194,19 @@ export default {
       deviceStatus: [],
       missionStatus: [],
       compressStatus: [],
-      CPU_Use: "",
-      OS_Version : "",
-      RAM_Total : 0.0,
-      DeviceName: "",
-      MEM_Use: 0.0,
-      CPU_Arch: "",
-      DISK_Free: "10",
+      CPU_Use_rasp: "",
+      OS_Version_rasp : "",
+      RAM_Total_rasp : 0.0,
+      MEM_Use_rasp: 0.0,
+      CPU_Arch_rasp: "",
+      DISK_Free_rasp: "10",
+
+      DEVICE_name_JET:"",
+      CPU_Use_JET:"",
+      GPU_Use_JET:"",
+      MEM_Use_JET:"",
+      DISK_Free_JET:"50",
+      
       formItem: {
                 任务类型: "",
                 模型选择: ""
@@ -210,6 +216,7 @@ export default {
   mounted() {
     this.timer = setInterval(() => {
         this.addData()
+        this.addData_jetson()
       },1000
     )
   },
@@ -227,13 +234,12 @@ export default {
           // this.CPU_Use.push(parseFloat(response.data.CPU_Use));
           // this.DISK_Free.push(parseFloat(response.data.DISK_Free));
           // this.GPU_Use.push(parseFloat(response.data.GPU_Use).toFixed(3));
-          this.CPU_Use = response.data.CPU_Use
-          this.OS_Version = response.data.OS_Version
-          this.RAM_Total  = response.data.RAM_Total 
-          this.DeviceName = response.data.DeviceName
-          this.MEM_Use = response.data.MEM_Use
-          this.CPU_Arch = response.data.CPU_Arch
-          this.DISK_Free = response.data.DISK_Free 
+          this.CPU_Use_rasp = response.data.CPU_Use
+          this.OS_Version_rasp = response.data.OS_Version
+          this.RAM_Total_rasp  = response.data.RAM_Total 
+          this.MEM_Use_rasp = response.data.MEM_Use
+          this.CPU_Arch_rasp = response.data.CPU_Arch
+          this.DISK_Free_rasp = response.data.DISK_Free 
 
           // this.DISK_Free
           // this.GPU_Use.p
@@ -242,9 +248,20 @@ export default {
         // .catch((err) => {
         //   console.log(err);
         // });
-    },
+  },
+  addData_jetson() {
+      axios
+        .get("/jetson/")
+        .then((response) => {
+          console.log(response);
+          this.CPU_Use_JET = response.data.CPU_Use 
+          this.DEVICE_name_JET = response.data.DEVICE_NAME
+          this.MEM_Use_JET = response.data.MEM_Use
+          this.DISK_Free_JET = response.data.DISK_Free 
+          this.GPU_Use_JET = response.data.GPU_Use 
+        })   
+    }
   }
-  
 }
 </script>
 
