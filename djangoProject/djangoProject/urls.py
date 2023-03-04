@@ -17,13 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from hmt import views
 
-urlpatterns = [
+urlpatterns = [ 
     path('admin/', admin.site.urls),
     path('deploy/', include('hmt.urls')),
     path('ModelPerformaceEvaluation/', include('hmt.urls')),
-    path('deviceinfo/',views.get_deviceinfo),
-    path('resourceinfo/',views.get_resourceinfo),
-    # path('socket/',views.GetRaspberry.as_view())
     path('raspberry/',views.raspberry),
     path('jetson/',views.jetson)
 ]
