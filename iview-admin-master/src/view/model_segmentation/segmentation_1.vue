@@ -19,10 +19,10 @@
             <p class="text-font">{{ OS_Version_rasp }}</p>
           </Col>
           <Col span="6">CPU_Use:
-            <p class="text-font">{{ CPU_Use_rasp }}</p>
+            <p class="text-font">{{ CPU_Use_rasp }}%</p>
           </Col>
           <Col span="6">MEM_Use:
-            <p class="text-font">{{ MEM_Use_rasp }}</p>
+            <p class="text-font">{{ MEM_Use_rasp }}%</p>
           </Col>
           <Col span="6">DISK_Free:
             <p class="text-font">{{ DISK_Free_rasp }}</p>
@@ -34,13 +34,13 @@
             <p class="text-font">{{ DEVICE_name_JET }}</p>
           </Col>
           <Col span="6">CPU_Use:
-            <p class="text-font">{{ CPU_Use_JET }}</p>
+            <p class="text-font">{{ CPU_Use_JET }}%</p>
           </Col>
           <Col span="6">GPU_Use:
-            <p class="text-font">{{ GPU_Use_JET }}</p>
+            <p class="text-font">{{ GPU_Use_JET }}%</p>
           </Col>
           <Col span="6">MEM_Use:
-            <p class="text-font">{{ MEM_Use_JET }}</p>
+            <p class="text-font">{{ MEM_Use_JET }}%</p>
           </Col>
         </Row>
       </card>
@@ -227,7 +227,7 @@ export default {
     addData() {
       axios
         // 3.1url地址
-        .get("/socket/")
+        .get("/raspberry/")
         // 3.2成功时回调函数
         .then((response) => {
           console.log(response);

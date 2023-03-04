@@ -601,7 +601,7 @@ def get_resourceinfo(request):
         'MEM_Use':MEM_Use,
         'DISK_Free':DISK_Free,
     })
-data = {"CPU_Arch": "armv7l", 
+data_raspberry = {"CPU_Arch": "armv7l", 
         "OS_Version": "Raspbian GNU/Linux 10", 
         "RAM_Total": 0, 
         "CPU_Use": "1.5", 
@@ -616,17 +616,17 @@ data = {"CPU_Arch": "armv7l",
     #     print('GET方法')
     #     return response.Response()
     
-def check(request):
-    global data
+def raspberry(request):
+    global data_raspberry
     if request.method == 'POST':
-        data=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
+        data_raspberry=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
         # print(data)
         # return response.Response('我是post请求')
         return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
     elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        print(data)
-        print(type(data))
-        return JsonResponse(json.loads(data))#json.load(data)就是一个json字符串反序列化为python对象
+        print(data_raspberry)
+        print(type(data_raspberry))
+        return JsonResponse(json.loads(data_raspberry))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
 # python manage.py runserver 0.0.0.0:8000 0.0.0.0表示可以接受任何IP地址的请求（没有的话只能接受本机的请求），8000表示服务器监听的端口号，
