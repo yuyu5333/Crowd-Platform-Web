@@ -61,6 +61,9 @@ export default {
     mounted () {
         this.myChart = echarts.init(document.getElementById('myChart_mem'), 'light');	// 初始化echarts, theme为light
         this.myChart.setOption(this.echartsOption);	// echarts设置初始化选项
+        setTimeout(()=>{
+            this.myChart.resize();
+        },100)
         setInterval(this.addData, 5000);	// 每1秒更新实时数据到折线图
     },
     methods: {

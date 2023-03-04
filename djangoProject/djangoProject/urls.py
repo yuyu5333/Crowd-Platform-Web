@@ -18,14 +18,10 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from hmt import views
 
-urlpatterns = [
-
+urlpatterns = [ 
     path('admin/', admin.site.urls),
     path('ModelCompress/', include('hmt.urls')),
     path('ModelPerformaceEvaluation/', include('hmt.urls')),
-    path('deviceinfo/',views.get_deviceinfo),
-    path('resourceinfo/',views.get_resourceinfo),
-    # path('socket/',views.GetRaspberry.as_view())
     path('raspberry/',views.raspberry),
     path('jetson/',views.jetson)
 ]
