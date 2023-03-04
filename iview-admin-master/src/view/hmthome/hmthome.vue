@@ -4,6 +4,18 @@
     :style="{ backgroundImage: 'url(' + backgroundImageUrl + ')' }"
   >
     <!-- <div> -->
+    
+    <!-- <div class="iamge-container"> -->
+    
+
+    <div style="text-align:center;" class="hover-animation">
+      <a href="http://www.crowdhmt.com/">
+        <img src="/images/hmtfirstpage/zonglan2.png" alt="your image" style="vertical-align:middle;" 
+        v-b-tooltip.hover.top="imageDescription.firstinfo"
+        class="small-image" />
+      </a>
+    </div>
+
     <div class="image-container">
       <row class="row">
         <router-link tag="div" class="image" to="/cog_natural/cog_natural">
@@ -15,10 +27,11 @@
           />
         </router-link>
         <div class="text">
-          <h2 class="bold-header">
+          <h2 class="bold-header" > 
             <a
               href="http://blog.crowdhmt.com/articles/embedded_Intelligence"
               target="_blank"
+              style=" background-color: rgba(255, 255, 255, 0.8);"
               >设备资源感知</a
             >
           </h2>
@@ -49,6 +62,7 @@
             <a
               href="http://blog.crowdhmt.com/articles/mechanism"
               target="_blank"
+              style=" background-color: rgba(255, 255, 255, 0.8);"
               >模型性能评估</a
             >
           </h2>
@@ -75,6 +89,7 @@
             <a
               href="http://blog.crowdhmt.com/articles/model_compression"
               target="_blank"
+              style=" background-color: rgba(255, 255, 255, 0.8);"
               >端自适应模型压缩</a
             >
           </h2>
@@ -90,7 +105,7 @@
             src="/images/fenge.png"
             alt="Image 3"
             class="hover-animation"
-            v-b-tooltip.hover.top="imageDescription.modelcompress"
+            v-b-tooltip.hover.top="imageDescription.mdoelseg"
           />
         </router-link>
         <div class="text">
@@ -98,6 +113,8 @@
             <a
               href="http://blog.crowdhmt.com/articles/model_partition"
               target="_blank"
+              style=" background-color: rgba(255, 255, 255, 0.8);"
+
               >端自适应模型分割</a
             >
           </h2>
@@ -123,6 +140,7 @@ export default {
     return {
       showDescription: false,
       imageDescription: {
+        firstinfo: '欢迎来到人机物融合群智计算系统开放平台，为您提供一个从设备到模型部署的中间件服务（点击进入开放社区）',
         deviceinfo: "设备资源感知: 对您的智能设备可用资源进行测评",
         modelinfo: "模型性能评估: 对您的深度学习模型性能进行评估",
         modelcompress:
@@ -145,7 +163,7 @@ export default {
   background-size: cover;
   /* background-position: center center; */
   background-repeat: no-repeat;
-  height: 140vh;
+  height: 300vh;
   background-attachment: fixed;
   opacity: 0.95;
 }
@@ -170,6 +188,12 @@ export default {
   margin-right: 20px;
 }
 
+.image-first {
+  display: flex;
+  justify-content: right;
+  width: 80%;
+}
+
 .image-container .text {
   order: 2;
   float: right;
@@ -180,7 +204,7 @@ export default {
 }
 
 .bold-header {
-  font-weight: bold;
+  /* font-weight: bold; */
   color: rgb(255, 0, 55);
 }
 
@@ -190,6 +214,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 img {
   width: 100%;
   height: auto;
@@ -204,6 +229,12 @@ img {
   transform: scale(1.1);
 }
 
+.small-image {
+  max-width: 67%;
+  max-height: 67%;
+  margin-top: 3em;
+  margin-bottom: 2em;
+}
 
 
 </style>
