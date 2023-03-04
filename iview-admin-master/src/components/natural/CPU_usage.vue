@@ -62,6 +62,9 @@ export default {
         // 每三秒更新实时数据到折线图
         this.myChart = echarts.init(document.getElementById('myChart_cpu'), 'light');	// 初始化echarts, theme为light
         this.myChart.setOption(this.echartsOption);	// echarts设置初始化选项
+        setTimeout(()=>{
+            this.myChart.resize();
+        },100)
         setInterval(this.addData, 5000);
 
     },
