@@ -194,7 +194,6 @@
               that.OS_Version = response.data.OS_Version;
               that.RAM_Total = response.data.RAM_Total;
             })*/
-            
           },
         },
     
