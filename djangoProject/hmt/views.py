@@ -1,16 +1,20 @@
 import json
 import shutil, os, sys
 import re
+import socket
+import pickle
+import threading
 from tabnanny import check
 
 from django.conf import settings
 from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.utils.encoding import escape_uri_path
 from rest_framework import status
+from rest_framework import response
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from djangoProject.settings import MEDIA_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
+from djangoProject.settings import COMPRESSSYSTEMMODEL_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
 from djangoProject.settings import DOWNLOADFILEDIR_ROOT, UPLOADUSERMODEL_ROOT
 from hmt.models import Device, Mission, ImageClassification
 from hmt.serializers import DeviceSerializer, ImageClassificationSerializer
@@ -21,8 +25,8 @@ from hmt.serializers import SysModelSerializer, SysDeviceLatencySerializer
 from operator import itemgetter
 from pynvml import *
 
-import uuid
 import torch
+import torch.nn as nn
 import time
 from thop import clever_format
 from uploadusermodel.profile_my import profile
@@ -30,6 +34,12 @@ from uploadusermodel.checkmodel_util import test
 from uploadusermodel.checkmodel_util import model_user
 
 # Create your views here.
+
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'index.html', {'STATIC_URL': '/static/vue/'})
+
 class ReturnSysModelStatus(APIView):
     def post(self, request):
         sysmodel_obj = json.loads(request.body)
@@ -120,26 +130,221 @@ class ReturnUserModelStatus(APIView):
             # model, input = model_user()
 
         model, input = model_user()
-        
 
         print("Check pass cal start")
 
         Macs, Params = modelCalculate(model, input)
         Latency = modelLatency(model, input)
         Storage = modelStorage(model)
+        Energy = modelEnergy(model, input)
 
         Latency = ('%.2f' % (Latency * 1000))
         Storage = ('%.2f' % Storage)
+        Energy = ('%.2f' % Energy)
 
         return_data = {
             "Computation": Macs[0:-1], "Parameter": Params[0:-1], "Latency": Latency, "Storage": Storage,
-            "Energy": "None", "Accuracy": "None"
+            "Energy": Energy, "Accuracy": "None"
         }
 
         print("return_data: ", return_data)
 
         return Response(return_data)
         
+def modelEnergy(Model, input):
+
+    # 计算 Cl：计算量
+    Macs, Params, Model_list = profile(Model, inputs=(input, ))
+    # 获得Cl
+    Cl = Macs
+
+    # 计算 Ml：访问量
+        # 对于每一层：
+                    # 输入大小 x 字节
+                    # 权重大小 x 字节
+                    # 输出大小 x 字节
+            # 内存访问量：（输入张量大小 + 输出张量大小 + 权重大小）x 数据类型字节数
+        # 计算每一层，求和
+
+    # 1. 获得每一层的名称
+    net_list = {'input': input.shape}
+
+    for key_i in Model_list.keys():
+        net_list.setdefault(str(key_i), {})
+
+    # 2. 获得每一层的weight和bias大小
+
+    for name, param in Model.named_parameters():
+        # print(name, param.shape)
+        layer_name = name.split(".")[0]
+        layer_name_para = name.split(".")[1]
+        if layer_name in net_list:
+            net_list[layer_name][layer_name_para] = param.shape
+
+    # input = torch.randn(2, 3, 32, 32)
+    # 获得输入
+    num_sample = net_list["input"][0]
+    C1 = net_list["input"][1]
+    W1 = net_list["input"][2]
+    H1 = net_list["input"][3]
+    input_size = W1 * H1 * C1
+
+    # 初始化参数
+    input_size_totle = 0
+    output_size_totle = 0
+    weight_size_totle = 0
+
+    # 定义字节
+    byte_size_float64 = 8
+    byte_size_float32 = 4
+
+    # 定义单元能耗
+    # 单位 pJ
+    energy_access = 100     # 内存访问: 100 pJ
+    energy_access_gpu = 0.05 * 10 ** 3   # GPU访存：0.05 mJ = 0.5 * 10 ** 9 pJ
+    energy_access_cache = 0.05      # 缓存访问：0.05 pJ
+    energy_mutpily_cpu = 5 * 10 ** 3    # 乘法操作：5 mJ = 5 * 10 ** 9 pJ
+    cache_rate = 0.5        # 初始化命中率：50%
+
+    for name, layer in Model.named_modules():
+        # 卷积层
+        if isinstance(layer, nn.Conv2d):
+            # 获取卷积核数量、输入大小、步长和填充
+            out_channels = layer.out_channels
+            in_channels = layer.in_channels
+            kernel_size = layer.kernel_size
+            stride = layer.stride
+            padding = layer.padding
+
+            # 获得参数
+            K = kernel_size[0]
+            P = padding[0]
+            S = stride[0]
+            C2 = out_channels
+            # 计算输出大小
+            W2 = (W1 - K + 2 * P) / S + 1
+            H2 = (H1 - K + 2 * P) / S + 1
+            output_size = W2 * H2 * C2
+
+            # 考虑偏置
+            if layer.bias is not None:
+                # 该层包含偏置参数
+                # K * K * C1 * C2 + C2 = (K * K * C1 + 1)* C2
+                weight_size = (K * K * C1 + 1) * C2
+            else:
+                # 该层不包含偏置参数
+                weight_size = K * K * C1 * C2
+
+            # 累加大小
+            weight_size_totle += weight_size
+            input_size_totle += input_size
+            output_size_totle += output_size
+
+            # 更新输入大小和长、宽
+            input_size = output_size
+            C1 = C2
+            W1 = W2
+            H1 = H2
+
+        # 全连接层
+        elif isinstance(layer, nn.Linear):
+            # 获得输入输出大小
+            output_features = layer.out_features
+            input_features = layer.in_features
+
+            # 计算输出大小
+            output_size = W1 * H1 * output_features
+
+            # 考虑偏置
+            if layer.bias is not None:
+                weight_size = input_size * output_size + output_size
+            else:
+                weight_size = input_size * output_size
+            # 累加大小
+
+            input_size_totle += input_size
+            output_size_totle += output_size
+            weight_size_totle += weight_size
+
+            # 更新输入大小、通道数
+            input_size = output_size
+            C1 = output_features
+
+        # 其他层，没有权重
+        else:
+            # 输出层信息
+            # print("name: ", name, "\tlayer: ", layer)
+            pass
+
+    # 计算：内存访问量 = ( 输入张量大小 + 输出张量大小 + 权重大小 ) × 数据类型字节数 × 每次样本输入数量
+    mem_access = (input_size_totle + output_size_totle + weight_size_totle) * byte_size_float32 * num_sample
+    print("Totle Memory Access: ", mem_access)
+    # Cl已经获得，获得Ml
+    Ml = mem_access
+
+    # 创建一个设备对象
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    if torch.cuda.is_available():
+        is_GPU = 1
+    else:
+        is_GPU = 0
+
+    # 获得cache命中率
+    cache_rate_get = getcacherate(Model, input, device)
+    if cache_rate_get < 1:
+        cache_rate = cache_rate_get
+    else:
+        print("cache_rate_get: ", cache_rate_get)
+
+    # 总能耗
+    
+    print("Cl: ", Cl)
+    print("Ml: ", Ml)
+    # energy_total = energy_mutpily_cpu * Cl + cache_rate * energy_access_cache * Ml + (1-cache_rate) * energy_access + is_GPU * Ml * energy_access_gpu
+    energy_total = energy_mutpily_cpu * Cl + cache_rate * energy_access_cache * Ml + (1-cache_rate) * energy_access
+    # energy_total = round(energy_total * 10 ** (-12) , 2)
+    energy_total = energy_total * 10 ** (-12 + 3)
+    
+    return energy_total
+
+def getcacherate(model, input, device):
+    
+    network = model.to(device)
+
+    input_tensor = input.to(device)
+
+    # 在 GPU 上运行网络并打印输出
+    with torch.no_grad():
+        output = network(input_tensor)
+        # print(output.shape)
+
+    # 测试模型运行时间
+    for i in range(100):
+        
+        time_taken = measure_model_time(network, input_tensor, device)
+        # print('Model took {:.6f} seconds to run on device {}'.format(time_taken * 1000, device))
+        if i == 0:
+            time1 = time_taken
+        elif i == 1:
+            time2 = time_taken
+
+    rate_cache_1 = 1 - (time1 - time2) / time1
+
+    # print("time1: ", time1)
+    # print("time2: ", time2)
+    # print("rate_cache_1: ", rate_cache_1 * 100, "%")
+    return rate_cache_1
+
+def measure_model_time(model, input_tensor, device):
+    model.eval()
+    input_tensor = input_tensor.to(device)
+    with torch.no_grad():
+        start_time = time.time()
+        output = model(input_tensor)
+        end_time = time.time()
+
+    return end_time - start_time
+
 
 def modelStorage(model):
     torch.save(model, "./uploadusermodel_temp.pth")
@@ -149,7 +354,7 @@ def modelStorage(model):
     return Storage
 
 def modelCalculate(model, input):
-    Macs, Params = profile(model, inputs=(input, ))
+    Macs, Params, List = profile(model, inputs=(input, ))
     Macs, Params = clever_format([Macs, Params], "%.2f")
     return Macs, Params
 
@@ -236,7 +441,6 @@ class ReturnSysModelDeviceLatency(APIView):
         for temp_k,temp_v in sysdevicelatency_data.items():
             if temp_v == -1 or temp_v is None:
                 sysdevicelatency_data[temp_k] = "None"
-
 
         print(sysdevicelatency_data)
 
@@ -439,7 +643,7 @@ class DownloadCompressModel(APIView):
         filename = request.GET.get('model')
         filename = filename + ".pth"
         print(filename)
-        download_file_path = os.path.join(MEDIA_ROOT, filename)
+        download_file_path = os.path.join(COMPRESSSYSTEMMODEL_ROOT, filename)
         print("download_file_path", download_file_path)
 
         response = self.big_file_download(download_file_path, filename)
@@ -597,3 +801,84 @@ def get_resourceinfo(request):
         'MEM_Use':MEM_Use,
         'DISK_Free':DISK_Free,
     })
+data_raspberry = {"CPU_Arch": "armv7l", 
+        "OS_Version": "Raspbian GNU/Linux 10", 
+        "RAM_Total": 0, 
+        "CPU_Use": "1.5", 
+        "MEM_Use": 15.99888854,
+        "DISK_Free": ""}
+# class GetRaspberry(APIView):
+    # def post(self,request):
+    #     data=request.body    
+    #     return response.Response()
+
+    # def get(self, request):
+    #     print('GET方法')
+    #     return response.Response()
+    
+def raspberry(request):
+    global data_raspberry
+    if request.method == 'POST':
+        data_raspberry=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
+        # print(data)
+        # return response.Response('我是post请求')
+        return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
+    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+        print(data_raspberry)
+        print(type(data_raspberry))
+        return JsonResponse(json.loads(data_raspberry))#json.load(data)就是一个json字符串反序列化为python对象
+        #return JsonResponse(data)
+
+# python manage.py runserver 0.0.0.0:8000 0.0.0.0表示可以接受任何IP地址的请求（没有的话只能接受本机的请求），8000表示服务器监听的端口号，
+data_jetson = {
+        "DEVICE_NAME": "NVIDIA Jetson", 
+        "CPU_Use": "1.5",
+        "GPU_Use":'0', 
+        "MEM_Use": 15.99888854,
+        "DISK_Free": "75"} 
+
+def jetson(request): 
+    global data_jetson   
+    if request.method == 'POST':
+        data_jetson=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
+        print(data_jetson)
+        return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
+    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+        print(data_jetson)
+        return JsonResponse(json.loads(data_jetson))#json.load(data)就是一个json字符串反序列化为python对象
+        #return JsonResponse(data)
+
+# def source_show(request,data):
+    
+#     HOST = '192.168.1.102'
+#     PORT = 8080
+#     # 创建套接字并开始监听连接
+#     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     sock.bind((HOST, PORT))
+#     sock.listen(1)
+#     # 处理客户端连接
+#     while True:
+#         conn, addr = sock.accept()
+#         get_length = False
+#         count = 0
+
+#         while True:
+#             if not get_length:
+#                 lengthData = conn.recv(6)
+#                 length = int.from_bytes(lengthData, byteorder='big')
+#                 b = bytes()
+#                 if length == 0:
+#                     continue
+#                 else:
+#                     get_length = True
+#             else:
+#                 value = conn.recv(length)
+#                 b = b+value
+#                 count += len(value)
+#                 if count >= length:
+#                     break
+#                 data = pickle.loads(b)
+#                 print(data)
+#     if request.method == 'POST':
+#         return JsonResponse({'data':data})
+#     # 定义服务器端口号和主机名

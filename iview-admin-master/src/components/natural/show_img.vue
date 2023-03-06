@@ -9,9 +9,9 @@
 <script>
 import Raspberry from '@/assets/images/raspberry.jpg';
 import Jetson from '@/assets/images/jetson.jpg';
-import test from '@/assets/images/android.jpg';
-import Device4 from '@/assets/images/mcu.jpg';
-import Device5 from '@/assets/images/fpga.jpg';
+import Android from '@/assets/images/android.jpg';
+import Mcu from '@/assets/images/mcu.jpg';
+import Fpga from '@/assets/images/fpga.png';
 export default {
     name: 'show_img',
     data(){
@@ -19,9 +19,9 @@ export default {
             images:[
                 {index:1,path:Raspberry,name:'Raspberry',active:false},
                 {index:2,path:Jetson,name:'Jetson',active:false},
-                {index:3,path:test,name:'test',active:false},
-                {index:4,path:Device4,name:'Device4',active:false},
-                {index:5,path:Device5,name:'Device5',active:false}
+                {index:3,path:Android,name:'Android',active:false},
+                {index:4,path:Mcu,name:'Mcu',active:false},
+                {index:5,path:Fpga,name:'Fpga',active:false}
             ],
         }
     },

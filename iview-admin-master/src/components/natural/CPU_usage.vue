@@ -7,6 +7,10 @@ import echarts from 'echarts';
 import axios from "axios";
 export default {
     name: 'CPU_usage',
+    props:{
+        DeviceName: String,
+        required: true
+    },
     data () {
         return {
         	// 实时数据数组
@@ -50,13 +54,19 @@ export default {
                         data: this.CPU_Use,	// 绑定实时数据数组
                     },
                 ]
-            }
+            },
+            dom:null,
         }
     },
     mounted () {
+        // 每三秒更新实时数据到折线图
         this.myChart = echarts.init(document.getElementById('myChart_cpu'), 'light');	// 初始化echarts, theme为light
         this.myChart.setOption(this.echartsOption);	// echarts设置初始化选项
-        setInterval(this.addData, 3000);	// 每三秒更新实时数据到折线图
+        setTimeout(()=>{
+            this.myChart.resize();
+        },100)
+        setInterval(this.addData, 5000);
+
     },
     methods: {
     	// 获取当前时间
@@ -72,34 +82,48 @@ export default {
         },
         // 添加实时数据
         addData : function() {
-            //let that = this;
-            axios.get('/resourceinfo/').then(response => {
+            /*axios.post('/resourceinfo/',{
+                DeviceName:this.DeviceName
+            }).then(response => {
                 this.CPU_Use.push(parseFloat(response.data.CPU_Use));
                 this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
                 this.echartsOption.xAxis.data = this.date;
                 this.echartsOption.series[0].data = this.CPU_Use;
                 this.myChart.setOption(this.echartsOption);
-            });
-        	// 从接口获取数据并添加到数组
-            /*this.$axios.get('url').then((res) => {
-                this.yieldRate.push((res.data.actualProfitRate * 100).toFixed(3));
-                this.yieldIndex.push((res.data.benchmarkProfitRate * 100).toFixed(3));
-                this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
-                // 重新将数组赋值给echarts选项
-                this.echartsOption.xAxis.data = this.date;
-                this.echartsOption.series[0].data = this.yieldRate;
-                this.echartsOption.series[1].data = this.yieldIndex;
-                this.myChart.setOption(this.echartsOption);
             });*/
+            if(this.DeviceName == 'Raspberry'){
+                axios.get('/raspberry/').then(response => {
+                    this.CPU_Use.push(parseFloat(response.data.CPU_Use));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.CPU_Use;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
+            else if(this.DeviceName == 'Jetson'){
+                axios.get('/jetson/').then(response => {
+                    this.CPU_Use.push(parseFloat(response.data.CPU_Use));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.CPU_Use;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
+            else{
+                this.CPU_Use.push(0);
+                this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                this.echartsOption.xAxis.data = this.date;
+                this.echartsOption.series[0].data = this.CPU_Use;
+                this.myChart.setOption(this.echartsOption);
+            }
+        },
+        resize : function() {
+            this.dom.resize()
         }
     }
 }
 </script>
 
 <style>
-#myChart_cpu{
-  width: 800px;
-  height: 330px;
-  margin: 0 auto;
-}
+
 </style>
