@@ -4,7 +4,8 @@
               <el-aside width="250px">
                 <div style="margin-top: 10px;height: 65px;">
                     <div style="margin-left: 5px">
-                        <div class="firstBlock"><el-avatar :size="50" :src="imgUrl"></el-avatar></div>
+                        <!-- <div class="firstBlock"><el-avatar :size="50" :src="imgUrl"></el-avatar></div> -->
+                        <div class="firstBlock"><img id="dog" src="../../assets/images/dog.jpg"></div>                      
                         <div class="secondBlock">{{this.name}}</div>
                         <div class="thirdBlock"><el-button type="primary" circle icon="el-icon-video-play"></el-button></div>
                     </div>
@@ -49,7 +50,7 @@
                 <div id="main" style="height:1500px;margin-left: 0px;">
                     <card style="height: 300px;margin-bottom: 10px;">
                       <Row>
-                        <h1 style="color:#2867a8">Show pictures</h1>
+                        <h1 style="color:#2867a8">设备实物展示</h1>
                       </Row>
                       <Row>
                         <Col :md="24" :lg="24" :xl="24">
@@ -124,8 +125,8 @@
               return {
                 DeviceOptions: [
                   {
-                    value: 'test',
-                    label: 'test',
+                    value: 'Android',
+                    label: 'Android',
                   }, 
                   {
                     value: 'Raspberry',
@@ -136,12 +137,12 @@
                     label: 'Jetson'
                   }, 
                   {
-                    value: 'Device4',
-                    label: 'Device4'
+                    value: 'Mcu',
+                    label: 'Mcu'
                   }, 
                   {
-                    value: 'Device5',
-                    label: 'Device5'
+                    value: 'Fpga',
+                    label: 'Fpga'
                   }
                 ],
                 value: '选择测试设备',
@@ -155,18 +156,36 @@
                 name:'李瑶',
               }
         },
-        mounted(){
-        },
-        watch:{},
         methods:{
           checkDeviceChange(device){
             let that = this;
-            //const img_show = that.$refs.img_show;
-            //img_show.getDeviceName();
-            //this.$refs.show_img.getDeviceName();
-            //that.$refs.show_img.getChange(device);
             that.$refs.showImage.getChange(device);
-            axios.post('/deviceinfo/',{
+            if(device == 'Raspberry'){
+              axios.get('/raspberry/').then(response =>{
+                that.CPU_Type = response.data.CPU_Type;
+                that.GPU_Type = response.data.GPU_Type;
+                that.CPU_Arch = response.data.CPU_Arch;
+                that.OS_Version = response.data.OS_Version;
+                that.RAM_Total = response.data.RAM_Total;
+              })
+            }
+            else if(device == 'Jetson'){
+              axios.get('/jetson/').then(response =>{
+                that.CPU_Type = response.data.CPU_Type;
+                that.GPU_Type = response.data.GPU_Type;
+                that.CPU_Arch = response.data.CPU_Arch;
+                that.OS_Version = response.data.OS_Version;
+                that.RAM_Total = response.data.RAM_Total;
+              })
+            }
+            else{
+              that.CPU_Type = '';
+              that.GPU_Type = '';
+              that.CPU_Arch = '';
+              that.OS_Version = '';
+              that.RAM_Total = '';
+            }
+            /*axios.post('/deviceinfo/',{
               DeviceName:device
             }).then(response => {
               that.CPU_Type = response.data.CPU_Type;
@@ -174,19 +193,24 @@
               that.CPU_Arch = response.data.CPU_Arch;
               that.OS_Version = response.data.OS_Version;
               that.RAM_Total = response.data.RAM_Total;
-            })
-            
+            })*/
           },
         },
     
     }
     </script>
     
-    <style scoped>
+    <style>
     .el-aside {
               background-color: #D3DCE6;
               color: #333;
               text-align: center;
+            }
+            #dog{
+              border-radius: 50px;
+              height:50px;
+              width:50px;
+              filter: grayscale(0%);
             }
             
             .el-main {

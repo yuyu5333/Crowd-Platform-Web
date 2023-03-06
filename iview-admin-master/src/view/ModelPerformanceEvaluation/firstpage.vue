@@ -48,7 +48,7 @@
     </Card>
 
     <!-- 模型定义规范 -->
-    <Card shadow title="模型定义规范" style="margin-top: 10px">
+    <!-- <Card shadow title="模型定义规范" style="margin-top: 10px">
       <row class="info-title">
         <h3>一、头文件</h3>
         <div class="info-text">
@@ -151,7 +151,7 @@
           ></prism-editor>
         </div>
       </row>
-    </Card>
+    </Card> -->
   </div>
 </template>
 
