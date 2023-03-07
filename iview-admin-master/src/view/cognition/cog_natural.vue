@@ -44,11 +44,14 @@
                             <td>{{this.GPU_Type}}</td>
                         </tr>
                     </table>
-                </div>  
+                </div>
+                <div style="margin-top: 10px;">
+                  <showpicture ref="showPicture"></showpicture>
+                </div>
             </el-aside>
             <el-main>
                 <div id="main" style="height:1500px;margin-left: 0px;">
-                    <card style="height: 300px;margin-bottom: 10px;">
+                    <!--<card style="height: 300px;margin-bottom: 10px;">
                       <Row>
                         <h1 style="color:#2867a8">设备实物展示</h1>
                       </Row>
@@ -57,14 +60,14 @@
                           <show_img ref="showImage"></show_img>
                         </Col>
                       </Row>
-                    </card>
+                    </card>-->
                     <card style="height: 370px;margin-bottom: 10px;">
                       <Row>
                         <h1 style="color:#2867a8">CPU Usage</h1>
                       </Row>
                       <Row>
                         <Col :md="24" :lg="24" :xl="24">
-                          <CPU_usage :DeviceName=device style="height:330px"></CPU_usage>
+                          <CPU_usage ref="CPU_usage" :DeviceName=device style="height:330px"></CPU_usage>
                         </Col>
                       </Row>  
                     </card>
@@ -75,7 +78,7 @@
                       </Row>
                       <Row>
                         <Col :md="24" :lg="24" :xl="24">
-                          <GPU_usage :DeviceName=device style="height:330px"></GPU_usage>
+                          <GPU_usage ref="GPU_usage" :DeviceName=device style="height:330px"></GPU_usage>
                         </Col>
                       </Row>
                         
@@ -87,7 +90,7 @@
                       </Row>
                       <Row>
                         <Col :md="24" :lg="24" :xl="24">
-                          <Memory_usage :DeviceName=device style="height:330px"></Memory_usage>
+                          <Memory_usage ref="Memory_usage" :DeviceName=device style="height:330px"></Memory_usage>
                         </Col>
                       </Row>
                     </card>
@@ -98,7 +101,7 @@
                       </Row>
                       <Row>
                         <Col :md="24" :lg="24" :xl="24">
-                          <Disk_free :DeviceName=device style="height:330px"></Disk_free>
+                          <Disk_free ref="Disk_free" :DeviceName=device style="height:330px"></Disk_free>
                         </Col>
                       </Row>
                     </card>
@@ -116,11 +119,12 @@
     import Memory_usage from "@/components/natural/Memory_usage.vue";
     import Disk_free from "@/components/natural/Disk_free.vue";
     import show_img from "@/components/natural/show_img.vue";
+    import showpicture from "@/components/natural/showpicture.vue";
     import imgUrl from '@/assets/images/dog.jpg';
     import axios from "axios";
     export default {
         name:'cog_natural',
-        components:{CPU_usage,GPU_usage,Memory_usage,Disk_free,show_img},
+        components:{CPU_usage,GPU_usage,Memory_usage,Disk_free,show_img,showpicture},
         data() {
               return {
                 DeviceOptions: [
@@ -130,11 +134,11 @@
                   }, 
                   {
                     value: 'Raspberry',
-                    label: 'Raspberry'
+                    label: 'Raspberry 2B/3B/4B'
                   }, 
                   {
                     value: 'Jetson',
-                    label: 'Jetson'
+                    label: 'Jetson nano/TX2/xavier xn/AGX xavier'
                   }, 
                   {
                     value: 'Mcu',
@@ -159,7 +163,11 @@
         methods:{
           checkDeviceChange(device){
             let that = this;
-            that.$refs.showImage.getChange(device);
+            that.$refs.showPicture.getChange(device);
+            that.$refs.CPU_usage.getChange();
+            that.$refs.GPU_usage.getChange();
+            that.$refs.Memory_usage.getChange();
+            that.$refs.Disk_free.getChange();
             if(device == 'Raspberry'){
               axios.get('/raspberry/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
