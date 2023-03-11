@@ -107,16 +107,16 @@ def update_data():
         update_sql = 'update hmt_sysmodel set Energy = ? where id = ? and SysModelName = ?;'
         datalist = [
             (
-                260.66, 1, "AlexNet"
+                4222.84, 1, "AlexNet"
             ),
             (
-                1671.23, 2, "MobileNet"
+                480.02, 2, "MobileNet"
             ),
             (
-                747.76, 3, "ResNet"
+                2789.40, 3, "ResNet"
             ),
             (
-                232.74, 4, "VGG"
+                1534.84, 4, "VGG"
             ),
         ]
 
