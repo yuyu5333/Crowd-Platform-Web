@@ -42,9 +42,20 @@
               </a>
                 <!-- Model definition -->
             </Button>
+            
+          </Row>
+          <Row style="margin-top: 10px">
+            <Button
+              class="back-btn" @click="goBack"
+            >
+              返回首页
+            </Button>
+            
           </Row>
         </i-col>
+        
       </row>
+      
     </Card>
 
     <!-- 模型定义规范 -->
@@ -246,6 +257,9 @@ export default {
     highlighter(code) {
       return highlight(code, languages.js); //returns html
     },
+    goBack() {
+      this.$router.push('/hmthome/hmthome')
+    }
   },
 };
 </script>
@@ -288,4 +302,20 @@ export default {
 .prism-editor__textarea:focus {
   outline: none;
 }
+
+.back-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #0069d9;
+}
+
+
 </style>
