@@ -19,7 +19,7 @@
                 </p>
               </Col>
             </Row>
-            <br />
+            <!-- <br /> -->
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 计算量 end 参数量 start -->
@@ -37,7 +37,7 @@
                 </p>
               </Col>
             </Row>
-            <br />
+            <!-- <br /> -->
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 参数量 end 存储量 start -->
@@ -55,7 +55,7 @@
                 </p>
               </Col>
             </Row>
-            <br />
+            <!-- <br /> -->
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 存储量 end 时延 start -->
@@ -89,25 +89,34 @@
                 </p>
               </Col> -->
             </Row>
-            <br />
+            <!-- <br /> -->
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 时延 end 能耗 start -->
           <card shadow>
             <Row>
               <Col span="15">
-                <p class="head-font-parameter">能耗(J)</p>
+                <p class="head-font-parameter">能耗(mJ)</p>
               </Col>
             </Row>
             <Divider style="margin: 12px 0px" />
-            <Row>
+            <!-- <Row>
               <Col span="8">
-                <p class="text-font-parameter">
+                <p class="text-font-parameter" >
                   {{ UserModelStatus.Energy }}
                 </p>
               </Col>
+            </Row> -->
+            <Row>
+              <Col span="8">
+                <transition name="fade">
+                  <p class="text-font-parameter">
+                    {{ currentItem  }}
+                  </p>
+                </transition>
+              </Col>
             </Row>
-            <br />
+            <!-- <br /> -->
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 能耗 end 精确度 start -->
@@ -125,10 +134,13 @@
                 </p>
               </Col>
             </Row>
-            <br />
+            <!-- <br /> -->
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 精确度 end -->
+          <button class="back-btn" @click="goBackhome">
+            返回首页
+          </button>
         </div>
       </template>
       <template #right>
@@ -156,6 +168,7 @@
                 @click="getUserModelChange()"
                 >模型评估</Button
               >
+              <pulse-loader :loading="loading" color="#5cb85c" />
             </row>
             <row> </row>
           </card>
@@ -165,10 +178,10 @@
             <div class="demo-split-pane">
               <card shadow title="模型总览" size="large">
                 <Row>
-                  <br />
-                  <br />
-                  <br />
-                  <br />
+                  <!-- <br /> -->
+                  <!-- <br /> -->
+                  <!-- <br /> -->
+                  <!-- <br /> -->
                 </Row>
               </card>
             </div>
@@ -181,8 +194,12 @@
 
 <script>
 import axios from "axios";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 
 export default {
+  components: {
+    PulseLoader,
+  },
   data() {
     return {
       split1: 0.618,
@@ -192,11 +209,39 @@ export default {
       },
       CheckModel_Value: [],
       UserModelStatus: [],
+      loading: false,
+      index: 0,
+      values: [],
     };
+  },
+  computed: {
+    currentItem() {
+      return this.values[this.index]
+    },
+  },
+  created() {
+    // 假设从后端获取到的数据保存在了this.UserModelStatus中
+    this.values = [
+      this.UserModelStatus.Energy,
+      this.UserModelStatus.Cl,
+      this.UserModelStatus.Ml,
+      this.UserModelStatus.CacheRate,
+    ]
+    setInterval(() => {
+      // 假设从后端获取到的数据更新到了this.UserModelStatus中
+      this.values = [
+        this.UserModelStatus.Energy,
+        this.UserModelStatus.Cl,
+        this.UserModelStatus.Ml,
+        this.UserModelStatus.CacheRate,
+      ]
+      this.index = (this.index + 1) % this.values.length
+    }, 1500)
   },
   methods: {
     getUserModelChange() {
       let that = this;
+      this.loading = true;
       axios
         .post("get-usermodel/", {
           UserModelName: true,
@@ -204,6 +249,7 @@ export default {
         .then((response) => {
           that.UserModelStatus = response.data;
           console.log(response.data);
+          this.loading = false;
         });
     },
     CheckModel() {
@@ -230,10 +276,13 @@ export default {
       }
       return false;
     },
+    goBackhome() {
+      this.$router.push('/hmthome/hmthome')
+    }
   },
 };
 </script>
-<style>
+<style scoped>
 .demo-split {
   height: 5000px;
   border: 1px solid #dcdee2;
@@ -269,4 +318,28 @@ export default {
 .model-upload {
   text-align: center;
 }
+
+.back-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #0069d9;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 </style>

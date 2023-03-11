@@ -1,0 +1,1083 @@
+<template>
+    <div  class="geDiagramContainer"
+    style="max-width: 80%; border: 1px solid transparent; touch-action: none; margin-top: 26px; margin-bottom: 26px; width: 1893px; height: 1114.79px;" 
+    data-mxgraph="">
+      <svg style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 1893px; min-height: 1122px; background-image: none; background-color: transparent;">
+        <defs>
+          <filter id="dropShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="blur"></feGaussianBlur>
+            <feOffset in="blur" dx="3" dy="3" result="offsetBlur"></feOffset>
+            <feFlood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feFlood>
+            <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></feComposite>
+            <feBlend in="SourceGraphic" in2="offsetBlur"></feBlend>
+          </filter>
+        </defs>
+        <g transformOrigin="0 0" transform="scale(0.39,0.39)translate(-609,-1620)"><g></g>
+        <g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 2076.78 3611.9 L 2092.28 3603.2 L 2076.88 3594.2 L 2061.48 3603.2 L 2076.88 3558.8 L 2153.58 3550 L 2137.98 3558.8 L 2153.58 3567.7 L 2168.88 3558.8 L 2563.47 3783.1 L 2547.97 3791.8 L 2563.37 3800.8 L 2578.77 3791.8 L 2563.37 3836.2 L 2486.67 3845 L 2502.27 3836.2 L 2486.67 3827.3 L 2471.37 3836.2" fill="#f4b934" stroke="none" pointer-events="all">
+            </path>
+          </g>
+          <g style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.firstinfo">
+            <image x="2510" y="1640" width="1210.74" height="760" src="/images/HMTlogo_home1.png"
+            :xlink:href="require('@/assets/images/HMTlogo_home1.png')" preserveAspectRatio="none">
+            </image>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 1856.54 3386.76 L 1872.04 3378.06 L 1856.64 3369.06 L 1841.24 3378.06 L 1856.64 3333.66 L 1933.34 3324.86 L 1917.74 3333.66 L 1933.34 3342.56 L 1948.64 3333.66 L 1988.12 3355.45 L 1972.62 3364.15 L 1988.02 3373.15 L 2003.42 3364.15 L 1988.02 3408.55 L 1911.32 3417.35 L 1926.92 3408.55 L 1911.32 3399.65 L 1896.02 3408.55" fill="#f4b934" stroke="none" transform="translate(0,3371.11)scale(1,-1)translate(0,-3371.11)" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 1702.36 2976.91 L 1717.86 2968.21 L 1702.46 2959.21 L 1687.06 2968.21 L 1702.46 2923.81 L 1779.16 2915.01 L 1763.56 2923.81 L 1779.16 2932.71 L 1794.46 2923.81 L 2066.29 3078.1 L 2050.79 3086.8 L 2066.19 3095.8 L 2081.59 3086.8 L 2066.19 3131.2 L 1989.49 3140 L 2005.09 3131.2 L 1989.49 3122.3 L 1974.19 3131.2" fill="#f4b934" stroke="none" pointer-events="all">
+            </path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 1265.33 3261.9 L 1280.83 3253.2 L 1265.43 3244.2 L 1250.03 3253.2 L 1265.43 3208.8 L 1342.13 3200 L 1326.53 3208.8 L 1342.13 3217.7 L 1357.43 3208.8 L 1635.94 3366.9 L 1620.44 3375.6 L 1635.84 3384.6 L 1651.24 3375.6 L 1635.84 3420 L 1559.14 3428.8 L 1574.74 3420 L 1559.14 3411.1 L 1543.84 3420" fill="#f4b934" stroke="none" pointer-events="all">
+            </path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3037.24 3359.64 L 2736.8 3533.1 Q 2728.14 3538.1 2736.8 3543.1 L 2861.34 3615 Q 2870 3620 2878.66 3625 L 3009.54 3700.57 Q 3018.21 3705.57 3009.54 3710.57 L 2820 3820" fill="none" stroke="white" stroke-width="13" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden">
+            </path>
+            <path d="M 3037.24 3359.64 L 2736.8 3533.1 Q 2728.14 3538.1 2736.8 3543.1 L 2861.34 3615 Q 2870 3620 2878.66 3625 L 3009.54 3700.57 Q 3018.21 3705.57 3009.54 3710.57 L 2820 3820" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="stroke">
+            </path>
+          </g>
+          <g style="visibility: visible;">
+            <image x="4895" y="2650" width="87.56" height="236.64" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/user.svg"></image>
+          </g>
+          <g style="visibility: visible;">
+            <image x="4342.94" y="2603.03" width="99.61" height="135" xlink:href="https://viewer.diagrams.net/img/lib/allied_telesis/computer_and_terminals/Personal_Computer.svg"></image>
+          </g>
+          <g style="visibility: visible;">
+            <image x="4442.55" y="2663.03" width="132.48" height="135" xlink:href="https://viewer.diagrams.net/img/lib/allied_telesis/computer_and_terminals/Personal_Computer_Wireless.svg"></image>
+          </g>
+          <g style="visibility: visible;">
+            <image x="4207.94" y="2540.54" width="135" height="135" xlink:href="https://viewer.diagrams.net/img/lib/allied_telesis/computer_and_terminals/Personal_Computer_with_Server.svg"></image>
+          </g>
+          <g style="visibility: visible;">
+            <image x="1368.72" y="2608.17" width="164" height="200" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/windows_server.svg"></image>
+          </g>
+          <g style="visibility: visible;">
+            <image x="1491.42" y="2650.17" width="162.36" height="198" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/database_server.svg"></image>
+          </g>
+          <g style="visibility: visible;">
+            <image x="1576.42" y="2711.17" width="160" height="200" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/web_server.svg"></image>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3355.3 3001.9 L 3370.8 2993.2 L 3355.4 2984.2 L 3340 2993.2 L 3355.4 2948.8 L 3432.1 2940 L 3416.5 2948.8 L 3432.1 2957.7 L 3447.4 2948.8 L 3999.56 3262.96 L 3984.06 3271.66 L 3999.46 3280.66 L 4014.86 3271.66 L 3999.46 3316.06 L 3922.76 3324.86 L 3938.36 3316.06 L 3922.76 3307.16 L 3907.46 3316.06" fill="#f4b934" stroke="none" transform="translate(0,3132.43)scale(1,-1)translate(0,-3132.43)" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <rect x="3037.24" y="3020" width="120" height="610" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3037.24" y="3020" width="120" height="610" fill="none" stroke="none" pointer-events="all"></rect>
+          </g>
+          <g style="">
+            <g>
+              <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3325px; margin-left: 3097px;">
+                  <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                      <span style="font-size: 50px;">
+                        内存
+                        <br>
+                        <br>缓存<br>
+                        <br>...<br>
+                        <br>
+                      </span>
+                      <span style="font-size: 50px;">
+                        温度
+                        <br>
+                        <br>频率<br>
+                        <br>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <rect x="3115" y="3628" width="320" height="75" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3115" y="3628" width="320" height="75" fill="none" stroke="none" pointer-events="all"></rect>
+          </g>
+          <g style="">
+            <g>
+              <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3666px; margin-left: 3275px;">
+                  <div data-drawio-colors="color: #39b6fd; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(57, 182, 253); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                      <span style="font-size: 50px;">
+                        异构设备资源
+                        <br>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3447 3265.13 L 3451 3267.63 L 3430 3273.13 L 3439.7 3260.93 L 3443.9 3263.33 L 4006.54 2941.4 C 4005.6 2940.38 4005.87 2939.19 4007.24 2938.3 C 4008.47 2937.71 4010.1 2937.48 4011.66 2937.68 C 4013.22 2937.87 4014.54 2938.47 4015.24 2939.3 C 4016.18 2939.95 4016.49 2940.74 4016.11 2941.5 C 4015.73 2942.26 4014.69 2942.91 4013.24 2943.3 C 4012.01 2943.52 4010.68 2943.45 4009.54 2943.1 Z" fill="#000000" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4169.07 2838.8 L 4173.07 2841.3 L 4152.07 2846.8 L 4161.77 2834.6 L 4165.97 2837 L 4346.63 2733.5 C 4345.69 2732.48 4345.96 2731.29 4347.33 2730.4 C 4348.56 2729.81 4350.19 2729.58 4351.75 2729.78 C 4353.31 2729.97 4354.63 2730.57 4355.33 2731.4 C 4356.27 2732.05 4356.58 2732.84 4356.2 2733.6 C 4355.82 2734.36 4354.78 2735.01 4353.33 2735.4 C 4352.1 2735.62 4350.77 2735.55 4349.63 2735.2 Z" fill="#000000" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all">
+            </path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <rect x="4022.94" y="2935.9" width="320" height="135" fill="none" stroke="white" transform="rotate(-30,4182.94,3003.4)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="4022.94" y="2935.9" width="320" height="135" fill="none" stroke="none" transform="rotate(-30,4182.94,3003.4)" pointer-events="all"></rect>
+          </g>
+          <g style="">
+            <g transform="rotate(-30 4182.9400000000005 3003.4)">
+              <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3003px; margin-left: 4183px;">
+                  <div data-drawio-colors="color: #27479c; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                      <span style="font-size: 50px;">
+                        设备资源感知
+                        <br><br>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <rect x="4480" y="2641.17" width="320" height="70" fill="none" stroke="white" transform="rotate(30,4640,2676.17)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="4480" y="2641.17" width="320" height="70" fill="none" stroke="none" transform="rotate(30,4640,2676.17)" pointer-events="all"></rect>
+          </g>
+          <g style="">
+            <g transform="rotate(30 4640 2676.1699999999996)">
+              <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 2676px; margin-left: 4640px;">
+                  <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                      <span style="font-size: 50px;">用户异构设备<br></span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <rect x="5090" y="2980" width="320" height="70" fill="none" stroke="white" transform="rotate(30,5250,3015)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="5090" y="2980" width="320" height="70" fill="none" stroke="none" transform="rotate(30,5250,3015)" pointer-events="all"></rect>
+          </g>
+          <g style="">
+            <g transform="rotate(30 5250 3015)">
+              <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3015px; margin-left: 5250px;">
+                  <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                      <span style="font-size: 50px;">深度学习模型<br></span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g class="rotate-on-hover-device" @mouseover="animateOnceDevice" transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.deviceinfo" >
+            <path d="M 3962.38 2909.12 L 4023.3 2780 L 4146.48 2780 L 4207.94 2909.12 L 4084.77 2980 Z" fill="#000000" stroke="#000000" stroke-width="1.9" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3962.38 2909.12 L 4023.3 2780 L 4146.48 2780 L 4207.94 2909.12 L 4084.77 2980 Z" fill="#ececec" stroke="#292929" stroke-width="1.9" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3962.38 2909.12 L 4023.43 2780 L 4023.43 2850.62 L 4084.77 2980 Z M 4146.48 2850.62 L 4146.48 2780 L 4207.94 2909.12 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 4084.77 2980 L 4146.21 2850.62 L 4207.94 2909.12 L 4084.35 2980 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 4146.48 2850.62 L 4146.48 2780 L 4207.94 2909.12 Z M 3962.38 2909.12 L 4023.43 2780 L 4023.43 2850.62 L 4084.77 2980 L 4146.21 2850.62 L 4207.94 2909.12 L 4084.35 2980 Z M 4023.43 2850.62 L 4146.75 2850.62 M 4023.48 2850.6 L 3962.38 2909.72" fill="none" stroke="white" stroke-width="8.95" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4146.48 2850.62 L 4146.48 2780 L 4207.94 2909.12 Z M 3962.38 2909.12 L 4023.43 2780 L 4023.43 2850.62 L 4084.77 2980 L 4146.21 2850.62 L 4207.94 2909.12 L 4084.35 2980 Z M 4023.43 2850.62 L 4146.75 2850.62 M 4023.48 2850.6 L 3962.38 2909.72" fill="none" stroke="#5e5e5e" stroke-width="0.95" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <ellipse cx="4084.74" cy="2815.45" rx="50.536248" ry="29.25" fill="#5e5e5e" stroke="none" pointer-events="all"></ellipse>
+            <path d="M 4091.35 2789.3 L 4106.6 2798.06 L 4097.02 2803.46 L 4082.07 2794.56 Z M 4082.61 2802.64 L 4085.28 2814.1 L 4065.07 2812.62 L 4063.6 2801.16 Z M 4050.39 2812.62 L 4065.61 2821.24 L 4056.31 2826.64 L 4040.96 2818 Z M 4075.19 2826.76 L 4090.41 2835.66 L 4081.11 2841.06 L 4065.88 2832.16 Z M 4089.75 2798.86 L 4082.19 2803.04 M 4065.76 2812.48 L 4058.03 2816.92 M 4085.16 2813.96 L 4098.76 2821.78 L 4082.34 2831.34" fill="none" stroke="white" stroke-width="9.9" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4091.35 2789.3 L 4106.6 2798.06 L 4097.02 2803.46 L 4082.07 2794.56 Z M 4082.61 2802.64 L 4085.28 2814.1 L 4065.07 2812.62 L 4063.6 2801.16 Z M 4050.39 2812.62 L 4065.61 2821.24 L 4056.31 2826.64 L 4040.96 2818 Z M 4075.19 2826.76 L 4090.41 2835.66 L 4081.11 2841.06 L 4065.88 2832.16 Z M 4089.75 2798.86 L 4082.19 2803.04 M 4065.76 2812.48 L 4058.03 2816.92 M 4085.16 2813.96 L 4098.76 2821.78 L 4082.34 2831.34" fill="none" stroke="#ececec" stroke-width="1.9" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3962.38 2909.12 L 4023.3 2780 L 4146.48 2780 L 4207.94 2909.12 L 4084.77 2980 Z Z" fill="none" stroke="white" stroke-width="9.9" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3962.38 2909.12 L 4023.3 2780 L 4146.48 2780 L 4207.94 2909.12 L 4084.77 2980 Z Z" fill="none" stroke="#292929" stroke-width="1.9" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4008 2697.03 L 5276.74 3420" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4008 2697.03 L 5276.74 3420" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3658 2697.03 L 4008 2896.02" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="translate(0,2796.52)scale(1,-1)translate(0,-2796.52)" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3658 2697.03 L 4008 2896.02" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="translate(0,2796.52)scale(1,-1)translate(0,-2796.52)" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4930.95 3420.4 L 5280.94 3620" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="translate(0,3520.2)scale(1,-1)translate(0,-3520.2)" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4930.95 3420.4 L 5280.94 3620" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="translate(0,3520.2)scale(1,-1)translate(0,-3520.2)" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4005.3 3291.9 L 4020.8 3283.2 L 4005.4 3274.2 L 3990 3283.2 L 4005.4 3238.8 L 4082.1 3230 L 4066.5 3238.8 L 4082.1 3247.7 L 4097.4 3238.8 L 4926.05 3710.64 L 4910.55 3719.34 L 4925.95 3728.34 L 4941.35 3719.34 L 4925.95 3763.74 L 4849.25 3772.54 L 4864.85 3763.74 L 4849.25 3754.84 L 4833.95 3763.74" fill="#f4b934" stroke="none" transform="translate(0,3501.27)scale(1,-1)translate(0,-3501.27)" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4097 3712.85 L 4101 3715.35 L 4080 3720.85 L 4089.7 3708.65 L 4093.9 3711.05 L 4718.84 3353.5 C 4717.9 3352.48 4718.17 3351.29 4719.54 3350.4 C 4720.77 3349.81 4722.4 3349.58 4723.96 3349.78 C 4725.52 3349.97 4726.84 3350.57 4727.54 3351.4 C 4728.48 3352.05 4728.79 3352.84 4728.41 3353.6 C 4728.03 3354.36 4726.99 3355.01 4725.54 3355.4 C 4724.31 3355.62 4722.98 3355.55 4721.84 3355.2 Z" fill="#000000" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <rect x="4710" y="3328" width="320" height="135" fill="none" stroke="white" transform="rotate(-30,4870,3395.5)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="4710" y="3328" width="320" height="135" fill="none" stroke="none" transform="rotate(-30,4870,3395.5)" pointer-events="all"></rect>
+          </g>
+          <g style="">
+            <g transform="rotate(-30 4870 3395.5)">
+              <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3396px; margin-left: 4870px;">
+                  <div data-drawio-colors="color: #27479c; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                      <span style="font-size: 50px;">模型性能感知<br><br></span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g class="rotate-on-hover-modelstruct" @mouseover="animateOnceModelStruct" transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4472.67 3143.82 L 4472.67 3037.33 L 4478.19 3022.95 L 4503.38 3020 L 4523.34 3031.76 L 4523.34 3037.33 L 4529.95 3033.17 L 4564.98 3033.17 L 4600.2 3053.74 L 4600.2 3078.58 L 4602.9 3078.16 L 4622.67 3089.62 L 4622.67 3192.88 L 4617.75 3207.36 L 4591.56 3210 L 4572.11 3198.45 L 4572.11 3192.88 L 4565.18 3197.02 L 4529.86 3197.02 L 4494.84 3176.16 L 4494.84 3154.77 L 4493.15 3156.1 Z" fill="#cc0000" stroke="#292929" stroke-width="2.01" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4472.67 3144.28 L 4472.67 3037.73 L 4493.23 3049.89 L 4493.23 3155.98 Z M 4494.94 3176.16 L 4494.94 3074.42 L 4530.36 3094.88 L 4530.36 3197.02 Z M 4572.3 3198.45 L 4572.3 3096.21 L 4592.07 3107.34 L 4592.07 3210 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 4493.23 3155.98 L 4493.23 3049.79 L 4503.07 3048.97 L 4495.14 3053.65 L 4495.14 3154.16 Z M 4530.36 3094.88 L 4564.77 3094.88 L 4574.81 3089.01 L 4572.3 3096 L 4572.3 3192.27 L 4565.53 3197.02 L 4530.16 3197.02 Z M 4592.07 3107.55 L 4617.26 3104.91 L 4622.67 3090.13 L 4622.67 3192.46 L 4617.96 3207.26 L 4592.07 3210 Z M 4523.34 3031.55 L 4523.34 3037.23 L 4520.63 3039.15 Z M 4600.2 3074.02 L 4600.2 3078.58 L 4591.77 3079.58 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 4472.67 3144.28 L 4472.67 3037.73 L 4493.23 3049.89 L 4493.23 3155.98 Z M 4494.94 3176.16 L 4494.94 3074.42 L 4530.36 3094.88 L 4530.36 3197.02 Z M 4572.3 3198.45 L 4572.3 3096.21 L 4592.07 3107.34 L 4592.07 3210 Z M 4493.23 3155.98 L 4493.23 3049.79 L 4503.07 3048.97 L 4495.14 3053.65 L 4495.14 3154.16 Z M 4530.36 3094.88 L 4564.77 3094.88 L 4574.81 3089.01 L 4572.3 3096 L 4572.3 3192.27 L 4565.53 3197.02 L 4530.16 3197.02 Z M 4592.07 3107.55 L 4617.26 3104.91 L 4622.67 3090.13 L 4622.67 3192.46 L 4617.96 3207.26 L 4592.07 3210 Z M 4523.34 3031.55 L 4523.34 3037.23 L 4520.63 3039.15 Z M 4600.2 3074.02 L 4600.2 3078.58 L 4591.77 3079.58 Z M 4565.18 3094.88 L 4565.18 3197.02 M 4617.45 3104.51 L 4617.45 3207.17" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 4472.67 3144.28 L 4472.67 3037.73 L 4493.23 3049.89 L 4493.23 3155.98 Z M 4494.94 3176.16 L 4494.94 3074.42 L 4530.36 3094.88 L 4530.36 3197.02 Z M 4572.3 3198.45 L 4572.3 3096.21 L 4592.07 3107.34 L 4592.07 3210 Z M 4493.23 3155.98 L 4493.23 3049.79 L 4503.07 3048.97 L 4495.14 3053.65 L 4495.14 3154.16 Z M 4530.36 3094.88 L 4564.77 3094.88 L 4574.81 3089.01 L 4572.3 3096 L 4572.3 3192.27 L 4565.53 3197.02 L 4530.16 3197.02 Z M 4592.07 3107.55 L 4617.26 3104.91 L 4622.67 3090.13 L 4622.67 3192.46 L 4617.96 3207.26 L 4592.07 3210 Z M 4523.34 3031.55 L 4523.34 3037.23 L 4520.63 3039.15 Z M 4600.2 3074.02 L 4600.2 3078.58 L 4591.77 3079.58 Z M 4565.18 3094.88 L 4565.18 3197.02 M 4617.45 3104.51 L 4617.45 3207.17" fill="none" stroke="#e6e6e6" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4546.22 3043.92 C 4546.26 3043.49 4546.48 3043.1 4546.82 3042.85 C 4547.17 3042.6 4547.6 3042.5 4548.02 3042.59 C 4551.22 3043 4554.34 3043.92 4557.26 3045.33 C 4565.42 3048.45 4573.09 3052.75 4580.02 3058.1 C 4582.33 3059.76 4584.39 3061.74 4586.15 3063.99 C 4586.35 3064.52 4586.24 3065.13 4585.86 3065.55 C 4585.48 3065.98 4584.89 3066.15 4584.35 3066 C 4580.7 3065.42 4577.15 3064.33 4573.8 3062.77 C 4565.49 3059.45 4557.72 3054.9 4550.73 3049.28 C 4548.93 3047.77 4547.4 3045.96 4546.22 3043.92 Z M 4544.51 3044.22 C 4544.45 3045.52 4544.89 3046.78 4545.72 3047.76 C 4547.29 3049.72 4549.15 3051.43 4551.23 3052.83 C 4557.6 3057.59 4564.51 3061.57 4571.81 3064.69 C 4574.85 3066.03 4578.05 3066.98 4581.33 3067.52 C 4582.2 3067.74 4583.11 3067.56 4583.84 3067.03 L 4553.44 3084.75 C 4552.12 3084.95 4550.77 3084.88 4549.47 3084.54 C 4546.51 3083.93 4543.64 3082.98 4540.89 3081.71 C 4533.05 3078.34 4525.68 3073.98 4518.93 3068.74 C 4517.18 3067.3 4515.62 3065.63 4514.31 3063.78 C 4513.8 3063.2 4513.8 3062.32 4514.31 3061.74 Z" fill="#e6e6e6" stroke="none" pointer-events="all"></path>
+            <path d="M 4523.64 3066 L 4544.2 3054.14 L 4567.78 3067.73 L 4546.71 3079.79" fill="#cc0000" stroke="none" pointer-events="all"></path>
+            <path d="M 4537.68 3056.88 L 4565.77 3073.41 M 4552.74 3057.91 L 4530.66 3071.07 M 4560.77 3062.47 L 4537.68 3076.14" fill="none" stroke="white" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 4537.68 3056.88 L 4565.77 3073.41 M 4552.74 3057.91 L 4530.66 3071.07 M 4560.77 3062.47 L 4537.68 3076.14" fill="none" stroke="#e6e6e6" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4472.67 3143.82 L 4472.67 3037.33 L 4478.19 3022.95 L 4503.38 3020 L 4523.34 3031.76 L 4523.34 3037.33 L 4529.95 3033.17 L 4564.98 3033.17 L 4600.2 3053.74 L 4600.2 3078.58 L 4602.9 3078.16 L 4622.67 3089.62 L 4622.67 3192.88 L 4617.75 3207.36 L 4591.56 3210 L 4572.11 3198.45 L 4572.11 3192.88 L 4565.18 3197.02 L 4529.86 3197.02 L 4494.84 3176.16 L 4494.84 3154.77 L 4493.15 3156.1 Z" fill="none" stroke="white" stroke-width="10.01" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4472.67 3143.82 L 4472.67 3037.33 L 4478.19 3022.95 L 4503.38 3020 L 4523.34 3031.76 L 4523.34 3037.33 L 4529.95 3033.17 L 4564.98 3033.17 L 4600.2 3053.74 L 4600.2 3078.58 L 4602.9 3078.16 L 4622.67 3089.62 L 4622.67 3192.88 L 4617.75 3207.36 L 4591.56 3210 L 4572.11 3198.45 L 4572.11 3192.88 L 4565.18 3197.02 L 4529.86 3197.02 L 4494.84 3176.16 L 4494.84 3154.77 L 4493.15 3156.1 Z" fill="none" stroke="#292929" stroke-width="2.01" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g class="rotate-on-hover-modelval" @mouseover="animateOncemModelval" transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelinfo">
+            <path d="M 4728.67 3310 L 4728.67 3239.5 L 4790.17 3204 L 4851.67 3239.5 L 4851.67 3310 L 4790.17 3346 Z" fill="#ffffff" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4728.67 3310 L 4728.67 3239.5 L 4790.17 3275 L 4790.17 3346 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 4851.67 3310 L 4851.67 3239.5 L 4790.17 3275 L 4790.17 3346 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 4728.67 3310 L 4728.67 3239.5 L 4790.17 3275 L 4790.17 3346 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 4728.67 3310 L 4728.67 3239.5 L 4790.17 3275 L 4790.17 3346 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4851.67 3310 L 4851.67 3239.5 L 4790.17 3275 L 4790.17 3346 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 4851.67 3310 L 4851.67 3239.5 L 4790.17 3275 L 4790.17 3346 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4739.67 3258.5 L 4780.17 3282 M 4739.67 3265.5 L 4780.17 3289 M 4739.67 3272.5 L 4780.17 3296 M 4800.67 3282 L 4841.17 3258.5 M 4800.67 3289 L 4841.17 3265.5 M 4800.67 3296 L 4841.17 3272.5" fill="none" stroke="white" stroke-width="11" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4739.67 3258.5 L 4780.17 3282 M 4739.67 3265.5 L 4780.17 3289 M 4739.67 3272.5 L 4780.17 3296 M 4800.67 3282 L 4841.17 3258.5 M 4800.67 3289 L 4841.17 3265.5 M 4800.67 3296 L 4841.17 3272.5" fill="none" stroke="#5e5e5e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4728.67 3310 L 4728.67 3239.5 L 4790.17 3204 L 4851.67 3239.5 L 4851.67 3310 L 4790.17 3346 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4728.67 3310 L 4728.67 3239.5 L 4790.17 3204 L 4851.67 3239.5 L 4851.67 3310 L 4790.17 3346 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4677.67 3250 L 4673.67 3252.5 L 4694.67 3258 L 4684.97 3245.8 L 4680.77 3248.2 L 4647.37 3228.5 C 4648.31 3227.48 4648.04 3226.29 4646.67 3225.4 C 4645.44 3224.81 4643.81 3224.58 4642.25 3224.78 C 4640.69 3224.97 4639.37 3225.57 4638.67 3226.4 C 4637.73 3227.05 4637.42 3227.84 4637.8 3228.6 C 4638.18 3229.36 4639.22 3230.01 4640.67 3230.4 C 4641.9 3230.62 4643.23 3230.55 4644.37 3230.2 Z" fill="#000000" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4881.67 3256 L 4885.67 3258.5 L 4864.67 3264 L 4874.37 3251.8 L 4878.57 3254.2 L 5049.97 3157.5 C 5049.03 3156.48 5049.3 3155.29 5050.67 3154.4 C 5051.9 3153.81 5053.53 3153.58 5055.09 3153.78 C 5056.65 3153.97 5057.97 3154.57 5058.67 3155.4 C 5059.61 3156.05 5059.92 3156.84 5059.54 3157.6 C 5059.16 3158.36 5058.12 3159.01 5056.67 3159.4 C 5055.44 3159.62 5054.11 3159.55 5052.97 3159.2 Z" fill="#000000" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3658 2894.63 L 4930.95 3620" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3658 2894.63 L 4930.95 3620" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <rect x="4390" y="3187" width="220" height="70" fill="none" stroke="white" transform="rotate(30,4500,3222)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="4390" y="3187" width="220" height="70" fill="none" stroke="none" transform="rotate(30,4500,3222)" pointer-events="all"></rect>
+          </g>
+          <g style="">
+            <g transform="rotate(30 4500 3222)">
+              <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3222px; margin-left: 4500px;">
+                  <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                      <span style="font-size: 50px;">模型结构<br></span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3172.41 3428.76 L 3172.41 3385.03 L 3222 3356.4 L 3271.6 3385.03 L 3271.6 3428.76 L 3222 3456.4 Z" fill="#000000" stroke="#000000" stroke-width="1.61" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3172.41 3428.76 L 3172.41 3385.03 L 3222 3356.4 L 3271.6 3385.03 L 3271.6 3428.76 L 3222 3456.4 Z" fill="#ececec" stroke="#292929" stroke-width="1.61" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3172.41 3385.03 L 3222 3413.66 L 3222 3456.4 L 3172.41 3428.17 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3271.6 3385.03 L 3222 3413.66 L 3222 3456.4 L 3271.6 3428.17 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3172.41 3385.03 L 3222 3413.66 L 3222 3456.4 L 3172.41 3428.17 Z" fill="none" stroke="white" stroke-width="8.81" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3172.41 3385.03 L 3222 3413.66 L 3222 3456.4 L 3172.41 3428.17 Z" fill="none" stroke="#5e5e5e" stroke-width="0.81" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3271.6 3385.03 L 3222 3413.66 L 3222 3456.4 L 3271.6 3428.17 Z" fill="none" stroke="white" stroke-width="8.81" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3271.6 3385.03 L 3222 3413.66 L 3222 3456.4 L 3271.6 3428.17 Z" fill="none" stroke="#5e5e5e" stroke-width="0.81" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3209.51 3400.75 C 3208.29 3399.97 3208.29 3398.71 3209.51 3397.93 L 3219.99 3391.88 C 3221.17 3391.41 3222.84 3391.41 3224.02 3391.88 L 3234.5 3397.93 C 3235.49 3398.68 3235.49 3399.76 3234.5 3400.51 L 3224.02 3406.56 C 3222.84 3407.03 3221.17 3407.03 3219.99 3406.56 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 3172.41 3428.76 L 3172.41 3385.03 L 3222 3356.4 L 3271.6 3385.03 L 3271.6 3428.76 L 3222 3456.4 Z" fill="none" stroke="white" stroke-width="9.61" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3172.41 3428.76 L 3172.41 3385.03 L 3222 3356.4 L 3271.6 3385.03 L 3271.6 3428.76 L 3222 3456.4 Z" fill="none" stroke="#292929" stroke-width="1.61" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3178.15 3303.94 L 3178.15 3254.09 L 3181.87 3241.81 L 3247.67 3234 L 3265.33 3244.04 L 3265.33 3293.15 L 3251.17 3331.84 L 3230.31 3334 Z" fill="#000000" stroke="#000000" stroke-width="1.49" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3178.15 3303.94 L 3178.15 3254.09 L 3181.87 3241.81 L 3247.67 3234 L 3265.33 3244.04 L 3265.33 3293.15 L 3251.17 3331.84 L 3230.31 3334 Z" fill="#ececec" stroke="#292929" stroke-width="1.49" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3178.15 3254.09 L 3230.54 3284.07 L 3251.17 3281.99 L 3251.17 3331.84 L 3230.16 3334 L 3178.15 3303.79 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3250.93 3282.61 L 3265.2 3243.92 L 3265.33 3293.52 L 3251.42 3331.47 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3229.19 3244.79 C 3230.57 3248.02 3234.21 3249.96 3237.98 3249.48 C 3237.8 3250.77 3238.56 3252.04 3240.06 3252.96 C 3241.56 3253.89 3243.66 3254.38 3245.81 3254.31 L 3245.51 3258.55 C 3242.22 3258.49 3239.31 3259.5 3238.65 3260.93 C 3238.55 3262.51 3237.34 3263.93 3235.47 3264.66 C 3233.61 3265.4 3231.36 3265.34 3229.56 3264.51 C 3225.9 3262.9 3222 3261.9 3218.02 3261.53 C 3217.44 3259.8 3216.24 3258.35 3214.66 3257.44 L 3211.68 3254.83 C 3210.46 3253.96 3210.01 3252.83 3210.44 3251.75 C 3210.88 3250.67 3212.15 3249.76 3213.92 3249.25 C 3215.94 3249.19 3217.83 3248.68 3219.15 3247.84 C 3220.47 3246.99 3221.11 3245.9 3220.92 3244.79 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 3178.15 3254.09 L 3230.54 3284.07 L 3251.17 3281.99 L 3251.17 3331.84 L 3230.16 3334 L 3178.15 3303.79 Z M 3250.93 3282.61 L 3265.2 3243.92 L 3265.33 3293.52 L 3251.42 3331.47 Z M 3230.54 3284.07 L 3230.54 3334" fill="none" stroke="white" stroke-width="8.74" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3178.15 3254.09 L 3230.54 3284.07 L 3251.17 3281.99 L 3251.17 3331.84 L 3230.16 3334 L 3178.15 3303.79 Z M 3250.93 3282.61 L 3265.2 3243.92 L 3265.33 3293.52 L 3251.42 3331.47 Z M 3230.54 3284.07 L 3230.54 3334" fill="none" stroke="#5e5e5e" stroke-width="0.74" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3178.15 3303.94 L 3178.15 3254.09 L 3181.87 3241.81 L 3247.67 3234 L 3265.33 3244.04 L 3265.33 3293.15 L 3251.17 3331.84 L 3230.31 3334 Z" fill="none" stroke="white" stroke-width="9.49" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3178.15 3303.94 L 3178.15 3254.09 L 3181.87 3241.81 L 3247.67 3234 L 3265.33 3244.04 L 3265.33 3293.15 L 3251.17 3331.84 L 3230.31 3334 Z" fill="none" stroke="#292929" stroke-width="1.49" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3172.41 3180.31 L 3172.41 3140.46 L 3184.06 3120.16 L 3207 3107 L 3230.3 3107 L 3253.24 3120.16 L 3264.89 3140.46 L 3264.89 3180.31 L 3218.65 3207 Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3172.41 3180.31 L 3172.41 3140.46 L 3184.06 3120.16 L 3207 3107 L 3230.3 3107 L 3253.24 3120.16 L 3264.89 3140.46 L 3264.89 3180.31 L 3218.65 3207 Z" fill="#ececec" stroke="#292929" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3184.06 3120.16 L 3184.06 3133.7 L 3207.37 3147.23 L 3218.65 3167.15 L 3218.65 3207 L 3172.41 3180.31 L 3172.41 3140.46 Z M 3253.24 3133.7 L 3253.24 3120.16 L 3264.89 3140.08" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3218.65 3207 L 3218.65 3167.15 L 3229.93 3147.23 L 3253.24 3133.7 L 3264.89 3140.08 L 3264.89 3180.31 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3195.13 3128.37 L 3222.28 3112.93 L 3235.99 3120.77 C 3236.97 3121.41 3237.8 3122.26 3238.41 3123.25 C 3238.92 3124.4 3238.7 3125.75 3237.85 3126.68 C 3236.54 3127.85 3235.04 3128.8 3233.42 3129.49 C 3231.5 3130.23 3229.41 3130.48 3227.37 3130.2 C 3226.09 3130.08 3224.84 3129.76 3223.66 3129.25 C 3224.11 3129.63 3224.52 3130.06 3224.87 3130.53 C 3225.39 3131.07 3225.63 3131.81 3225.52 3132.55 C 3225.41 3133.29 3224.96 3133.93 3224.3 3134.29 L 3217.62 3138.6 C 3216.95 3139.02 3216.53 3139.73 3216.49 3140.52 L 3209.88 3136.92 C 3209.8 3136.34 3210.04 3135.76 3210.52 3135.41 L 3217.85 3130.68 C 3218.34 3129.94 3218.28 3128.96 3217.7 3128.29 L 3213.18 3125.57 L 3201.49 3132.29 Z M 3216.81 3123.33 L 3221.08 3125.65 C 3222.74 3126.36 3224.58 3126.5 3226.33 3126.05 C 3227.55 3125.62 3228.69 3125 3229.71 3124.21 C 3230.12 3123.22 3229.83 3122.08 3228.98 3121.41 L 3224.71 3118.93" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 3184.06 3120.16 L 3184.06 3133.7 L 3207.37 3147.23 L 3218.65 3167.15 L 3229.93 3147.23 L 3253.24 3133.7 L 3253.24 3120.16 M 3172.41 3140.46 L 3184.06 3133.7 M 3218.65 3167.15 L 3218.65 3207 M 3264.89 3140.46 L 3252.87 3133.7 M 3207.37 3147.23 L 3229.93 3147.23" fill="none" stroke="white" stroke-width="8.75" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3184.06 3120.16 L 3184.06 3133.7 L 3207.37 3147.23 L 3218.65 3167.15 L 3229.93 3147.23 L 3253.24 3133.7 L 3253.24 3120.16 M 3172.41 3140.46 L 3184.06 3133.7 M 3218.65 3167.15 L 3218.65 3207 M 3264.89 3140.46 L 3252.87 3133.7 M 3207.37 3147.23 L 3229.93 3147.23" fill="none" stroke="#5e5e5e" stroke-width="0.75" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3172.41 3180.31 L 3172.41 3140.46 L 3184.06 3120.16 L 3207 3107 L 3230.3 3107 L 3253.24 3120.16 L 3264.89 3140.46 L 3264.89 3180.31 L 3218.65 3207 Z" fill="none" stroke="white" stroke-width="9.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3172.41 3180.31 L 3172.41 3140.46 L 3184.06 3120.16 L 3207 3107 L 3230.3 3107 L 3253.24 3120.16 L 3264.89 3140.46 L 3264.89 3180.31 L 3218.65 3207 Z" fill="none" stroke="#292929" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3172.41 3063.31 L 3172.41 3023.46 L 3184.06 3003.16 L 3207 2990 L 3230.3 2990 L 3253.24 3003.16 L 3264.89 3023.46 L 3264.89 3063.31 L 3218.65 3090 Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3172.41 3063.31 L 3172.41 3023.46 L 3184.06 3003.16 L 3207 2990 L 3230.3 2990 L 3253.24 3003.16 L 3264.89 3023.46 L 3264.89 3063.31 L 3218.65 3090 Z" fill="#ececec" stroke="#292929" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3184.06 3003.16 L 3184.06 3016.7 L 3207.37 3030.23 L 3218.65 3050.15 L 3218.65 3090 L 3172.41 3063.31 L 3172.41 3023.46 Z M 3253.24 3016.7 L 3253.24 3003.16 L 3264.89 3023.08" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3218.65 3090 L 3218.65 3050.15 L 3229.93 3030.23 L 3253.24 3016.7 L 3264.89 3023.08 L 3264.89 3063.31 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3189.78 3009.32 L 3217.3 2994.14 L 3226.84 2999.4 L 3213.61 3013.08 L 3238.27 3005.79 L 3247.98 3010.98 L 3220.38 3026.17 L 3214.37 3022.93 L 3237.29 3010.53 L 3208.05 3019.47 L 3201.88 3016.02 L 3218.27 2999.92 L 3195.57 3012.56 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 3184.06 3003.16 L 3184.06 3016.7 L 3207.37 3030.23 L 3218.65 3050.15 L 3229.93 3030.23 L 3253.24 3016.7 L 3253.24 3003.16 M 3172.41 3023.46 L 3184.06 3016.7 M 3218.65 3050.15 L 3218.65 3090 M 3264.89 3023.46 L 3252.87 3016.7 M 3207.37 3030.23 L 3229.93 3030.23" fill="none" stroke="white" stroke-width="8.75" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3184.06 3003.16 L 3184.06 3016.7 L 3207.37 3030.23 L 3218.65 3050.15 L 3229.93 3030.23 L 3253.24 3016.7 L 3253.24 3003.16 M 3172.41 3023.46 L 3184.06 3016.7 M 3218.65 3050.15 L 3218.65 3090 M 3264.89 3023.46 L 3252.87 3016.7 M 3207.37 3030.23 L 3229.93 3030.23" fill="none" stroke="#5e5e5e" stroke-width="0.75" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3172.41 3063.31 L 3172.41 3023.46 L 3184.06 3003.16 L 3207 2990 L 3230.3 2990 L 3253.24 3003.16 L 3264.89 3023.46 L 3264.89 3063.31 L 3218.65 3090 Z" fill="none" stroke="white" stroke-width="9.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3172.41 3063.31 L 3172.41 3023.46 L 3184.06 3003.16 L 3207 2990 L 3230.3 2990 L 3253.24 3003.16 L 3264.89 3023.46 L 3264.89 3063.31 L 3218.65 3090 Z" fill="none" stroke="#292929" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3175.24 3573.31 L 3175.24 3533.46 L 3186.89 3513.16 L 3209.83 3500 L 3233.13 3500 L 3256.07 3513.16 L 3267.72 3533.46 L 3267.72 3573.31 L 3221.48 3600 Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3175.24 3573.31 L 3175.24 3533.46 L 3186.89 3513.16 L 3209.83 3500 L 3233.13 3500 L 3256.07 3513.16 L 3267.72 3533.46 L 3267.72 3573.31 L 3221.48 3600 Z" fill="#ececec" stroke="#292929" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3186.89 3513.16 L 3186.89 3526.7 L 3210.2 3540.23 L 3221.48 3560.15 L 3221.48 3600 L 3175.24 3573.31 L 3175.24 3533.46 Z M 3256.07 3526.7 L 3256.07 3513.16 L 3267.72 3533.08" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3221.48 3600 L 3221.48 3560.15 L 3232.76 3540.23 L 3256.07 3526.7 L 3267.72 3533.08 L 3267.72 3573.31 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 3206.09 3517.89 C 3206.84 3517.58 3207.69 3517.58 3208.44 3517.89 L 3212.24 3520.15 C 3212.47 3520.26 3212.62 3520.48 3212.64 3520.73 C 3212.65 3520.98 3212.52 3521.22 3212.31 3521.35 L 3208.29 3523.68 C 3207.63 3523.92 3206.9 3523.92 3206.24 3523.68 L 3202.37 3521.43 C 3202.1 3521.33 3201.92 3521.08 3201.92 3520.79 C 3201.92 3520.5 3202.1 3520.25 3202.37 3520.15 Z M 3209.5 3517.29 C 3209.24 3517.19 3209.06 3516.94 3209.06 3516.66 C 3209.06 3516.37 3209.24 3516.12 3209.5 3516.02 L 3213.52 3513.68 C 3214.11 3513.49 3214.75 3513.49 3215.34 3513.68 L 3219.73 3516.17 C 3219.97 3516.43 3219.97 3516.82 3219.73 3517.08 L 3215.27 3519.55 C 3214.74 3519.69 3214.2 3519.69 3213.67 3519.55 Z M 3216.55 3513.08 C 3216.39 3512.95 3216.3 3512.76 3216.3 3512.55 C 3216.3 3512.35 3216.39 3512.16 3216.55 3512.03 L 3220.65 3509.62 C 3221.29 3509.4 3221.98 3509.4 3222.62 3509.62 L 3226.94 3512.03 C 3227.16 3512.29 3227.16 3512.67 3226.94 3512.93 L 3222.62 3515.49 C 3222 3515.69 3221.34 3515.69 3220.72 3515.49 Z M 3227.77 3513.83 C 3228.48 3513.56 3229.26 3513.56 3229.97 3513.83 L 3234.07 3516.24 C 3234.31 3516.49 3234.33 3516.87 3234.11 3517.14 L 3229.66 3519.55 C 3229.05 3519.75 3228.38 3519.75 3227.77 3519.55 L 3223.61 3517.14 C 3223.47 3517.01 3223.4 3516.83 3223.4 3516.65 C 3223.4 3516.47 3223.47 3516.29 3223.61 3516.16 Z M 3234.9 3517.89 C 3235.63 3517.6 3236.44 3517.6 3237.17 3517.89 L 3241.11 3520.23 C 3241.27 3520.36 3241.36 3520.55 3241.36 3520.76 C 3241.36 3520.96 3241.27 3521.15 3241.11 3521.28 L 3236.87 3523.76 C 3236.35 3523.9 3235.8 3523.9 3235.28 3523.76 L 3230.88 3521.35 C 3230.69 3521.22 3230.58 3521.01 3230.58 3520.79 C 3230.58 3520.57 3230.69 3520.36 3230.88 3520.23 Z M 3234.14 3524.51 C 3234.29 3524.74 3234.29 3525.03 3234.14 3525.26 L 3223.07 3531.73 C 3222.25 3532.11 3221.31 3532.11 3220.49 3531.73 L 3209.43 3525.41 C 3209.27 3525.28 3209.18 3525.09 3209.18 3524.89 C 3209.18 3524.68 3209.27 3524.49 3209.43 3524.36 L 3220.72 3517.82 C 3221.36 3517.6 3222.05 3517.6 3222.69 3517.82 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 3186.89 3513.16 L 3186.89 3526.7 L 3210.2 3540.23 L 3221.48 3560.15 L 3232.76 3540.23 L 3256.07 3526.7 L 3256.07 3513.16 M 3175.24 3533.46 L 3186.89 3526.7 M 3221.48 3560.15 L 3221.48 3600 M 3267.72 3533.46 L 3255.7 3526.7 M 3210.2 3540.23 L 3232.76 3540.23" fill="none" stroke="white" stroke-width="8.75" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3186.89 3513.16 L 3186.89 3526.7 L 3210.2 3540.23 L 3221.48 3560.15 L 3232.76 3540.23 L 3256.07 3526.7 L 3256.07 3513.16 M 3175.24 3533.46 L 3186.89 3526.7 M 3221.48 3560.15 L 3221.48 3600 M 3267.72 3533.46 L 3255.7 3526.7 M 3210.2 3540.23 L 3232.76 3540.23" fill="none" stroke="#5e5e5e" stroke-width="0.75" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3175.24 3573.31 L 3175.24 3533.46 L 3186.89 3513.16 L 3209.83 3500 L 3233.13 3500 L 3256.07 3513.16 L 3267.72 3533.46 L 3267.72 3573.31 L 3221.48 3600 Z" fill="none" stroke="white" stroke-width="9.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3175.24 3573.31 L 3175.24 3533.46 L 3186.89 3513.16 L 3209.83 3500 L 3233.13 3500 L 3256.07 3513.16 L 3267.72 3533.46 L 3267.72 3573.31 L 3221.48 3600 Z" fill="none" stroke="#292929" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g class="rotate-on-hover-modelval2" @mouseover="animateOncemModelval2" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelinfo">
+            <image x="4710.17" y="3154" width="160" height="160" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/switch.svg"></image>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelinfo">
+            <path d="M 4759.17 3222.86 L 4759.17 3204.34 L 4790.17 3187 L 4821.17 3204.34 L 4821.17 3222.86 L 4790.17 3240 Z" fill="#86e83a" stroke="#292929" stroke-width="1.98" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4759.17 3204.34 L 4790.17 3221.18 L 4790.17 3240 L 4759.17 3222.86 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 4790.17 3221.18 L 4821.17 3204.34 L 4821.17 3222.86 L 4790.17 3240 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 4759.17 3204.34 L 4790.17 3221.18 L 4790.17 3240 L 4759.17 3222.86 Z" fill="none" stroke="white" stroke-width="8.99" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4759.17 3204.34 L 4790.17 3221.18 L 4790.17 3240 L 4759.17 3222.86 Z" fill="none" stroke="#b0f373" stroke-width="0.99" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4790.17 3221.18 L 4821.17 3204.34 L 4821.17 3222.86 L 4790.17 3240 Z" fill="none" stroke="white" stroke-width="8.99" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4790.17 3221.18 L 4821.17 3204.34 L 4821.17 3222.86 L 4790.17 3240 Z" fill="none" stroke="#b0f373" stroke-width="0.99" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 4769.97 3220.68 L 4769.97 3210.28 L 4800.87 3192.94 L 4806.67 3196.21 L 4775.67 3213.45 L 4775.67 3223.65 Z M 4776.97 3224.55 L 4776.97 3214.24 L 4807.67 3196.91 L 4812.67 3199.58 L 4782.67 3216.82 L 4782.67 3227.32 Z" fill="#b0f373" stroke="none" pointer-events="all"></path>
+            <path d="M 4759.17 3222.86 L 4759.17 3204.34 L 4790.17 3187 L 4821.17 3204.34 L 4821.17 3222.86 L 4790.17 3240 Z" fill="none" stroke="white" stroke-width="9.98" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4759.17 3222.86 L 4759.17 3204.34 L 4790.17 3187 L 4821.17 3204.34 L 4821.17 3222.86 L 4790.17 3240 Z" fill="none" stroke="#292929" stroke-width="1.98" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3562.24 3886.37 L 3562.24 3811.21 L 3602.26 3801.4 L 3635.79 3811.5 L 3635.79 3887.49 L 3596.34 3896.74 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3562.24 3886.37 L 3562.24 3811.21 L 3602.26 3801.4 L 3635.79 3811.5 L 3635.79 3887.49 L 3596.34 3896.74 Z" fill="#abb4c5" stroke="none" pointer-events="all"></path>
+            <path d="M 3562.24 3811.21 L 3602.26 3801.4 L 3635.79 3811.5 L 3596.34 3821.03 Z" fill="#b8bfd1" stroke="none" pointer-events="all"></path>
+            <path d="M 3596.34 3821.03 L 3635.79 3811.5 L 3635.79 3887.49 L 3596.34 3896.74 Z" fill="#5b6369" stroke="none" pointer-events="all"></path>
+            <path d="M 3596.73 3862.36 C 3589.39 3859.55 3582.36 3855.98 3575.77 3851.71 C 3572.6 3849.53 3569.91 3846.72 3567.88 3843.46 C 3566.47 3840.92 3565.76 3838.06 3565.79 3835.16 C 3565.67 3832.04 3565.73 3828.91 3565.96 3825.8 C 3566.12 3823.02 3566.42 3820.25 3566.86 3817.5 C 3567.28 3815.98 3567.9 3814.52 3568.72 3813.18 C 3570.43 3812.03 3572.37 3811.08 3574.47 3810.37 C 3578.04 3809.16 3581.67 3808.14 3585.35 3807.29 C 3589.18 3806.27 3593.08 3805.52 3597.02 3805.05 C 3599.69 3804.71 3602.39 3804.62 3605.08 3804.77 C 3609.46 3805.08 3613.77 3806.02 3617.87 3807.57 L 3631.23 3812.45 C 3632.4 3814.39 3633.17 3816.54 3633.48 3818.79 C 3633.85 3821.8 3634.06 3824.83 3634.1 3827.87 C 3634.32 3834.57 3634.13 3841.28 3633.54 3847.95 C 3633.46 3850.89 3632.46 3853.74 3630.66 3856.08 C 3628.05 3858.95 3624.53 3860.83 3620.69 3861.41 C 3617.61 3861.89 3614.5 3862.12 3611.39 3862.08 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path>
+            <rect x="3562.24" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3562.24" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3562.24" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 3566.19 3822.71 L 3566.19 3820.75 L 3591.83 3828.6 L 3591.83 3830.56 Z M 3570.41 3882.16 L 3570.41 3880.2 L 3586.19 3884.69 L 3586.19 3886.65 Z" fill="#52595e" stroke="none" pointer-events="all"></path>
+            <path d="M 3562.24 3886.37 L 3562.24 3811.21 L 3602.26 3801.4 L 3635.79 3811.5 L 3635.79 3887.49 L 3596.34 3896.74 Z" fill="none" stroke="white" stroke-width="8.67" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3562.24 3886.37 L 3562.24 3811.21 L 3602.26 3801.4 L 3635.79 3811.5 L 3635.79 3887.49 L 3596.34 3896.74 Z" fill="none" stroke="#000000" stroke-width="0.67" stroke-miterlimit="10" pointer-events="all"></path>
+            <ellipse cx="3626.32" cy="3880.2" rx="21.305227722772276" ry="21.200224340998318" fill="#bebebe" stroke="#000000" stroke-width="0.5" pointer-events="all"></ellipse>
+            <ellipse cx="3626.32" cy="3880.2" rx="18.88161716171617" ry="18.78855860908581" fill="#249fe1" stroke="#000000" stroke-width="0.5" pointer-events="all"></ellipse>
+            <rect x="3562.24" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3562.24" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3562.24" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 3610.6 3890.41 L 3621.65 3880.03 L 3617.87 3870.5 L 3627 3870.5 L 3628.35 3875.99 L 3633.82 3870.5 L 3642.5 3870.5 L 3632.36 3880.09 L 3636.08 3890.41 L 3627.06 3890.41 L 3625.59 3884.13 L 3619.05 3890.41 Z" fill="#ffffff" stroke="none" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3682.19 3885.7 L 3682.19 3811.14 L 3721.41 3801.4 L 3754.28 3811.42 L 3754.28 3886.82 L 3715.61 3896 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3682.19 3885.7 L 3682.19 3811.14 L 3721.41 3801.4 L 3754.28 3811.42 L 3754.28 3886.82 L 3715.61 3896 Z" fill="#abb4c5" stroke="none" pointer-events="all"></path>
+            <path d="M 3682.19 3811.14 L 3721.41 3801.4 L 3754.28 3811.42 L 3715.61 3820.88 Z" fill="#b8bfd1" stroke="none" pointer-events="all"></path>
+            <path d="M 3715.61 3820.88 L 3754.28 3811.42 L 3754.28 3886.82 L 3715.61 3896 Z" fill="#5b6369" stroke="none" pointer-events="all"></path>
+            <path d="M 3716 3861.89 C 3708.8 3859.09 3701.91 3855.55 3695.45 3851.31 C 3692.34 3849.15 3689.71 3846.36 3687.71 3843.13 C 3686.34 3840.61 3685.64 3837.78 3685.67 3834.9 C 3685.55 3831.8 3685.61 3828.7 3685.84 3825.61 C 3686 3822.85 3686.29 3820.1 3686.72 3817.37 C 3687.13 3815.86 3687.74 3814.42 3688.54 3813.09 C 3690.22 3811.95 3692.12 3811.01 3694.18 3810.3 C 3697.68 3809.1 3701.24 3808.08 3704.84 3807.24 C 3708.6 3806.23 3712.42 3805.49 3716.28 3805.02 C 3718.9 3804.69 3721.54 3804.59 3724.18 3804.74 C 3728.47 3805.05 3732.69 3805.98 3736.72 3807.52 L 3749.81 3812.36 C 3750.96 3814.29 3751.71 3816.43 3752.02 3818.65 C 3752.38 3821.64 3752.58 3824.65 3752.63 3827.66 C 3752.84 3834.31 3752.65 3840.96 3752.07 3847.59 C 3752 3850.51 3751.01 3853.33 3749.26 3855.65 C 3746.7 3858.5 3743.24 3860.36 3739.48 3860.94 C 3736.46 3861.42 3733.41 3861.64 3730.36 3861.61 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect><path d="M 3686.06 3822.55 L 3686.06 3820.6 L 3711.19 3828.39 L 3711.19 3830.34 Z M 3690.2 3881.53 L 3690.2 3879.58 L 3705.67 3884.03 L 3705.67 3885.98 Z" fill="#52595e" stroke="none" pointer-events="all"></path>
+            <path d="M 3682.19 3885.7 L 3682.19 3811.14 L 3721.41 3801.4 L 3754.28 3811.42 L 3754.28 3886.82 L 3715.61 3896 Z" fill="none" stroke="white" stroke-width="8.66" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3682.19 3885.7 L 3682.19 3811.14 L 3721.41 3801.4 L 3754.28 3811.42 L 3754.28 3886.82 L 3715.61 3896 Z" fill="none" stroke="#000000" stroke-width="0.66" stroke-miterlimit="10" pointer-events="all"></path>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <ellipse cx="3745.11" cy="3880.48" rx="20.771632319267255" ry="20.922597518223803" fill="#008cce" stroke="none" pointer-events="all"></ellipse>
+            <path d="M 3730.94 3865.49 C 3731.15 3866.07 3731.43 3866.62 3731.78 3867.12 C 3732.35 3867.18 3732.9 3867.36 3733.41 3867.65 C 3733.27 3868.23 3733.52 3868.85 3734.03 3869.17 C 3734.41 3869.39 3734.67 3869.79 3734.73 3870.23 C 3734.75 3870.46 3734.85 3870.67 3735.02 3870.81 C 3735.19 3870.96 3735.42 3871.03 3735.64 3871.01 C 3735.89 3870.97 3736.15 3870.95 3736.41 3870.95 C 3736.97 3870.88 3737.54 3871 3738.02 3871.29 L 3739.78 3872.56 C 3740.06 3872.76 3740.26 3873.05 3740.34 3873.38 C 3740.44 3873.71 3740.44 3874.05 3740.34 3874.37 C 3740.2 3874.41 3740.05 3874.4 3739.92 3874.33 C 3739.82 3874.05 3739.62 3873.82 3739.36 3873.69 C 3739.02 3873.56 3738.64 3873.56 3738.31 3873.69 C 3737.86 3873.95 3737.34 3874.04 3736.83 3873.95 C 3736.41 3873.97 3736.02 3874.17 3735.77 3874.51 C 3735.57 3874.79 3735.27 3874.98 3734.93 3875 C 3734.59 3875.03 3734.26 3874.9 3734.03 3874.66 C 3733.82 3874.37 3733.48 3874.22 3733.14 3874.26 C 3732.79 3874.29 3732.49 3874.51 3732.34 3874.82 C 3732.16 3875.23 3732.05 3875.66 3732 3876.1 C 3732.01 3876.67 3731.91 3877.24 3731.69 3877.77 C 3731.58 3878.04 3731.38 3878.27 3731.13 3878.42 C 3730.72 3878.53 3730.46 3878.93 3730.52 3879.35 C 3730.85 3879.74 3731.1 3880.19 3731.27 3880.68 C 3731.43 3880.98 3731.31 3881.33 3730.99 3881.52 C 3730.68 3881.78 3730.53 3882.2 3730.6 3882.6 C 3730.11 3882.61 3729.63 3882.53 3729.17 3882.37 C 3728.99 3882.14 3728.75 3881.98 3728.47 3881.89 C 3728.2 3881.83 3727.93 3881.93 3727.77 3882.15 C 3727.45 3882.6 3727.22 3883.11 3727.09 3883.65 C 3726.98 3884.02 3726.93 3884.4 3726.92 3884.78 C 3727.29 3885.45 3727.46 3886.22 3727.43 3886.98 L 3727.71 3889.25 C 3727.73 3889.54 3727.65 3889.84 3727.5 3890.09 C 3727.32 3890.32 3727.08 3890.49 3726.81 3890.57 C 3722.4 3882.24 3724.08 3871.96 3730.91 3865.49 Z" fill="#00527f" stroke="none" pointer-events="all"></path>
+            <path d="M 3756.34 3863.09 C 3756.24 3863.41 3756.05 3863.67 3755.78 3863.86 C 3755.53 3863.96 3755.26 3864.02 3754.99 3864.02 L 3753.45 3864.22 C 3752.79 3864.14 3752.11 3864.22 3751.48 3864.45 C 3751.54 3864.67 3751.45 3864.9 3751.27 3865.04 C 3751.09 3865.18 3750.84 3865.19 3750.64 3865.07 C 3750.24 3865.07 3749.87 3865.25 3749.6 3865.55 C 3749.39 3865.78 3749.12 3865.92 3748.82 3865.98 C 3748.39 3866.06 3748.03 3866.34 3747.84 3866.74 C 3747.65 3867.08 3747.32 3867.15 3747.08 3866.91 C 3746.93 3866.6 3746.83 3866.26 3746.8 3865.92 C 3746.52 3865.25 3746.03 3864.7 3745.39 3864.36 C 3744.75 3864.08 3744.16 3863.7 3743.63 3863.23 C 3743.29 3862.98 3743.08 3862.58 3743.06 3862.16 C 3743.05 3861.9 3743.08 3861.64 3743.15 3861.4 C 3742.94 3860.95 3742.51 3860.65 3742.02 3860.6 C 3741.66 3860.51 3741.37 3860.25 3741.24 3859.89 C 3746.58 3858.89 3752.11 3860.04 3756.62 3863.09 Z" fill="#64aadc" stroke="none" pointer-events="all"></path>
+            <path d="M 3765.04 3886.14 C 3764.98 3885.49 3764.74 3884.87 3764.34 3884.36 C 3763.9 3884.32 3763.49 3884.54 3763.27 3884.92 C 3762.93 3885.41 3762.4 3885.75 3761.81 3885.85 C 3761.4 3885.39 3761.48 3884.74 3762.01 3884.36 C 3762.35 3883.84 3762.44 3883.19 3762.23 3882.6 C 3762.19 3882.35 3762.09 3882.11 3761.96 3881.89 C 3761.56 3881.5 3761.27 3881.01 3761.11 3880.48 C 3760.74 3880.72 3760.3 3880.68 3759.96 3880.39 C 3759.62 3880.09 3759.44 3879.58 3759.48 3879.06 C 3759.5 3878.46 3759.28 3877.87 3758.87 3877.43 C 3758.9 3876.46 3758.6 3875.51 3758.02 3874.74 C 3757.44 3874.15 3756.66 3873.8 3755.84 3873.75 C 3755.14 3873.76 3754.57 3873.35 3754.55 3872.82 C 3754.54 3872.3 3755.09 3871.87 3755.78 3871.86 C 3756.83 3871.98 3757.89 3871.95 3758.92 3871.77 C 3759.93 3871.65 3760.91 3871.34 3761.81 3870.87 L 3762.8 3869.51 C 3765.81 3874.49 3766.63 3880.52 3765.04 3886.14 Z" fill="#0a79b9" stroke="none" pointer-events="all"></path>
+            <path d="M 3762.93 3891.37 C 3762.46 3891.97 3761.83 3892.42 3761.11 3892.69 C 3760.55 3892.87 3760.16 3893.38 3760.13 3893.97 C 3760.07 3894.17 3760 3894.06 3759.95 3893.66 C 3759.9 3893.26 3759.86 3892.6 3759.85 3891.85 C 3759.93 3891.13 3760.19 3890.45 3760.61 3889.86 C 3761.06 3889.44 3761.46 3888.97 3761.81 3888.45 C 3761.94 3888.25 3761.94 3887.99 3761.82 3887.78 C 3761.69 3887.57 3761.46 3887.46 3761.22 3887.48 C 3760.98 3887.5 3760.78 3887.66 3760.69 3887.89 C 3760.17 3888.51 3759.7 3889.17 3759.29 3889.86 C 3758.6 3890.9 3757.62 3891.33 3756.68 3891 C 3756.11 3890.72 3755.48 3890.57 3754.85 3890.57 C 3754.48 3890.72 3754.24 3890.96 3754.21 3891.23 C 3754.19 3891.5 3754.37 3891.76 3754.71 3891.93 C 3755.24 3892.09 3755.69 3892.44 3755.97 3892.92 C 3756.42 3893.68 3755.53 3894.46 3753.81 3894.82 C 3752.64 3894.85 3751.47 3895.07 3750.36 3895.46 C 3749.71 3896.07 3749.27 3896.86 3749.1 3897.73 C 3748.89 3898.11 3747.85 3898.4 3746.57 3898.43 C 3745.66 3898.3 3744.74 3898.35 3743.85 3898.57 C 3743.11 3898.85 3742.27 3898.71 3741.66 3898.21 C 3741.51 3897.91 3741.22 3897.71 3740.89 3897.7 C 3740.56 3897.68 3740.25 3897.85 3740.08 3898.13 C 3739.9 3898.41 3739.9 3898.77 3740.06 3899.06 C 3740.35 3899.58 3740.93 3899.86 3741.52 3899.76 C 3741.94 3899.53 3742.48 3899.42 3743.01 3899.48 C 3743.33 3899.56 3743.59 3899.75 3743.71 3899.99 C 3743.89 3900.14 3744.26 3900.26 3744.71 3900.31 C 3745.17 3900.36 3745.67 3900.35 3746.1 3900.27 C 3746.79 3900.06 3747.68 3899.93 3748.62 3899.9 C 3749.29 3899.86 3749.91 3899.76 3750.44 3899.62 C 3750.97 3899.22 3751.62 3899.02 3752.27 3899.06 C 3752.64 3898.97 3752.93 3898.88 3753.11 3898.77 C 3753.37 3898.58 3753.69 3898.48 3754.01 3898.49 C 3754.17 3898.61 3754.23 3898.82 3754.15 3899 C 3753.93 3899.3 3753.68 3899.56 3753.39 3899.79 C 3757.37 3898.05 3760.7 3895.11 3762.93 3891.37 Z M 3734.08 3880.34 C 3734.23 3880.54 3734.49 3880.62 3734.73 3880.54 C 3734.82 3880.36 3734.88 3880.17 3734.92 3879.97 C 3735.05 3879.54 3735.05 3879.07 3734.92 3878.64 C 3734.76 3878.51 3734.55 3878.48 3734.36 3878.56 C 3734.22 3879.14 3734.13 3879.74 3734.08 3880.34 Z" fill="#266792" stroke="none" pointer-events="all"></path>
+            <ellipse cx="3743.85" cy="3871.57" rx="15.018000654236177" ry="10.461298759111902" fill-opacity="0.3" fill="#ffffff" stroke="none" pointer-events="all"></ellipse>
+            <ellipse cx="3736.99" cy="3869.58" rx="4.350441609421001" ry="3.191252573590785" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></ellipse>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <ellipse cx="3745.11" cy="3880.48" rx="20.771632319267255" ry="20.922597518223803" fill="none" stroke="white" stroke-width="8.54" pointer-events="stroke" visibility="hidden"></ellipse>
+            <ellipse cx="3745.11" cy="3880.48" rx="20.771632319267255" ry="20.922597518223803" fill="none" stroke="#000000" stroke-width="0.54" pointer-events="all"></ellipse>
+            <ellipse cx="3745.23" cy="3880.21" rx="14.628532548249916" ry="14.734850592621443" fill="#d2d1cf" stroke="#5d6368" stroke-width="0.35" pointer-events="all"></ellipse>
+            <ellipse cx="3745.23" cy="3880.21" rx="13.661767746156361" ry="13.76105948472539" fill="#005cf1" stroke="#061580" stroke-width="0.35" pointer-events="all"></ellipse><path d="M 3737.35 3881.26 C 3737.08 3881.26 3736.82 3881.14 3736.64 3880.95 C 3736.45 3880.75 3736.36 3880.48 3736.38 3880.21 L 3735.92 3872.19 C 3736.01 3871.93 3736.23 3871.73 3736.5 3871.68 L 3746.01 3872.57 C 3746.32 3872.65 3746.55 3872.91 3746.58 3873.23 L 3746.58 3880.02 C 3746.55 3880.26 3746.41 3880.48 3746.2 3880.6 Z" fill="#ffffff" stroke="#0126b5" stroke-width="0.15" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 3737.89 3880.56 C 3737.65 3880.57 3737.42 3880.48 3737.25 3880.31 C 3737.08 3880.14 3736.99 3879.91 3737 3879.67 L 3736.61 3872.76 C 3736.69 3872.54 3736.88 3872.37 3737.12 3872.33 L 3745.6 3873.09 C 3745.87 3873.16 3746.08 3873.39 3746.11 3873.66 L 3746.11 3879.5 C 3746.09 3879.71 3745.96 3879.89 3745.77 3880 Z" fill="#ffffff" stroke="#0126b5" stroke-width="0.15" stroke-miterlimit="10" pointer-events="all"></path>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 3736.65 3873.74 L 3736.65 3872.92 C 3736.65 3872.63 3736.87 3872.38 3737.15 3872.34 L 3745.58 3873.12 C 3745.86 3873.13 3746.09 3873.34 3746.12 3873.62 L 3746.12 3874.2 Z" fill="#0126b5" stroke="none" pointer-events="all"></path>
+            <path d="M 3740.62 3883.88 C 3740.1 3883.68 3739.7 3883.21 3739.56 3882.63 L 3739.04 3873.02 C 3739.14 3872.71 3739.39 3872.48 3739.68 3872.41 L 3750.22 3873.48 C 3750.56 3873.58 3750.82 3873.89 3750.86 3874.27 L 3750.86 3882.4 C 3750.82 3882.69 3750.66 3882.94 3750.43 3883.1 Z M 3741.22 3883.05 C 3740.75 3882.88 3740.39 3882.49 3740.24 3881.98 L 3739.8 3873.71 C 3739.89 3873.44 3740.11 3873.24 3740.37 3873.19 L 3749.77 3874.11 C 3750.07 3874.19 3750.3 3874.46 3750.34 3874.78 L 3750.34 3881.78 C 3750.3 3882.03 3750.16 3882.25 3749.96 3882.38 Z" fill="#ffffff" stroke="#0126b5" stroke-width="0.15" stroke-miterlimit="10" pointer-events="all"></path>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 3739.85 3874.87 L 3739.85 3873.9 C 3739.85 3873.55 3740.09 3873.25 3740.41 3873.2 L 3749.75 3874.13 C 3750.06 3874.15 3750.31 3874.41 3750.35 3874.73 L 3750.35 3875.43 Z" fill="#0126b5" stroke="none" pointer-events="all"></path>
+            <path d="M 3745.74 3888.74 C 3745.33 3888.71 3744.94 3888.5 3744.68 3888.16 L 3744.17 3877.48 C 3744.27 3877.18 3744.51 3876.96 3744.81 3876.89 L 3755.27 3877.19 C 3755.59 3877.27 3755.84 3877.54 3755.91 3877.88 L 3755.91 3886.54 C 3755.87 3886.83 3755.72 3887.07 3755.48 3887.22 Z M 3746.33 3887.77 C 3745.91 3887.69 3745.55 3887.4 3745.36 3886.99 L 3744.93 3878.15 C 3745.02 3877.89 3745.23 3877.69 3745.49 3877.64 L 3754.82 3877.77 C 3755.09 3877.82 3755.3 3878.02 3755.39 3878.27 L 3755.39 3885.94 C 3755.35 3886.18 3755.22 3886.4 3755.01 3886.53 Z" fill="#ffffff" stroke="#0126b5" stroke-width="0.15" stroke-miterlimit="10" pointer-events="all"></path>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3682.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 3744.98 3879.27 L 3744.98 3878.33 C 3744.98 3877.99 3745.21 3877.7 3745.53 3877.66 L 3754.81 3877.77 C 3755.09 3877.78 3755.33 3877.98 3755.4 3878.27 L 3755.4 3879.05 Z" fill="#0126b5" stroke="none" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 3796.19 3885.7 L 3796.19 3811.14 L 3835.41 3801.4 L 3868.28 3811.42 L 3868.28 3886.82 L 3829.61 3896 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3796.19 3885.7 L 3796.19 3811.14 L 3835.41 3801.4 L 3868.28 3811.42 L 3868.28 3886.82 L 3829.61 3896 Z" fill="#abb4c5" stroke="none" pointer-events="all"></path>
+            <path d="M 3796.19 3811.14 L 3835.41 3801.4 L 3868.28 3811.42 L 3829.61 3820.88 Z" fill="#b8bfd1" stroke="none" pointer-events="all"></path>
+            <path d="M 3829.61 3820.88 L 3868.28 3811.42 L 3868.28 3886.82 L 3829.61 3896 Z" fill="#5b6369" stroke="none" pointer-events="all"></path>
+            <path d="M 3830 3861.89 C 3822.8 3859.09 3815.91 3855.55 3809.45 3851.31 C 3806.34 3849.15 3803.71 3846.36 3801.71 3843.13 C 3800.34 3840.61 3799.64 3837.78 3799.67 3834.9 C 3799.55 3831.8 3799.61 3828.7 3799.84 3825.61 C 3800 3822.85 3800.29 3820.1 3800.72 3817.37 C 3801.13 3815.86 3801.74 3814.42 3802.54 3813.09 C 3804.22 3811.95 3806.12 3811.01 3808.18 3810.3 C 3811.68 3809.1 3815.24 3808.08 3818.84 3807.24 C 3822.6 3806.23 3826.42 3805.49 3830.28 3805.02 C 3832.9 3804.69 3835.54 3804.59 3838.18 3804.74 C 3842.47 3805.05 3846.69 3805.98 3850.72 3807.52 L 3863.81 3812.36 C 3864.96 3814.29 3865.71 3816.43 3866.02 3818.65 C 3866.38 3821.64 3866.58 3824.65 3866.63 3827.66 C 3866.84 3834.31 3866.65 3840.96 3866.07 3847.59 C 3866 3850.51 3865.01 3853.33 3863.26 3855.65 C 3860.7 3858.5 3857.24 3860.36 3853.48 3860.94 C 3850.46 3861.42 3847.41 3861.64 3844.36 3861.61 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 3800.06 3822.55 L 3800.06 3820.6 L 3825.19 3828.39 L 3825.19 3830.34 Z M 3804.2 3881.53 L 3804.2 3879.58 L 3819.67 3884.03 L 3819.67 3885.98 Z" fill="#52595e" stroke="none" pointer-events="all"></path>
+            <path d="M 3796.19 3885.7 L 3796.19 3811.14 L 3835.41 3801.4 L 3868.28 3811.42 L 3868.28 3886.82 L 3829.61 3896 Z" fill="none" stroke="white" stroke-width="8.66" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3796.19 3885.7 L 3796.19 3811.14 L 3835.41 3801.4 L 3868.28 3811.42 L 3868.28 3886.82 L 3829.61 3896 Z" fill="none" stroke="#000000" stroke-width="0.66" stroke-miterlimit="10" pointer-events="all"></path>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <ellipse cx="3859.11" cy="3880.48" rx="20.771632319267255" ry="20.922597518223803" fill="#008cce" stroke="none" pointer-events="all"></ellipse>
+            <path d="M 3844.94 3865.49 C 3845.15 3866.07 3845.43 3866.62 3845.78 3867.12 C 3846.35 3867.18 3846.9 3867.36 3847.41 3867.65 C 3847.27 3868.23 3847.52 3868.85 3848.03 3869.17 C 3848.41 3869.39 3848.67 3869.79 3848.73 3870.23 C 3848.75 3870.46 3848.85 3870.67 3849.02 3870.81 C 3849.19 3870.96 3849.42 3871.03 3849.64 3871.01 C 3849.89 3870.97 3850.15 3870.95 3850.41 3870.95 C 3850.97 3870.88 3851.54 3871 3852.02 3871.29 L 3853.78 3872.56 C 3854.06 3872.76 3854.26 3873.05 3854.34 3873.38 C 3854.44 3873.71 3854.44 3874.05 3854.34 3874.37 C 3854.2 3874.41 3854.05 3874.4 3853.92 3874.33 C 3853.82 3874.05 3853.62 3873.82 3853.36 3873.69 C 3853.02 3873.56 3852.64 3873.56 3852.31 3873.69 C 3851.86 3873.95 3851.34 3874.04 3850.83 3873.95 C 3850.41 3873.97 3850.02 3874.17 3849.77 3874.51 C 3849.57 3874.79 3849.27 3874.98 3848.93 3875 C 3848.59 3875.03 3848.26 3874.9 3848.03 3874.66 C 3847.82 3874.37 3847.48 3874.22 3847.14 3874.26 C 3846.79 3874.29 3846.49 3874.51 3846.34 3874.82 C 3846.16 3875.23 3846.05 3875.66 3846 3876.1 C 3846.01 3876.67 3845.91 3877.24 3845.69 3877.77 C 3845.58 3878.04 3845.38 3878.27 3845.13 3878.42 C 3844.72 3878.53 3844.46 3878.93 3844.52 3879.35 C 3844.85 3879.74 3845.1 3880.19 3845.27 3880.68 C 3845.43 3880.98 3845.31 3881.33 3844.99 3881.52 C 3844.68 3881.78 3844.53 3882.2 3844.6 3882.6 C 3844.11 3882.61 3843.63 3882.53 3843.17 3882.37 C 3842.99 3882.14 3842.75 3881.98 3842.47 3881.89 C 3842.2 3881.83 3841.93 3881.93 3841.77 3882.15 C 3841.45 3882.6 3841.22 3883.11 3841.09 3883.65 C 3840.98 3884.02 3840.93 3884.4 3840.92 3884.78 C 3841.29 3885.45 3841.46 3886.22 3841.43 3886.98 L 3841.71 3889.25 C 3841.73 3889.54 3841.65 3889.84 3841.5 3890.09 C 3841.32 3890.32 3841.08 3890.49 3840.81 3890.57 C 3836.4 3882.24 3838.08 3871.96 3844.91 3865.49 Z" fill="#00527f" stroke="none" pointer-events="all"></path>
+            <path d="M 3870.34 3863.09 C 3870.24 3863.41 3870.05 3863.67 3869.78 3863.86 C 3869.53 3863.96 3869.26 3864.02 3868.99 3864.02 L 3867.45 3864.22 C 3866.79 3864.14 3866.11 3864.22 3865.48 3864.45 C 3865.54 3864.67 3865.45 3864.9 3865.27 3865.04 C 3865.09 3865.18 3864.84 3865.19 3864.64 3865.07 C 3864.24 3865.07 3863.87 3865.25 3863.6 3865.55 C 3863.39 3865.78 3863.12 3865.92 3862.82 3865.98 C 3862.39 3866.06 3862.03 3866.34 3861.84 3866.74 C 3861.65 3867.08 3861.32 3867.15 3861.08 3866.91 C 3860.93 3866.6 3860.83 3866.26 3860.8 3865.92 C 3860.52 3865.25 3860.03 3864.7 3859.39 3864.36 C 3858.75 3864.08 3858.16 3863.7 3857.63 3863.23 C 3857.29 3862.98 3857.08 3862.58 3857.06 3862.16 C 3857.05 3861.9 3857.08 3861.64 3857.15 3861.4 C 3856.94 3860.95 3856.51 3860.65 3856.02 3860.6 C 3855.66 3860.51 3855.37 3860.25 3855.24 3859.89 C 3860.58 3858.89 3866.11 3860.04 3870.62 3863.09 Z" fill="#64aadc" stroke="none" pointer-events="all"></path>
+            <path d="M 3879.04 3886.14 C 3878.98 3885.49 3878.74 3884.87 3878.34 3884.36 C 3877.9 3884.32 3877.49 3884.54 3877.27 3884.92 C 3876.93 3885.41 3876.4 3885.75 3875.81 3885.85 C 3875.4 3885.39 3875.48 3884.74 3876.01 3884.36 C 3876.35 3883.84 3876.44 3883.19 3876.23 3882.6 C 3876.19 3882.35 3876.09 3882.11 3875.96 3881.89 C 3875.56 3881.5 3875.27 3881.01 3875.11 3880.48 C 3874.74 3880.72 3874.3 3880.68 3873.96 3880.39 C 3873.62 3880.09 3873.44 3879.58 3873.48 3879.06 C 3873.5 3878.46 3873.28 3877.87 3872.87 3877.43 C 3872.9 3876.46 3872.6 3875.51 3872.02 3874.74 C 3871.44 3874.15 3870.66 3873.8 3869.84 3873.75 C 3869.14 3873.76 3868.57 3873.35 3868.55 3872.82 C 3868.54 3872.3 3869.09 3871.87 3869.78 3871.86 C 3870.83 3871.98 3871.89 3871.95 3872.92 3871.77 C 3873.93 3871.65 3874.91 3871.34 3875.81 3870.87 L 3876.8 3869.51 C 3879.81 3874.49 3880.63 3880.52 3879.04 3886.14 Z" fill="#0a79b9" stroke="none" pointer-events="all"></path>
+            <path d="M 3876.93 3891.37 C 3876.46 3891.97 3875.83 3892.42 3875.11 3892.69 C 3874.55 3892.87 3874.16 3893.38 3874.13 3893.97 C 3874.07 3894.17 3874 3894.06 3873.95 3893.66 C 3873.9 3893.26 3873.86 3892.6 3873.85 3891.85 C 3873.93 3891.13 3874.19 3890.45 3874.61 3889.86 C 3875.06 3889.44 3875.46 3888.97 3875.81 3888.45 C 3875.94 3888.25 3875.94 3887.99 3875.82 3887.78 C 3875.69 3887.57 3875.46 3887.46 3875.22 3887.48 C 3874.98 3887.5 3874.78 3887.66 3874.69 3887.89 C 3874.17 3888.51 3873.7 3889.17 3873.29 3889.86 C 3872.6 3890.9 3871.62 3891.33 3870.68 3891 C 3870.11 3890.72 3869.48 3890.57 3868.85 3890.57 C 3868.48 3890.72 3868.24 3890.96 3868.21 3891.23 C 3868.19 3891.5 3868.37 3891.76 3868.71 3891.93 C 3869.24 3892.09 3869.69 3892.44 3869.97 3892.92 C 3870.42 3893.68 3869.53 3894.46 3867.81 3894.82 C 3866.64 3894.85 3865.47 3895.07 3864.36 3895.46 C 3863.71 3896.07 3863.27 3896.86 3863.1 3897.73 C 3862.89 3898.11 3861.85 3898.4 3860.57 3898.43 C 3859.66 3898.3 3858.74 3898.35 3857.85 3898.57 C 3857.11 3898.85 3856.27 3898.71 3855.66 3898.21 C 3855.51 3897.91 3855.22 3897.71 3854.89 3897.7 C 3854.56 3897.68 3854.25 3897.85 3854.08 3898.13 C 3853.9 3898.41 3853.9 3898.77 3854.06 3899.06 C 3854.35 3899.58 3854.93 3899.86 3855.52 3899.76 C 3855.94 3899.53 3856.48 3899.42 3857.01 3899.48 C 3857.33 3899.56 3857.59 3899.75 3857.71 3899.99 C 3857.89 3900.14 3858.26 3900.26 3858.71 3900.31 C 3859.17 3900.36 3859.67 3900.35 3860.1 3900.27 C 3860.79 3900.06 3861.68 3899.93 3862.62 3899.9 C 3863.29 3899.86 3863.91 3899.76 3864.44 3899.62 C 3864.97 3899.22 3865.62 3899.02 3866.27 3899.06 C 3866.64 3898.97 3866.93 3898.88 3867.11 3898.77 C 3867.37 3898.58 3867.69 3898.48 3868.01 3898.49 C 3868.17 3898.61 3868.23 3898.82 3868.15 3899 C 3867.93 3899.3 3867.68 3899.56 3867.39 3899.79 C 3871.37 3898.05 3874.7 3895.11 3876.93 3891.37 Z M 3848.08 3880.34 C 3848.23 3880.54 3848.49 3880.62 3848.73 3880.54 C 3848.82 3880.36 3848.88 3880.17 3848.92 3879.97 C 3849.05 3879.54 3849.05 3879.07 3848.92 3878.64 C 3848.76 3878.51 3848.55 3878.48 3848.36 3878.56 C 3848.22 3879.14 3848.13 3879.74 3848.08 3880.34 Z" fill="#266792" stroke="none" pointer-events="all"></path>
+            <ellipse cx="3857.85" cy="3871.57" rx="15.018000654236177" ry="10.461298759111902" fill-opacity="0.3" fill="#ffffff" stroke="none" pointer-events="all"></ellipse>
+            <ellipse cx="3850.99" cy="3869.58" rx="4.350441609421001" ry="3.191252573590785" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></ellipse>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <ellipse cx="3859.11" cy="3880.48" rx="20.771632319267255" ry="20.922597518223803" fill="none" stroke="white" stroke-width="8.54" pointer-events="stroke" visibility="hidden"></ellipse>
+            <ellipse cx="3859.11" cy="3880.48" rx="20.771632319267255" ry="20.922597518223803" fill="none" stroke="#000000" stroke-width="0.54" pointer-events="all"></ellipse>
+            <path d="M 3850.24 3893.77 C 3849.06 3893.77 3847.93 3893.29 3847.09 3892.45 C 3846.26 3891.61 3845.79 3890.47 3845.79 3889.28 L 3845.79 3870.89 C 3845.79 3869.7 3846.26 3868.56 3847.09 3867.72 C 3847.93 3866.88 3849.06 3866.4 3850.24 3866.4 L 3868.28 3866.4 C 3869.5 3866.34 3870.69 3866.79 3871.57 3867.63 C 3872.46 3868.48 3872.96 3869.66 3872.96 3870.89 L 3872.96 3889.28 C 3872.96 3890.51 3872.46 3891.69 3871.57 3892.54 C 3870.69 3893.38 3869.5 3893.83 3868.28 3893.77 Z" fill="#214f9d" stroke="#1a408e" stroke-width="0.45" stroke-miterlimit="10" pointer-events="all"></path><rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect><rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="3796.19" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect><ellipse cx="3858.93" cy="3867.3" rx="6.68172587504089" ry="0.2253630849702298" fill="#8cb1e0" stroke="none" pointer-events="all"></ellipse><path d="M 3851.36 3892.42 C 3849.14 3892.42 3847.35 3890.62 3847.35 3888.38 L 3847.35 3872.01 C 3847.35 3869.78 3849.14 3867.97 3851.36 3867.97 L 3867.39 3867.97 C 3869.6 3867.97 3871.4 3869.78 3871.4 3872.01 L 3871.4 3888.38 C 3871.4 3890.62 3869.6 3892.42 3867.39 3892.42 Z" fill="#3c6db6" stroke="none" pointer-events="all"></path><path d="M 3852.25 3876.27 C 3853.38 3877.21 3854.04 3878.61 3854.04 3880.09 C 3854.04 3881.56 3853.38 3882.96 3852.25 3883.9 L 3850.91 3882.78 C 3851.75 3882.14 3852.24 3881.14 3852.24 3880.09 C 3852.24 3879.03 3851.75 3878.03 3850.91 3877.39 Z M 3855.36 3873.81 C 3857.33 3875.33 3858.48 3877.7 3858.48 3880.2 C 3858.48 3882.7 3857.33 3885.06 3855.36 3886.59 L 3854.21 3885.51 C 3855.86 3884.24 3856.82 3882.27 3856.82 3880.17 C 3856.82 3878.08 3855.86 3876.11 3854.21 3874.83 Z M 3858.48 3871.11 C 3861.34 3873.23 3863.02 3876.58 3863.02 3880.15 C 3863.02 3883.72 3861.34 3887.08 3858.48 3889.19 L 3857.32 3888.16 C 3859.76 3886.25 3861.19 3883.31 3861.19 3880.2 C 3861.19 3877.09 3859.76 3874.15 3857.32 3872.24 Z M 3861.69 3868.56 C 3865.31 3871.31 3867.45 3875.62 3867.45 3880.2 C 3867.45 3884.78 3865.31 3889.09 3861.69 3891.84 L 3860.44 3890.76 C 3863.73 3888.26 3865.66 3884.35 3865.66 3880.2 C 3865.66 3876.04 3863.73 3872.13 3860.44 3869.63 Z" fill="#ffffff" stroke="none" pointer-events="all"></path>
+          </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 3910.37 3884.66 L 3910.37 3811.02 L 3949.32 3801.4 L 3981.96 3811.29 L 3981.96 3885.76 L 3943.56 3894.83 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 3910.37 3884.66 L 3910.37 3811.02 L 3949.32 3801.4 L 3981.96 3811.29 L 3981.96 3885.76 L 3943.56 3894.83 Z" fill="#abb4c5" stroke="none" pointer-events="all"></path>
+            <path d="M 3910.37 3811.02 L 3949.32 3801.4 L 3981.96 3811.29 L 3943.56 3820.63 Z" fill="#b8bfd1" stroke="none" pointer-events="all"></path>
+            <path d="M 3943.56 3820.63 L 3981.96 3811.29 L 3981.96 3885.76 L 3943.56 3894.83 Z" fill="#5b6369" stroke="none" pointer-events="all"></path>
+            <path d="M 3943.94 3861.14 C 3936.8 3858.38 3929.96 3854.88 3923.54 3850.7 C 3920.45 3848.56 3917.84 3845.81 3915.86 3842.62 C 3914.49 3840.13 3913.79 3837.33 3913.83 3834.48 C 3913.71 3831.42 3913.77 3828.36 3913.99 3825.31 C 3914.15 3822.58 3914.44 3819.87 3914.87 3817.17 C 3915.27 3815.68 3915.88 3814.26 3916.68 3812.94 C 3918.35 3811.82 3920.23 3810.89 3922.27 3810.19 C 3925.75 3809.01 3929.29 3808 3932.86 3807.17 C 3936.59 3806.17 3940.39 3805.44 3944.22 3804.97 C 3946.82 3804.65 3949.45 3804.55 3952.06 3804.7 C 3956.33 3805 3960.52 3805.93 3964.52 3807.45 L 3977.52 3812.23 C 3978.66 3814.13 3979.41 3816.24 3979.71 3818.44 C 3980.08 3821.39 3980.28 3824.36 3980.32 3827.34 C 3980.53 3833.9 3980.34 3840.47 3979.77 3847.01 C 3979.69 3849.9 3978.72 3852.69 3976.97 3854.98 C 3974.43 3857.79 3971 3859.63 3967.26 3860.2 C 3964.27 3860.67 3961.24 3860.89 3958.21 3860.86 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path>
+            <rect x="3910.37" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3910.37" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3910.37" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 3914.21 3822.28 L 3914.21 3820.36 L 3939.17 3828.05 L 3939.17 3829.98 Z M 3918.32 3880.54 L 3918.32 3878.61 L 3933.69 3883.01 L 3933.69 3884.93 Z" fill="#52595e" stroke="none" pointer-events="all"></path><path d="M 3910.37 3884.66 L 3910.37 3811.02 L 3949.32 3801.4 L 3981.96 3811.29 L 3981.96 3885.76 L 3943.56 3894.83 Z" fill="none" stroke="white" stroke-width="8.66" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 3910.37 3884.66 L 3910.37 3811.02 L 3949.32 3801.4 L 3981.96 3811.29 L 3981.96 3885.76 L 3943.56 3894.83 Z" fill="none" stroke="#000000" stroke-width="0.66" stroke-miterlimit="10" pointer-events="all"></path><rect x="3910.37" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="3910.37" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="3910.37" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 3965.13 3901.4 C 3962.09 3901.4 3959.62 3898.93 3959.62 3895.88 L 3959.62 3873.33 C 3959.52 3871.81 3960.05 3870.3 3961.1 3869.19 C 3962.14 3868.07 3963.6 3867.44 3965.13 3867.44 L 3988.28 3867.44 C 3989.81 3867.44 3991.27 3868.07 3992.31 3869.19 C 3993.36 3870.3 3993.89 3871.81 3993.79 3873.33 L 3993.79 3895.88 C 3993.79 3898.93 3991.32 3901.4 3988.28 3901.4 Z" fill="url(#mx-gradient-cccccc-1-000000-1-s-0)" stroke="none" pointer-events="all"></path>
+            <ellipse cx="3976.38" cy="3884.24" rx="13.781019442984759" ry="13.8052319191031" fill="#bfbfbf" stroke="none" pointer-events="all"></ellipse>
+            <ellipse cx="3976.38" cy="3884.24" rx="12.859358906988964" ry="12.881952077379644" fill="#131313" stroke="none" pointer-events="all"></ellipse>
+            <path d="M 3972.48 3894.45 C 3971.12 3895.06 3969.54 3894.88 3968.35 3893.99 C 3967.02 3892.73 3966.56 3890.79 3967.19 3889.07 C 3967.47 3888.34 3967.95 3887.7 3968.57 3887.23 C 3969.51 3886.66 3970.1 3885.66 3970.14 3884.56 C 3970.03 3883.67 3969.5 3882.88 3968.71 3882.45 C 3967.81 3881.74 3967.25 3880.68 3967.15 3879.54 C 3967.06 3878.4 3967.44 3877.27 3968.2 3876.42 C 3968.9 3875.6 3969.91 3875.13 3970.97 3875.12 C 3972.04 3875.11 3973.06 3875.57 3973.76 3876.37 C 3974.02 3876.83 3974.36 3877.23 3974.78 3877.57 C 3975.74 3878.08 3976.9 3878.06 3977.85 3877.52 L 3979.55 3875.86 C 3981 3874.77 3983.03 3874.91 3984.33 3876.19 C 3985.69 3877.51 3985.98 3879.6 3985.02 3881.25 C 3984.6 3881.86 3984.09 3882.41 3983.5 3882.86 C 3982.99 3883.31 3982.69 3883.96 3982.66 3884.64 C 3982.64 3885.33 3982.89 3886 3983.36 3886.49 C 3984.25 3886.92 3984.95 3887.66 3985.34 3888.56 C 3986.17 3890.22 3985.94 3892.21 3984.74 3893.62 C 3983.51 3895.08 3981.39 3895.35 3979.83 3894.27 C 3979.14 3893.81 3978.58 3893.17 3978.22 3892.43 C 3977.44 3891.85 3976.45 3891.66 3975.51 3891.9 C 3974.58 3892.14 3973.8 3892.79 3973.39 3893.67 C 3973.13 3893.97 3972.82 3894.24 3972.48 3894.45 Z M 3974.78 3888.97 C 3975.74 3889.67 3977.03 3889.67 3977.99 3888.97 C 3978.96 3888.3 3979.78 3887.44 3980.42 3886.45 C 3981.18 3885.46 3981.19 3884.08 3980.44 3883.09 C 3979.83 3882.25 3979.08 3881.51 3978.22 3880.92 C 3977.28 3880.07 3975.87 3879.97 3974.82 3880.69 C 3973.83 3881.32 3972.98 3882.14 3972.3 3883.09 C 3971.66 3883.92 3971.55 3885.04 3972.02 3885.98 C 3972.7 3887.18 3973.65 3888.2 3974.78 3888.97 Z" fill="#bfbfbf" stroke="none" pointer-events="all"></path>
+            <path d="M 3959.62 3873.33 C 3959.52 3871.81 3960.05 3870.3 3961.1 3869.19 C 3962.14 3868.07 3963.6 3867.44 3965.13 3867.44 L 3988.32 3867.44 C 3989.84 3867.45 3991.29 3868.09 3992.33 3869.2 C 3993.36 3870.32 3993.89 3871.81 3993.79 3873.33 L 3993.79 3879.18 C 3982.78 3883.35 3970.63 3883.35 3959.62 3879.18 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path>
+          </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 4023.63 3886.65 L 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 4023.63 3886.65 L 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="#abb4c5" stroke="none" pointer-events="all"></path>
+            <path d="M 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4057.47 3821.09 Z" fill="#b8bfd1" stroke="none" pointer-events="all"></path>
+            <path d="M 4057.47 3821.09 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="#5b6369" stroke="none" pointer-events="all"></path>
+            <path d="M 4057.86 3862.56 C 4050.58 3859.74 4043.6 3856.16 4037.06 3851.87 C 4033.91 3849.68 4031.24 3846.87 4029.22 3843.6 C 4027.83 3841.05 4027.12 3838.18 4027.15 3835.27 C 4027.04 3832.14 4027.09 3829 4027.32 3825.88 C 4027.48 3823.09 4027.78 3820.31 4028.22 3817.55 C 4028.63 3816.03 4029.25 3814.57 4030.06 3813.22 C 4031.76 3812.06 4033.69 3811.12 4035.77 3810.4 C 4039.31 3809.19 4042.92 3808.16 4046.56 3807.31 C 4050.37 3806.29 4054.24 3805.53 4058.14 3805.06 C 4060.8 3804.72 4063.47 3804.63 4066.14 3804.78 C 4070.49 3805.09 4074.77 3806.03 4078.84 3807.59 L 4092.1 3812.48 C 4093.26 3814.43 4094.02 3816.59 4094.34 3818.84 C 4094.71 3821.87 4094.91 3824.91 4094.95 3827.96 C 4095.16 3834.68 4094.98 3841.41 4094.39 3848.1 C 4094.32 3851.06 4093.32 3853.91 4091.54 3856.26 C 4088.95 3859.13 4085.45 3861.02 4081.64 3861.61 C 4078.59 3862.09 4075.5 3862.31 4072.41 3862.28 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path>
+            <rect x="4023.63" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="4023.63" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="4023.63" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 4027.55 3822.78 L 4027.55 3820.81 L 4053 3828.69 L 4053 3830.66 Z M 4031.74 3882.43 L 4031.74 3880.46 L 4047.4 3884.96 L 4047.4 3886.93 Z" fill="#52595e" stroke="none" pointer-events="all"></path>
+            <path d="M 4023.63 3886.65 L 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="none" stroke="white" stroke-width="8.67" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 4023.63 3886.65 L 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="none" stroke="#000000" stroke-width="0.67" stroke-miterlimit="10" pointer-events="all"></path>
+            <rect x="4023.63" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
+            <rect x="4023.63" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="4023.63" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect>
+            <path d="M 4067.25 3901.4 C 4063.54 3901.4 4060.54 3898.38 4060.54 3894.65 L 4060.54 3867.08 C 4060.41 3865.21 4061.07 3863.37 4062.34 3862.01 C 4063.61 3860.64 4065.39 3859.87 4067.25 3859.87 L 4095.44 3859.87 C 4097.3 3859.87 4099.08 3860.64 4100.36 3862.01 C 4101.63 3863.37 4102.28 3865.21 4102.16 3867.08 L 4102.16 3894.65 C 4102.16 3896.44 4101.45 3898.16 4100.19 3899.42 C 4098.93 3900.69 4097.22 3901.4 4095.44 3901.4 Z" fill="url(#mx-gradient-cccccc-1-000000-1-s-0)" stroke="none" pointer-events="all"></path>
+            <ellipse cx="4080.68" cy="3880.13" rx="16.501955903271696" ry="16.599144722034662" fill="#131313" stroke="none" pointer-events="all"></ellipse>
+            <path d="M 4070.05 3894.42 C 4062.36 3888.76 4060.53 3877.98 4065.93 3870.08 C 4071.33 3862.18 4082 3860.03 4090 3865.22 C 4098.01 3870.42 4100.46 3881.08 4095.53 3889.29 C 4090.6 3897.49 4080.08 3900.26 4071.78 3895.55 C 4078.22 3890.82 4080.78 3882.38 4078.05 3874.84 C 4072.6 3879.83 4069.67 3887.02 4070.05 3894.42 Z" fill="#bcbcb6" stroke="none" pointer-events="all"></path>
+            <path d="M 4070.05 3894.42 C 4064.59 3890.44 4061.92 3883.55 4063.23 3876.82 C 4064.55 3870.09 4069.59 3864.78 4076.13 3863.23 C 4082.66 3861.69 4089.48 3864.21 4093.54 3869.66 C 4087.98 3869.8 4082.59 3871.6 4078.05 3874.84 C 4072.6 3879.83 4069.67 3887.02 4070.05 3894.42 Z" fill="#dddcd9" stroke="none" pointer-events="all"></path>
+            <path d="M 4078.05 3874.84 C 4084.64 3872.75 4091.81 3873.48 4097.85 3876.87 C 4099.13 3883.66 4096.36 3890.59 4090.76 3894.6 C 4085.16 3898.62 4077.75 3898.98 4071.78 3895.55 C 4078.22 3890.82 4080.78 3882.38 4078.05 3874.84 Z" fill="#dededb" stroke="none" pointer-events="all"></path>
+            <path d="M 4060.54 3867.08 C 4060.41 3865.21 4061.07 3863.37 4062.34 3862.01 C 4063.61 3860.64 4065.39 3859.87 4067.25 3859.87 L 4095.5 3859.87 C 4097.35 3859.89 4099.12 3860.66 4100.38 3862.03 C 4101.64 3863.39 4102.28 3865.22 4102.16 3867.08 L 4102.16 3874.22 C 4088.75 3879.33 4073.95 3879.33 4060.54 3874.22 Z" fill-opacity="0.3" fill="#ffffff" stroke="none" pointer-events="all"></path>
+          </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <rect x="3451.24" y="3931.4" width="730" height="70" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="3451.24" y="3931.4" width="730" height="70" fill="none" stroke="none" pointer-events="all"></rect>
+            </g>
+            <g style="">
+              <g>
+                <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                  <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3966px; margin-left: 3816px;">
+                    <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                        <span style="font-size: 50px;">参数量 计算量 时延 ... 能耗 精度<br></span>
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <rect x="3719" y="3688" width="220" height="75" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+              <rect x="3719" y="3688" width="220" height="75" fill="none" stroke="none" pointer-events="all"></rect>
+            </g>
+            <g style="">
+              <g>
+                <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                  <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3726px; margin-left: 3829px;">
+                    <div data-drawio-colors="color: #39b6fd; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(57, 182, 253); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                        <span style="font-size: 50px;">模型性能<br></span>
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <path d="M 5030 3115.23 L 5047.28 3076.35 L 5113.98 3038.01 L 5147.18 3038.01 L 5213.62 3076.62 L 5229.8 3114.42 L 5130.44 3173.01 Z" fill="#000000" stroke="#000000" stroke-width="5.4" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+              <path d="M 5030 3115.23 L 5047.28 3076.35 L 5113.98 3038.01 L 5147.18 3038.01 L 5213.62 3076.62 L 5229.8 3114.42 L 5130.44 3173.01 Z" fill="#ececec" stroke="#292929" stroke-width="5.4" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+              <path d="M 5030 3114.42 L 5047.82 3076.08 L 5047.54 3095.52 L 5114.24 3134.13 L 5147.18 3134.13 L 5130.44 3173.01 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+              <path d="M 5130.44 3173.01 L 5147.18 3134.13 L 5213.34 3096.06 L 5229.8 3114.42 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+              <path d="M 5030 3114.42 L 5047.82 3076.08 L 5047.54 3095.52 L 5114.24 3134.13 L 5147.18 3134.13 L 5130.44 3173.01 Z M 5130.44 3173.01 L 5147.18 3134.13 L 5213.34 3096.06 L 5229.8 3114.42 Z M 5030 3115.23 L 5047.82 3094.98 M 5130.44 3173.01 L 5113.7 3133.59 M 5213.34 3096.06 L 5213.34 3077.16" fill="none" stroke="white" stroke-width="10.7" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 5030 3114.42 L 5047.82 3076.08 L 5047.54 3095.52 L 5114.24 3134.13 L 5147.18 3134.13 L 5130.44 3173.01 Z M 5130.44 3173.01 L 5147.18 3134.13 L 5213.34 3096.06 L 5229.8 3114.42 Z M 5030 3115.23 L 5047.82 3094.98 M 5130.44 3173.01 L 5113.7 3133.59 M 5213.34 3096.06 L 5213.34 3077.16" fill="none" stroke="#5e5e5e" stroke-width="2.7" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+              <path d="M 5129.36 3058.57 L 5142.05 3051.27 L 5161.49 3062.9 L 5149.6 3069.94 Z M 5105.6 3067.22 L 5130.98 3069.13 L 5133.96 3084 L 5107.76 3081.83 Z M 5088.58 3081.83 L 5108.3 3093.74 L 5096.61 3100.74 L 5077.09 3089.31 Z M 5121.27 3100.77 L 5140.97 3112.41 L 5128.54 3119.44 L 5108.84 3107.81 Z M 5139.35 3063.98 L 5130.44 3069.94 M 5109.92 3081.02 L 5098.85 3087.51 M 5133.68 3083.73 L 5151.5 3094.01 L 5131.26 3105.65" fill="none" stroke="white" stroke-width="12.32" stroke-linejoin="square" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 5129.36 3058.57 L 5142.05 3051.27 L 5161.49 3062.9 L 5149.6 3069.94 Z M 5105.6 3067.22 L 5130.98 3069.13 L 5133.96 3084 L 5107.76 3081.83 Z M 5088.58 3081.83 L 5108.3 3093.74 L 5096.61 3100.74 L 5077.09 3089.31 Z M 5121.27 3100.77 L 5140.97 3112.41 L 5128.54 3119.44 L 5108.84 3107.81 Z M 5139.35 3063.98 L 5130.44 3069.94 M 5109.92 3081.02 L 5098.85 3087.51 M 5133.68 3083.73 L 5151.5 3094.01 L 5131.26 3105.65" fill="none" stroke="#5e5e5e" stroke-width="4.32" stroke-linejoin="square" stroke-miterlimit="10" pointer-events="all"></path>
+              <path d="M 5030 3115.23 L 5047.28 3076.35 L 5113.98 3038.01 L 5147.18 3038.01 L 5213.62 3076.62 L 5229.8 3114.42 L 5130.44 3173.01 Z" fill="none" stroke="white" stroke-width="12.32" stroke-linejoin="square" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 5030 3115.23 L 5047.28 3076.35 L 5113.98 3038.01 L 5147.18 3038.01 L 5213.62 3076.62 L 5229.8 3114.42 L 5130.44 3173.01 Z" fill="none" stroke="#292929" stroke-width="4.32" stroke-linejoin="square" stroke-miterlimit="10" pointer-events="all"></path>
+            </g>
+              <g class="rotate-on-hover-seg3" @mouseover="animateOnceSeg3" transform="translate(0.5,0.5)" style="visibility: visible;">
+                <path d="M 2507 2963.9 L 2500.71 2949.8 L 2458 2925 L 2445.5 2925 L 2420.9 2939.2 L 2415 2952.9 L 2470.2 2985 Z" fill="#4286c5" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+                <path d="M 2507 2964 L 2501 2956.2 L 2476.4 2971 L 2464.1 2971 L 2470.2 2985 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+                <path d="M 2470.2 2985 L 2464.3 2971.2 L 2421.2 2946.3 L 2421.01 2939.4 L 2415 2953 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+                <path d="M 2507 2964 L 2501 2956.2 L 2476.4 2971 L 2464.1 2971 L 2470.2 2985 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+                <path d="M 2507 2964 L 2501 2956.2 L 2476.4 2971 L 2464.1 2971 L 2470.2 2985 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+                <path d="M 2470.2 2985 L 2464.3 2971.2 L 2421.2 2946.3 L 2421.01 2939.4 L 2415 2953 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+                <path d="M 2470.2 2985 L 2464.3 2971.2 L 2421.2 2946.3 L 2421.01 2939.4 L 2415 2953 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+                <path d="M 2501 2950.2 L 2501 2956.2 M 2476.3 2971 L 2470.2 2985 M 2421 2946.3 L 2415 2953.4" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+                <path d="M 2501 2950.2 L 2501 2956.2 M 2476.3 2971 L 2470.2 2985 M 2421 2946.3 L 2415 2953.4" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+                <path d="M 2507 2963.9 L 2500.71 2949.8 L 2458 2925 L 2445.5 2925 L 2420.9 2939.2 L 2415 2952.9 L 2470.2 2985 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+                <path d="M 2507 2963.9 L 2500.71 2949.8 L 2458 2925 L 2445.5 2925 L 2420.9 2939.2 L 2415 2952.9 L 2470.2 2985 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+              </g>
+              <g class="rotate-on-hover-seg2" @mouseover="animateOnceSeg2" transform="translate(0.5,0.5)" style="visibility: visible;">
+                <path d="M 2591.96 3010 L 2585.67 2995.9 L 2542.96 2971.1 L 2530.46 2971.1 L 2505.86 2985.3 L 2499.96 2999 L 2555.16 3031.1 Z" fill="#4286c5" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+                <path d="M 2591.96 3010.1 L 2585.96 3002.3 L 2561.36 3017.1 L 2549.06 3017.1 L 2555.16 3031.1 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+                <path d="M 2555.16 3031.1 L 2549.26 3017.3 L 2506.16 2992.4 L 2505.97 2985.5 L 2499.96 2999.1 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+                <path d="M 2591.96 3010.1 L 2585.96 3002.3 L 2561.36 3017.1 L 2549.06 3017.1 L 2555.16 3031.1 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+                <path d="M 2591.96 3010.1 L 2585.96 3002.3 L 2561.36 3017.1 L 2549.06 3017.1 L 2555.16 3031.1 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2555.16 3031.1 L 2549.26 3017.3 L 2506.16 2992.4 L 2505.97 2985.5 L 2499.96 2999.1 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+                <path d="M 2555.16 3031.1 L 2549.26 3017.3 L 2506.16 2992.4 L 2505.97 2985.5 L 2499.96 2999.1 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+                <path d="M 2585.96 2996.3 L 2585.96 3002.3 M 2561.26 3017.1 L 2555.16 3031.1 M 2505.96 2992.4 L 2499.96 2999.5" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+                <path d="M 2585.96 2996.3 L 2585.96 3002.3 M 2561.26 3017.1 L 2555.16 3031.1 M 2505.96 2992.4 L 2499.96 2999.5" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+                <path d="M 2591.96 3010 L 2585.67 2995.9 L 2542.96 2971.1 L 2530.46 2971.1 L 2505.86 2985.3 L 2499.96 2999 L 2555.16 3031.1 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+                <path d="M 2591.96 3010 L 2585.67 2995.9 L 2542.96 2971.1 L 2530.46 2971.1 L 2505.86 2985.3 L 2499.96 2999 L 2555.16 3031.1 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+              </g>
+              <g style="visibility: visible;">
+                <image x="1165.02" y="2754.66" width="164" height="200" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/windows_server.svg"></image>
+              </g>
+              <g style="visibility: visible;">
+                <image x="1287.72" y="2796.66" width="162.36" height="198" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/database_server.svg"></image>
+              </g>
+              <g style="visibility: visible;">
+                <image x="1372.72" y="2857.66" width="160" height="200" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/web_server.svg"></image>
+              </g>
+              <g transform="translate(0.5,0.5)" style="visibility: visible;">
+                <path d="M 1458.18 2621.15 L 1459.5 2503.84" fill="none" stroke="white" stroke-width="13" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 1458.18 2621.15 L 1459.5 2503.84" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="stroke"></path>
+              <path d="M 1459.6 2495.59 L 1464.97 2506.65 L 1459.5 2503.84 L 1453.97 2506.53 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="all"></path>
+              </g>
+              <g style="visibility: visible;">
+                <image x="945.76" y="2886.64" width="164" height="200" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/windows_server.svg"></image>
+              </g>
+              <g style="visibility: visible;">
+                <image x="1068.46" y="2928.64" width="162.36" height="198" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/database_server.svg"></image>
+              </g>
+              <g style="visibility: visible;">
+                <image x="1153.46" y="2989.64" width="160" height="200" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/web_server.svg"></image>
+              </g>
+              <g transform="translate(0.5,0.5)" style="visibility: visible;">
+                <rect x="1420" y="3040" width="270" height="70" fill="none" stroke="white" transform="rotate(-30,1555,3075)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+                <rect x="1420" y="3040" width="270" height="70" fill="none" stroke="none" transform="rotate(-30,1555,3075)" pointer-events="all"></rect>
+              </g>
+              <g style="">
+                <g transform="rotate(-30 1555 3075.0000000000005)">
+                  <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                    <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3075px; margin-left: 1555px;">
+                      <div data-drawio-colors="color: #39b6fd; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                        <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(57, 182, 253); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                        <span style="font-size: 50px;">云端服务器<br></span>
+                        </div>
+                      </div>
+                    </div>
+                  </foreignObject>
+                </g>
+              </g>
+              <g style="visibility: visible;">
+                <path d="M 2433.52 3018 L 2429.52 3015.5 L 2450.52 3010 L 2440.82 3022.2 L 2436.62 3019.8 L 2259.7 3121.08 C 2260.64 3122.1 2260.37 3123.29 2259 3124.18 C 2257.77 3124.77 2256.14 3125 2254.58 3124.8 C 2253.02 3124.61 2251.7 3124.01 2251 3123.18 C 2250.06 3122.53 2249.75 3121.74 2250.13 3120.98 C 2250.51 3120.22 2251.55 3119.57 2253 3119.18 C 2254.23 3118.96 2255.56 3119.03 2256.7 3119.38 Z" fill="#000000" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="all"></path>
+              </g>
+              <g transform="translate(0.5,0.5)" style="visibility: visible;">
+                <path d="M 2780 4020 L 2814.55 4030 L 2797.28 4040 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all"></path>
+            </g>
+            <g class="rotate-div" @mouseover="rotate" transform="translate(0.5,0.5)" style="visibility: visible;">
+              <path d="M 2570 3961.32 L 2570 3841.1 L 2639.18 3801.4 L 2709.51 3801.4 L 2778.69 3841.1 L 2778.69 3961.32 L 2709.51 4001.4 L 2639.18 4001.4 Z" fill="#cc0000" stroke="#292929" stroke-width="4.54" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+              <path d="M 2570 3881.92 L 2639.18 3921.62 L 2709.51 3921.62 L 2709.51 4001.4 L 2639.18 4001.4 L 2570 3961.32 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+              <path d="M 2709.51 3921.62 L 2778.69 3881.92 L 2778.69 3961.32 L 2709.51 4001.4 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+              <path d="M 2570 3881.92 L 2639.18 3921.62 L 2709.51 3921.62 L 2709.51 4001.4 L 2639.18 4001.4 L 2570 3961.32 Z" fill="none" stroke="white" stroke-width="10.27" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 2570 3881.92 L 2639.18 3921.62 L 2709.51 3921.62 L 2709.51 4001.4 L 2639.18 4001.4 L 2570 3961.32 Z" fill="none" stroke="#e6e6e6" stroke-width="2.27" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+              <path d="M 2709.51 3921.62 L 2778.69 3881.92 L 2778.69 3961.32 L 2709.51 4001.4 Z M 2639.18 3921.62 L 2639.18 4001.4" fill="none" stroke="white" stroke-width="10.27" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 2709.51 3921.62 L 2778.69 3881.92 L 2778.69 3961.32 L 2709.51 4001.4 Z M 2639.18 3921.62 L 2639.18 4001.4" fill="none" stroke="#e6e6e6" stroke-width="2.27" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+              <path d="M 2640.33 3829.3 C 2650.82 3826.05 2662.6 3824.64 2674.34 3825.22 C 2687.72 3825.84 2700.42 3829.02 2710.64 3834.3 C 2727.02 3841.31 2737.79 3852.48 2740.12 3864.92 C 2741.74 3873.43 2736.88 3881.94 2726.52 3888.74 C 2717.24 3894.38 2706.74 3897.72 2695.9 3898.48 C 2684.09 3899.8 2671.96 3899.02 2660.74 3896.22 C 2648.72 3893.91 2637.89 3889.43 2629.43 3883.28 C 2621.38 3877.47 2615.75 3870.35 2613.09 3862.64 C 2610.39 3854.85 2613.2 3846.83 2621.05 3839.96 C 2626 3835.55 2632.6 3831.9 2640.33 3829.3" fill="#e6e6e6" stroke="none" pointer-events="all"></path>
+              <path d="M 2628.98 3875.8 L 2645.55 3866.04 L 2654.6 3871.04 L 2663.01 3854.48 L 2657.34 3854.26 L 2668.67 3844.04 L 2660.74 3839.96 L 2677.29 3830.2 L 2691.81 3839.06 L 2675.24 3848.36 L 2671.17 3845.86 L 2673.66 3855.16 L 2666.62 3854.7 L 2659.82 3868.32 L 2673.22 3860.38 L 2669.36 3858.56 L 2685.01 3854.02 L 2679.79 3850.84 L 2696.11 3841.32 L 2711.1 3849.48 L 2694.75 3859.24 L 2687.95 3855.38 L 2680.46 3865.36 L 2676.16 3862.42 L 2664.81 3869.22 L 2687.49 3865.82 L 2686.82 3861.74 L 2702.02 3863.32 L 2698.62 3861.28 L 2715.19 3851.98 L 2730.15 3860.16 L 2713.37 3869.9 L 2705.42 3865.6 L 2689.1 3872.18 L 2688.41 3868.78 L 2659.59 3873.76 L 2666.85 3878.08 L 2650.53 3887.38 Z" fill="#cc0000" stroke="none" pointer-events="all"></path>
+              <path d="M 2570 3961.32 L 2570 3841.1 L 2639.18 3801.4 L 2709.51 3801.4 L 2778.69 3841.1 L 2778.69 3961.32 L 2709.51 4001.4 L 2639.18 4001.4 Z" fill="none" stroke="white" stroke-width="12.54" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 2570 3961.32 L 2570 3841.1 L 2639.18 3801.4 L 2709.51 3801.4 L 2778.69 3841.1 L 2778.69 3961.32 L 2709.51 4001.4 L 2639.18 4001.4 Z" fill="none" stroke="#292929" stroke-width="4.54" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <rect x="2430" y="4160" width="770" height="70" fill="none" stroke="white" transform="rotate(210,2815,4195)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+              <rect x="2430" y="4160" width="770" height="70" fill="none" stroke="none" transform="rotate(210,2815,4195)" pointer-events="all"></rect>
+            </g>
+            <g style="">
+              <g transform="rotate(30 2815 4195)">
+                <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                  <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 4195px; margin-left: 2815px;">
+                    <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                        <span style="font-size: 50px;">模型结构解析、获取详细网络信息<br></span>
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <path d="M 1173.37 3599.71 L 1578.42 3830" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="translate(0,3714.85)scale(1,-1)translate(0,-3714.85)rotate(-60,1375.89,3714.85)" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 1173.37 3599.71 L 1578.42 3830" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="translate(0,3714.85)scale(1,-1)translate(0,-3714.85)rotate(-60,1375.89,3714.85)" pointer-events="all"></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <rect x="1478.6" y="3538" width="270" height="75" fill="none" stroke="white" transform="rotate(30,1613.6,3575.5)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+              <rect x="1478.6" y="3538" width="270" height="75" fill="none" stroke="none" transform="rotate(30,1613.6,3575.5)" pointer-events="all"></rect>
+            </g>
+            <g style="">
+              <g transform="rotate(30 1613.6 3575.5)">
+                <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                  <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3576px; margin-left: 1614px;">
+                    <div data-drawio-colors="color: #27479c; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;">
+                        <span style="font-size: 50px;">自适应压缩<br></span>
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <path d="M 3755.62 4001.4 L 3261.8 4286.51 Q 3253.14 4291.51 3244.48 4286.51 L 3068.66 4185 Q 3060 4180 3051.34 4175 L 2800.1 4029.94" fill="none" stroke="white" stroke-width="13" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+              <path d="M 3755.62 4001.4 L 3261.8 4286.51 Q 3253.14 4291.51 3244.48 4286.51 L 3068.66 4185 Q 3060 4180 3051.34 4175 L 2800.1 4029.94" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="stroke"></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <path d="M 2805.45 3810 L 2840 3820 L 2822.73 3830 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" transform="translate(0,3820)scale(1,-1)translate(0,-3820)" pointer-events="all"></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <rect x="2285" y="4175" width="820" height="70" fill="none" stroke="white" transform="rotate(210,2695,4210)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+              <rect x="2285" y="4175" width="820" height="70" fill="none" stroke="none" transform="rotate(210,2695,4210)" pointer-events="all"></rect>
+            </g>
+            <g style="">
+              <g transform="rotate(30 2695 4210)">
+                <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                  <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 4210px; margin-left: 2695px;">
+                    <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                        <span style="font-size: 50px;">设备性能、模型性能分析，综合评估<br></span>
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <rect x="3580" y="3167.63" width="320" height="70" fill="none" stroke="white" transform="rotate(-30,3740,3202.63)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+              <rect x="3580" y="3167.63" width="320" height="70" fill="none" stroke="none" transform="rotate(-30,3740,3202.63)" pointer-events="all"></rect>
+            </g>
+            <g style="">
+              <g transform="rotate(-30 3740 3202.63)">
+                <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3203px; margin-left: 3740px;">
+                  <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                      <span style="font-size: 50px;">获取设备信息<br></span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <rect x="4220" y="3610" width="320" height="70" fill="none" stroke="white" transform="rotate(-30,4380,3645)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
+            <rect x="4220" y="3610" width="320" height="70" fill="none" stroke="none" transform="rotate(-30,4380,3645)" pointer-events="all"></rect>
+          </g>
+          <g style="">
+            <g transform="rotate(-30 4380 3645)">
+              <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+                <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3645px; margin-left: 4380px;">
+                  <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                      <span style="font-size: 50px;">获取模型性能<br></span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+            </g>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 2195 2994.66 L 2610.34 3230.8" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="translate(0,3112.73)scale(1,-1)translate(0,-3112.73)rotate(-60,2402.67,3112.73)" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 2195 2994.66 L 2610.34 3230.8" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="translate(0,3112.73)scale(1,-1)translate(0,-3112.73)rotate(-60,2402.67,3112.73)" pointer-events="all"></path>
+          </g>
+          <g class="rotate-on-hover-compress-seg" @mouseover="animateOnce" transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelseg" >
+            <path d="M 2049.24 3247.6 L 2049.24 3125.59 L 2110.33 3090 L 2163.46 3090.4 L 2230.74 3125.3 L 2230.74 3247.6 L 2170.74 3282.6 L 2139.74 3265.09 L 2109.73 3282.6 Z" fill="#004c99" stroke="#292929" stroke-width="1.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 2049.24 3125.59 L 2079.73 3125.3 L 2049.24 3160.3 L 2109.73 3195.29 L 2109.73 3282.6 L 2049.24 3247.6 Z M 2139.74 3264.84 L 2139.74 3160.4 L 2170.25 3195.1 L 2170.25 3282.6 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 2109.73 3195.29 L 2139.74 3160.4 L 2139.74 3264.8 L 2109.73 3282.6 Z M 2199.74 3125.09 L 2230.74 3125.59 L 2230.74 3247.6 L 2170.25 3282.6 L 2170.25 3194.79 L 2230.74 3160.61 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 2049.24 3125.59 L 2079.73 3125.3 L 2049.24 3160.3 L 2109.73 3195.29 L 2109.73 3282.6 L 2049.24 3247.6 Z M 2139.74 3264.84 L 2139.74 3160.4 L 2170.25 3195.1 L 2170.25 3282.6 Z M 2109.73 3195.29 L 2139.74 3160.4 L 2139.74 3264.8 L 2109.73 3282.6 Z M 2199.74 3125.09 L 2230.74 3125.59 L 2230.74 3247.6 L 2170.25 3282.6 L 2170.25 3194.79 L 2230.74 3160.61 Z M 2079.53 3125.21 L 2139.74 3160.4 L 2200.14 3125.3 L 2139.74 3090.6 Z" fill="none" stroke="white" stroke-width="8.92" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 2049.24 3125.59 L 2079.73 3125.3 L 2049.24 3160.3 L 2109.73 3195.29 L 2109.73 3282.6 L 2049.24 3247.6 Z M 2139.74 3264.84 L 2139.74 3160.4 L 2170.25 3195.1 L 2170.25 3282.6 Z M 2109.73 3195.29 L 2139.74 3160.4 L 2139.74 3264.8 L 2109.73 3282.6 Z M 2199.74 3125.09 L 2230.74 3125.59 L 2230.74 3247.6 L 2170.25 3282.6 L 2170.25 3194.79 L 2230.74 3160.61 Z M 2079.53 3125.21 L 2139.74 3160.4 L 2200.14 3125.3 L 2139.74 3090.6 Z" fill="none" stroke="#99ccff" stroke-width="0.92" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 2097.05 3125.3 L 2140.04 3100.3 L 2183.44 3125.3 L 2140.04 3150.4 Z" fill="#99ccff" stroke="none" pointer-events="all"></path>
+            <path d="M 2103.74 3130.6 L 2151.64 3103.1 M 2129.63 3103.35 L 2177.36 3130.85 M 2170.25 3137.34 L 2121.37 3109.11 M 2112.75 3114.6 L 2159.74 3141.96 M 2103.85 3119.97 L 2148.99 3146.1" fill="none" stroke="white" stroke-width="10.75" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 2103.74 3130.6 L 2151.64 3103.1 M 2129.63 3103.35 L 2177.36 3130.85 M 2170.25 3137.34 L 2121.37 3109.11 M 2112.75 3114.6 L 2159.74 3141.96 M 2103.85 3119.97 L 2148.99 3146.1" fill="none" stroke="#004c99" stroke-width="2.75" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 2049.24 3247.6 L 2049.24 3125.59 L 2110.33 3090 L 2163.46 3090.4 L 2230.74 3125.3 L 2230.74 3247.6 L 2170.74 3282.6 L 2139.74 3265.09 L 2109.73 3282.6 Z" fill="none" stroke="white" stroke-width="9.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 2049.24 3247.6 L 2049.24 3125.59 L 2110.33 3090 L 2163.46 3090.4 L 2230.74 3125.3 L 2230.74 3247.6 L 2170.74 3282.6 L 2139.74 3265.09 L 2109.73 3282.6 Z" fill="none" stroke="#292929" stroke-width="1.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 777.73 2719.43 L 777.73 2665.2 L 839.23 2629.7 L 900.73 2665.2 L 900.73 2719.43 L 839.23 2753.7 Z" fill="#ececec" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 777.73 2665.2 L 839.23 2700.7 L 839.23 2753.7 L 777.73 2718.69 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 900.73 2665.2 L 839.23 2700.7 L 839.23 2753.7 L 900.73 2718.69 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 777.73 2665.2 L 839.23 2700.7 L 839.23 2753.7 L 777.73 2718.69 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 777.73 2665.2 L 839.23 2700.7 L 839.23 2753.7 L 777.73 2718.69 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 900.73 2665.2 L 839.23 2700.7 L 839.23 2753.7 L 900.73 2718.69 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 900.73 2665.2 L 839.23 2700.7 L 839.23 2753.7 L 900.73 2718.69 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 823.73 2684.69 C 822.22 2683.72 822.22 2682.17 823.73 2681.2 L 836.73 2673.7 C 838.19 2673.11 840.27 2673.11 841.73 2673.7 L 854.73 2681.2 C 855.96 2682.12 855.96 2683.47 854.73 2684.4 L 841.73 2691.9 C 840.27 2692.48 838.19 2692.48 836.73 2691.9 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 777.73 2719.43 L 777.73 2665.2 L 839.23 2629.7 L 900.73 2665.2 L 900.73 2719.43 L 839.23 2753.7 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 777.73 2719.43 L 777.73 2665.2 L 839.23 2629.7 L 900.73 2665.2 L 900.73 2719.43 L 839.23 2753.7 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 707.73 2759.43 L 707.73 2705.2 L 769.23 2669.7 L 830.73 2705.2 L 830.73 2759.43 L 769.23 2793.7 Z" fill="#ececec" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 707.73 2705.2 L 769.23 2740.7 L 769.23 2793.7 L 707.73 2758.69 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 830.73 2705.2 L 769.23 2740.7 L 769.23 2793.7 L 830.73 2758.69 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 707.73 2705.2 L 769.23 2740.7 L 769.23 2793.7 L 707.73 2758.69 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 707.73 2705.2 L 769.23 2740.7 L 769.23 2793.7 L 707.73 2758.69 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 830.73 2705.2 L 769.23 2740.7 L 769.23 2793.7 L 830.73 2758.69 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 830.73 2705.2 L 769.23 2740.7 L 769.23 2793.7 L 830.73 2758.69 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 753.73 2724.69 C 752.22 2723.72 752.22 2722.17 753.73 2721.2 L 766.73 2713.7 C 768.19 2713.11 770.27 2713.11 771.73 2713.7 L 784.73 2721.2 C 785.96 2722.12 785.96 2723.47 784.73 2724.4 L 771.73 2731.9 C 770.27 2732.48 768.19 2732.48 766.73 2731.9 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 707.73 2759.43 L 707.73 2705.2 L 769.23 2669.7 L 830.73 2705.2 L 830.73 2759.43 L 769.23 2793.7 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 707.73 2759.43 L 707.73 2705.2 L 769.23 2669.7 L 830.73 2705.2 L 830.73 2759.43 L 769.23 2793.7 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 847.73 2759.43 L 847.73 2705.2 L 909.23 2669.7 L 970.73 2705.2 L 970.73 2759.43 L 909.23 2793.7 Z" fill="#ececec" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 847.73 2705.2 L 909.23 2740.7 L 909.23 2793.7 L 847.73 2758.69 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 970.73 2705.2 L 909.23 2740.7 L 909.23 2793.7 L 970.73 2758.69 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 847.73 2705.2 L 909.23 2740.7 L 909.23 2793.7 L 847.73 2758.69 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 847.73 2705.2 L 909.23 2740.7 L 909.23 2793.7 L 847.73 2758.69 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 970.73 2705.2 L 909.23 2740.7 L 909.23 2793.7 L 970.73 2758.69 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 970.73 2705.2 L 909.23 2740.7 L 909.23 2793.7 L 970.73 2758.69 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 893.73 2724.69 C 892.22 2723.72 892.22 2722.17 893.73 2721.2 L 906.73 2713.7 C 908.19 2713.11 910.27 2713.11 911.73 2713.7 L 924.73 2721.2 C 925.96 2722.12 925.96 2723.47 924.73 2724.4 L 911.73 2731.9 C 910.27 2732.48 908.19 2732.48 906.73 2731.9 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 847.73 2759.43 L 847.73 2705.2 L 909.23 2669.7 L 970.73 2705.2 L 970.73 2759.43 L 909.23 2793.7 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
+            <path d="M 847.73 2759.43 L 847.73 2705.2 L 909.23 2669.7 L 970.73 2705.2 L 970.73 2759.43 L 909.23 2793.7 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+          </g>
+          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <path d="M 777.73 2799.43 L 777.73 2745.2 L 839.23 2709.7 L 900.73 2745.2 L 900.73 2799.43 L 839.23 2833.7 Z" fill="#ececec" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 777.73 2745.2 L 839.23 2780.7 L 839.23 2833.7 L 777.73 2798.69 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 900.73 2745.2 L 839.23 2780.7 L 839.23 2833.7 L 900.73 2798.69 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
+            <path d="M 777.73 2745.2 L 839.23 2780.7 L 839.23 2833.7 L 777.73 2798.69 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 777.73 2745.2 L 839.23 2780.7 L 839.23 2833.7 L 777.73 2798.69 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 900.73 2745.2 L 839.23 2780.7 L 839.23 2833.7 L 900.73 2798.69 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+            <path d="M 900.73 2745.2 L 839.23 2780.7 L 839.23 2833.7 L 900.73 2798.69 Z" fill="none" stroke="#5e5e5e" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+            <path d="M 823.73 2764.69 C 822.22 2763.72 822.22 2762.17 823.73 2761.2 L 836.73 2753.7 C 838.19 2753.11 840.27 2753.11 841.73 2753.7 L 854.73 2761.2 C 855.96 2762.12 855.96 2763.47 854.73 2764.4 L 841.73 2771.9 C 840.27 2772.48 838.19 2772.48 836.73 2771.9 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path>
+            <path d="M 777.73 2799.43 L 777.73 2745.2 L 839.23 2709.7 L 900.73 2745.2 L 900.73 2799.43 L 839.23 2833.7 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 777.73 2799.43 L 777.73 2745.2 L 839.23 2709.7 L 900.73 2745.2 L 900.73 2799.43 L 839.23 2833.7 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="645" y="2878" width="270" height="135" fill="none" stroke="white" transform="rotate(-30,780,2945.5)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="645" y="2878" width="270" height="135" fill="none" stroke="none" transform="rotate(-30,780,2945.5)" pointer-events="all"></rect></g><g style=""><g transform="rotate(-30 780 2945.5)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 2946px; margin-left: 780px;">
+      <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;"><span style="font-size: 50px;">自适应压缩<br>分割算法<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1420 2448 L 1468 2448 L 1468 2430 L 1500 2460 L 1468 2490 L 1468 2472 L 1420 2472 Z" fill="url(#mx-gradient-0527ad-1-000000-1-s-0)" stroke="#002aff" stroke-miterlimit="10" transform="rotate(180,1460,2460)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1050.43 2906.69 L 1048.41 2770.48" fill="none" stroke="white" stroke-width="13" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1050.43 2906.69 L 1048.41 2770.48" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="stroke"></path><path d="M 1048.29 2762.23 L 1053.95 2773.15 L 1048.41 2770.48 L 1042.95 2773.31 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1007.76 2714.64 L 1055.76 2714.64 L 1055.76 2696.64 L 1087.76 2726.64 L 1055.76 2756.64 L 1055.76 2738.64 L 1007.76 2738.64 Z" fill="url(#mx-gradient-0527ad-1-000000-1-s-0)" stroke="#002aff" stroke-miterlimit="10" transform="translate(1047.76,0)scale(-1,1)translate(-1047.76,0)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1258.1 2405.84 C 1262.36 2390.98 1286.45 2380 1314.8 2380 C 1343.14 2380 1367.23 2390.98 1371.49 2405.84 L 1371.49 2489.16 C 1367.23 2504.02 1343.14 2515 1314.8 2515 C 1286.45 2515 1262.36 2504.02 1258.1 2489.16 Z" fill="#9ea5b5" stroke="#000000" stroke-width="1.56" stroke-miterlimit="10" pointer-events="all"></path><rect x="1257.97" y="2380" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="1257.97" y="2380" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect><ellipse cx="1314.67" cy="2407.83" rx="56.697239890958656" ry="27.507836990595614" fill="#b7bfd1" stroke="none" pointer-events="all"></ellipse><path d="M 1262.27 2482.55 L 1262.66 2419.07 C 1274.35 2431.24 1301.66 2437.66 1328.06 2434.46 C 1354.47 2431.26 1372.71 2419.31 1371.76 2405.84 L 1371.49 2470.64 C 1370.93 2477.71 1365.47 2484 1357.16 2487.17 C 1350.31 2489.4 1341.53 2489.98 1333.59 2488.73 C 1325.64 2487.49 1319.49 2484.57 1317.08 2480.89 C 1313.54 2476.97 1306.44 2474.16 1298.07 2473.39 C 1289.69 2472.61 1281.1 2473.95 1275.04 2476.99 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path><rect x="1257.97" y="2380" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="1257.97" y="2380" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect><path d="M 1258.1 2405.84 C 1262.36 2390.98 1286.45 2380 1314.8 2380 C 1343.14 2380 1367.23 2390.98 1371.49 2405.84 L 1371.49 2489.16 C 1367.23 2504.02 1343.14 2515 1314.8 2515 C 1286.45 2515 1262.36 2504.02 1258.1 2489.16 Z" fill="none" stroke="white" stroke-width="9.56" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1258.1 2405.84 C 1262.36 2390.98 1286.45 2380 1314.8 2380 C 1343.14 2380 1367.23 2390.98 1371.49 2405.84 L 1371.49 2489.16 C 1367.23 2504.02 1343.14 2515 1314.8 2515 C 1286.45 2515 1262.36 2504.02 1258.1 2489.16 Z" fill="none" stroke="#000000" stroke-width="1.56" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="1096.24" y="2571.17" width="370" height="70" fill="none" stroke="white" transform="rotate(-30,1281.24,2606.17)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="1096.24" y="2571.17" width="370" height="70" fill="none" stroke="none" transform="rotate(-30,1281.24,2606.17)" pointer-events="all"></rect></g><g style=""><g transform="rotate(-30 1281.24 2606.17)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 2606px; margin-left: 1281px;">
+      <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;"><span style="font-size: 50px;">深度学习数据集<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2851.28 1993.64 L 2851.28 1866.36 L 2914.31 1830 L 2946.6 1830 L 3008.57 1865.84 L 3008.57 1993.64 L 2945.54 2030 L 2914.31 2030 Z" fill="#ececec" stroke="#292929" stroke-width="2.08" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2851.28 1884.54 L 2914.31 1920.92 L 2945.54 1920.92 L 2945.54 2030 L 2914.31 2030 L 2851.28 1993.64 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 2945.54 1920.92 L 3008.57 1884.54 L 2977.32 1865.84 L 2977.32 1847.66 L 3008.57 1865.84 L 3008.57 1993.64 L 2945.54 2030 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 2851.28 1884.54 L 2914.31 1920.92 L 2945.54 1920.92 L 2945.54 2030 L 2914.31 2030 L 2851.28 1993.64 Z" fill="none" stroke="white" stroke-width="9.04" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2851.28 1884.54 L 2914.31 1920.92 L 2945.54 1920.92 L 2945.54 2030 L 2914.31 2030 L 2851.28 1993.64 Z" fill="none" stroke="#5e5e5e" stroke-width="1.04" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2945.54 1920.92 L 3008.57 1884.54 L 2977.32 1865.84 L 2977.32 1847.66 L 3008.57 1865.84 L 3008.57 1993.64 L 2945.54 2030 Z" fill="none" stroke="white" stroke-width="9.04" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2945.54 1920.92 L 3008.57 1884.54 L 2977.32 1865.84 L 2977.32 1847.66 L 3008.57 1865.84 L 3008.57 1993.64 L 2945.54 2030 Z" fill="none" stroke="#5e5e5e" stroke-width="1.04" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2883.05 1847.66 L 2883.05 1866.36 L 2914.31 1884.54 L 2945.54 1884.54 L 2976.8 1866.36 M 2883.57 1866.36 L 2851.8 1884.28 M 2914.31 1884.54 L 2914.31 2029.22 M 2945.54 1884.54 L 2945.54 1920.92" fill="none" stroke="white" stroke-width="9.04" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2883.05 1847.66 L 2883.05 1866.36 L 2914.31 1884.54 L 2945.54 1884.54 L 2976.8 1866.36 M 2883.57 1866.36 L 2851.8 1884.28 M 2914.31 1884.54 L 2914.31 2029.22 M 2945.54 1884.54 L 2945.54 1920.92" fill="none" stroke="#5e5e5e" stroke-width="1.04" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2921.07 1845.58 C 2918.89 1845.76 2916.7 1845.25 2914.83 1844.12 C 2912.79 1842.91 2911.47 1840.78 2911.29 1838.42 C 2911.52 1836.2 2913.98 1834.32 2917.42 1833.74 C 2920.37 1833.43 2923.35 1833.53 2926.28 1834.06 C 2930.1 1835.19 2932.66 1837.39 2933.06 1839.88 C 2933.01 1841.09 2932.43 1842.23 2931.48 1842.98 C 2928.83 1844.58 2925.67 1845.13 2922.63 1844.54 C 2921.49 1844.14 2920.68 1843.13 2920.55 1841.94 C 2919.54 1842.1 2918.5 1841.88 2917.64 1841.32 C 2916.59 1840.64 2916.29 1839.54 2916.9 1838.62 C 2918.29 1837.47 2920.27 1837.35 2921.79 1838.32 C 2922.74 1838.65 2923.31 1839.61 2923.16 1840.6 C 2924.07 1840.37 2924.7 1839.56 2924.72 1838.62 C 2924.08 1837.18 2922.71 1836.56 2921.49 1837.16 L 2921.07 1836.76 C 2921.85 1836.28 2922.81 1836.16 2923.68 1836.44 C 2925.4 1837.1 2926.3 1838.16 2926.07 1839.24 C 2925.83 1839.93 2925.35 1840.52 2924.72 1840.9 C 2924.06 1841.43 2923.32 1841.85 2922.53 1842.16 C 2922.65 1842.98 2923.38 1843.57 2924.2 1843.5 C 2926.06 1843.64 2927.93 1843.28 2929.61 1842.46 C 2930.85 1841.86 2931.5 1840.47 2931.17 1839.14 C 2930.3 1837.73 2929.04 1836.61 2927.53 1835.92 C 2926.05 1835.27 2924.46 1834.85 2922.85 1834.68 C 2920.85 1834.57 2918.85 1834.74 2916.9 1835.2 C 2915.33 1835.54 2913.95 1836.47 2913.05 1837.8 C 2912.71 1839.06 2912.99 1840.39 2913.79 1841.42 C 2914.74 1842.6 2915.99 1843.5 2917.42 1844.02 C 2918.4 1844.48 2919.49 1844.63 2920.55 1844.44 M 2917.34 1839.8 C 2917.96 1840.6 2918.82 1841.04 2919.7 1841 C 2920.59 1841.04 2921.44 1840.6 2922.06 1839.8 C 2921.44 1839 2920.59 1838.56 2919.7 1838.6 C 2918.82 1838.56 2917.96 1839 2917.34 1839.8 Z M 2924.72 1847.88 C 2927.03 1847.84 2929.31 1847.41 2931.48 1846.62 L 2956.49 1860.86 L 2928.15 1857.42 Z M 2912.42 1845.38 C 2913.84 1846.61 2915.57 1847.43 2917.42 1847.76 C 2918.78 1847.94 2920.2 1847.98 2921.59 1847.88 L 2925.76 1860.24 L 2956.49 1863.76 L 2933.06 1877.28 L 2895.56 1855.46 Z" fill="#5e5e5e" stroke="none" pointer-events="all"></path><path d="M 2851.28 1993.64 L 2851.28 1866.36 L 2914.31 1830 L 2946.6 1830 L 3008.57 1865.84 L 3008.57 1993.64 L 2945.54 2030 L 2914.31 2030 Z" fill="none" stroke="white" stroke-width="10.08" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2851.28 1993.64 L 2851.28 1866.36 L 2914.31 1830 L 2946.6 1830 L 3008.57 1865.84 L 3008.57 1993.64 L 2945.54 2030 L 2914.31 2030 Z" fill="none" stroke="#292929" stroke-width="2.08" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 3268.76 2008.24 L 3268.76 1850.59 L 3351.97 1830 L 3421.7 1851.18 L 3421.7 2010.59 L 3339.66 2030 Z" fill="#abb4c5" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><path d="M 3268.76 1850.59 L 3351.97 1830 L 3421.7 1851.18 L 3339.66 1871.18 Z" fill="#b8bfd1" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><path d="M 3339.66 1871.18 L 3421.7 1851.18 L 3421.7 2010.59 L 3339.66 2030 Z" fill="#5b6369" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><path d="M 3268.76 2008.24 L 3268.76 1850.59 L 3351.97 1830 L 3421.7 1851.18 L 3421.7 2010.59 L 3339.66 2030 Z" fill="none" stroke="white" stroke-width="9.41" stroke-miterlimit="10" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="stroke" visibility="hidden"></path><path d="M 3268.76 2008.24 L 3268.76 1850.59 L 3351.97 1830 L 3421.7 1851.18 L 3421.7 2010.59 L 3339.66 2030 Z" fill="none" stroke="#000000" stroke-width="1.41" stroke-miterlimit="10" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><rect x="3268.76" y="1830" width="0" height="0" fill="none" stroke="white" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="3268.76" y="1830" width="0" height="0" fill="none" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></rect><path d="M 3349.04 1884.71 L 3411.74 1870 L 3411.74 1962.94 L 3349.04 1978.24 Z" fill="#5b8caa" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><path d="M 3411.74 1870 L 3414.67 1869.41 L 3414.67 1964.71 L 3349.04 1980.59 L 3349.04 1978.24 L 3411.74 1962.94 Z" fill="#d5d7d8" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><path d="M 3349.04 1885 L 3411.74 1870 L 3411.74 1913.53 C 3408.94 1917.34 3405.06 1920.21 3400.6 1921.76 C 3393.49 1924.17 3385.73 1923.75 3378.92 1920.59 C 3372.68 1918.18 3365.87 1919.03 3360.17 1922.94 L 3349.04 1930.59 Z" fill-opacity="0.3" fill="#ffffff" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><path d="M 3349.04 1884.71 L 3402.36 1872.35 L 3402.36 1961.18 L 3349.04 1974.12 Z" fill-opacity="0.5" fill="#ffffff" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><rect x="3268.76" y="1830" width="0" height="0" fill="none" stroke="white" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="3268.76" y="1830" width="0" height="0" fill="none" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></rect><path d="M 3374.82 1945.88 L 3374.82 1912.35 L 3378.34 1912.35 L 3378.34 1915.65 L 3381.27 1915.65 L 3381.27 1918.82 L 3384.43 1918.82 L 3384.43 1921.76 L 3387.13 1921.76 L 3387.13 1924.94 L 3390.41 1924.94 L 3390.41 1927.88 L 3393.57 1927.88 L 3393.57 1930.94 L 3396.5 1930.94 L 3396.5 1933.76 L 3399.67 1933.76 L 3399.67 1937.29 L 3390.64 1937.29 L 3390.64 1942.94 L 3393.57 1942.94 L 3393.57 1949.06 L 3396.27 1949.06 L 3396.27 1954.94 L 3390.29 1954.94 L 3390.29 1949.06 L 3387.13 1949.06 L 3387.13 1942.94 L 3384.2 1942.94 L 3384.2 1940 L 3381.5 1940 L 3381.5 1942.94 L 3378.57 1942.94 L 3378.57 1945.88 Z" fill="#ffffff" stroke="#000000" stroke-width="1.41" stroke-miterlimit="10" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path><rect x="3268.76" y="1830" width="0" height="0" fill="none" stroke="white" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="3268.76" y="1830" width="0" height="0" fill="none" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></rect><path d="M 3340.48 1957.88 C 3325.21 1951.98 3310.6 1944.49 3296.89 1935.53 C 3290.3 1930.95 3284.71 1925.07 3280.48 1918.24 C 3277.56 1912.9 3276.07 1906.91 3276.14 1900.82 C 3275.9 1894.27 3276.01 1887.71 3276.49 1881.18 C 3276.83 1875.34 3277.46 1869.53 3278.37 1863.76 C 3279.23 1860.58 3280.53 1857.53 3282.24 1854.71 C 3285.8 1852.3 3289.83 1850.31 3294.19 1848.82 C 3301.62 1846.29 3309.17 1844.13 3316.81 1842.35 C 3324.78 1840.22 3332.88 1838.64 3341.07 1837.65 C 3346.63 1836.95 3352.24 1836.75 3357.83 1837.06 C 3366.93 1837.71 3375.9 1839.69 3384.43 1842.94 L 3412.21 1853.18 C 3414.64 1857.25 3416.24 1861.77 3416.89 1866.47 C 3417.67 1872.8 3418.1 1879.16 3418.18 1885.53 C 3418.63 1899.58 3418.24 1913.64 3417.01 1927.65 C 3416.85 1933.82 3414.76 1939.79 3411.04 1944.71 C 3405.61 1950.71 3398.28 1954.66 3390.29 1955.88 C 3383.9 1956.89 3377.43 1957.36 3370.95 1957.29 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" transform="translate(3345.23,0)scale(-1,1)translate(-3345.23,0)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="2795" y="2210" width="670" height="70" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2795" y="2210" width="670" height="70" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 2245px; margin-left: 3130px;">
+      <div data-drawio-colors="color: #27479c; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 50px;">“太易”智能物联网中间件平台<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2673.7 2198.8 L 2658.5 2190 L 2719.7 2190 L 2719.7 2225.5 L 2704.3 2216.5 L 1882.94 2684.12 L 1852.24 2666.42 Z" fill="#f4b934" stroke="none" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2646.16 2308.8 L 2630.96 2300 L 2692.16 2300 L 2692.16 2335.5 L 2676.76 2326.5 L 1848.54 2798.03 L 1817.84 2780.33 Z" fill="#f4b934" stroke="none" transform="rotate(180,2255,2549.01)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 4034 2238.8 L 4018.8 2230 L 4080 2230 L 4080 2265.5 L 4064.6 2256.5 L 3531.37 2560 L 3500.67 2542.3 Z" fill="#f4b934" stroke="none" transform="translate(0,2395)scale(1,-1)translate(0,-2395)rotate(-180,3790.34,2395)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 4163.63 2228.8 L 4148.43 2220 L 4209.63 2220 L 4209.63 2255.5 L 4194.23 2246.5 L 3678.33 2540.13 L 3647.63 2522.43 Z" fill="#f4b934" stroke="none" transform="translate(0,2380.07)scale(1,-1)translate(0,-2380.07)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="2375" y="2920" width="520" height="70" fill="none" stroke="white" transform="rotate(30,2635,2955)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2375" y="2920" width="520" height="70" fill="none" stroke="none" transform="rotate(30,2635,2955)" pointer-events="all"></rect></g><g style=""><g transform="rotate(30 2635 2955.0000000000005)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 2955px; margin-left: 2635px;">
+      <div data-drawio-colors="color: #27479c; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 50px;">自适应分割、压缩策略<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2507 3057.66 L 2541.55 3067.66 L 2524.28 3077.66 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" transform="translate(2524.28,0)scale(-1,1)translate(-2524.28,0)" pointer-events="all"></path>
+    </g>
+    <g class="rotate-on-hover-seg1" @mouseover="animateOnceSeg1" transform="translate(0.5,0.5)" style="visibility: visible;">
+      <path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="#4286c5" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+      <path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+      <path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+      <path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+      <path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2677.96 3045.2 L 2677.96 3051.2 M 2653.26 3066 L 2647.16 3080 M 2597.96 3041.3 L 2591.96 3048.4" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+      <path d="M 2677.96 3045.2 L 2677.96 3051.2 M 2653.26 3066 L 2647.16 3080 M 2597.96 3041.3 L 2591.96 3048.4" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+    </g>
+    <g transform="translate(0.5,0.5)" style="visibility: visible;">
+      <path d="M 1168.39 2998.36 L 2204.12 3588.55" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="rotate(-240,1686.25,3293.45)" pointer-events="stroke" visibility="hidden"></path><path d="M 1168.39 2998.36 L 2204.12 3588.55" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="rotate(-240,1686.25,3293.45)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1574.61 3238.16 L 2610.34 3828.35" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="rotate(-240,2092.47,3533.26)" pointer-events="stroke" visibility="hidden"></path><path d="M 1574.61 3238.16 L 2610.34 3828.35" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="rotate(-240,2092.47,3533.26)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="#004c99" stroke="#292929" stroke-width="6" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z M 1630.24 3523.82 L 1650.04 3501.32 M 1741.84 3588.02 L 1723.24 3544.22 M 1833.95 3502.52 L 1833.95 3481.52" fill="none" stroke="white" stroke-width="11" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z M 1630.24 3523.82 L 1650.04 3501.32 M 1741.84 3588.02 L 1723.24 3544.22 M 1833.95 3502.52 L 1833.95 3481.52" fill="none" stroke="#99ccff" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1694.44 3469.58 L 1710.05 3460.57 L 1718.44 3465.68 C 1722.16 3464.61 1725.97 3463.9 1729.83 3463.57 L 1729.83 3456.65 L 1752.94 3456.65 L 1752.94 3463.57 C 1757.66 3464.12 1762.29 3465.23 1766.75 3466.88 L 1775.14 3462.07 L 1791.35 3471.38 L 1783.24 3476.2 C 1785.56 3478.76 1787.57 3481.58 1789.24 3484.61 L 1800.65 3484.61 L 1800.65 3497.84 L 1789.24 3497.84 C 1788.02 3500.06 1786.61 3502.17 1785.04 3504.16 L 1794.03 3509.27 L 1777.54 3518.59 L 1770.03 3513.77 C 1764.59 3516.11 1758.83 3517.63 1752.94 3518.28 L 1752.94 3525.2 L 1730.14 3525.2 L 1730.14 3518.28 C 1725.42 3517.73 1720.79 3516.62 1716.33 3514.97 L 1708.25 3519.49 L 1692.04 3510.17 L 1700.15 3505.66 C 1697.74 3503.2 1695.63 3500.48 1693.84 3497.54 L 1682.43 3497.54 L 1682.43 3484.31 L 1693.84 3484.31 C 1695.87 3480.67 1698.4 3477.34 1701.35 3474.39 Z M 1720.24 3474.7 C 1715.96 3476.5 1712.16 3479.28 1709.14 3482.81 C 1707.36 3485.36 1706.41 3488.41 1706.43 3491.53 C 1706.93 3495.11 1708.5 3498.46 1710.94 3501.14 C 1714.03 3504.09 1717.72 3506.35 1721.75 3507.76 C 1732.59 3512.83 1745.01 3513.37 1756.25 3509.26 C 1761.89 3508.14 1767.09 3505.43 1771.23 3501.44 C 1774.63 3498.62 1776.61 3494.44 1776.65 3490.03 C 1775.59 3484.38 1771.92 3479.58 1766.75 3477.09 C 1761.78 3474.06 1756.28 3472.02 1750.54 3471.08 C 1744.87 3470.33 1739.14 3470.23 1733.45 3470.78 C 1728.87 3471.4 1724.42 3472.72 1720.24 3474.7 Z M 1735.25 3480.11 C 1740.95 3479.31 1746.75 3479.62 1752.34 3481.01 C 1755.97 3482.04 1759.07 3484.4 1761.04 3487.63 C 1762.48 3490.55 1761.87 3494.07 1759.53 3496.34 C 1755.86 3499.81 1751.07 3501.84 1746.04 3502.05 C 1740.15 3502.8 1734.17 3502.07 1728.63 3499.94 C 1724.86 3498.36 1722.15 3494.96 1721.44 3490.93 C 1722.01 3487.58 1723.97 3484.63 1726.83 3482.81 C 1729.37 3481.22 1732.26 3480.3 1735.25 3480.11 Z" fill="#99ccff" stroke="none" pointer-events="all"></path><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="none" stroke="white" stroke-width="14" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="none" stroke="#292929" stroke-width="6" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+    </g>
+    <g class="rotate-on-hover-compress-seg" @mouseover="animateOnce" transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelcompress">
+      <path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="#004c99" stroke="#292929" stroke-width="3.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z M 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 Z M 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1770.65 3431.9 L 1827.28 3398.84 L 1827.28 3501.3 L 1770.65 3534 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1827.28 3398.84 M 1716.78 3431.9 L 1716.78 3534 M 1770.65 3431.9 L 1770.65 3534" fill="none" stroke="white" stroke-width="9.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1827.28 3398.84 M 1716.78 3431.9 L 1716.78 3534 M 1770.65 3431.9 L 1770.65 3534" fill="none" stroke="#99ccff" stroke-width="1.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1723.16 3357.38 C 1735.74 3354.36 1748.82 3354.05 1761.53 3356.46 C 1768.46 3357.94 1775.09 3360.85 1781.07 3365.06 C 1787.41 3368.51 1791.65 3374.86 1792.39 3382.04 C 1791.58 3389.63 1787.43 3396.45 1781.07 3400.66 C 1775.21 3404.32 1768.62 3407.28 1761.53 3409.44 C 1748.79 3411.74 1735.72 3411.3 1723.16 3408.16 C 1717.03 3406.48 1711.19 3403.89 1705.82 3400.48 C 1700.55 3396.73 1696.89 3391.12 1695.59 3384.78 C 1695.88 3377.93 1698.9 3371.48 1703.99 3366.88 C 1709.8 3362.66 1716.28 3359.45 1723.16 3357.38" fill="#5e5e5e" stroke="none" pointer-events="all"></path><path d="M 1752.75 3377.48 C 1754.7 3376.45 1756.3 3374.85 1757.32 3372.9 C 1758.09 3371.07 1757.8 3368.98 1756.59 3367.42 C 1753.91 3365.61 1750.57 3365.08 1747.46 3365.96 C 1748.79 3364.5 1750.49 3363.43 1752.38 3362.86 C 1756.35 3362.62 1760.2 3364.24 1762.8 3367.24 C 1763.7 3370.15 1763.23 3373.3 1761.53 3375.82 L 1743.26 3394.64 C 1741.17 3396.52 1739.59 3398.91 1738.69 3401.58 C 1738.91 3403.41 1740.21 3404.92 1741.98 3405.42 C 1739.9 3407.28 1736.75 3407.28 1734.67 3405.42 C 1732.79 3403.8 1732.01 3401.24 1732.67 3398.84 C 1733.77 3396.09 1735.53 3393.64 1737.78 3391.72 L 1745.63 3385.14 L 1712.76 3391.9 L 1703.62 3386.96 Z" fill="#ffffff" stroke="none" pointer-events="all"></path><path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="none" stroke="white" stroke-width="11.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="none" stroke="#292929" stroke-width="3.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2520 3070 L 2390.23 3144.92 Q 2381.57 3149.92 2390.23 3154.92 L 2416.34 3170 Q 2425 3175 2433.66 3180 L 2464.58 3197.85 Q 2473.24 3202.85 2464.58 3207.85 L 1820 3580" fill="none" stroke="white" stroke-width="13" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2520 3070 L 2390.23 3144.92 Q 2381.57 3149.92 2390.23 3154.92 L 2416.34 3170 Q 2425 3175 2433.66 3180 L 2464.58 3197.85 Q 2473.24 3202.85 2464.58 3207.85 L 1820 3580" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="stroke"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="1902.24" y="3265.63" width="270" height="75" fill="none" stroke="white" transform="rotate(30,2037.24,3303.13)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="1902.24" y="3265.63" width="270" height="75" fill="none" stroke="none" transform="rotate(30,2037.24,3303.13)" pointer-events="all"></rect></g><g style=""><g transform="rotate(30 2037.24 3303.13)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3303px; margin-left: 2037px;">
+      <div data-drawio-colors="color: #27479c; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 50px;">自适应分割<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1321.03 3233.24 L 1300.03 3227.74 L 1309.73 3239.94" fill="#2d6195" stroke="none" pointer-events="all"></path><path d="M 1585.37 3398.3 L 1606.37 3403.8 L 1596.67 3391.6" fill="#2d6195" stroke="none" pointer-events="all"></path><path d="M 1307.7 3232.17 L 1598.69 3399.38" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1307.7 3232.17 L 1598.69 3399.38" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1764.24 2952.64 L 1743.24 2947.14 L 1752.94 2959.34" fill="#2d6195" stroke="none" pointer-events="all"></path><path d="M 2014.32 3109.5 L 2035.32 3115 L 2025.62 3102.8" fill="#2d6195" stroke="none" pointer-events="all"></path><path d="M 1750.91 2951.57 L 2027.64 3110.57" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1750.91 2951.57 L 2027.64 3110.57" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" pointer-events="all"></path></g><g style="visibility: visible;"><image x="2690" y="2261.51" width="915.51" height="575" :xlink:href="require('@/assets/images/HMTlogo_home2.png')" preserveAspectRatio="none"></image></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><ellipse cx="2332.45" cy="3664.02" rx="57.116200169635285" ry="57.20742150333016" fill="#008cce" stroke="none" pointer-events="all"></ellipse><path d="M 2293.47 3623.05 C 2294.05 3624.63 2294.83 3626.12 2295.79 3627.5 C 2297.36 3627.66 2298.88 3628.15 2300.26 3628.93 C 2299.88 3630.54 2300.56 3632.22 2301.96 3633.1 C 2303.03 3633.71 2303.74 3634.78 2303.89 3636 C 2303.94 3636.62 2304.23 3637.19 2304.7 3637.59 C 2305.17 3637.99 2305.79 3638.18 2306.4 3638.13 C 2307.1 3638.03 2307.81 3637.97 2308.52 3637.97 C 2310.06 3637.77 2311.63 3638.1 2312.96 3638.9 L 2317.78 3642.38 C 2318.55 3642.91 2319.1 3643.71 2319.33 3644.62 C 2319.6 3645.5 2319.6 3646.44 2319.33 3647.33 C 2318.94 3647.44 2318.53 3647.4 2318.17 3647.21 C 2317.9 3646.45 2317.35 3645.83 2316.63 3645.47 C 2315.7 3645.09 2314.66 3645.09 2313.73 3645.47 C 2312.5 3646.16 2311.07 3646.4 2309.68 3646.17 C 2308.52 3646.21 2307.44 3646.78 2306.75 3647.71 C 2306.22 3648.48 2305.38 3648.97 2304.45 3649.05 C 2303.52 3649.12 2302.6 3648.78 2301.96 3648.1 C 2301.4 3647.33 2300.47 3646.91 2299.51 3647.01 C 2298.56 3647.1 2297.73 3647.69 2297.33 3648.56 C 2296.84 3649.67 2296.53 3650.84 2296.4 3652.04 C 2296.43 3653.6 2296.14 3655.16 2295.56 3656.6 C 2295.24 3657.34 2294.7 3657.96 2294.01 3658.38 C 2292.89 3658.68 2292.16 3659.77 2292.31 3660.93 C 2293.22 3662.01 2293.93 3663.24 2294.4 3664.57 C 2294.82 3665.39 2294.5 3666.36 2293.63 3666.88 C 2292.76 3667.6 2292.35 3668.72 2292.55 3669.82 C 2291.21 3669.85 2289.88 3669.64 2288.61 3669.2 C 2288.12 3668.58 2287.44 3668.12 2286.68 3667.89 C 2285.96 3667.73 2285.21 3668 2284.75 3668.59 C 2283.87 3669.82 2283.24 3671.21 2282.9 3672.68 C 2282.6 3673.69 2282.45 3674.73 2282.43 3675.77 C 2283.43 3677.62 2283.91 3679.71 2283.82 3681.8 L 2284.6 3687.99 C 2284.65 3688.8 2284.45 3689.62 2284.02 3690.31 C 2283.53 3690.93 2282.87 3691.39 2282.13 3691.62 C 2270 3668.84 2274.62 3640.74 2293.39 3623.05 Z" fill="#00527f" stroke="none" pointer-events="all"></path><path d="M 2363.32 3616.48 C 2363.06 3617.33 2362.52 3618.07 2361.78 3618.57 C 2361.09 3618.85 2360.36 3619.01 2359.62 3619.03 L 2355.37 3619.57 C 2353.55 3619.35 2351.7 3619.56 2349.97 3620.19 C 2350.13 3620.8 2349.9 3621.45 2349.39 3621.83 C 2348.88 3622.21 2348.19 3622.23 2347.65 3621.89 C 2346.56 3621.9 2345.52 3622.38 2344.8 3623.21 C 2344.22 3623.82 2343.46 3624.22 2342.64 3624.37 C 2341.46 3624.6 2340.46 3625.37 2339.94 3626.45 C 2339.43 3627.41 2338.52 3627.61 2337.85 3626.92 C 2337.43 3626.07 2337.17 3625.15 2337.08 3624.21 C 2336.33 3622.39 2334.96 3620.88 2333.22 3619.96 C 2331.46 3619.18 2329.82 3618.14 2328.36 3616.87 C 2327.43 3616.17 2326.86 3615.09 2326.82 3613.93 C 2326.77 3613.23 2326.85 3612.52 2327.05 3611.84 C 2326.46 3610.63 2325.29 3609.81 2323.96 3609.68 C 2322.96 3609.43 2322.15 3608.71 2321.8 3607.74 C 2336.5 3605 2351.68 3608.14 2364.1 3616.48 Z" fill="#64aadc" stroke="none" pointer-events="all"></path><path d="M 2387.25 3679.49 C 2387.09 3677.71 2386.42 3676.02 2385.32 3674.62 C 2384.13 3674.52 2382.98 3675.12 2382.39 3676.16 C 2381.44 3677.51 2380 3678.43 2378.37 3678.71 C 2377.23 3677.44 2377.46 3675.67 2378.91 3674.62 C 2379.86 3673.2 2380.09 3671.43 2379.53 3669.82 C 2379.4 3669.13 2379.14 3668.48 2378.76 3667.89 C 2377.68 3666.81 2376.89 3665.48 2376.44 3664.02 C 2375.43 3664.67 2374.22 3664.57 2373.28 3663.77 C 2372.35 3662.96 2371.84 3661.57 2371.97 3660.16 C 2372.03 3658.5 2371.41 3656.88 2370.27 3655.67 C 2370.36 3653.03 2369.54 3650.44 2367.95 3648.33 C 2366.35 3646.72 2364.2 3645.76 2361.93 3645.63 C 2360.03 3645.66 2358.45 3644.52 2358.41 3643.09 C 2358.37 3641.66 2359.88 3640.48 2361.78 3640.45 C 2364.66 3640.77 2367.57 3640.7 2370.42 3640.21 C 2373.2 3639.88 2375.9 3639.04 2378.37 3637.74 L 2381.08 3634.03 C 2389.38 3647.65 2391.61 3664.13 2387.25 3679.49 Z" fill="#0a79b9" stroke="none" pointer-events="all"></path><path d="M 2381.46 3693.79 C 2380.15 3695.43 2378.42 3696.69 2376.44 3697.42 C 2374.91 3697.9 2373.83 3699.29 2373.74 3700.9 C 2373.58 3701.48 2373.4 3701.19 2373.26 3700.09 C 2373.11 3698.99 2373.01 3697.19 2372.97 3695.1 C 2373.2 3693.15 2373.91 3691.29 2375.06 3689.69 C 2376.3 3688.53 2377.41 3687.23 2378.37 3685.82 C 2378.8 3684.97 2378.45 3683.93 2377.6 3683.51 C 2376.75 3683.08 2375.71 3683.42 2375.29 3684.28 C 2373.85 3685.97 2372.56 3687.78 2371.43 3689.69 C 2369.55 3692.51 2366.84 3693.67 2364.25 3692.78 C 2362.69 3692.02 2360.97 3691.63 2359.23 3691.62 C 2358.21 3692.02 2357.57 3692.69 2357.49 3693.42 C 2357.41 3694.15 2357.92 3694.86 2358.85 3695.33 C 2360.3 3695.78 2361.53 3696.74 2362.32 3698.04 C 2363.53 3700.11 2361.08 3702.24 2356.38 3703.22 C 2353.14 3703.31 2349.93 3703.91 2346.88 3705 C 2345.11 3706.64 2343.89 3708.81 2343.41 3711.18 C 2342.84 3712.23 2339.98 3713.02 2336.46 3713.11 C 2333.97 3712.75 2331.42 3712.88 2328.98 3713.5 C 2326.93 3714.25 2324.65 3713.87 2322.96 3712.5 C 2322.32 3711.28 2320.81 3710.81 2319.6 3711.45 C 2318.38 3712.09 2317.92 3713.6 2318.56 3714.82 C 2319.35 3716.25 2320.96 3717.02 2322.57 3716.75 C 2323.73 3716.1 2325.21 3715.82 2326.66 3715.97 C 2327.55 3716.19 2328.26 3716.71 2328.59 3717.37 C 2329.09 3717.78 2330.09 3718.1 2331.35 3718.25 C 2332.6 3718.4 2333.99 3718.36 2335.15 3718.14 C 2337.06 3717.55 2339.51 3717.2 2342.1 3717.13 C 2343.93 3717.02 2345.65 3716.75 2347.11 3716.36 C 2348.56 3715.27 2350.33 3714.73 2352.13 3714.82 C 2353.15 3714.59 2353.94 3714.33 2354.45 3714.04 C 2355.16 3713.51 2356.03 3713.23 2356.92 3713.27 C 2357.35 3713.59 2357.51 3714.16 2357.3 3714.66 C 2356.7 3715.47 2356 3716.2 2355.22 3716.83 C 2366.15 3712.08 2375.33 3704.02 2381.46 3693.79 Z M 2302.12 3663.64 C 2302.52 3664.19 2303.25 3664.41 2303.89 3664.18 C 2304.15 3663.69 2304.33 3663.17 2304.43 3662.63 C 2304.8 3661.45 2304.8 3660.18 2304.43 3659 C 2304 3658.65 2303.41 3658.56 2302.89 3658.77 C 2302.5 3660.37 2302.24 3662 2302.12 3663.64 Z" fill="#266792" stroke="none" pointer-events="all"></path><ellipse cx="2328.98" cy="3639.67" rx="41.29346904156065" ry="28.60371075166508" fill-opacity="0.3" fill="#ffffff" stroke="none" pointer-events="all"></ellipse><ellipse cx="2310.13" cy="3634.23" rx="11.963528413910094" ry="8.72799714557564" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></ellipse><rect x="2270" y="3605" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2270" y="3605" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect><ellipse cx="2332.45" cy="3664.02" rx="57.116200169635285" ry="57.20742150333016" fill="none" stroke="white" stroke-width="9.47" pointer-events="stroke" visibility="hidden"></ellipse><ellipse cx="2332.45" cy="3664.02" rx="57.116200169635285" ry="57.20742150333016" fill="none" stroke="#000000" stroke-width="1.47" pointer-events="all"></ellipse><path d="M 2350.16 3734.73 L 2346.93 3680.33 L 2351.24 3679.39 L 2354.88 3683.03 C 2355.82 3682.93 2356.77 3682.98 2357.71 3683.17 L 2359.05 3680.47 L 2363.1 3679.66 L 2366.06 3681.48 L 2366.94 3687.62 C 2368.64 3689.16 2370.13 3691.23 2371.32 3693.69 L 2375.36 3694.58 L 2376.58 3698.29 L 2374.42 3703.28 C 2374.85 3705.92 2374.98 3708.66 2374.82 3711.37 L 2377.66 3715.84 L 2376.85 3720.69 L 2372.8 3721.64 C 2371.84 3723.53 2370.71 3725.16 2369.44 3726.5 L 2369.44 3732.77 L 2366.87 3734.33 L 2362.29 3735 L 2357.84 3728.79 L 2353.4 3734.87 Z M 2358.65 3708.55 L 2357.44 3703.55 C 2357.01 3703.21 2356.54 3703.43 2356.19 3704.14 C 2355.84 3704.84 2355.65 3705.94 2355.69 3707.06 C 2355.81 3708.35 2356.3 3709.39 2356.94 3709.71 C 2357.57 3710.02 2358.24 3709.57 2358.65 3708.55 Z" fill="#697079" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path><rect x="2270" y="3605" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2270" y="3605" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect><path d="M 2379.01 3706.11 L 2375.77 3651.72 L 2380.08 3650.77 L 2383.72 3654.41 C 2384.67 3654.32 2385.61 3654.36 2386.55 3654.55 L 2387.9 3651.85 L 2391.94 3651.04 L 2394.91 3652.86 L 2395.78 3659.01 C 2397.48 3660.55 2398.97 3662.61 2400.16 3665.08 L 2404.21 3665.96 L 2405.42 3669.67 L 2403.27 3674.66 C 2403.69 3677.31 2403.83 3680.05 2403.67 3682.76 L 2406.5 3687.22 L 2405.69 3692.08 L 2401.65 3693.02 C 2400.68 3694.91 2399.55 3696.54 2398.27 3697.88 L 2398.27 3704.15 L 2395.72 3705.71 L 2391.13 3706.38 L 2386.69 3700.17 L 2382.24 3706.25 Z M 2387.5 3679.93 L 2386.28 3674.93 C 2385.85 3674.59 2385.38 3674.81 2385.03 3675.52 C 2384.68 3676.22 2384.49 3677.32 2384.53 3678.44 C 2384.65 3679.74 2385.13 3680.78 2385.77 3681.1 C 2386.41 3681.42 2387.09 3680.96 2387.5 3679.93 Z" fill="#697079" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2379.01 3706.11 L 2376.31 3704.77 L 2375.63 3698.49 C 2373.81 3696.98 2372.21 3694.89 2370.92 3692.34 L 2367 3691.67 L 2365.52 3687.62 L 2368.09 3682.62 C 2367.6 3679.95 2367.42 3677.16 2367.55 3674.39 L 2364.72 3669.8 L 2365.52 3665.89 L 2369.57 3665.28 C 2370.53 3663.11 2371.71 3661.22 2373.07 3659.68 L 2373.07 3653.6 L 2375.77 3651.72 L 2378.74 3655.5 C 2380.61 3654.92 2382.53 3654.92 2384.39 3655.5 L 2387.9 3651.85 L 2390.59 3653.47 L 2391 3659.41 C 2392.68 3661.01 2394.14 3663.12 2395.31 3665.62 L 2399.49 3666.29 L 2400.97 3670.48 L 2398.68 3675.33 C 2399.12 3678.02 2399.25 3680.81 2399.08 3683.57 L 2402.19 3688.57 L 2401.24 3693.15 L 2397.33 3693.15 C 2396.33 3695.36 2395.1 3697.28 2393.7 3698.83 L 2393.56 3705.17 L 2391 3706.38 L 2387.36 3702.2 C 2385.63 3702.79 2383.85 3702.88 2382.1 3702.47 Z M 2383.58 3684.38 C 2384.51 3684.38 2385.39 3683.78 2386.03 3682.7 C 2386.67 3681.63 2387 3680.19 2386.96 3678.71 C 2386.63 3676.22 2384.84 3674.31 2382.64 3674.12 C 2381.78 3674.02 2380.94 3674.54 2380.38 3675.53 C 2379.82 3676.52 2379.61 3677.85 2379.81 3679.11 C 2379.86 3681.91 2381.49 3684.19 2383.58 3684.38 Z M 2350.16 3734.73 L 2347.47 3733.38 L 2346.79 3727.11 C 2344.97 3725.6 2343.36 3723.51 2342.07 3720.96 L 2338.17 3720.29 L 2336.69 3716.24 L 2339.24 3711.24 C 2338.76 3708.57 2338.58 3705.78 2338.71 3703.01 L 2335.88 3698.42 L 2336.69 3694.51 L 2340.73 3693.9 C 2341.69 3691.73 2342.88 3689.84 2344.24 3688.3 L 2344.24 3682.22 L 2346.93 3680.34 L 2349.89 3684.11 C 2351.76 3683.53 2353.69 3683.53 2355.56 3684.11 L 2359.06 3680.47 L 2361.76 3682.09 L 2362.16 3688.03 C 2363.84 3689.62 2365.31 3691.73 2366.47 3694.24 L 2370.65 3694.91 L 2372.13 3699.1 L 2369.85 3703.95 C 2370.28 3706.64 2370.42 3709.43 2370.25 3712.19 L 2373.35 3717.18 L 2372.4 3721.77 L 2368.49 3721.77 C 2367.49 3723.98 2366.26 3725.9 2364.85 3727.44 L 2364.72 3733.79 L 2362.16 3735 L 2358.52 3730.82 C 2356.79 3731.41 2355.01 3731.5 2353.27 3731.09 Z M 2354.75 3713 C 2355.67 3713 2356.55 3712.39 2357.19 3711.32 C 2357.83 3710.25 2358.16 3708.81 2358.11 3707.33 C 2357.79 3704.83 2356 3702.93 2353.8 3702.74 C 2352.94 3702.64 2352.1 3703.17 2351.54 3704.15 C 2350.98 3705.14 2350.77 3706.47 2350.97 3707.73 C 2351.02 3710.53 2352.66 3712.81 2354.75 3713 Z" fill="#c0c6d2" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2380.11 3730.34 L 2378.61 3705.07 L 2380.61 3704.63 L 2382.3 3706.32 C 2382.74 3706.27 2383.19 3706.3 2383.62 3706.39 L 2384.25 3705.13 L 2386.12 3704.76 L 2387.5 3705.6 L 2387.91 3708.45 C 2388.7 3709.17 2389.39 3710.13 2389.94 3711.27 L 2391.82 3711.68 L 2392.38 3713.41 L 2391.38 3715.73 C 2391.58 3716.96 2391.65 3718.23 2391.57 3719.49 L 2392.88 3721.56 L 2392.51 3723.81 L 2390.63 3724.25 C 2390.18 3725.13 2389.66 3725.89 2389.06 3726.51 L 2389.06 3729.43 L 2387.88 3730.15 L 2385.75 3730.46 L 2383.68 3727.58 L 2381.62 3730.4 Z M 2384.05 3718.17 L 2383.49 3715.85 C 2382.84 3716.1 2382.49 3716.81 2382.68 3717.48 C 2383.01 3718.09 2383.55 3718.36 2384.05 3718.17 Z" fill="#697079" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2380.11 3730.34 L 2378.86 3729.71 L 2378.55 3726.8 C 2377.7 3726.1 2376.96 3725.13 2376.36 3723.95 L 2374.55 3723.63 L 2373.85 3721.75 L 2375.04 3719.43 C 2374.82 3718.19 2374.73 3716.89 2374.79 3715.6 L 2373.48 3713.47 L 2373.85 3711.65 L 2375.73 3711.37 C 2376.18 3710.36 2376.73 3709.48 2377.36 3708.77 L 2377.36 3705.95 L 2378.61 3705.07 L 2379.99 3706.82 C 2380.86 3706.55 2381.75 3706.55 2382.62 3706.82 L 2384.25 3705.13 L 2385.5 3705.89 L 2385.68 3708.65 C 2386.47 3709.39 2387.15 3710.37 2387.69 3711.53 L 2389.63 3711.84 L 2390.31 3713.79 L 2389.26 3716.04 C 2389.46 3717.29 2389.52 3718.58 2389.44 3719.86 L 2390.88 3722.18 L 2390.45 3724.32 L 2388.62 3724.32 C 2388.16 3725.34 2387.59 3726.24 2386.93 3726.95 L 2386.87 3729.9 L 2385.68 3730.46 L 2383.99 3728.52 C 2383.19 3728.79 2382.37 3728.84 2381.55 3728.65 Z M 2382.24 3720.24 C 2382.73 3720.36 2383.22 3720.1 2383.54 3719.56 C 2383.86 3719.02 2383.96 3718.28 2383.81 3717.61 C 2383.6 3716.35 2382.77 3715.47 2381.81 3715.48 C 2381.42 3715.49 2381.05 3715.75 2380.8 3716.19 C 2380.55 3716.63 2380.43 3717.22 2380.49 3717.8 C 2380.57 3719.06 2381.3 3720.08 2382.24 3720.24 Z" fill="#c0c6d2" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="2086.5" y="3730" width="320" height="75" fill="none" stroke="white" transform="rotate(210,2246.5,3767.5)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2086.5" y="3730" width="320" height="75" fill="none" stroke="none" transform="rotate(210,2246.5,3767.5)" pointer-events="all"></rect></g><g style=""><g transform="rotate(30 2246.5 3767.5)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3768px; margin-left: 2247px;">
+      <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;"><span style="font-size: 50px;">多维目标优化<br></span></div></div></div></foreignObject></g></g><g style="visibility: visible;"><path d="M 2343.52 2698 L 2339.52 2695.5 L 2360.52 2690 L 2350.82 2702.2 L 2346.62 2699.8 L 2169.7 2801.08 C 2170.64 2802.1 2170.37 2803.29 2169 2804.18 C 2167.77 2804.77 2166.14 2805 2164.58 2804.8 C 2163.02 2804.61 2161.7 2804.01 2161 2803.18 C 2160.06 2802.53 2159.75 2801.74 2160.13 2800.98 C 2160.51 2800.22 2161.55 2799.57 2163 2799.18 C 2164.23 2798.96 2165.56 2799.03 2166.7 2799.38 Z" fill="#000000" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" transform="translate(2260.26,0)scale(-1,1)translate(-2260.26,0)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="4990" y="3480" width="260" height="90" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="4990" y="3480" width="260" height="90" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3525px; margin-left: 5120px;">
+      <div data-drawio-colors="color: #cc0000; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+      <div style="display: inline-block; font-size: 60px; font-family: Helvetica; color: rgb(204, 0, 0); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 60px;">感知模块<br style="font-size: 60px;"></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="1224.74" y="3680" width="320" height="90" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="1224.74" y="3680" width="320" height="90" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3725px; margin-left: 1385px;">
+      <div data-drawio-colors="color: #cc0000; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+      <div style="display: inline-block; font-size: 60px; font-family: Helvetica; color: rgb(204, 0, 0); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 60px;">轻量化模块<br style="font-size: 60px;"></span></div></div></div></foreignObject></g></g></g><g></g><g></g></g><linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="mx-gradient-cccccc-1-000000-1-s-0"><stop offset="0%" style="stop-color: rgb(204, 204, 204); stop-opacity: 1;"></stop><stop offset="100%" style="stop-color: rgb(0, 0, 0); stop-opacity: 1;"></stop></linearGradient><linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="mx-gradient-0527ad-1-000000-1-s-0"><stop offset="0%" style="stop-color: rgb(5, 39, 173); stop-opacity: 1;"></stop><stop offset="100%" style="stop-color: rgb(0, 0, 0); stop-opacity: 1;"></stop></linearGradient></svg>
+      <div class="resize-sensor" style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+      <div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+      <div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 100000px; height: 100000px;"></div></div>
+      <div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+      <div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div>
+    </div>
+
+   
+</template>
+
+<script>
+import { VBTooltip } from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+
+export default {
+  data() {
+    return {
+      isAnimating: false,
+      showDescription: false,
+      imageDescription: {
+        firstinfo:
+          "欢迎来到人机物融合群智计算系统开放平台，为您提供从设备到模型部署的中间件服务",
+        deviceinfo: "设备资源感知: 对您的智能设备可用资源进行测评",
+        modelinfo: "模型性能评估: 对您的深度学习模型性能进行评估",
+        modelcompress:
+          "模型压缩: 减小模型大小以及减少模型参数数量，从而提高模型的效率和性能",
+        modelseg:
+          "模型分割: 将深度学习模型划分成若干子模型，以便在多个设备运行，从而减少计算和存储资源的需求",
+      },
+    };
+  },
+  methods: {
+    animateOnce() {
+      if (!this.isAnimating) {
+        this.isAnimating = true;
+        this.$el.classList.add('rotate-on-hover-compress-seg:hover');
+        setTimeout(() => {
+          this.$el.classList.remove('rotate-on-hover-compress-seg:hover');
+          this.isAnimating = false;
+        }, 2500); // 2.5s 动画结束后重置状态
+      }
+    },
+    animateOnceSeg1() {
+      if (!this.isAnimating) {
+        this.isAnimating = true;
+        setTimeout(() => {
+        this.$el.classList.add('rotate-on-hover-seg1:hover');
+        }, 2500);
+        setTimeout(() => {
+          this.$el.classList.remove('rotate-on-hover-seg1:hover');
+          this.isAnimating = false;
+        }, 2500); // 2.5s 动画结束后重置状态
+      }
+    },
+    animateOnceSeg2() {
+      if (!this.isAnimating) {
+        this.isAnimating = true;
+        this.$el.classList.add('rotate-on-hover-seg2:hover');
+        setTimeout(() => {
+          this.$el.classList.remove('rotate-on-hover-seg2:hover');
+          this.isAnimating = false;
+        }, 2500); // 2.5s 动画结束后重置状态
+      }
+    },
+    animateOnceSeg3() {
+      if (!this.isAnimating) {
+        this.isAnimating = true;
+        setTimeout(() => {
+        this.$el.classList.add('rotate-on-hover-seg3:hover');
+        }, 2500);
+        setTimeout(() => {
+          this.$el.classList.remove('rotate-on-hover-seg3:hover');
+          this.isAnimating = false;
+        }, 2500); // 2.5s 动画结束后重置状态
+      }
+    },
+    animateOnceDevice() {
+      const rotateDiv = document.querySelector('.rotate-on-hover-device');
+      if (!rotateDiv.classList.contains('rotate-on-hover-device:hover')) {
+        rotateDiv.classList.add('rotate-on-hover-device:hover');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate-on-hover-device:hover');
+        }, 1000);
+      }
+    },
+    animateOnceModelStruct() {
+      const rotateDiv = document.querySelector('.rotate-on-hover-device');
+      if (!rotateDiv.classList.contains('rotate-on-hover-device:hover')) {
+        rotateDiv.classList.add('rotate-on-hover-device:hover');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate-on-hover-device:hover');
+        }, 1000);
+      }
+    },
+    animateOncemModelval() {
+      const rotateDiv = document.querySelector('.rotate-on-hover-device');
+      if (!rotateDiv.classList.contains('rotate-on-hover-device:hover')) {
+        rotateDiv.classList.add('rotate-on-hover-device:hover');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate-on-hover-device:hover');
+        }, 1000);
+      }
+    },
+    animateOncemModelval2() {
+      const rotateDiv = document.querySelector('.rotate-on-hover-device');
+      if (!rotateDiv.classList.contains('rotate-on-hover-device:hover')) {
+        rotateDiv.classList.add('rotate-on-hover-device:hover');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate-on-hover-device:hover');
+        }, 1000);
+      }
+    },
+    rotate() {
+      const rotateDiv = document.querySelector('.rotate-div');
+      if (!rotateDiv.classList.contains('rotate')) {
+        rotateDiv.classList.add('rotate');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate');
+        }, 2000);
+      }
+    },
+  },
+  directives: { "b-tooltip": VBTooltip },
+};
+</script>
+
+
+<style>
+.geDiagramContainer {
+  display: flex;
+  align-items: center;
+  height: 140vh;
+  width: 200vh;
+  justify-content: space-between;
+}
+
+.rotate-on-hover-compress-seg {
+  transition: transform 2.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+.rotate-on-hover-compress-seg:hover {
+  /* transform: rotate(360deg) translate(-50%, -50%); */
+  transform: rotate(360deg) translate(-40%, -40%);
+}
+
+.rotate-on-hover-seg1 {
+  transition: transform 2.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+.rotate-on-hover-seg1:hover {
+  /* transform: rotate(360deg) translate(-50%, -50%); */
+  /* transform: translate(1800px, -300px)  skew(30deg, 0); */
+  transform: translate(350px, -170px)  skew(30deg, -5deg);
+}
+
+.rotate-on-hover-seg2 {
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+.rotate-on-hover-seg2:hover {
+  /* transform: rotate(360deg) translate(-50%, -50%); */
+  transform: rotate(8deg);
+}
+
+.rotate-on-hover-seg3 {
+  transition: transform 2.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+.rotate-on-hover-seg3:hover {
+  /* transform: rotate(360deg) translate(-50%, -50%); */
+  transform: rotate(360deg) translate(-20%, -20%);
+}
+
+.rotate-on-hover-device {
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  pointer-events: none;
+
+}
+.rotate-on-hover-device:hover {
+  transform: rotate(360deg) translate(-35%, 35%);
+  pointer-events: auto;
+}
+
+.rotate-on-hover-modelstruct {
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  pointer-events: none;
+}
+.rotate-on-hover-modelstruct:hover {
+  transform: rotate(360deg) translate(13%, 13%);
+  pointer-events: auto;
+}
+
+.rotate-on-hover-modelval {
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  pointer-events: none;
+
+}
+.rotate-on-hover-modelval:hover {
+  transform: rotate(360deg) translate(-35%, 35%);
+  pointer-events: auto;
+}
+
+.rotate-on-hover-modelval2 {
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  pointer-events: none;
+
+}
+.rotate-on-hover-modelval2:hover {
+  transform: rotate(360deg) translate(-35%, 35%);
+  pointer-events: auto;
+}
+
+.rotate-div {
+  transition: transform 2s ease-in-out;
+  transform-origin: center center;
+}
+
+.rotate {
+  animation: rotate 2s ease-in-out;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+</style>
+

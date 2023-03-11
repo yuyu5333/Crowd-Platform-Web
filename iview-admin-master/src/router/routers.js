@@ -139,7 +139,7 @@ export default [
         name: 'model-test1',
         meta: {
           icon: 'md-clipboard',
-          title: '测试'
+          title: '测试1'
         },
         component: () => import('@/view/ModelPerformanceEvaluation/test.vue')
       },
@@ -148,7 +148,7 @@ export default [
         name: 'model-test2',
         meta: {
           icon: 'md-clipboard',
-          title: '测试'
+          title: '测试2'
         },
         component: () => import('@/view/ModelPerformanceEvaluation/test2.vue')
       },
