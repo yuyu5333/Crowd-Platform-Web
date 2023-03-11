@@ -1,6 +1,5 @@
 from django.urls import path, re_path
-from . import views
-
+from .views import viewsalone as views
 urlpatterns = [
 
     path('get-sysmodel/', views.ReturnSysModelDeviceLatency.as_view()),

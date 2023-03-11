@@ -29,10 +29,12 @@ import uuid
 import torch
 import time
 from thop import clever_format
+from hmt.views.nodegraph import optimal
 from uploadusermodel.profile_my import profile
 from uploadusermodel.checkmodel_util import test
 from uploadusermodel.checkmodel_util import model_user
 
+from hmt.views.nodegraph import optimal  #路径必须这么写才行,django的根目录开始，默认从django的根目录开始识别
 # Create your views here.
 class ReturnSysModelStatus(APIView):
     def post(self, request):
@@ -648,37 +650,16 @@ def jetson(request):
         return JsonResponse(json.loads(data_jetson))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
-# def source_show(request,data):
-    
-#     HOST = '192.168.1.102'
-#     PORT = 8080
-#     # 创建套接字并开始监听连接
-#     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#     sock.bind((HOST, PORT))
-#     sock.listen(1)
-#     # 处理客户端连接
-#     while True:
-#         conn, addr = sock.accept()
-#         get_length = False
-#         count = 0
+def segmentation(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        data_device = data.get('device')
+        data_task = data.get('task')
+        data_model = data.get('model')
+        data_target = data.get('target')
+        print(data)
+        op=optimal(data_target)
+        print(op)
+        print(type(op))
+        return JsonResponse({'id':op[0],'num':op[1]})
 
-#         while True:
-#             if not get_length:
-#                 lengthData = conn.recv(6)
-#                 length = int.from_bytes(lengthData, byteorder='big')
-#                 b = bytes()
-#                 if length == 0:
-#                     continue
-#                 else:
-#                     get_length = True
-#             else:
-#                 value = conn.recv(length)
-#                 b = b+value
-#                 count += len(value)
-#                 if count >= length:
-#                     break
-#                 data = pickle.loads(b)
-#                 print(data)
-#     if request.method == 'POST':
-#         return JsonResponse({'data':data})
-#     # 定义服务器端口号和主机名
