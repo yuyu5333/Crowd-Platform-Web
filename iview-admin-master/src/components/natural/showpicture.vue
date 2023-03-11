@@ -47,6 +47,7 @@ export default {
     width:250px;
     height: 250px;
     filter: grayscale(0%);
+    border-radius: 50%;
 }
 
 </style>

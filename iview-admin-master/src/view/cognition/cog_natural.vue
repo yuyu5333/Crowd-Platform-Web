@@ -51,7 +51,7 @@
             </el-aside>
             <el-main>
                 <div id="main" style="height:1500px;margin-left: 0px;">
-                    <!--<card style="height: 300px;margin-bottom: 10px;">
+                    <card style="height: 300px;margin-bottom: 10px;">
                       <Row>
                         <h1 style="color:#2867a8">设备实物展示</h1>
                       </Row>
@@ -60,7 +60,7 @@
                           <show_img ref="showImage"></show_img>
                         </Col>
                       </Row>
-                    </card>-->
+                    </card>
                     <card style="height: 370px;margin-bottom: 10px;">
                       <Row>
                         <h1 style="color:#2867a8">CPU Usage</h1>
