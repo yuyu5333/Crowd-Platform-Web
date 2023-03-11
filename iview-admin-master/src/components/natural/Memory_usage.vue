@@ -78,6 +78,13 @@ export default {
             // 定义时间格式
             return (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s);
         },
+        getChange : function() {
+            this.MEM_Use=[];
+            this.date=[];
+            this.echartsOption.xAxis.data = this.date;
+            this.echartsOption.series[0].data = this.MEM_Use;
+            this.myChart.setOption(this.echartsOption);
+        },
         // 添加实时数据
         addData : function() {
             /*axios.post('/resourceinfo/',{

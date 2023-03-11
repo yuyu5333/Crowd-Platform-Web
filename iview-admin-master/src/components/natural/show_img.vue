@@ -62,8 +62,9 @@ export default {
 img {
   width: calc(20% - 5px);
   height: 200px;
-  filter: grayscale(100%);
+  filter: grayscale(0%);
 }
+/*
 .active{
     border:1px solid rgb(152, 191, 250);
     box-shadow:0 0 20px rgb(152, 191, 250);
