@@ -136,15 +136,24 @@ class ReturnUserModelStatus(APIView):
         Macs, Params = modelCalculate(model, input)
         Latency = modelLatency(model, input)
         Storage = modelStorage(model)
-        Energy = modelEnergy(model, input)
+        # return energy_total, Cl, Ml, cache_rate
+        Energy, Cl, Ml, Cache_rate = modelEnergy(model, input)
 
         Latency = ('%.2f' % (Latency * 1000))
         Storage = ('%.2f' % Storage)
         Energy = ('%.2f' % Energy)
+        Cl = ('%.2f' % (Cl/1000))
+        Ml = ('%.2f' % (Ml/1000))
+        Cache_rate = ('%.2f' % (Cache_rate * 100))
+
+        retEnergy = '能耗: ' + str(Energy) + ' (mJ)'
+        retCl = '计算量: ' + str(Cl) + ' (M)'
+        retMl = '访存量: ' + str(Ml) + ' (M)'
+        retCache_rate = '访存命中率: ' + str(Cache_rate) + ' %'
 
         return_data = {
             "Computation": Macs[0:-1], "Parameter": Params[0:-1], "Latency": Latency, "Storage": Storage,
-            "Energy": Energy, "Accuracy": "None"
+            "Energy": retEnergy, "Accuracy": "None", "Cl": retCl, "Ml": retMl, "CacheRate": retCache_rate
         }
 
         print("return_data: ", return_data)
@@ -305,7 +314,7 @@ def modelEnergy(Model, input):
     # energy_total = round(energy_total * 10 ** (-12) , 2)
     energy_total = energy_total * 10 ** (-12 + 3)
     
-    return energy_total
+    return energy_total, Cl, Ml, cache_rate
 
 def getcacherate(model, input, device):
     
