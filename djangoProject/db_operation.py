@@ -10,16 +10,47 @@ def create_table():
 
     try: 
         sql = """
-        CREATE TABLE hmt_sysdevicelatency (
+        CREATE TABLE hmt_imagesclassification (
             id integer primary key autoincrement,
-            SysModelName varchar(100),
-            Device varchar(100),
-            Latency real,
-            Energy real
+            DatasetName varchar(100),
+            ModelName varchar(100),
+            Computation real,
+            Parameter real,
+            Energy,
+            Accuracy,
+            CompressRate,
+            Storage
         )
         ;"""
         cur.execute(sql)
         print("create table success")
+        return True
+
+    except OperationalError as o:
+        print(str(o))
+
+    except Exception as e:
+        print(e)
+        return False
+
+    finally:
+        cur.close()
+        connect.close()
+
+def copy_table():
+    
+    connect = sqlite3.connect('./db.sqlite3')
+    cur = connect.cursor()
+    
+    try: 
+        sql = """
+        INSERT INTO hmt_imagesclassification 
+        (id, DatasetName, ModelName, Computation, Parameter, Energy, Storage, Accuracy, CompressRate) 
+        SELECT id, Dataset, ModelName, Flops, Params, Energy, Storage, Accuracy, CompressRate  
+        FROM hmt_imageclassification;"""
+        cur.execute(sql)
+        connect.commit()
+        print("copy table success")
         return True
 
     except OperationalError as o:
@@ -39,7 +70,7 @@ def add_table_col():
     
     try:
     
-        cur.execute("ALTER TABLE hmt_sysmodel ADD COLUMN Infomation_ope varchar(1000)")
+        cur.execute("ALTER TABLE hmt_imageclassification ADD COLUMN Dataset varchar(100)")
         connect.commit()
         
         cur.close()
@@ -55,6 +86,9 @@ def add_table_col():
         cur.close()
         connect.close()
 
+def delete_table_col():
+    connect = sqlite3.connect()
+
 def insert_data_many():
 
     connect = sqlite3.connect('./db.sqlite3')
@@ -63,31 +97,68 @@ def insert_data_many():
     try:
         inset_sql = """
             insert into hmt_imageclassification
-            (id, ModelName, Flops, Params, Energy, Accuracy, MissionName2_id, CompressRate, Storage)
+            (id, Dataset)
             values
             (
-                ?,?,?,?,?,?,?,?,?
+                ?,?
             );
         """
         datalist = [
+            # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                13, "ResNet18",557.88,11.17,2789.4,76.07,1,0,42.8
+                1, "Cifar100"
             ),
             (
-                14, "ResNet18-svd",409.75,1.9,2109.61,69.05,1,90.53,4.05
+                2, "Cifar100"
             ),
             (
-                15,"ResNet18-dpconv",336.86,0.89,1777.37,73.04,1,91.93,3.45
+                3,  "Cifar100"
             ),
             (
-                16,"ResNet18-fire",413.94,1.94,2100.64,73.22,1,82.54,7.47
+                17,  "Cifar100"
             ),
             (
-                17,"ResNet18-inception1",372.53,1.54,1923.27,62.56,1,86.14,5.93
+                18,  "Cifar100"
             ),
             (
-                18,"ResNet18-inception2",541.87,3.19,2740.26,76.58,1,71.49,12.2
-            )
+                4,  "Cifar100"
+            ),
+            (
+                5,  "Cifar100"
+            ),
+            (
+                6,  "Cifar100"
+            ),
+            (
+                7,  "Cifar100"
+            ),
+            (
+                8,  "Cifar100"
+            ),
+            (
+                9,  "Cifar100"
+            ),
+            (
+                10,  "Cifar100"
+            ),
+            (
+                11,  "Cifar100"
+            ),
+            (
+                12,  "Cifar100"
+            ),
+            (
+                13, "Cifar100"
+            ),
+            (
+                14, "Cifar100"
+            ),
+            (
+                15, "Cifar100"
+            ),
+            (
+                16, "Cifar100"
+            ),
         ]
 
         connect.executemany(inset_sql, datalist)
@@ -108,11 +179,14 @@ def update_data():
     connect = sqlite3.connect('./db.sqlite3')
 
     try:
-        update_sql = 'update hmt_imageclassification set Accuracy = ?,  Flops = ? where id = ? and  ModelName = ?;'
+        update_sql = 'update hmt_classdatasetmodel set ModelName = ? where id = ?;'
         datalist = [
+            # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-               409.75, 1.90, 4.05, 2109.61, 5, "ResNet18-svd"
+                "Vgg16", 18
             ),
+
+            
         ]
 
         connect.executemany(update_sql, datalist)
@@ -138,7 +212,7 @@ def insert_data():
             (id, ModelName, Flops, Params, Energy, Accuracy, MissionName2_id, CompressRate, Storage)
             values
             (
-                13, "resnet18-cifar100", 541.87, 3.19, 12.25, -1, 2740.26, -1,
+                13, "resnet18-Cifar100", 541.87, 3.19, 12.25, -1, 2740.26, -1,
                     "ResNet又称残差网络是由来自Microsoft Research的4位学者提出的卷积神经网络, \
                     在2015年的ImageNet大规模视觉识别竞赛（ImageNet Large Scale Visual Recognition Challenge, ILSVRC）中获得了图像分类和物体识别的优胜. \
                     残差网络的特点是容易优化, 并且能够通过增加相当的深度来提高准确率. 其内部的残差块使用了跳跃连接, 缓解了在深度神经网络中增加深度带来的梯度消失问题.", 
@@ -188,20 +262,78 @@ def delete_table():
         cur.close()
         connect.close()
 
+def update_table_name():
+    
+    connect = sqlite3.connect('./db.sqlite3')
+    cur = connect.cursor()
+
+    try:
+        update_sql = """ALTER TABLE A RENAME TO hmt_classdatasetmodel ;"""
+
+
+        cur.execute(update_sql)
+        print("update table success")
+        return True
+
+    except OperationalError as o:
+        print(str(o))
+
+    except Exception as e:
+        print(e)
+        return False
+
+    finally:
+        cur.close()
+        connect.close()
+
+def test_db():
+    connect = sqlite3.connect('./db.sqlite3')
+    cur = connect.cursor()
+    
+    try:
+        select_sql = """select * from hmt_imagesclassification where DatasetName = 'Cifar100' and ModelName = 'ResNet18'"""
+        
+        
+
+        cur.execute(select_sql)
+        
+        for row in cur:
+            print(row)
+        
+        print("test table success")
+        return True
+
+    except OperationalError as o:
+        print(str(o))
+
+    except Exception as e:
+        print(e)
+        return False
+
+    finally:
+        cur.close()
+        connect.close()
+    
+    
 if __name__ == "__main__":
     
+    # test_db()
     
     # delete_table()
     
     # add_table_col()
 
     # create_table()
+    
+    # copy_table()
 
     # insert_data()
 
-    insert_data_many()
+    # insert_data_many()
 
-    # update_data()
+    update_data()
+    
+    # update_table_name()
 
 '''
     inset_sql = """

@@ -9,6 +9,8 @@ from tabnanny import check
 from django.conf import settings
 from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.utils.encoding import escape_uri_path
+from django.db.models import Q
+
 from rest_framework import status
 from rest_framework import response
 from rest_framework.response import Response
@@ -21,6 +23,10 @@ from hmt.serializers import DeviceSerializer, ImageClassificationSerializer
 
 from hmt.models import SysModel, SysDeviceLatency
 from hmt.serializers import SysModelSerializer, SysDeviceLatencySerializer
+
+# model compress wyz
+from hmt.models import ClassDatasetModel, ImagesClassification
+from hmt.serializers import ClassDatasetModelSerializer, ImagesClassificationSerializer
 
 from operator import itemgetter
 from pynvml import *
@@ -529,6 +535,61 @@ def find_closest_compress(compress_ratio, model_set):
         serializer = ImageClassificationSerializer(model_set[pos - 1])
     return serializer
 
+class ReturnClassDatasetModel(APIView):
+    def post(self, request):
+        class_dataset_name = json.loads(request.body)
+        
+        classname = class_dataset_name.get('ClassName')
+        dataset = class_dataset_name.get('DatasetName')
+        
+        modelnames = ClassDatasetModel.objects.filter(Q(ClassName=classname) & Q(DatasetName=dataset))
+        modelname_list = []
+        
+        for modelname in modelnames:
+            modelname_serializer = ClassDatasetModelSerializer(modelname)
+            temp_modelname = modelname_serializer.data
+            modelname_list.append(temp_modelname['ModelName'])
+        
+        if modelname_list[0] == '':
+            return Response(None)
+        
+        return Response(modelname_list)
+
+class ReturnClassDatasetModelInfo(APIView):
+    def post(self, request):
+        class_dataset_modelName = json.loads(request.body)
+        
+        classname = class_dataset_modelName.get('ClassName')
+        datasetname = class_dataset_modelName.get('DatasetName')
+        modelname = class_dataset_modelName.get('ModelName')
+        
+        # 不同classname对应不同数据库表
+            # '图像分类' -- hmt_imagesclassification
+        
+        if classname == '图像分类':
+            # 获取图像分类对应数据集对应模型的参数
+            # modelinfo = ImagesClassification.objects.filter(Q(Dataset=datasetname) & Q(ModelName=modelname))
+
+            modelinfos = ImagesClassification.objects.filter(Q(DatasetName=datasetname) & Q(ModelName=modelname))
+            
+            retmodelinfo = {}
+            
+            for modelinfo in modelinfos:
+                modelinfo_serializer = ImagesClassificationSerializer(modelinfo)
+                temp_modelname = modelinfo_serializer.data
+                
+                retmodelinfo['Computation'] = temp_modelname['Computation']
+                retmodelinfo['Parameter'] = temp_modelname['Parameter']
+                retmodelinfo['Energy'] = temp_modelname['Energy']
+                retmodelinfo['Storage'] = temp_modelname['Storage']
+                retmodelinfo['Accuracy'] = temp_modelname['Accuracy']
+
+            return Response(retmodelinfo)
+                
+        else:
+            pass
+        
+        return Response(None)
 
 class ReturnCompressModel(APIView):
     def post(self, request):
@@ -834,6 +895,7 @@ def get_resourceinfo(request):
         'MEM_Use':MEM_Use,
         'DISK_Free':DISK_Free,
     })
+
 data_raspberry = {"CPU_Arch": "armv7l", 
         "OS_Version": "Raspbian GNU/Linux 10", 
         "RAM_Total": 0, 
