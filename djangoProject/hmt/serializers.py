@@ -1,9 +1,21 @@
-from dataclasses import field
 from rest_framework import serializers
 
 from hmt.models import Device, ImageClassification
 
-from hmt.models import SysModel, SysDeviceLatency
+from hmt.models import SysModel, SysDeviceLatency, ClassDatasetModel
+
+from hmt.models import ImagesClassification
+
+class ImagesClassificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImagesClassification
+        # fields = ('DatasetName', 'ModelName')
+        fields = '__all__'
+
+class ClassDatasetModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClassDatasetModel
+        fields = '__all__'
 
 class SysModelSerializer(serializers.ModelSerializer):
     class Meta:
