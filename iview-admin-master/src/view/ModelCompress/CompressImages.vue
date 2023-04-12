@@ -13,31 +13,31 @@
               </label>
             </div>
             <div class="image-item">
-              <img src="/images/dataset_images/ADE20K.jpg" alt="Image 1" />
-              <p class="image-info">Ade20k</p>
+              <img src="/images/dataset_images/ADE20K.jpg" @click="selectedValueDataSet = 'Ade20k'" alt="Image 1" />
+              <p class="image-info" @click="selectedValueDataSet = 'Ade20k'">Ade20k</p>
             </div>
             <div class="image-item">
-              <img src="/images/dataset_images/Caltech101.png" alt="Image 1" />
-              <p class="image-info">Caltech101</p>
+              <img class="hover-animation" src="/images/dataset_images/CIFAR100.jpg" @click="selectedValueDataSet = 'Cifar100'" alt="Image 5" />
+              <p class="image-info" @click="selectedValueDataSet = 'Cifar100'">Cifar100</p>
             </div>
             <div class="image-item">
-              <img src="/images/dataset_images/Caltech256.jpg" alt="Image 1" />
+              <img class="hover-animation" src="/images/dataset_images/VOC2012.jpg" @click="selectedValueDataSet = 'PascalVOC'" alt="Image 4" />
+              <p class="image-info" @click="selectedValueDataSet = 'PascalVOC'">PascalVOC</p>
+            </div>
+            <div class="image-item">
+              <img src="/images/dataset_images/Caltech101.png" @click="selectedValueDataSet = 'Caltech101'" alt="Image 2" />
+              <p class="image-info" @click="selectedValueDataSet = 'Caltech101'">Caltech101</p>
+            </div>
+            <div class="image-item">
+              <img src="/images/dataset_images/minist.jpg" alt="Image 1" />
+              <p class="image-info">Mnist</p>
+            </div>
+            <div class="image-item">
+              <img src="/images/dataset_images/Caltech256.jpg" alt="Image 3" />
               <p class="image-info">Caltech256</p>
             </div>
             <div class="image-item">
-              <img src="/images/dataset_images/CIFAR10.png" alt="Image 2" />
-              <p class="image-info">Cifar10</p>
-            </div>
-            <div class="image-item">
-              <img src="/images/dataset_images/CIFAR100.jpg" alt="Image 3" />
-              <p class="image-info">Cifar100</p>
-            </div>
-            <div class="image-item">
-              <img src="/images/dataset_images/Cityscapes.jpg" alt="Image 4" />
-              <p class="image-info">Cityscapes</p>
-            </div>
-            <div class="image-item">
-              <img src="/images/dataset_images/COCO.png" alt="Image 5" />
+              <img src="/images/dataset_images/COCO.png" alt="Image 7" />
               <p class="image-info">Coco</p>
             </div>
             <div class="image-item">
@@ -55,10 +55,6 @@
               <div>&nbsp;&nbsp;</div>
             </div>
             <div class="image-item">
-              <img src="/images/dataset_images/minist.jpg" alt="Image 1" />
-              <p class="image-info">Mnist</p>
-            </div>
-            <div class="image-item">
               <img src="/images/dataset_images/Food-101.jpg" alt="Image 2" />
               <p class="image-info">Food101</p>
             </div>
@@ -74,6 +70,7 @@
               <img src="/images/dataset_images/COCO.png" alt="Image 5" />
               <p class="image-info">OxfordFlowers</p>
             </div>
+            <div class="image-item"></div>
             <div class="image-item"></div>
             <div class="image-item"></div>
             <div class="image-item"></div>
@@ -258,15 +255,23 @@ export default {
       type: String,
       default: "",
     },
+    selectedValueDataSet: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
       selectedValueClass: this.selectedValueClass,
+      selectedValueDataSet: this.selectedValueDataSet,
     };
   },
   watch: {
     selectedValueClass(newValue) {
-      this.$emit("update-selected-value", newValue);
+      this.$emit("update-selected-value-class", newValue);
+    },
+    selectedValueDataSet(newValue) {
+      this.$emit("update-selected-value-dataset", newValue);
     },
   },
 };
@@ -317,4 +322,13 @@ img {
 .four-space {
   letter-spacing: 4em; /* 设置字母间距为 1 个字宽 */
 }
+
+.hover-animation {
+  transition: transform 0.5s;
+}
+
+.hover-animation:hover {
+  transform: scale(1.2);
+}
+
 </style>
