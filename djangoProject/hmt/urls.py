@@ -14,7 +14,11 @@ urlpatterns = [
     
     path('get-device/', views.ReturnDeviceStatus.as_view()),
     path('get-mission/', views.ReturnMissionStatus.as_view()),
+    path('get-classdatasetmodel/', views.ReturnClassDatasetModel.as_view()),
+    path('get-classdatasetmodelInfo/', views.ReturnClassDatasetModelInfo.as_view()),
+    
     path('compress-model/', views.ReturnCompressModel.as_view()),
+
     re_path('^download-model/', views.DownloadCompressModel.as_view()),
     re_path('^download-sysmodel/', views.DownloadSysModel.as_view()),
     re_path('^download-sysmodelcode/', views.DownloadSysModelCode.as_view()),

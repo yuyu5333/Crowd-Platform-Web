@@ -135,5 +135,4 @@ DOWNLOADFILEDIR_ROOT = os.path.join(BASE_DIR, 'downloadfile')
 UPLOADUSERMODEL_ROOT = os.path.join(BASE_DIR, 'uploadusermodel')
 
 
-
 CORS_ORIGIN_ALLOW_ALL = True
