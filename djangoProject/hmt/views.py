@@ -138,6 +138,10 @@ class ReturnUserModelStatus(APIView):
         Storage = modelStorage(model)
         # return energy_total, Cl, Ml, cache_rate
         Energy, Cl, Ml, Cache_rate = modelEnergy(model, input)
+        
+        modelStruct = getusermodelStruct(model)
+
+        # print("modelStruct: ", modelStruct)
 
         Latency = ('%.2f' % (Latency * 1000))
         Storage = ('%.2f' % Storage)
@@ -146,20 +150,48 @@ class ReturnUserModelStatus(APIView):
         Ml = ('%.2f' % (Ml/1000))
         Cache_rate = ('%.2f' % (Cache_rate * 100))
 
-        retEnergy = '能耗: ' + str(Energy) + ' (mJ)'
-        retCl = '计算量: ' + str(Cl) + ' (M)'
-        retMl = '访存量: ' + str(Ml) + ' (M)'
-        retCache_rate = '访存命中率: ' + str(Cache_rate) + ' %'
+        retEnergy = str(Energy) + ' (mJ)'
+        retCl = str(Cl) + ' (M)'
+        retMl = str(Ml) + ' (M)'
+        retCache_rate = str(Cache_rate) + ' %'
 
         return_data = {
             "Computation": Macs[0:-1], "Parameter": Params[0:-1], "Latency": Latency, "Storage": Storage,
-            "Energy": retEnergy, "Accuracy": "None", "Cl": retCl, "Ml": retMl, "CacheRate": retCache_rate
+            "Energy": retEnergy, "Accuracy": "None", "Cl": retCl, "Ml": retMl, "CacheRate": retCache_rate,
+            "Struct": modelStruct
         }
 
         print("return_data: ", return_data)
 
         return Response(return_data)
+
+
+class ReturnUserModelStruct(APIView):
+    def post(self, request):
+        model, input = model_user()
+        modelStruct = getusermodelStruct(model)
         
+        print("modelStruct: ", modelStruct)
+        
+        return Response(modelStruct)
+
+def getusermodelStruct(model):
+    structure = []
+    for name, layer in model.named_children():
+        layer_info = {}
+        layer_info['name'] = name
+        layer_info['type'] = layer.__class__.__name__
+        layer_info['params'] = sum(p.numel() for p in layer.parameters() if p.requires_grad)
+        structure.append(layer_info)
+        if len(list(layer.children())) > 0:
+            layer_info['children'] = getusermodelStruct(layer)
+
+    print(structure)
+
+    json_structure = json.dumps(structure)
+
+    return json_structure
+
 def modelEnergy(Model, input):
 
     # 计算 Cl：计算量
@@ -354,7 +386,6 @@ def measure_model_time(model, input_tensor, device):
 
     return end_time - start_time
 
-
 def modelStorage(model):
     torch.save(model, "./uploadusermodel_temp.pth")
     print("Saving model successfully!")
@@ -464,7 +495,6 @@ class ReturnDeviceStatus(APIView):
         print(serializer.data)
         return Response(serializer.data)
 
-
 class ReturnMissionStatus(APIView):
     def post(self, request):
         mission_obj = json.loads(request.body)
@@ -478,7 +508,6 @@ class ReturnMissionStatus(APIView):
                 serializer = ImageClassificationSerializer(model)
                 return Response(serializer.data)
         raise Http404
-
 
 def find_closest_compress(compress_ratio, model_set):
     if compress_ratio >= model_set[-1]['CompressRate']:
@@ -560,8 +589,6 @@ class DownloadModeldefinition(APIView):
             return JsonResponse({'status': status.HTTP_400_BAD_REQUEST, 'msg': '文件下载失败'},
                                 status=status.HTTP_400_BAD_REQUEST)
 
-
-
 class DownloadSysModelCode(APIView):
     def get(self, request):
         filename = request.GET.get('modelcode')
@@ -602,8 +629,6 @@ class DownloadSysModelCode(APIView):
         except Exception:
             return JsonResponse({'status': status.HTTP_400_BAD_REQUEST, 'msg': '模型代码下载失败'},
                                 status=status.HTTP_400_BAD_REQUEST)
-
-
 
 class DownloadSysModel(APIView):
     def get(self, request):
@@ -646,7 +671,6 @@ class DownloadSysModel(APIView):
             return JsonResponse({'status': status.HTTP_400_BAD_REQUEST, 'msg': '模型下载失败'},
                                 status=status.HTTP_400_BAD_REQUEST)
 
-
 class DownloadCompressModel(APIView):
     def get(self, request):
         filename = request.GET.get('model')
@@ -688,13 +712,13 @@ class DownloadCompressModel(APIView):
             return JsonResponse({'status': status.HTTP_400_BAD_REQUEST, 'msg': '模型下载失败'},
                                 status=status.HTTP_400_BAD_REQUEST)
 
-def ConnectReturnDevice(request):
-    ipaddress = json.loads(request.body)
-    print(ipaddress)
-    ipaddress = ipaddress.get('IPaddress')
+# def ConnectReturnDevice(request):
+#     ipaddress = json.loads(request.body)
+#     print(ipaddress)
+#     ipaddress = ipaddress.get('IPaddress')
     
-    model_set = []
-    return Response(serializer.data)
+#     model_set = []
+#     return Response(serializer.data)
 
 
 def getCPUinfo():

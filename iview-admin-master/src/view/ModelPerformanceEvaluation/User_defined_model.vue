@@ -100,20 +100,21 @@
               </Col>
             </Row>
             <Divider style="margin: 12px 0px" />
-            <!-- <Row>
-              <Col span="8">
-                <p class="text-font-parameter" >
+            <Row>
+              <Col span="8" class="text-font-device">能耗: 
+                <p class="text-font-parameter">
                   {{ UserModelStatus.Energy }}
                 </p>
               </Col>
-            </Row> -->
-            <Row>
-              <Col span="8">
-                <transition name="fade">
-                  <p class="text-font-parameter">
-                    {{ currentItem  }}
-                  </p>
-                </transition>
+              <Col span="8" class="text-font-device">访存量: 
+                <p class="text-font-parameter">
+                  {{ UserModelStatus.Ml }}
+                </p>
+              </Col>
+              <Col span="8" class="text-font-device">访存命中率: 
+                <p class="text-font-parameter">
+                  {{ UserModelStatus.CacheRate }}
+                </p>
               </Col>
             </Row>
             <!-- <br /> -->
@@ -168,7 +169,7 @@
                 @click="getUserModelChange()"
                 >模型评估</Button
               >
-              <pulse-loader :loading="loading" color="#5cb85c" />
+              <pulse-loader :loading="loading" color="#5cb85c" message="模型评估中, 请稍等..." />
             </row>
             <row> </row>
           </card>
@@ -180,6 +181,10 @@
                 <Row>
                   <!-- <br /> -->
                   <!-- <br /> -->
+                  <p>111</p>
+                  <div>
+                    <TreeView :data="UserModelStatus.modelStruct" />
+                  </div>
                   <!-- <br /> -->
                   <!-- <br /> -->
                 </Row>
@@ -195,10 +200,12 @@
 <script>
 import axios from "axios";
 import PulseLoader from "vue-spinner/src/PulseLoader.vue";
+import TreeView from 'vue-json-tree-view';
 
 export default {
   components: {
     PulseLoader,
+    TreeView,
   },
   data() {
     return {
@@ -209,6 +216,7 @@ export default {
       },
       CheckModel_Value: [],
       UserModelStatus: [],
+      ModelStruct: {},
       loading: false,
       index: 0,
       values: [],
@@ -220,7 +228,8 @@ export default {
     },
   },
   created() {
-    // 假设从后端获取到的数据保存在了this.UserModelStatus中
+
+    // 后端获取到的数据保存在this.UserModelStatus中
     this.values = [
       this.UserModelStatus.Energy,
       this.UserModelStatus.Cl,
@@ -228,7 +237,7 @@ export default {
       this.UserModelStatus.CacheRate,
     ]
     setInterval(() => {
-      // 假设从后端获取到的数据更新到了this.UserModelStatus中
+      // 从后端获取到的数据更新到this.UserModelStatus中
       this.values = [
         this.UserModelStatus.Energy,
         this.UserModelStatus.Cl,
@@ -248,8 +257,10 @@ export default {
         })
         .then((response) => {
           that.UserModelStatus = response.data;
-          console.log(response.data);
           this.loading = false;
+          that.ModelStruct = response.data.modelStruct;
+          // console.log(response.data);
+          console.log(ModelStruct);
         });
     },
     CheckModel() {
@@ -282,6 +293,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .demo-split {
   height: 5000px;

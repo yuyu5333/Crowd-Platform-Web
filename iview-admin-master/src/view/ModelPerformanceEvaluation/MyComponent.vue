@@ -1,5 +1,5 @@
 <template>
-    <div  class="geDiagramContainer" v-b-tooltip.hover.top="imageDescription.firstinfo" 
+    <div  class="geDiagramContainer"
     style="max-width: 80%; border: 1px solid transparent; touch-action: none; margin-top: 26px; margin-bottom: 26px; width: 1893px; height: 1114.79px;" 
     data-mxgraph="">
       <svg style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 1893px; min-height: 1122px; background-image: none; background-color: transparent;">
@@ -18,7 +18,7 @@
             <path d="M 2076.78 3611.9 L 2092.28 3603.2 L 2076.88 3594.2 L 2061.48 3603.2 L 2076.88 3558.8 L 2153.58 3550 L 2137.98 3558.8 L 2153.58 3567.7 L 2168.88 3558.8 L 2563.47 3783.1 L 2547.97 3791.8 L 2563.37 3800.8 L 2578.77 3791.8 L 2563.37 3836.2 L 2486.67 3845 L 2502.27 3836.2 L 2486.67 3827.3 L 2471.37 3836.2" fill="#f4b934" stroke="none" pointer-events="all">
             </path>
           </g>
-          <g style="visibility: visible;">
+          <g style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.firstinfo">
             <image x="2510" y="1640" width="1210.74" height="760" src="/images/HMTlogo_home1.png"
             :xlink:href="require('@/assets/images/HMTlogo_home1.png')" preserveAspectRatio="none">
             </image>
@@ -174,7 +174,7 @@
               </foreignObject>
             </g>
           </g>
-          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+          <g class="rotate-on-hover-device" @mouseover="animateOnceDevice" transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.deviceinfo" >
             <path d="M 3962.38 2909.12 L 4023.3 2780 L 4146.48 2780 L 4207.94 2909.12 L 4084.77 2980 Z" fill="#000000" stroke="#000000" stroke-width="1.9" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
             <path d="M 3962.38 2909.12 L 4023.3 2780 L 4146.48 2780 L 4207.94 2909.12 L 4084.77 2980 Z" fill="#ececec" stroke="#292929" stroke-width="1.9" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
             <path d="M 3962.38 2909.12 L 4023.43 2780 L 4023.43 2850.62 L 4084.77 2980 Z M 4146.48 2850.62 L 4146.48 2780 L 4207.94 2909.12 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
@@ -222,7 +222,7 @@
               </foreignObject>
             </g>
           </g>
-          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+          <g class="rotate-on-hover-modelstruct" @mouseover="animateOnceModelStruct" transform="translate(0.5,0.5)" style="visibility: visible;">
             <path d="M 4472.67 3143.82 L 4472.67 3037.33 L 4478.19 3022.95 L 4503.38 3020 L 4523.34 3031.76 L 4523.34 3037.33 L 4529.95 3033.17 L 4564.98 3033.17 L 4600.2 3053.74 L 4600.2 3078.58 L 4602.9 3078.16 L 4622.67 3089.62 L 4622.67 3192.88 L 4617.75 3207.36 L 4591.56 3210 L 4572.11 3198.45 L 4572.11 3192.88 L 4565.18 3197.02 L 4529.86 3197.02 L 4494.84 3176.16 L 4494.84 3154.77 L 4493.15 3156.1 Z" fill="#cc0000" stroke="#292929" stroke-width="2.01" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
             <path d="M 4472.67 3144.28 L 4472.67 3037.73 L 4493.23 3049.89 L 4493.23 3155.98 Z M 4494.94 3176.16 L 4494.94 3074.42 L 4530.36 3094.88 L 4530.36 3197.02 Z M 4572.3 3198.45 L 4572.3 3096.21 L 4592.07 3107.34 L 4592.07 3210 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
             <path d="M 4493.23 3155.98 L 4493.23 3049.79 L 4503.07 3048.97 L 4495.14 3053.65 L 4495.14 3154.16 Z M 4530.36 3094.88 L 4564.77 3094.88 L 4574.81 3089.01 L 4572.3 3096 L 4572.3 3192.27 L 4565.53 3197.02 L 4530.16 3197.02 Z M 4592.07 3107.55 L 4617.26 3104.91 L 4622.67 3090.13 L 4622.67 3192.46 L 4617.96 3207.26 L 4592.07 3210 Z M 4523.34 3031.55 L 4523.34 3037.23 L 4520.63 3039.15 Z M 4600.2 3074.02 L 4600.2 3078.58 L 4591.77 3079.58 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
@@ -235,7 +235,7 @@
             <path d="M 4472.67 3143.82 L 4472.67 3037.33 L 4478.19 3022.95 L 4503.38 3020 L 4523.34 3031.76 L 4523.34 3037.33 L 4529.95 3033.17 L 4564.98 3033.17 L 4600.2 3053.74 L 4600.2 3078.58 L 4602.9 3078.16 L 4622.67 3089.62 L 4622.67 3192.88 L 4617.75 3207.36 L 4591.56 3210 L 4572.11 3198.45 L 4572.11 3192.88 L 4565.18 3197.02 L 4529.86 3197.02 L 4494.84 3176.16 L 4494.84 3154.77 L 4493.15 3156.1 Z" fill="none" stroke="white" stroke-width="10.01" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
             <path d="M 4472.67 3143.82 L 4472.67 3037.33 L 4478.19 3022.95 L 4503.38 3020 L 4523.34 3031.76 L 4523.34 3037.33 L 4529.95 3033.17 L 4564.98 3033.17 L 4600.2 3053.74 L 4600.2 3078.58 L 4602.9 3078.16 L 4622.67 3089.62 L 4622.67 3192.88 L 4617.75 3207.36 L 4591.56 3210 L 4572.11 3198.45 L 4572.11 3192.88 L 4565.18 3197.02 L 4529.86 3197.02 L 4494.84 3176.16 L 4494.84 3154.77 L 4493.15 3156.1 Z" fill="none" stroke="#292929" stroke-width="2.01" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"></path>
           </g>
-          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+          <g class="rotate-on-hover-modelval" @mouseover="animateOncemModelval" transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelinfo">
             <path d="M 4728.67 3310 L 4728.67 3239.5 L 4790.17 3204 L 4851.67 3239.5 L 4851.67 3310 L 4790.17 3346 Z" fill="#ffffff" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
             <path d="M 4728.67 3310 L 4728.67 3239.5 L 4790.17 3275 L 4790.17 3346 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
             <path d="M 4851.67 3310 L 4851.67 3239.5 L 4790.17 3275 L 4790.17 3346 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
@@ -332,10 +332,10 @@
             <path d="M 3175.24 3573.31 L 3175.24 3533.46 L 3186.89 3513.16 L 3209.83 3500 L 3233.13 3500 L 3256.07 3513.16 L 3267.72 3533.46 L 3267.72 3573.31 L 3221.48 3600 Z" fill="none" stroke="white" stroke-width="9.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
             <path d="M 3175.24 3573.31 L 3175.24 3533.46 L 3186.89 3513.16 L 3209.83 3500 L 3233.13 3500 L 3256.07 3513.16 L 3267.72 3533.46 L 3267.72 3573.31 L 3221.48 3600 Z" fill="none" stroke="#292929" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
           </g>
-          <g style="visibility: visible;">
+          <g class="rotate-on-hover-modelval2" @mouseover="animateOncemModelval2" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelinfo">
             <image x="4710.17" y="3154" width="160" height="160" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/switch.svg"></image>
           </g>
-          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+          <g transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelinfo">
             <path d="M 4759.17 3222.86 L 4759.17 3204.34 L 4790.17 3187 L 4821.17 3204.34 L 4821.17 3222.86 L 4790.17 3240 Z" fill="#86e83a" stroke="#292929" stroke-width="1.98" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
             <path d="M 4759.17 3204.34 L 4790.17 3221.18 L 4790.17 3240 L 4759.17 3222.86 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
             <path d="M 4790.17 3221.18 L 4821.17 3204.34 L 4821.17 3222.86 L 4790.17 3240 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
@@ -458,10 +458,10 @@
             <path d="M 3959.62 3873.33 C 3959.52 3871.81 3960.05 3870.3 3961.1 3869.19 C 3962.14 3868.07 3963.6 3867.44 3965.13 3867.44 L 3988.32 3867.44 C 3989.84 3867.45 3991.29 3868.09 3992.33 3869.2 C 3993.36 3870.32 3993.89 3871.81 3993.79 3873.33 L 3993.79 3879.18 C 3982.78 3883.35 3970.63 3883.35 3959.62 3879.18 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path>
           </g>
             <g transform="translate(0.5,0.5)" style="visibility: visible;">
-              <path d="M 4023.63 3886.65 L 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
+            <path d="M 4023.63 3886.65 L 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></path>
             <path d="M 4023.63 3886.65 L 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="#abb4c5" stroke="none" pointer-events="all"></path>
             <path d="M 4023.63 3811.25 L 4063.35 3801.4 L 4096.63 3811.53 L 4057.47 3821.09 Z" fill="#b8bfd1" stroke="none" pointer-events="all"></path>
-            <path d="M 4057.47 3821.09 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="#5b6369" stroke="none" pointer-events="all"></path
+            <path d="M 4057.47 3821.09 L 4096.63 3811.53 L 4096.63 3887.77 L 4057.47 3897.06 Z" fill="#5b6369" stroke="none" pointer-events="all"></path>
             <path d="M 4057.86 3862.56 C 4050.58 3859.74 4043.6 3856.16 4037.06 3851.87 C 4033.91 3849.68 4031.24 3846.87 4029.22 3843.6 C 4027.83 3841.05 4027.12 3838.18 4027.15 3835.27 C 4027.04 3832.14 4027.09 3829 4027.32 3825.88 C 4027.48 3823.09 4027.78 3820.31 4028.22 3817.55 C 4028.63 3816.03 4029.25 3814.57 4030.06 3813.22 C 4031.76 3812.06 4033.69 3811.12 4035.77 3810.4 C 4039.31 3809.19 4042.92 3808.16 4046.56 3807.31 C 4050.37 3806.29 4054.24 3805.53 4058.14 3805.06 C 4060.8 3804.72 4063.47 3804.63 4066.14 3804.78 C 4070.49 3805.09 4074.77 3806.03 4078.84 3807.59 L 4092.1 3812.48 C 4093.26 3814.43 4094.02 3816.59 4094.34 3818.84 C 4094.71 3821.87 4094.91 3824.91 4094.95 3827.96 C 4095.16 3834.68 4094.98 3841.41 4094.39 3848.1 C 4094.32 3851.06 4093.32 3853.91 4091.54 3856.26 C 4088.95 3859.13 4085.45 3861.02 4081.64 3861.61 C 4078.59 3862.09 4075.5 3862.31 4072.41 3862.28 Z" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></path>
             <rect x="4023.63" y="3801.4" width="0" height="0" fill="none" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"></rect>
             <rect x="4023.63" y="3801.4" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect>
@@ -524,7 +524,7 @@
               <path d="M 5030 3115.23 L 5047.28 3076.35 L 5113.98 3038.01 L 5147.18 3038.01 L 5213.62 3076.62 L 5229.8 3114.42 L 5130.44 3173.01 Z" fill="none" stroke="white" stroke-width="12.32" stroke-linejoin="square" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
               <path d="M 5030 3115.23 L 5047.28 3076.35 L 5113.98 3038.01 L 5147.18 3038.01 L 5213.62 3076.62 L 5229.8 3114.42 L 5130.44 3173.01 Z" fill="none" stroke="#292929" stroke-width="4.32" stroke-linejoin="square" stroke-miterlimit="10" pointer-events="all"></path>
             </g>
-              <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <g class="rotate-on-hover-seg3" @mouseover="animateOnceSeg3" transform="translate(0.5,0.5)" style="visibility: visible;">
                 <path d="M 2507 2963.9 L 2500.71 2949.8 L 2458 2925 L 2445.5 2925 L 2420.9 2939.2 L 2415 2952.9 L 2470.2 2985 Z" fill="#4286c5" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
                 <path d="M 2507 2964 L 2501 2956.2 L 2476.4 2971 L 2464.1 2971 L 2470.2 2985 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
                 <path d="M 2470.2 2985 L 2464.3 2971.2 L 2421.2 2946.3 L 2421.01 2939.4 L 2415 2953 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
@@ -537,7 +537,7 @@
                 <path d="M 2507 2963.9 L 2500.71 2949.8 L 2458 2925 L 2445.5 2925 L 2420.9 2939.2 L 2415 2952.9 L 2470.2 2985 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path>
                 <path d="M 2507 2963.9 L 2500.71 2949.8 L 2458 2925 L 2445.5 2925 L 2420.9 2939.2 L 2415 2952.9 L 2470.2 2985 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
               </g>
-              <g transform="translate(0.5,0.5)" style="visibility: visible;">
+              <g class="rotate-on-hover-seg2" @mouseover="animateOnceSeg2" transform="translate(0.5,0.5)" style="visibility: visible;">
                 <path d="M 2591.96 3010 L 2585.67 2995.9 L 2542.96 2971.1 L 2530.46 2971.1 L 2505.86 2985.3 L 2499.96 2999 L 2555.16 3031.1 Z" fill="#4286c5" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
                 <path d="M 2591.96 3010.1 L 2585.96 3002.3 L 2561.36 3017.1 L 2549.06 3017.1 L 2555.16 3031.1 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
                 <path d="M 2555.16 3031.1 L 2549.26 3017.3 L 2506.16 2992.4 L 2505.97 2985.5 L 2499.96 2999.1 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
@@ -595,7 +595,7 @@
               <g transform="translate(0.5,0.5)" style="visibility: visible;">
                 <path d="M 2780 4020 L 2814.55 4030 L 2797.28 4040 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all"></path>
             </g>
-            <g transform="translate(0.5,0.5)" style="visibility: visible;">
+            <g class="rotate-div" @mouseover="rotate" transform="translate(0.5,0.5)" style="visibility: visible;">
               <path d="M 2570 3961.32 L 2570 3841.1 L 2639.18 3801.4 L 2709.51 3801.4 L 2778.69 3841.1 L 2778.69 3961.32 L 2709.51 4001.4 L 2639.18 4001.4 Z" fill="#cc0000" stroke="#292929" stroke-width="4.54" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
               <path d="M 2570 3881.92 L 2639.18 3921.62 L 2709.51 3921.62 L 2709.51 4001.4 L 2639.18 4001.4 L 2570 3961.32 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
               <path d="M 2709.51 3921.62 L 2778.69 3881.92 L 2778.69 3961.32 L 2709.51 4001.4 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
@@ -708,7 +708,7 @@
             <path d="M 2195 2994.66 L 2610.34 3230.8" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="translate(0,3112.73)scale(1,-1)translate(0,-3112.73)rotate(-60,2402.67,3112.73)" pointer-events="stroke" visibility="hidden"></path>
             <path d="M 2195 2994.66 L 2610.34 3230.8" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="translate(0,3112.73)scale(1,-1)translate(0,-3112.73)rotate(-60,2402.67,3112.73)" pointer-events="all"></path>
           </g>
-          <g transform="translate(0.5,0.5)" style="visibility: visible;">
+          <g class="rotate-on-hover-compress-seg" @mouseover="animateOnce" transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelseg" >
             <path d="M 2049.24 3247.6 L 2049.24 3125.59 L 2110.33 3090 L 2163.46 3090.4 L 2230.74 3125.3 L 2230.74 3247.6 L 2170.74 3282.6 L 2139.74 3265.09 L 2109.73 3282.6 Z" fill="#004c99" stroke="#292929" stroke-width="1.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
             <path d="M 2049.24 3125.59 L 2079.73 3125.3 L 2049.24 3160.3 L 2109.73 3195.29 L 2109.73 3282.6 L 2049.24 3247.6 Z M 2139.74 3264.84 L 2139.74 3160.4 L 2170.25 3195.1 L 2170.25 3282.6 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
             <path d="M 2109.73 3195.29 L 2139.74 3160.4 L 2139.74 3264.8 L 2109.73 3282.6 Z M 2199.74 3125.09 L 2230.74 3125.59 L 2230.74 3247.6 L 2170.25 3282.6 L 2170.25 3194.79 L 2230.74 3160.61 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path>
@@ -777,7 +777,21 @@
       <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 50px;">“太易”智能物联网中间件平台<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2673.7 2198.8 L 2658.5 2190 L 2719.7 2190 L 2719.7 2225.5 L 2704.3 2216.5 L 1882.94 2684.12 L 1852.24 2666.42 Z" fill="#f4b934" stroke="none" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2646.16 2308.8 L 2630.96 2300 L 2692.16 2300 L 2692.16 2335.5 L 2676.76 2326.5 L 1848.54 2798.03 L 1817.84 2780.33 Z" fill="#f4b934" stroke="none" transform="rotate(180,2255,2549.01)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 4034 2238.8 L 4018.8 2230 L 4080 2230 L 4080 2265.5 L 4064.6 2256.5 L 3531.37 2560 L 3500.67 2542.3 Z" fill="#f4b934" stroke="none" transform="translate(0,2395)scale(1,-1)translate(0,-2395)rotate(-180,3790.34,2395)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 4163.63 2228.8 L 4148.43 2220 L 4209.63 2220 L 4209.63 2255.5 L 4194.23 2246.5 L 3678.33 2540.13 L 3647.63 2522.43 Z" fill="#f4b934" stroke="none" transform="translate(0,2380.07)scale(1,-1)translate(0,-2380.07)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="2375" y="2920" width="520" height="70" fill="none" stroke="white" transform="rotate(30,2635,2955)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2375" y="2920" width="520" height="70" fill="none" stroke="none" transform="rotate(30,2635,2955)" pointer-events="all"></rect></g><g style=""><g transform="rotate(30 2635 2955.0000000000005)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 2955px; margin-left: 2635px;">
       <div data-drawio-colors="color: #27479c; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
-      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 50px;">自适应分割、压缩策略<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2507 3057.66 L 2541.55 3067.66 L 2524.28 3077.66 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" transform="translate(2524.28,0)scale(-1,1)translate(-2524.28,0)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="#4286c5" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path><path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path><path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2677.96 3045.2 L 2677.96 3051.2 M 2653.26 3066 L 2647.16 3080 M 2597.96 3041.3 L 2591.96 3048.4" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path><path d="M 2677.96 3045.2 L 2677.96 3051.2 M 2653.26 3066 L 2647.16 3080 M 2597.96 3041.3 L 2591.96 3048.4" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1168.39 2998.36 L 2204.12 3588.55" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="rotate(-240,1686.25,3293.45)" pointer-events="stroke" visibility="hidden"></path><path d="M 1168.39 2998.36 L 2204.12 3588.55" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="rotate(-240,1686.25,3293.45)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1574.61 3238.16 L 2610.34 3828.35" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="rotate(-240,2092.47,3533.26)" pointer-events="stroke" visibility="hidden"></path><path d="M 1574.61 3238.16 L 2610.34 3828.35" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="rotate(-240,2092.47,3533.26)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="#004c99" stroke="#292929" stroke-width="6" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z M 1630.24 3523.82 L 1650.04 3501.32 M 1741.84 3588.02 L 1723.24 3544.22 M 1833.95 3502.52 L 1833.95 3481.52" fill="none" stroke="white" stroke-width="11" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z M 1630.24 3523.82 L 1650.04 3501.32 M 1741.84 3588.02 L 1723.24 3544.22 M 1833.95 3502.52 L 1833.95 3481.52" fill="none" stroke="#99ccff" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1694.44 3469.58 L 1710.05 3460.57 L 1718.44 3465.68 C 1722.16 3464.61 1725.97 3463.9 1729.83 3463.57 L 1729.83 3456.65 L 1752.94 3456.65 L 1752.94 3463.57 C 1757.66 3464.12 1762.29 3465.23 1766.75 3466.88 L 1775.14 3462.07 L 1791.35 3471.38 L 1783.24 3476.2 C 1785.56 3478.76 1787.57 3481.58 1789.24 3484.61 L 1800.65 3484.61 L 1800.65 3497.84 L 1789.24 3497.84 C 1788.02 3500.06 1786.61 3502.17 1785.04 3504.16 L 1794.03 3509.27 L 1777.54 3518.59 L 1770.03 3513.77 C 1764.59 3516.11 1758.83 3517.63 1752.94 3518.28 L 1752.94 3525.2 L 1730.14 3525.2 L 1730.14 3518.28 C 1725.42 3517.73 1720.79 3516.62 1716.33 3514.97 L 1708.25 3519.49 L 1692.04 3510.17 L 1700.15 3505.66 C 1697.74 3503.2 1695.63 3500.48 1693.84 3497.54 L 1682.43 3497.54 L 1682.43 3484.31 L 1693.84 3484.31 C 1695.87 3480.67 1698.4 3477.34 1701.35 3474.39 Z M 1720.24 3474.7 C 1715.96 3476.5 1712.16 3479.28 1709.14 3482.81 C 1707.36 3485.36 1706.41 3488.41 1706.43 3491.53 C 1706.93 3495.11 1708.5 3498.46 1710.94 3501.14 C 1714.03 3504.09 1717.72 3506.35 1721.75 3507.76 C 1732.59 3512.83 1745.01 3513.37 1756.25 3509.26 C 1761.89 3508.14 1767.09 3505.43 1771.23 3501.44 C 1774.63 3498.62 1776.61 3494.44 1776.65 3490.03 C 1775.59 3484.38 1771.92 3479.58 1766.75 3477.09 C 1761.78 3474.06 1756.28 3472.02 1750.54 3471.08 C 1744.87 3470.33 1739.14 3470.23 1733.45 3470.78 C 1728.87 3471.4 1724.42 3472.72 1720.24 3474.7 Z M 1735.25 3480.11 C 1740.95 3479.31 1746.75 3479.62 1752.34 3481.01 C 1755.97 3482.04 1759.07 3484.4 1761.04 3487.63 C 1762.48 3490.55 1761.87 3494.07 1759.53 3496.34 C 1755.86 3499.81 1751.07 3501.84 1746.04 3502.05 C 1740.15 3502.8 1734.17 3502.07 1728.63 3499.94 C 1724.86 3498.36 1722.15 3494.96 1721.44 3490.93 C 1722.01 3487.58 1723.97 3484.63 1726.83 3482.81 C 1729.37 3481.22 1732.26 3480.3 1735.25 3480.11 Z" fill="#99ccff" stroke="none" pointer-events="all"></path><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="none" stroke="white" stroke-width="14" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="none" stroke="#292929" stroke-width="6" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="#004c99" stroke="#292929" stroke-width="3.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z M 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 Z M 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1770.65 3431.9 L 1827.28 3398.84 L 1827.28 3501.3 L 1770.65 3534 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1827.28 3398.84 M 1716.78 3431.9 L 1716.78 3534 M 1770.65 3431.9 L 1770.65 3534" fill="none" stroke="white" stroke-width="9.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1827.28 3398.84 M 1716.78 3431.9 L 1716.78 3534 M 1770.65 3431.9 L 1770.65 3534" fill="none" stroke="#99ccff" stroke-width="1.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1723.16 3357.38 C 1735.74 3354.36 1748.82 3354.05 1761.53 3356.46 C 1768.46 3357.94 1775.09 3360.85 1781.07 3365.06 C 1787.41 3368.51 1791.65 3374.86 1792.39 3382.04 C 1791.58 3389.63 1787.43 3396.45 1781.07 3400.66 C 1775.21 3404.32 1768.62 3407.28 1761.53 3409.44 C 1748.79 3411.74 1735.72 3411.3 1723.16 3408.16 C 1717.03 3406.48 1711.19 3403.89 1705.82 3400.48 C 1700.55 3396.73 1696.89 3391.12 1695.59 3384.78 C 1695.88 3377.93 1698.9 3371.48 1703.99 3366.88 C 1709.8 3362.66 1716.28 3359.45 1723.16 3357.38" fill="#5e5e5e" stroke="none" pointer-events="all"></path><path d="M 1752.75 3377.48 C 1754.7 3376.45 1756.3 3374.85 1757.32 3372.9 C 1758.09 3371.07 1757.8 3368.98 1756.59 3367.42 C 1753.91 3365.61 1750.57 3365.08 1747.46 3365.96 C 1748.79 3364.5 1750.49 3363.43 1752.38 3362.86 C 1756.35 3362.62 1760.2 3364.24 1762.8 3367.24 C 1763.7 3370.15 1763.23 3373.3 1761.53 3375.82 L 1743.26 3394.64 C 1741.17 3396.52 1739.59 3398.91 1738.69 3401.58 C 1738.91 3403.41 1740.21 3404.92 1741.98 3405.42 C 1739.9 3407.28 1736.75 3407.28 1734.67 3405.42 C 1732.79 3403.8 1732.01 3401.24 1732.67 3398.84 C 1733.77 3396.09 1735.53 3393.64 1737.78 3391.72 L 1745.63 3385.14 L 1712.76 3391.9 L 1703.62 3386.96 Z" fill="#ffffff" stroke="none" pointer-events="all"></path><path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="none" stroke="white" stroke-width="11.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="none" stroke="#292929" stroke-width="3.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2520 3070 L 2390.23 3144.92 Q 2381.57 3149.92 2390.23 3154.92 L 2416.34 3170 Q 2425 3175 2433.66 3180 L 2464.58 3197.85 Q 2473.24 3202.85 2464.58 3207.85 L 1820 3580" fill="none" stroke="white" stroke-width="13" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2520 3070 L 2390.23 3144.92 Q 2381.57 3149.92 2390.23 3154.92 L 2416.34 3170 Q 2425 3175 2433.66 3180 L 2464.58 3197.85 Q 2473.24 3202.85 2464.58 3207.85 L 1820 3580" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="stroke"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="1902.24" y="3265.63" width="270" height="75" fill="none" stroke="white" transform="rotate(30,2037.24,3303.13)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="1902.24" y="3265.63" width="270" height="75" fill="none" stroke="none" transform="rotate(30,2037.24,3303.13)" pointer-events="all"></rect></g><g style=""><g transform="rotate(30 2037.24 3303.13)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+      <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 50px;">自适应分割、压缩策略<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2507 3057.66 L 2541.55 3067.66 L 2524.28 3077.66 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" transform="translate(2524.28,0)scale(-1,1)translate(-2524.28,0)" pointer-events="all"></path>
+    </g>
+    <g class="rotate-on-hover-seg1" @mouseover="animateOnceSeg1" transform="translate(0.5,0.5)" style="visibility: visible;">
+      <path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="#4286c5" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+      <path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path>
+      <path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+      <path d="M 2683.96 3059 L 2677.96 3051.2 L 2653.36 3066 L 2641.06 3066 L 2647.16 3080 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+      <path d="M 2647.16 3080 L 2641.26 3066.2 L 2598.16 3041.3 L 2597.97 3034.4 L 2591.96 3048 Z" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2677.96 3045.2 L 2677.96 3051.2 M 2653.26 3066 L 2647.16 3080 M 2597.96 3041.3 L 2591.96 3048.4" fill="none" stroke="white" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
+      <path d="M 2677.96 3045.2 L 2677.96 3051.2 M 2653.26 3066 L 2647.16 3080 M 2597.96 3041.3 L 2591.96 3048.4" fill="none" stroke="#57a2d8" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2683.96 3058.9 L 2677.67 3044.8 L 2634.96 3020 L 2622.46 3020 L 2597.86 3034.2 L 2591.96 3047.9 L 2647.16 3080 Z" fill="none" stroke="#292929" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+    </g>
+    <g transform="translate(0.5,0.5)" style="visibility: visible;">
+      <path d="M 1168.39 2998.36 L 2204.12 3588.55" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="rotate(-240,1686.25,3293.45)" pointer-events="stroke" visibility="hidden"></path><path d="M 1168.39 2998.36 L 2204.12 3588.55" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="rotate(-240,1686.25,3293.45)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1574.61 3238.16 L 2610.34 3828.35" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" transform="rotate(-240,2092.47,3533.26)" pointer-events="stroke" visibility="hidden"></path><path d="M 1574.61 3238.16 L 2610.34 3828.35" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" transform="rotate(-240,2092.47,3533.26)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="#004c99" stroke="#292929" stroke-width="6" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z M 1630.24 3523.82 L 1650.04 3501.32 M 1741.84 3588.02 L 1723.24 3544.22 M 1833.95 3502.52 L 1833.95 3481.52" fill="none" stroke="white" stroke-width="11" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1630.24 3522.92 L 1650.04 3480.32 L 1649.73 3501.92 L 1723.84 3544.82 L 1760.44 3544.82 L 1741.84 3588.02 Z M 1741.84 3588.02 L 1760.44 3544.82 L 1833.95 3502.52 L 1852.24 3522.92 Z M 1630.24 3523.82 L 1650.04 3501.32 M 1741.84 3588.02 L 1723.24 3544.22 M 1833.95 3502.52 L 1833.95 3481.52" fill="none" stroke="#99ccff" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1694.44 3469.58 L 1710.05 3460.57 L 1718.44 3465.68 C 1722.16 3464.61 1725.97 3463.9 1729.83 3463.57 L 1729.83 3456.65 L 1752.94 3456.65 L 1752.94 3463.57 C 1757.66 3464.12 1762.29 3465.23 1766.75 3466.88 L 1775.14 3462.07 L 1791.35 3471.38 L 1783.24 3476.2 C 1785.56 3478.76 1787.57 3481.58 1789.24 3484.61 L 1800.65 3484.61 L 1800.65 3497.84 L 1789.24 3497.84 C 1788.02 3500.06 1786.61 3502.17 1785.04 3504.16 L 1794.03 3509.27 L 1777.54 3518.59 L 1770.03 3513.77 C 1764.59 3516.11 1758.83 3517.63 1752.94 3518.28 L 1752.94 3525.2 L 1730.14 3525.2 L 1730.14 3518.28 C 1725.42 3517.73 1720.79 3516.62 1716.33 3514.97 L 1708.25 3519.49 L 1692.04 3510.17 L 1700.15 3505.66 C 1697.74 3503.2 1695.63 3500.48 1693.84 3497.54 L 1682.43 3497.54 L 1682.43 3484.31 L 1693.84 3484.31 C 1695.87 3480.67 1698.4 3477.34 1701.35 3474.39 Z M 1720.24 3474.7 C 1715.96 3476.5 1712.16 3479.28 1709.14 3482.81 C 1707.36 3485.36 1706.41 3488.41 1706.43 3491.53 C 1706.93 3495.11 1708.5 3498.46 1710.94 3501.14 C 1714.03 3504.09 1717.72 3506.35 1721.75 3507.76 C 1732.59 3512.83 1745.01 3513.37 1756.25 3509.26 C 1761.89 3508.14 1767.09 3505.43 1771.23 3501.44 C 1774.63 3498.62 1776.61 3494.44 1776.65 3490.03 C 1775.59 3484.38 1771.92 3479.58 1766.75 3477.09 C 1761.78 3474.06 1756.28 3472.02 1750.54 3471.08 C 1744.87 3470.33 1739.14 3470.23 1733.45 3470.78 C 1728.87 3471.4 1724.42 3472.72 1720.24 3474.7 Z M 1735.25 3480.11 C 1740.95 3479.31 1746.75 3479.62 1752.34 3481.01 C 1755.97 3482.04 1759.07 3484.4 1761.04 3487.63 C 1762.48 3490.55 1761.87 3494.07 1759.53 3496.34 C 1755.86 3499.81 1751.07 3501.84 1746.04 3502.05 C 1740.15 3502.8 1734.17 3502.07 1728.63 3499.94 C 1724.86 3498.36 1722.15 3494.96 1721.44 3490.93 C 1722.01 3487.58 1723.97 3484.63 1726.83 3482.81 C 1729.37 3481.22 1732.26 3480.3 1735.25 3480.11 Z" fill="#99ccff" stroke="none" pointer-events="all"></path><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="none" stroke="white" stroke-width="14" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1630.24 3523.82 L 1649.44 3480.62 L 1723.55 3438.02 L 1760.44 3438.02 L 1834.26 3480.92 L 1852.24 3522.92 L 1741.84 3588.02 Z" fill="none" stroke="#292929" stroke-width="6" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path>
+    </g>
+    <g class="rotate-on-hover-compress-seg" @mouseover="animateOnce" transform="translate(0.5,0.5)" style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.modelcompress">
+      <path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="#004c99" stroke="#292929" stroke-width="3.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z M 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 Z M 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 L 1659.24 3334 Z" fill-opacity="0.1" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1770.65 3431.9 L 1827.28 3398.84 L 1827.28 3501.3 L 1770.65 3534 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1827.28 3398.84 M 1716.78 3431.9 L 1716.78 3534 M 1770.65 3431.9 L 1770.65 3534" fill="none" stroke="white" stroke-width="9.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1659.24 3398.84 L 1716.78 3431.9 L 1770.65 3431.9 L 1827.28 3398.84 M 1716.78 3431.9 L 1716.78 3534 M 1770.65 3431.9 L 1770.65 3534" fill="none" stroke="#99ccff" stroke-width="1.83" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path><path d="M 1723.16 3357.38 C 1735.74 3354.36 1748.82 3354.05 1761.53 3356.46 C 1768.46 3357.94 1775.09 3360.85 1781.07 3365.06 C 1787.41 3368.51 1791.65 3374.86 1792.39 3382.04 C 1791.58 3389.63 1787.43 3396.45 1781.07 3400.66 C 1775.21 3404.32 1768.62 3407.28 1761.53 3409.44 C 1748.79 3411.74 1735.72 3411.3 1723.16 3408.16 C 1717.03 3406.48 1711.19 3403.89 1705.82 3400.48 C 1700.55 3396.73 1696.89 3391.12 1695.59 3384.78 C 1695.88 3377.93 1698.9 3371.48 1703.99 3366.88 C 1709.8 3362.66 1716.28 3359.45 1723.16 3357.38" fill="#5e5e5e" stroke="none" pointer-events="all"></path><path d="M 1752.75 3377.48 C 1754.7 3376.45 1756.3 3374.85 1757.32 3372.9 C 1758.09 3371.07 1757.8 3368.98 1756.59 3367.42 C 1753.91 3365.61 1750.57 3365.08 1747.46 3365.96 C 1748.79 3364.5 1750.49 3363.43 1752.38 3362.86 C 1756.35 3362.62 1760.2 3364.24 1762.8 3367.24 C 1763.7 3370.15 1763.23 3373.3 1761.53 3375.82 L 1743.26 3394.64 C 1741.17 3396.52 1739.59 3398.91 1738.69 3401.58 C 1738.91 3403.41 1740.21 3404.92 1741.98 3405.42 C 1739.9 3407.28 1736.75 3407.28 1734.67 3405.42 C 1732.79 3403.8 1732.01 3401.24 1732.67 3398.84 C 1733.77 3396.09 1735.53 3393.64 1737.78 3391.72 L 1745.63 3385.14 L 1712.76 3391.9 L 1703.62 3386.96 Z" fill="#ffffff" stroke="none" pointer-events="all"></path><path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="none" stroke="white" stroke-width="11.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1659.24 3367.42 L 1716.78 3334 L 1770.65 3334 L 1827.28 3367.42 L 1827.28 3501.3 L 1770.65 3534 L 1716.78 3534 L 1659.24 3501.3 Z" fill="none" stroke="#292929" stroke-width="3.65" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 2520 3070 L 2390.23 3144.92 Q 2381.57 3149.92 2390.23 3154.92 L 2416.34 3170 Q 2425 3175 2433.66 3180 L 2464.58 3197.85 Q 2473.24 3202.85 2464.58 3207.85 L 1820 3580" fill="none" stroke="white" stroke-width="13" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 2520 3070 L 2390.23 3144.92 Q 2381.57 3149.92 2390.23 3154.92 L 2416.34 3170 Q 2425 3175 2433.66 3180 L 2464.58 3197.85 Q 2473.24 3202.85 2464.58 3207.85 L 1820 3580" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="stroke"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="1902.24" y="3265.63" width="270" height="75" fill="none" stroke="white" transform="rotate(30,2037.24,3303.13)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="1902.24" y="3265.63" width="270" height="75" fill="none" stroke="none" transform="rotate(30,2037.24,3303.13)" pointer-events="all"></rect></g><g style=""><g transform="rotate(30 2037.24 3303.13)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3303px; margin-left: 2037px;">
       <div data-drawio-colors="color: #27479c; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
       <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(39, 71, 156); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: nowrap;"><span style="font-size: 50px;">自适应分割<br></span></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1321.03 3233.24 L 1300.03 3227.74 L 1309.73 3239.94" fill="#2d6195" stroke="none" pointer-events="all"></path><path d="M 1585.37 3398.3 L 1606.37 3403.8 L 1596.67 3391.6" fill="#2d6195" stroke="none" pointer-events="all"></path><path d="M 1307.7 3232.17 L 1598.69 3399.38" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1307.7 3232.17 L 1598.69 3399.38" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 1764.24 2952.64 L 1743.24 2947.14 L 1752.94 2959.34" fill="#2d6195" stroke="none" pointer-events="all"></path><path d="M 2014.32 3109.5 L 2035.32 3115 L 2025.62 3102.8" fill="#2d6195" stroke="none" pointer-events="all"></path><path d="M 1750.91 2951.57 L 2027.64 3110.57" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke" visibility="hidden"></path><path d="M 1750.91 2951.57 L 2027.64 3110.57" fill="none" stroke="#2d6195" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="12 12" pointer-events="all"></path></g><g style="visibility: visible;"><image x="2690" y="2261.51" width="915.51" height="575" :xlink:href="require('@/assets/images/HMTlogo_home2.png')" preserveAspectRatio="none"></image></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><ellipse cx="2332.45" cy="3664.02" rx="57.116200169635285" ry="57.20742150333016" fill="#008cce" stroke="none" pointer-events="all"></ellipse><path d="M 2293.47 3623.05 C 2294.05 3624.63 2294.83 3626.12 2295.79 3627.5 C 2297.36 3627.66 2298.88 3628.15 2300.26 3628.93 C 2299.88 3630.54 2300.56 3632.22 2301.96 3633.1 C 2303.03 3633.71 2303.74 3634.78 2303.89 3636 C 2303.94 3636.62 2304.23 3637.19 2304.7 3637.59 C 2305.17 3637.99 2305.79 3638.18 2306.4 3638.13 C 2307.1 3638.03 2307.81 3637.97 2308.52 3637.97 C 2310.06 3637.77 2311.63 3638.1 2312.96 3638.9 L 2317.78 3642.38 C 2318.55 3642.91 2319.1 3643.71 2319.33 3644.62 C 2319.6 3645.5 2319.6 3646.44 2319.33 3647.33 C 2318.94 3647.44 2318.53 3647.4 2318.17 3647.21 C 2317.9 3646.45 2317.35 3645.83 2316.63 3645.47 C 2315.7 3645.09 2314.66 3645.09 2313.73 3645.47 C 2312.5 3646.16 2311.07 3646.4 2309.68 3646.17 C 2308.52 3646.21 2307.44 3646.78 2306.75 3647.71 C 2306.22 3648.48 2305.38 3648.97 2304.45 3649.05 C 2303.52 3649.12 2302.6 3648.78 2301.96 3648.1 C 2301.4 3647.33 2300.47 3646.91 2299.51 3647.01 C 2298.56 3647.1 2297.73 3647.69 2297.33 3648.56 C 2296.84 3649.67 2296.53 3650.84 2296.4 3652.04 C 2296.43 3653.6 2296.14 3655.16 2295.56 3656.6 C 2295.24 3657.34 2294.7 3657.96 2294.01 3658.38 C 2292.89 3658.68 2292.16 3659.77 2292.31 3660.93 C 2293.22 3662.01 2293.93 3663.24 2294.4 3664.57 C 2294.82 3665.39 2294.5 3666.36 2293.63 3666.88 C 2292.76 3667.6 2292.35 3668.72 2292.55 3669.82 C 2291.21 3669.85 2289.88 3669.64 2288.61 3669.2 C 2288.12 3668.58 2287.44 3668.12 2286.68 3667.89 C 2285.96 3667.73 2285.21 3668 2284.75 3668.59 C 2283.87 3669.82 2283.24 3671.21 2282.9 3672.68 C 2282.6 3673.69 2282.45 3674.73 2282.43 3675.77 C 2283.43 3677.62 2283.91 3679.71 2283.82 3681.8 L 2284.6 3687.99 C 2284.65 3688.8 2284.45 3689.62 2284.02 3690.31 C 2283.53 3690.93 2282.87 3691.39 2282.13 3691.62 C 2270 3668.84 2274.62 3640.74 2293.39 3623.05 Z" fill="#00527f" stroke="none" pointer-events="all"></path><path d="M 2363.32 3616.48 C 2363.06 3617.33 2362.52 3618.07 2361.78 3618.57 C 2361.09 3618.85 2360.36 3619.01 2359.62 3619.03 L 2355.37 3619.57 C 2353.55 3619.35 2351.7 3619.56 2349.97 3620.19 C 2350.13 3620.8 2349.9 3621.45 2349.39 3621.83 C 2348.88 3622.21 2348.19 3622.23 2347.65 3621.89 C 2346.56 3621.9 2345.52 3622.38 2344.8 3623.21 C 2344.22 3623.82 2343.46 3624.22 2342.64 3624.37 C 2341.46 3624.6 2340.46 3625.37 2339.94 3626.45 C 2339.43 3627.41 2338.52 3627.61 2337.85 3626.92 C 2337.43 3626.07 2337.17 3625.15 2337.08 3624.21 C 2336.33 3622.39 2334.96 3620.88 2333.22 3619.96 C 2331.46 3619.18 2329.82 3618.14 2328.36 3616.87 C 2327.43 3616.17 2326.86 3615.09 2326.82 3613.93 C 2326.77 3613.23 2326.85 3612.52 2327.05 3611.84 C 2326.46 3610.63 2325.29 3609.81 2323.96 3609.68 C 2322.96 3609.43 2322.15 3608.71 2321.8 3607.74 C 2336.5 3605 2351.68 3608.14 2364.1 3616.48 Z" fill="#64aadc" stroke="none" pointer-events="all"></path><path d="M 2387.25 3679.49 C 2387.09 3677.71 2386.42 3676.02 2385.32 3674.62 C 2384.13 3674.52 2382.98 3675.12 2382.39 3676.16 C 2381.44 3677.51 2380 3678.43 2378.37 3678.71 C 2377.23 3677.44 2377.46 3675.67 2378.91 3674.62 C 2379.86 3673.2 2380.09 3671.43 2379.53 3669.82 C 2379.4 3669.13 2379.14 3668.48 2378.76 3667.89 C 2377.68 3666.81 2376.89 3665.48 2376.44 3664.02 C 2375.43 3664.67 2374.22 3664.57 2373.28 3663.77 C 2372.35 3662.96 2371.84 3661.57 2371.97 3660.16 C 2372.03 3658.5 2371.41 3656.88 2370.27 3655.67 C 2370.36 3653.03 2369.54 3650.44 2367.95 3648.33 C 2366.35 3646.72 2364.2 3645.76 2361.93 3645.63 C 2360.03 3645.66 2358.45 3644.52 2358.41 3643.09 C 2358.37 3641.66 2359.88 3640.48 2361.78 3640.45 C 2364.66 3640.77 2367.57 3640.7 2370.42 3640.21 C 2373.2 3639.88 2375.9 3639.04 2378.37 3637.74 L 2381.08 3634.03 C 2389.38 3647.65 2391.61 3664.13 2387.25 3679.49 Z" fill="#0a79b9" stroke="none" pointer-events="all"></path><path d="M 2381.46 3693.79 C 2380.15 3695.43 2378.42 3696.69 2376.44 3697.42 C 2374.91 3697.9 2373.83 3699.29 2373.74 3700.9 C 2373.58 3701.48 2373.4 3701.19 2373.26 3700.09 C 2373.11 3698.99 2373.01 3697.19 2372.97 3695.1 C 2373.2 3693.15 2373.91 3691.29 2375.06 3689.69 C 2376.3 3688.53 2377.41 3687.23 2378.37 3685.82 C 2378.8 3684.97 2378.45 3683.93 2377.6 3683.51 C 2376.75 3683.08 2375.71 3683.42 2375.29 3684.28 C 2373.85 3685.97 2372.56 3687.78 2371.43 3689.69 C 2369.55 3692.51 2366.84 3693.67 2364.25 3692.78 C 2362.69 3692.02 2360.97 3691.63 2359.23 3691.62 C 2358.21 3692.02 2357.57 3692.69 2357.49 3693.42 C 2357.41 3694.15 2357.92 3694.86 2358.85 3695.33 C 2360.3 3695.78 2361.53 3696.74 2362.32 3698.04 C 2363.53 3700.11 2361.08 3702.24 2356.38 3703.22 C 2353.14 3703.31 2349.93 3703.91 2346.88 3705 C 2345.11 3706.64 2343.89 3708.81 2343.41 3711.18 C 2342.84 3712.23 2339.98 3713.02 2336.46 3713.11 C 2333.97 3712.75 2331.42 3712.88 2328.98 3713.5 C 2326.93 3714.25 2324.65 3713.87 2322.96 3712.5 C 2322.32 3711.28 2320.81 3710.81 2319.6 3711.45 C 2318.38 3712.09 2317.92 3713.6 2318.56 3714.82 C 2319.35 3716.25 2320.96 3717.02 2322.57 3716.75 C 2323.73 3716.1 2325.21 3715.82 2326.66 3715.97 C 2327.55 3716.19 2328.26 3716.71 2328.59 3717.37 C 2329.09 3717.78 2330.09 3718.1 2331.35 3718.25 C 2332.6 3718.4 2333.99 3718.36 2335.15 3718.14 C 2337.06 3717.55 2339.51 3717.2 2342.1 3717.13 C 2343.93 3717.02 2345.65 3716.75 2347.11 3716.36 C 2348.56 3715.27 2350.33 3714.73 2352.13 3714.82 C 2353.15 3714.59 2353.94 3714.33 2354.45 3714.04 C 2355.16 3713.51 2356.03 3713.23 2356.92 3713.27 C 2357.35 3713.59 2357.51 3714.16 2357.3 3714.66 C 2356.7 3715.47 2356 3716.2 2355.22 3716.83 C 2366.15 3712.08 2375.33 3704.02 2381.46 3693.79 Z M 2302.12 3663.64 C 2302.52 3664.19 2303.25 3664.41 2303.89 3664.18 C 2304.15 3663.69 2304.33 3663.17 2304.43 3662.63 C 2304.8 3661.45 2304.8 3660.18 2304.43 3659 C 2304 3658.65 2303.41 3658.56 2302.89 3658.77 C 2302.5 3660.37 2302.24 3662 2302.12 3663.64 Z" fill="#266792" stroke="none" pointer-events="all"></path><ellipse cx="2328.98" cy="3639.67" rx="41.29346904156065" ry="28.60371075166508" fill-opacity="0.3" fill="#ffffff" stroke="none" pointer-events="all"></ellipse><ellipse cx="2310.13" cy="3634.23" rx="11.963528413910094" ry="8.72799714557564" fill-opacity="0.4" fill="#ffffff" stroke="none" pointer-events="all"></ellipse><rect x="2270" y="3605" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2270" y="3605" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect><ellipse cx="2332.45" cy="3664.02" rx="57.116200169635285" ry="57.20742150333016" fill="none" stroke="white" stroke-width="9.47" pointer-events="stroke" visibility="hidden"></ellipse><ellipse cx="2332.45" cy="3664.02" rx="57.116200169635285" ry="57.20742150333016" fill="none" stroke="#000000" stroke-width="1.47" pointer-events="all"></ellipse><path d="M 2350.16 3734.73 L 2346.93 3680.33 L 2351.24 3679.39 L 2354.88 3683.03 C 2355.82 3682.93 2356.77 3682.98 2357.71 3683.17 L 2359.05 3680.47 L 2363.1 3679.66 L 2366.06 3681.48 L 2366.94 3687.62 C 2368.64 3689.16 2370.13 3691.23 2371.32 3693.69 L 2375.36 3694.58 L 2376.58 3698.29 L 2374.42 3703.28 C 2374.85 3705.92 2374.98 3708.66 2374.82 3711.37 L 2377.66 3715.84 L 2376.85 3720.69 L 2372.8 3721.64 C 2371.84 3723.53 2370.71 3725.16 2369.44 3726.5 L 2369.44 3732.77 L 2366.87 3734.33 L 2362.29 3735 L 2357.84 3728.79 L 2353.4 3734.87 Z M 2358.65 3708.55 L 2357.44 3703.55 C 2357.01 3703.21 2356.54 3703.43 2356.19 3704.14 C 2355.84 3704.84 2355.65 3705.94 2355.69 3707.06 C 2355.81 3708.35 2356.3 3709.39 2356.94 3709.71 C 2357.57 3710.02 2358.24 3709.57 2358.65 3708.55 Z" fill="#697079" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path><rect x="2270" y="3605" width="0" height="0" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2270" y="3605" width="0" height="0" fill="none" stroke="none" pointer-events="all"></rect><path d="M 2379.01 3706.11 L 2375.77 3651.72 L 2380.08 3650.77 L 2383.72 3654.41 C 2384.67 3654.32 2385.61 3654.36 2386.55 3654.55 L 2387.9 3651.85 L 2391.94 3651.04 L 2394.91 3652.86 L 2395.78 3659.01 C 2397.48 3660.55 2398.97 3662.61 2400.16 3665.08 L 2404.21 3665.96 L 2405.42 3669.67 L 2403.27 3674.66 C 2403.69 3677.31 2403.83 3680.05 2403.67 3682.76 L 2406.5 3687.22 L 2405.69 3692.08 L 2401.65 3693.02 C 2400.68 3694.91 2399.55 3696.54 2398.27 3697.88 L 2398.27 3704.15 L 2395.72 3705.71 L 2391.13 3706.38 L 2386.69 3700.17 L 2382.24 3706.25 Z M 2387.5 3679.93 L 2386.28 3674.93 C 2385.85 3674.59 2385.38 3674.81 2385.03 3675.52 C 2384.68 3676.22 2384.49 3677.32 2384.53 3678.44 C 2384.65 3679.74 2385.13 3680.78 2385.77 3681.1 C 2386.41 3681.42 2387.09 3680.96 2387.5 3679.93 Z" fill="#697079" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2379.01 3706.11 L 2376.31 3704.77 L 2375.63 3698.49 C 2373.81 3696.98 2372.21 3694.89 2370.92 3692.34 L 2367 3691.67 L 2365.52 3687.62 L 2368.09 3682.62 C 2367.6 3679.95 2367.42 3677.16 2367.55 3674.39 L 2364.72 3669.8 L 2365.52 3665.89 L 2369.57 3665.28 C 2370.53 3663.11 2371.71 3661.22 2373.07 3659.68 L 2373.07 3653.6 L 2375.77 3651.72 L 2378.74 3655.5 C 2380.61 3654.92 2382.53 3654.92 2384.39 3655.5 L 2387.9 3651.85 L 2390.59 3653.47 L 2391 3659.41 C 2392.68 3661.01 2394.14 3663.12 2395.31 3665.62 L 2399.49 3666.29 L 2400.97 3670.48 L 2398.68 3675.33 C 2399.12 3678.02 2399.25 3680.81 2399.08 3683.57 L 2402.19 3688.57 L 2401.24 3693.15 L 2397.33 3693.15 C 2396.33 3695.36 2395.1 3697.28 2393.7 3698.83 L 2393.56 3705.17 L 2391 3706.38 L 2387.36 3702.2 C 2385.63 3702.79 2383.85 3702.88 2382.1 3702.47 Z M 2383.58 3684.38 C 2384.51 3684.38 2385.39 3683.78 2386.03 3682.7 C 2386.67 3681.63 2387 3680.19 2386.96 3678.71 C 2386.63 3676.22 2384.84 3674.31 2382.64 3674.12 C 2381.78 3674.02 2380.94 3674.54 2380.38 3675.53 C 2379.82 3676.52 2379.61 3677.85 2379.81 3679.11 C 2379.86 3681.91 2381.49 3684.19 2383.58 3684.38 Z M 2350.16 3734.73 L 2347.47 3733.38 L 2346.79 3727.11 C 2344.97 3725.6 2343.36 3723.51 2342.07 3720.96 L 2338.17 3720.29 L 2336.69 3716.24 L 2339.24 3711.24 C 2338.76 3708.57 2338.58 3705.78 2338.71 3703.01 L 2335.88 3698.42 L 2336.69 3694.51 L 2340.73 3693.9 C 2341.69 3691.73 2342.88 3689.84 2344.24 3688.3 L 2344.24 3682.22 L 2346.93 3680.34 L 2349.89 3684.11 C 2351.76 3683.53 2353.69 3683.53 2355.56 3684.11 L 2359.06 3680.47 L 2361.76 3682.09 L 2362.16 3688.03 C 2363.84 3689.62 2365.31 3691.73 2366.47 3694.24 L 2370.65 3694.91 L 2372.13 3699.1 L 2369.85 3703.95 C 2370.28 3706.64 2370.42 3709.43 2370.25 3712.19 L 2373.35 3717.18 L 2372.4 3721.77 L 2368.49 3721.77 C 2367.49 3723.98 2366.26 3725.9 2364.85 3727.44 L 2364.72 3733.79 L 2362.16 3735 L 2358.52 3730.82 C 2356.79 3731.41 2355.01 3731.5 2353.27 3731.09 Z M 2354.75 3713 C 2355.67 3713 2356.55 3712.39 2357.19 3711.32 C 2357.83 3710.25 2358.16 3708.81 2358.11 3707.33 C 2357.79 3704.83 2356 3702.93 2353.8 3702.74 C 2352.94 3702.64 2352.1 3703.17 2351.54 3704.15 C 2350.98 3705.14 2350.77 3706.47 2350.97 3707.73 C 2351.02 3710.53 2352.66 3712.81 2354.75 3713 Z" fill="#c0c6d2" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2380.11 3730.34 L 2378.61 3705.07 L 2380.61 3704.63 L 2382.3 3706.32 C 2382.74 3706.27 2383.19 3706.3 2383.62 3706.39 L 2384.25 3705.13 L 2386.12 3704.76 L 2387.5 3705.6 L 2387.91 3708.45 C 2388.7 3709.17 2389.39 3710.13 2389.94 3711.27 L 2391.82 3711.68 L 2392.38 3713.41 L 2391.38 3715.73 C 2391.58 3716.96 2391.65 3718.23 2391.57 3719.49 L 2392.88 3721.56 L 2392.51 3723.81 L 2390.63 3724.25 C 2390.18 3725.13 2389.66 3725.89 2389.06 3726.51 L 2389.06 3729.43 L 2387.88 3730.15 L 2385.75 3730.46 L 2383.68 3727.58 L 2381.62 3730.4 Z M 2384.05 3718.17 L 2383.49 3715.85 C 2382.84 3716.1 2382.49 3716.81 2382.68 3717.48 C 2383.01 3718.09 2383.55 3718.36 2384.05 3718.17 Z" fill="#697079" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path><path d="M 2380.11 3730.34 L 2378.86 3729.71 L 2378.55 3726.8 C 2377.7 3726.1 2376.96 3725.13 2376.36 3723.95 L 2374.55 3723.63 L 2373.85 3721.75 L 2375.04 3719.43 C 2374.82 3718.19 2374.73 3716.89 2374.79 3715.6 L 2373.48 3713.47 L 2373.85 3711.65 L 2375.73 3711.37 C 2376.18 3710.36 2376.73 3709.48 2377.36 3708.77 L 2377.36 3705.95 L 2378.61 3705.07 L 2379.99 3706.82 C 2380.86 3706.55 2381.75 3706.55 2382.62 3706.82 L 2384.25 3705.13 L 2385.5 3705.89 L 2385.68 3708.65 C 2386.47 3709.39 2387.15 3710.37 2387.69 3711.53 L 2389.63 3711.84 L 2390.31 3713.79 L 2389.26 3716.04 C 2389.46 3717.29 2389.52 3718.58 2389.44 3719.86 L 2390.88 3722.18 L 2390.45 3724.32 L 2388.62 3724.32 C 2388.16 3725.34 2387.59 3726.24 2386.93 3726.95 L 2386.87 3729.9 L 2385.68 3730.46 L 2383.99 3728.52 C 2383.19 3728.79 2382.37 3728.84 2381.55 3728.65 Z M 2382.24 3720.24 C 2382.73 3720.36 2383.22 3720.1 2383.54 3719.56 C 2383.86 3719.02 2383.96 3718.28 2383.81 3717.61 C 2383.6 3716.35 2382.77 3715.47 2381.81 3715.48 C 2381.42 3715.49 2381.05 3715.75 2380.8 3716.19 C 2380.55 3716.63 2380.43 3717.22 2380.49 3717.8 C 2380.57 3719.06 2381.3 3720.08 2382.24 3720.24 Z" fill="#c0c6d2" stroke="#697079" stroke-width="0.77" stroke-miterlimit="10" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="2086.5" y="3730" width="320" height="75" fill="none" stroke="white" transform="rotate(210,2246.5,3767.5)" pointer-events="stroke" visibility="hidden" stroke-width="9"></rect><rect x="2086.5" y="3730" width="320" height="75" fill="none" stroke="none" transform="rotate(210,2246.5,3767.5)" pointer-events="all"></rect></g><g style=""><g transform="rotate(30 2246.5 3767.5)"><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
@@ -808,19 +822,117 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 export default {
   data() {
     return {
+      isAnimating: false,
       showDescription: false,
       imageDescription: {
-        firstinfo: '欢迎来到人机物融合群智计算系统开放平台，为您提供从设备到模型部署的中间件服务',
+        firstinfo:
+          "欢迎来到人机物融合群智计算系统开放平台，为您提供从设备到模型部署的中间件服务",
+        deviceinfo: "设备资源感知: 对您的智能设备可用资源进行测评",
+        modelinfo: "模型性能评估: 对您的深度学习模型性能进行评估",
+        modelcompress:
+          "模型压缩: 减小模型大小以及减少模型参数数量，从而提高模型的效率和性能",
+        modelseg:
+          "模型分割: 将深度学习模型划分成若干子模型，以便在多个设备运行，从而减少计算和存储资源的需求",
       },
     };
+  },
+  methods: {
+    animateOnce() {
+      if (!this.isAnimating) {
+        this.isAnimating = true;
+        this.$el.classList.add('rotate-on-hover-compress-seg:hover');
+        setTimeout(() => {
+          this.$el.classList.remove('rotate-on-hover-compress-seg:hover');
+          this.isAnimating = false;
+        }, 2500); // 2.5s 动画结束后重置状态
+      }
+    },
+    animateOnceSeg1() {
+      if (!this.isAnimating) {
+        this.isAnimating = true;
+        setTimeout(() => {
+        this.$el.classList.add('rotate-on-hover-seg1:hover');
+        }, 2500);
+        setTimeout(() => {
+          this.$el.classList.remove('rotate-on-hover-seg1:hover');
+          this.isAnimating = false;
+        }, 2500); // 2.5s 动画结束后重置状态
+      }
+    },
+    animateOnceSeg2() {
+      if (!this.isAnimating) {
+        this.isAnimating = true;
+        this.$el.classList.add('rotate-on-hover-seg2:hover');
+        setTimeout(() => {
+          this.$el.classList.remove('rotate-on-hover-seg2:hover');
+          this.isAnimating = false;
+        }, 2500); // 2.5s 动画结束后重置状态
+      }
+    },
+    animateOnceSeg3() {
+      if (!this.isAnimating) {
+        this.isAnimating = true;
+        setTimeout(() => {
+        this.$el.classList.add('rotate-on-hover-seg3:hover');
+        }, 2500);
+        setTimeout(() => {
+          this.$el.classList.remove('rotate-on-hover-seg3:hover');
+          this.isAnimating = false;
+        }, 2500); // 2.5s 动画结束后重置状态
+      }
+    },
+    animateOnceDevice() {
+      const rotateDiv = document.querySelector('.rotate-on-hover-device');
+      if (!rotateDiv.classList.contains('rotate-on-hover-device:hover')) {
+        rotateDiv.classList.add('rotate-on-hover-device:hover');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate-on-hover-device:hover');
+        }, 1000);
+      }
+    },
+    animateOnceModelStruct() {
+      const rotateDiv = document.querySelector('.rotate-on-hover-device');
+      if (!rotateDiv.classList.contains('rotate-on-hover-device:hover')) {
+        rotateDiv.classList.add('rotate-on-hover-device:hover');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate-on-hover-device:hover');
+        }, 1000);
+      }
+    },
+    animateOncemModelval() {
+      const rotateDiv = document.querySelector('.rotate-on-hover-device');
+      if (!rotateDiv.classList.contains('rotate-on-hover-device:hover')) {
+        rotateDiv.classList.add('rotate-on-hover-device:hover');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate-on-hover-device:hover');
+        }, 1000);
+      }
+    },
+    animateOncemModelval2() {
+      const rotateDiv = document.querySelector('.rotate-on-hover-device');
+      if (!rotateDiv.classList.contains('rotate-on-hover-device:hover')) {
+        rotateDiv.classList.add('rotate-on-hover-device:hover');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate-on-hover-device:hover');
+        }, 1000);
+      }
+    },
+    rotate() {
+      const rotateDiv = document.querySelector('.rotate-div');
+      if (!rotateDiv.classList.contains('rotate')) {
+        rotateDiv.classList.add('rotate');
+        setTimeout(() => {
+          rotateDiv.classList.remove('rotate');
+        }, 2000);
+      }
+    },
   },
   directives: { "b-tooltip": VBTooltip },
 };
 </script>
 
 
-<style>
-
+<style scoped>
 .geDiagramContainer {
   display: flex;
   align-items: center;
@@ -829,5 +941,143 @@ export default {
   justify-content: space-between;
 }
 
+.rotate-on-hover-compress-seg {
+  transition: transform 2.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+.rotate-on-hover-compress-seg:hover {
+  /* transform: rotate(360deg) translate(-50%, -50%); */
+  transform: rotate(360deg) translate(-40%, -40%);
+}
+
+.rotate-on-hover-seg1 {
+  transition: transform 2.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+.rotate-on-hover-seg1:hover {
+  /* transform: rotate(360deg) translate(-50%, -50%); */
+  /* transform: translate(1800px, -300px)  skew(30deg, 0); */
+  transform: translate(350px, -170px)  skew(30deg, -5deg);
+}
+
+.rotate-on-hover-seg2 {
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+.rotate-on-hover-seg2:hover {
+  /* transform: rotate(360deg) translate(-50%, -50%); */
+  transform: rotate(8deg);
+}
+
+.rotate-on-hover-seg3 {
+  transition: transform 2.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+.rotate-on-hover-seg3:hover {
+  /* transform: rotate(360deg) translate(-50%, -50%); */
+  transform: rotate(360deg) translate(-20%, -20%);
+}
+
+.rotate-on-hover-device {
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  pointer-events: none;
+
+}
+.rotate-on-hover-device:hover {
+  transform: rotate(360deg) translate(-35%, 35%);
+  pointer-events: auto;
+}
+
+.rotate-on-hover-modelstruct {
+  transition: transform 1s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  pointer-events: none;
+}
+.rotate-on-hover-modelstruct:hover {
+  transform: rotate(360deg) translate(13%, 13%);
+  pointer-events: auto;
+}
+
+.rotate-on-hover-modelval {
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  pointer-events: none;
+
+}
+.rotate-on-hover-modelval:hover {
+  transform: rotate(360deg) translate(-35%, 35%);
+  pointer-events: auto;
+}
+
+.rotate-on-hover-modelval2 {
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  pointer-events: none;
+
+}
+.rotate-on-hover-modelval2:hover {
+  transform: rotate(360deg) translate(-35%, 35%);
+  pointer-events: auto;
+}
+
+.rotate-div {
+  transition: transform 2s ease-in-out;
+  transform-origin: center center;
+}
+
+.rotate {
+  animation: rotate 2s ease-in-out;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 </style>
+

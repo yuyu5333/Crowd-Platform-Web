@@ -569,7 +569,7 @@
                     <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
                       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3875px; margin-left: 2805px;">
                           <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
-                            <!-- <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;"><span style="font-size: 50px;">模型结构解析、获取详细网络信息<br></span></div> -->
+                            <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;"><span style="font-size: 50px;">模型结构解析、获取详细网络信息<br></span></div>
                           </div>
                       </div>
                     </foreignObject>
@@ -610,7 +610,7 @@
                     <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
                       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 3890px; margin-left: 2685px;">
                           <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
-                            <!-- <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;"><span style="font-size: 50px;">设备性能、模型性能分析，综合评估<br></span></div> -->
+                            <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;"><span style="font-size: 50px;">设备性能、模型性能分析，综合评估<br></span></div>
                           </div>
                       </div>
                     </foreignObject>
@@ -862,7 +862,7 @@
               <g style="visibility: visible;">
                 <image x="4790" y="2377.54" width="288" height="300" xlink:href="https://viewer.diagrams.net/img/lib/active_directory/writer.svg"></image>
               </g>
-              <g style="visibility: visible;" v-b-tooltip.hover.top="imageDescription.deviceinfo" >
+              <g style="visibility: visible;">
                 <ellipse cx="3898.63" cy="2544.28" rx="73.625" ry="73.625" fill="none" stroke="#000000" stroke-width="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></ellipse>
                 <ellipse cx="3898.63" cy="2544.28" rx="73.625" ry="73.625" fill="none" stroke="white" stroke-width="18" pointer-events="stroke" visibility="hidden"></ellipse>
                 <ellipse cx="3898.63" cy="2544.28" rx="73.625" ry="73.625" fill="none" stroke="#f57070" stroke-width="10" pointer-events="all"></ellipse>
@@ -872,13 +872,13 @@
                     <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
                       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 143px; height: 1px; padding-top: 2542px; margin-left: 3826px;">
                           <div data-drawio-colors="color: #f20707; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
-                            <div v-b-tooltip.hover.top="imageDescription.deviceinfo" style="display: inline-block; font-size: 50px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><b>Step1</b></div>
+                            <div style="display: inline-block; font-size: 100px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><b>1</b></div>
                           </div>
                       </div>
                     </foreignObject>
                 </g>
               </g>
-              <g v-b-tooltip.hover.top="imageDescription.modelinfo" style="visibility: visible;">
+              <g style="visibility: visible;">
                 <ellipse cx="4503.63" cy="3026.76" rx="73.625" ry="73.625" fill="none" stroke="#000000" stroke-width="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></ellipse>
                 <ellipse cx="4503.63" cy="3026.76" rx="73.625" ry="73.625" fill="none" stroke="white" stroke-width="18" pointer-events="stroke" visibility="hidden"></ellipse>
                 <ellipse cx="4503.63" cy="3026.76" rx="73.625" ry="73.625" fill="none" stroke="#f57070" stroke-width="10" pointer-events="all"></ellipse>
@@ -888,13 +888,13 @@
                     <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
                       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 143px; height: 1px; padding-top: 3025px; margin-left: 4431px;">
                           <div data-drawio-colors="color: #f20707; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
-                            <div v-b-tooltip.hover.top="imageDescription.modelinfo" style="display: inline-block; font-size: 50px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><span>Step2</span></div>
+                            <div style="display: inline-block; font-size: 100px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><span>2</span></div>
                           </div>
                       </div>
                     </foreignObject>
                 </g>
               </g>
-              <g v-b-tooltip.hover.top="imageDescription.deviceandmodel" style="visibility: visible;">
+              <g style="visibility: visible;">
                 <ellipse cx="2878.18" cy="3607.78" rx="73.625" ry="73.625" fill="none" stroke="#000000" stroke-width="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></ellipse>
                 <ellipse cx="2878.18" cy="3607.78" rx="73.625" ry="73.625" fill="none" stroke="white" stroke-width="18" pointer-events="stroke" visibility="hidden"></ellipse>
                 <ellipse cx="2878.18" cy="3607.78" rx="73.625" ry="73.625" fill="none" stroke="#f57070" stroke-width="10" pointer-events="all"></ellipse>
@@ -904,13 +904,13 @@
                     <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
                       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 143px; height: 1px; padding-top: 3606px; margin-left: 2806px;">
                           <div data-drawio-colors="color: #f20707; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
-                            <div v-b-tooltip.hover.top="imageDescription.deviceandmodel" style="display: inline-block; font-size: 50px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><span>Step3</span></div>
+                            <div style="display: inline-block; font-size: 100px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><span>3</span></div>
                           </div>
                       </div>
                     </foreignObject>
                 </g>
               </g>
-              <g v-b-tooltip.hover.top="imageDescription.modelcompress" style="visibility: visible;">
+              <g style="visibility: visible;">
                 <ellipse cx="1812.23" cy="3336.38" rx="73.625" ry="73.625" fill="none" stroke="#000000" stroke-width="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></ellipse>
                 <ellipse cx="1812.23" cy="3336.38" rx="73.625" ry="73.625" fill="none" stroke="white" stroke-width="18" pointer-events="stroke" visibility="hidden"></ellipse>
                 <ellipse cx="1812.23" cy="3336.38" rx="73.625" ry="73.625" fill="none" stroke="#f57070" stroke-width="10" pointer-events="all"></ellipse>
@@ -920,13 +920,13 @@
                     <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
                       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 143px; height: 1px; padding-top: 3334px; margin-left: 1740px;">
                           <div data-drawio-colors="color: #f20707; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
-                            <div v-b-tooltip.hover.top="imageDescription.modelcompress" style="display: inline-block; font-size: 50px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><span>Step4</span></div>
+                            <div style="display: inline-block; font-size: 100px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><span>4</span></div>
                           </div>
                       </div>
                     </foreignObject>
                 </g>
               </g>
-              <g v-b-tooltip.hover.top="imageDescription.modelseg" style="visibility: visible;">
+              <g style="visibility: visible;">
                 <ellipse cx="2293.63" cy="3035.18" rx="73.625" ry="73.625" fill="none" stroke="#000000" stroke-width="10" pointer-events="all" transform="translate(2,3)" opacity="0.25"></ellipse>
                 <ellipse cx="2293.63" cy="3035.18" rx="73.625" ry="73.625" fill="none" stroke="white" stroke-width="18" pointer-events="stroke" visibility="hidden"></ellipse>
                 <ellipse cx="2293.63" cy="3035.18" rx="73.625" ry="73.625" fill="none" stroke="#f57070" stroke-width="10" pointer-events="all"></ellipse>
@@ -936,7 +936,7 @@
                     <foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
                       <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 143px; height: 1px; padding-top: 3033px; margin-left: 2221px;">
                           <div data-drawio-colors="color: #f20707; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
-                            <div v-b-tooltip.hover.top="imageDescription.modelseg" style="display: inline-block; font-size: 50px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><span>Step5</span></div>
+                            <div style="display: inline-block; font-size: 100px; font-family: Tahoma; color: rgb(242, 7, 7); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; overflow-wrap: normal;"><span>5</span></div>
                           </div>
                       </div>
                     </foreignObject>
@@ -982,8 +982,6 @@ export default {
           "模型压缩: 减小模型大小以及减少模型参数数量，从而提高模型的效率和性能",
         modelseg:
           "模型分割: 将深度学习模型划分成若干子模型，以便在多个设备运行，从而减少计算和存储资源的需求",
-        deviceandmodel:
-          "模型结构解析、获取详细网络信息，设备性能、模型性能分析，综合评估",
       },
     };
   },

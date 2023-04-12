@@ -115,7 +115,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import { VBTooltip } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
