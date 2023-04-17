@@ -15,13 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from hmt.views import viewsalone as views
 
 urlpatterns = [ 
     path('admin/', admin.site.urls),
-    path('deploy/', include('hmt.urls')),
+    path('ModelCompress/', include('hmt.urls')),
     path('ModelPerformaceEvaluation/', include('hmt.urls')),
-    # path('raspberry/',views.raspberry),
-    # path('jetson/',views.jetson),
-    path('segmentation/',views.segmentation)
+
+    
 ]
