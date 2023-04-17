@@ -15,11 +15,11 @@
         </Row>
         <Divider style="margin: 12px 0px" />
         <Row>
-          <Col span="6">设备名称:
+          <Col span="6">
           <Col span="4">
           <img id="dog" src="../../assets/images/raspberry.jpg" alt="dog">
           </Col>
-          <Col span="2">
+          <Col span="20">设备名称:
           <p class="text-font">{{ OS_Version_rasp }}</p>
           </Col>
           </Col>
@@ -35,11 +35,11 @@
         </Row>
         <Divider style="margin: 12px 0px" />
         <Row>
-          <Col span="6">设备名称:
+          <Col span="6">
           <Col span="4">
           <img id="dog" src="../../assets/images/jetson.jpg" alt="dog">
           </Col>
-          <Col span="2">
+          <Col span="20">设备名称:
           <p class="text-font">{{ DEVICE_name_JET }}</p>
           </Col>
           </Col>
@@ -53,47 +53,31 @@
           <p class="text-font">{{ MEM_Use_JET }}%</p>
           </Col>
         </Row>
+        <Divider style="margin: 12px 0px" />
+        <Row>
+          <Col span="6">
+          <Col span="4">
+          <img id="dog" src="../../assets/images/android.jpg" alt="dog">
+          </Col>
+          <Col span="20">设备名称:
+          <p class="text-font">{{ DEVICE_name_And }}</p>
+          </Col>
+          </Col>
+          <Col span="6">CPU_Use:
+          <p class="text-font">{{ CPU_Use_And }}%</p>
+          </Col>
+          <Col span="6">GPU_Use:
+          <p class="text-font">{{ GPU_Use_And }}%</p>
+          </Col>
+          <Col span="6">MEM_Free:
+          <p class="text-font">{{ MEM_Use_And }}GB</p>
+          </Col>
+        </Row>
+
       </card>
       <div>
         <br>
       </div>
-      <!-- <card shadow>
-        <Row>
-          <Col span="3">
-            <p class="head-font">剩余设备：</p>
-          </Col>
-        </Row>
-        <Divider style="margin: 12px 0px"/>
-        <Row>
-          <Col span="6">设备名:
-            <p class="text-font">{{ deviceStatus.DeviceName }}</p>
-          </Col>
-          <Col span="6">GPU:
-            <p class="text-font">{{ GPU_Use }}</p>
-          </Col>
-          <Col span="6">CPU:
-            <p class="text-font">{{ CPU_Use }}</p>
-          </Col>
-          <Col span="6">DRAM(GB):
-            <p class="text-font">{{ MEM_Use }}</p>
-          </Col>
-        </Row>
-        <Divider style="margin: 12px 0px"/>
-        <Row>
-          <Col span="6">设备名:
-            <p class="text-font">{{ deviceStatus.DeviceName }}</p>
-          </Col>
-          <Col span="6">GPU:
-            <p class="text-font">{{ deviceStatus.BatteryVolume }}</p>
-          </Col>
-          <Col span="6">CPU:
-            <p class="text-font">{{ deviceStatus.CPU }}</p>
-          </Col>
-          <Col span="6">DRAM(GB):
-            <p class="text-font">{{ deviceStatus.DRam }}</p>
-          </Col>
-        </Row>
-      </card> -->
     </div>
     <div>
       <br>
@@ -182,6 +166,7 @@
         </Col>
       </Row>
     </card>
+    
   </div>
 </template>
 <script>
@@ -233,6 +218,12 @@ export default {
       seg_id:"",
       seg_num:"",
 
+      CPU_Use_And :"",
+      DEVICE_name_And:'',
+      MEM_Use_And :'',
+      DISK_Free_And:'',
+      GPU_Use_And: "",
+
       formItem: {
         device: [],
         task: [],
@@ -245,6 +236,7 @@ export default {
     this.timer = setInterval(() => {
         this.addData()
         this.addData_jetson()
+        this.android()
       },1000
     )
   },
@@ -310,6 +302,22 @@ export default {
           console.log(response.data);
           this.seg_id = response.data.id
           this.seg_num = response.data.num
+
+        })
+      // setInterval(addMargin, 5);
+
+    },
+
+    android() {
+      axios
+        .get("/android/")
+        .then((response) => {
+          console.log(response.data);
+          this.CPU_Use_And = parseFloat(response.data.CPU_Use).toFixed(3)
+          this.DEVICE_name_And = response.data.OS_Version
+          this.MEM_Use_And = parseFloat(response.data.MEM_Use).toFixed(3)
+          this.DISK_Free_And = response.data.DISK_Free
+          this.GPU_Use_And = parseFloat(response.data.GPU_Use).toFixed(3)
 
         })
       // setInterval(addMargin, 5);

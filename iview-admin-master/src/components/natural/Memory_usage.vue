@@ -78,6 +78,13 @@ export default {
             // 定义时间格式
             return (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s);
         },
+        getChange : function() {
+            this.MEM_Use=[];
+            this.date=[];
+            this.echartsOption.xAxis.data = this.date;
+            this.echartsOption.series[0].data = this.MEM_Use;
+            this.myChart.setOption(this.echartsOption);
+        },
         // 添加实时数据
         addData : function() {
             /*axios.post('/resourceinfo/',{
@@ -100,6 +107,24 @@ export default {
             }
             else if(this.DeviceName == 'Jetson'){
                 axios.get('/jetson/').then(response => {
+                    this.MEM_Use.push(parseFloat(response.data.MEM_Use).toFixed(3));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.MEM_Use;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
+            else if(this.DeviceName == 'Android'){
+                axios.get('/android/').then(response => {
+                    this.MEM_Use.push(parseFloat(response.data.MEM_Use).toFixed(3));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.MEM_Use;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
+            else if(this.DeviceName == 'Mcu'){
+                axios.get('/mcu/').then(response => {
                     this.MEM_Use.push(parseFloat(response.data.MEM_Use).toFixed(3));
                     this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
                     this.echartsOption.xAxis.data = this.date;
