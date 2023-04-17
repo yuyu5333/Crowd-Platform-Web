@@ -16,6 +16,7 @@ urlpatterns = [
     path('get-mission/', views.ReturnMissionStatus.as_view()),
     path('get-classdatasetmodel/', views.ReturnClassDatasetModel.as_view()),
     path('get-classdatasetmodelInfo/', views.ReturnClassDatasetModelInfo.as_view()),
+    path('get-classdatasetcompressmodel/', views.ReturnClassDatasetCompressModel.as_view()),
     
     path('compress-model/', views.ReturnCompressModel.as_view()),
 
