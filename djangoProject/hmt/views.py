@@ -35,10 +35,14 @@ import torch
 import torch.nn as nn
 import time
 from thop import clever_format
+# from hmt.views.nodegraph import optimal
 from uploadusermodel.profile_my import profile
 from uploadusermodel.checkmodel_util import test
 from uploadusermodel.checkmodel_util import model_user
 
+from Luohao.optimation import readdata
+
+# from hmt.views.nodegraph import optimal  #路径必须这么写才行,django的根目录开始，默认从django的根目录开始识别
 # Create your views here.
 
 import os
@@ -983,37 +987,57 @@ def jetson(request):
         return JsonResponse(json.loads(data_jetson))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
-# def source_show(request,data):
-    
-#     HOST = '192.168.1.102'
-#     PORT = 8080
-#     # 创建套接字并开始监听连接
-#     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#     sock.bind((HOST, PORT))
-#     sock.listen(1)
-#     # 处理客户端连接
-#     while True:
-#         conn, addr = sock.accept()
-#         get_length = False
-#         count = 0
+data_mcu = {
+        "DEVICE_NAME": "ESP-32", 
+        "CPU_Use": "1.5",
+        "MEM_Use": 15.99888854} 
 
-#         while True:
-#             if not get_length:
-#                 lengthData = conn.recv(6)
-#                 length = int.from_bytes(lengthData, byteorder='big')
-#                 b = bytes()
-#                 if length == 0:
-#                     continue
-#                 else:
-#                     get_length = True
-#             else:
-#                 value = conn.recv(length)
-#                 b = b+value
-#                 count += len(value)
-#                 if count >= length:
-#                     break
-#                 data = pickle.loads(b)
-#                 print(data)
+def mcu(request): 
+    global data_mcu   
+    if request.method == 'POST':
+        data_mcu=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
+        print(data_mcu)
+        return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
+    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+        print(data_mcu)
+        return JsonResponse(json.loads(data_mcu))#json.load(data)就是一个json字符串反序列化为python对象
+        #return JsonResponse(data)
+
+# def segmentation(request):
 #     if request.method == 'POST':
-#         return JsonResponse({'data':data})
-#     # 定义服务器端口号和主机名
+#         data = json.loads(request.body)
+#         data_device = data.get('device')
+#         data_task = data.get('task')
+#         data_model = data.get('model')
+#         data_target = data.get('target')
+#         print(data)
+#         op=optimal(data_target)
+#         print(op)
+#         print(type(op))
+#         return JsonResponse({'id':op[0],'num':op[1]})
+
+def segmentation_latency(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        # data = request.body#不知道为啥这个会报错，上边的就是对的哈哈哈哈，但是这个postman可以调通，然后前后端也能调通
+        data_device = data.get('device')
+        data_task = data.get('task')
+        data_model = data.get('model')
+        data_target = data.get('target')
+        data_dataset = data.get('dataset')
+        print(data)
+        if data_model=="AlexNet":
+            if data_dataset=="CIFAR10":
+               op=readdata(26,data_target,"Luohao/files/alexnetcifar10.xlsx")
+            else:
+               op=readdata(42,data_target,"Luohao/files/vggcifar10.xlsx")
+        else:
+            if data_dataset=="CIFAR100":
+               op=readdata(42,data_target,"Luohao/files/vggcifar100.xlsx")
+            else:
+               op=readdata(26,data_target,"Luohao/files/alexnetcifar100.xlsx")
+        # if op[0]>12:
+        #    op[0]=op[0]-12        
+        return JsonResponse({'id':op.id,'time':op.msum,'energy':op.esum})
+        # else:
+        #    return JsonResponse({'id':ops[0],'num':ops[1]})
