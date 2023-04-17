@@ -96,69 +96,28 @@ def insert_data_many():
 
     try:
         inset_sql = """
-            insert into hmt_imageclassification
-            (id, Dataset)
+            insert into hmt_imagesclassification
+            (id, DatasetName, ModelName, Computation, Parameter, Energy, Accuracy, CompressRate, Storage)
             values
             (
-                ?,?
+                ?,?,?,?,?,?,?,?,?
             );
         """
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                1, "Cifar100"
+                19, "PascalVOC", "ResNet34", 1160, 21.29, 5817.57, 39.29, 0, 81.37
             ),
             (
-                2, "Cifar100"
+                20, "PascalVOC", "ResNet34-svd", 637.25, 2.53, 3186.26, 20.11, 88.03, 9.74
             ),
             (
-                3,  "Cifar100"
+                21, "PascalVOC", "ResNet34-dpconv", 564.36, 1.52, 2821.82, 31.15, 92.78, 5.87
             ),
             (
-                17,  "Cifar100"
+                22, "PascalVOC", "ResNet34-fire", 641.44, 2.57, 3207.23, 16.81, 87.83, 9.90
             ),
-            (
-                18,  "Cifar100"
-            ),
-            (
-                4,  "Cifar100"
-            ),
-            (
-                5,  "Cifar100"
-            ),
-            (
-                6,  "Cifar100"
-            ),
-            (
-                7,  "Cifar100"
-            ),
-            (
-                8,  "Cifar100"
-            ),
-            (
-                9,  "Cifar100"
-            ),
-            (
-                10,  "Cifar100"
-            ),
-            (
-                11,  "Cifar100"
-            ),
-            (
-                12,  "Cifar100"
-            ),
-            (
-                13, "Cifar100"
-            ),
-            (
-                14, "Cifar100"
-            ),
-            (
-                15, "Cifar100"
-            ),
-            (
-                16, "Cifar100"
-            ),
+            
         ]
 
         connect.executemany(inset_sql, datalist)
@@ -329,9 +288,9 @@ if __name__ == "__main__":
 
     # insert_data()
 
-    # insert_data_many()
+    insert_data_many()
 
-    update_data()
+    # update_data()
     
     # update_table_name()
 

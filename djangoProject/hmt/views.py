@@ -35,11 +35,18 @@ import torch
 import torch.nn as nn
 import time
 from thop import clever_format
+# from hmt.views.nodegraph import optimal
 from uploadusermodel.profile_my import profile
 from uploadusermodel.checkmodel_util import test
 from uploadusermodel.checkmodel_util import model_user
 
+from Luohao.optimation import readdata
+
+# from hmt.views.nodegraph import optimal  #路径必须这么写才行,django的根目录开始，默认从django的根目录开始识别
 # Create your views here.
+
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"  # 只看到 GPU 0 和 GPU 1
 
 from django.shortcuts import render
 
@@ -140,6 +147,9 @@ class ReturnUserModelStatus(APIView):
         print("Check pass cal start")
 
         Macs, Params = modelCalculate(model, input)
+        
+        print("*****\nMacs\n******: ", Macs)
+        
         Latency = modelLatency(model, input)
         Storage = modelStorage(model)
         # return energy_total, Cl, Ml, cache_rate
@@ -161,13 +171,18 @@ class ReturnUserModelStatus(APIView):
         retMl = str(Ml) + ' (M)'
         retCache_rate = str(Cache_rate) + ' %'
 
+        if Macs[-1] == 'G':
+            reMacs = float(Macs[0:-1]) * 1000
+        else:
+            reMacs = float(Macs[0:-1])
+
         return_data = {
-            "Computation": Macs[0:-1], "Parameter": Params[0:-1], "Latency": Latency, "Storage": Storage,
+            "Computation": reMacs, "Parameter": Params[0:-1], "Latency": Latency, "Storage": Storage,
             "Energy": retEnergy, "Accuracy": "None", "Cl": retCl, "Ml": retMl, "CacheRate": retCache_rate,
             "Struct": modelStruct
         }
 
-        print("return_data: ", return_data)
+        # print("return_data: ", return_data)
 
         return Response(return_data)
 
@@ -177,7 +192,7 @@ class ReturnUserModelStruct(APIView):
         model, input = model_user()
         modelStruct = getusermodelStruct(model)
         
-        print("modelStruct: ", modelStruct)
+        # print("modelStruct: ", modelStruct)
         
         return Response(modelStruct)
 
@@ -192,7 +207,7 @@ def getusermodelStruct(model):
         if len(list(layer.children())) > 0:
             layer_info['children'] = getusermodelStruct(layer)
 
-    print(structure)
+    # print(structure)
 
     json_structure = json.dumps(structure)
 
@@ -517,10 +532,10 @@ class ReturnMissionStatus(APIView):
 
 def find_closest_compress(compress_ratio, model_set):
     if compress_ratio >= model_set[-1]['CompressRate']:
-        serializer = ImageClassificationSerializer(model_set[-1])
+        serializer = ImagesClassificationSerializer(model_set[-1])
         return serializer
     elif compress_ratio <= model_set[0]['CompressRate']:
-        serializer = ImageClassificationSerializer(model_set[0])
+        serializer = ImagesClassificationSerializer(model_set[0])
         return serializer
     pos = 0
     for i in range(len(model_set)):
@@ -530,9 +545,9 @@ def find_closest_compress(compress_ratio, model_set):
     before = model_set[pos - 1]['CompressRate']
     after = model_set[pos]['CompressRate']
     if after - compress_ratio < compress_ratio - before:
-        serializer = ImageClassificationSerializer(model_set[pos])
+        serializer = ImagesClassificationSerializer(model_set[pos])
     else:
-        serializer = ImageClassificationSerializer(model_set[pos - 1])
+        serializer = ImagesClassificationSerializer(model_set[pos - 1])
     return serializer
 
 class ReturnClassDatasetModel(APIView):
@@ -586,6 +601,35 @@ class ReturnClassDatasetModelInfo(APIView):
 
             return Response(retmodelinfo)
                 
+        else:
+            pass
+        
+        return Response(None)
+
+class ReturnClassDatasetCompressModel(APIView):
+    def post(self, request):
+        
+        compress_rate_obj = json.loads(request.body)
+        compress_rate = compress_rate_obj.get('CompressRate')
+        classname = compress_rate_obj.get('ClassName')
+        datasetname = compress_rate_obj.get('DatasetName')
+        modelname = compress_rate_obj.get('ModelName')
+        
+        compress_ratio = float(compress_rate)
+        model_set = []
+        
+        if str(classname) == '图像分类':
+            compress_model = ImagesClassification.objects.filter(DatasetName=datasetname).values()
+            
+            for item in compress_model:
+                
+                if str(item['ModelName']).startswith(modelname):
+                    model = ImagesClassification.objects.get(ModelName=item['ModelName'])
+                    model_set.append(model.__dict__)
+                    
+            model_set = sorted(model_set, key=lambda x: x['CompressRate'])
+            serializer = find_closest_compress(compress_ratio, model_set)
+            return Response(serializer.data)
         else:
             pass
         
@@ -943,37 +987,57 @@ def jetson(request):
         return JsonResponse(json.loads(data_jetson))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
-# def source_show(request,data):
-    
-#     HOST = '192.168.1.102'
-#     PORT = 8080
-#     # 创建套接字并开始监听连接
-#     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#     sock.bind((HOST, PORT))
-#     sock.listen(1)
-#     # 处理客户端连接
-#     while True:
-#         conn, addr = sock.accept()
-#         get_length = False
-#         count = 0
+data_mcu = {
+        "DEVICE_NAME": "ESP-32", 
+        "CPU_Use": "1.5",
+        "MEM_Use": 15.99888854} 
 
-#         while True:
-#             if not get_length:
-#                 lengthData = conn.recv(6)
-#                 length = int.from_bytes(lengthData, byteorder='big')
-#                 b = bytes()
-#                 if length == 0:
-#                     continue
-#                 else:
-#                     get_length = True
-#             else:
-#                 value = conn.recv(length)
-#                 b = b+value
-#                 count += len(value)
-#                 if count >= length:
-#                     break
-#                 data = pickle.loads(b)
-#                 print(data)
+def mcu(request): 
+    global data_mcu   
+    if request.method == 'POST':
+        data_mcu=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
+        print(data_mcu)
+        return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
+    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+        print(data_mcu)
+        return JsonResponse(json.loads(data_mcu))#json.load(data)就是一个json字符串反序列化为python对象
+        #return JsonResponse(data)
+
+# def segmentation(request):
 #     if request.method == 'POST':
-#         return JsonResponse({'data':data})
-#     # 定义服务器端口号和主机名
+#         data = json.loads(request.body)
+#         data_device = data.get('device')
+#         data_task = data.get('task')
+#         data_model = data.get('model')
+#         data_target = data.get('target')
+#         print(data)
+#         op=optimal(data_target)
+#         print(op)
+#         print(type(op))
+#         return JsonResponse({'id':op[0],'num':op[1]})
+
+def segmentation_latency(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        # data = request.body#不知道为啥这个会报错，上边的就是对的哈哈哈哈，但是这个postman可以调通，然后前后端也能调通
+        data_device = data.get('device')
+        data_task = data.get('task')
+        data_model = data.get('model')
+        data_target = data.get('target')
+        data_dataset = data.get('dataset')
+        print(data)
+        if data_model=="AlexNet":
+            if data_dataset=="CIFAR10":
+               op=readdata(26,data_target,"Luohao/files/alexnetcifar10.xlsx")
+            else:
+               op=readdata(42,data_target,"Luohao/files/vggcifar10.xlsx")
+        else:
+            if data_dataset=="CIFAR100":
+               op=readdata(42,data_target,"Luohao/files/vggcifar100.xlsx")
+            else:
+               op=readdata(26,data_target,"Luohao/files/alexnetcifar100.xlsx")
+        # if op[0]>12:
+        #    op[0]=op[0]-12        
+        return JsonResponse({'id':op.id,'time':op.msum,'energy':op.esum})
+        # else:
+        #    return JsonResponse({'id':ops[0],'num':ops[1]})

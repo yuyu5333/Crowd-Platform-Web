@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from hmt import views
@@ -22,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ModelCompress/', include('hmt.urls')),
     path('ModelPerformaceEvaluation/', include('hmt.urls')),
-    path('raspberry/',views.raspberry),
-    path('jetson/',views.jetson)
+
+    
 ]

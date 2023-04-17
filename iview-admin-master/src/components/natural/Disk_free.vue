@@ -113,6 +113,15 @@ export default {
                     this.myChart.setOption(this.echartsOption);
                 })
             }
+            else if(this.DeviceName == 'Android'){
+                axios.get('/android/').then(response => {
+                    this.DISK_Free.push(parseFloat(response.data.DISK_Free));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.DISK_Free;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
             else{
                 this.DISK_Free.push(0);
                 this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
