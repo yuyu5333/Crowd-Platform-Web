@@ -89,7 +89,7 @@
           <card shadow>
             <Row>
               <Col span="15">
-                <p class="head-font-parameter">能耗(J)</p>
+                <p class="head-font-parameter">能耗(mJ)</p>
               </Col>
             </Row>
             <Divider style="margin: 12px 0px" />
@@ -122,6 +122,9 @@
           </card>
           <Divider style="margin: 10px 0px" />
           <!-- 精确度 end -->
+          <button class="back-btn" @click="goBackhome">
+            返回首页
+          </button>
         </div>
       </template>
       <!-- 系统模型 -->
@@ -232,20 +235,6 @@ export default {
           label: "VGG",
         },
       ],
-      sysdeviceList: [
-        {
-          value: "Windows",
-          label: "Windows",
-        },
-        {
-          value: "RaspberryPi4B",
-          label: "RaspberryPi4B",
-        },
-        {
-          value: "JetsonNx",
-          label: "JetsonNx",
-        },
-      ],
       split1: 0.618,
       split2: 0.382,
       sysmodel: [],
@@ -268,12 +257,15 @@ export default {
             that.sysmodelStatus = response.data
         });
     },
+    goBackhome() {
+      this.$router.push('/')
+    }
   },
 };
 </script>
 
 
-<style>
+<style scoped>
 .demo-split {
   height: 5000px;
   border: 1px solid #ffffff;
@@ -294,5 +286,18 @@ export default {
     font-weight: bold;
   font-size: 16px;
   color: #0b5fdd;
+}
+.back-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #0069d9;
 }
 </style>

@@ -1,8 +1,10 @@
 from django.urls import path, re_path
 
+
 from djangoProject.hmt.views.android import android
 from . import  views
 from .views import android
+from django.views.generic import TemplateView
 urlpatterns = [
 
     path('get-sysmodel/', views.ReturnSysModelDeviceLatency.as_view()),
@@ -10,6 +12,7 @@ urlpatterns = [
     path('check-usermodel/', views.CheckUserModel.as_view()),
     path('get-usermodel/', views.ReturnUserModelStatus.as_view()),
     path('get-usermodelstruct/', views.ReturnUserModelStruct.as_view()),
+
     
     path('get-device/', views.ReturnDeviceStatus.as_view()),
     path('get-mission/', views.ReturnMissionStatus.as_view()),
@@ -17,8 +20,9 @@ urlpatterns = [
     path('get-classdatasetmodelInfo/', views.ReturnClassDatasetModelInfo.as_view()),
     path('get-classdatasetcompressmodel/', views.ReturnClassDatasetCompressModel.as_view()),
 
+
     path('compress-model/', views.ReturnCompressModel.as_view()),
-    
+
     re_path('^download-model/', views.DownloadCompressModel.as_view()),
     re_path('^download-sysmodel/', views.DownloadSysModel.as_view()),
     re_path('^download-sysmodelcode/', views.DownloadSysModelCode.as_view()),

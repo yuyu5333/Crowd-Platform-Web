@@ -9,12 +9,14 @@ from tabnanny import check
 from django.conf import settings
 from django.http import Http404, JsonResponse, StreamingHttpResponse
 from django.utils.encoding import escape_uri_path
+from django.db.models import Q
+
 from rest_framework import status
 from rest_framework import response
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from djangoProject.settings import MEDIA_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
+from djangoProject.settings import COMPRESSSYSTEMMODEL_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
 from djangoProject.settings import DOWNLOADFILEDIR_ROOT, UPLOADUSERMODEL_ROOT
 from hmt.models import Device, Mission, ImageClassification
 from hmt.serializers import DeviceSerializer, ImageClassificationSerializer
@@ -22,11 +24,15 @@ from hmt.serializers import DeviceSerializer, ImageClassificationSerializer
 from hmt.models import SysModel, SysDeviceLatency
 from hmt.serializers import SysModelSerializer, SysDeviceLatencySerializer
 
+# model compress wyz
+from hmt.models import ClassDatasetModel, ImagesClassification
+from hmt.serializers import ClassDatasetModelSerializer, ImagesClassificationSerializer
+
 from operator import itemgetter
 from pynvml import *
 
-import uuid
 import torch
+import torch.nn as nn
 import time
 from thop import clever_format
 # from hmt.views.nodegraph import optimal
@@ -38,6 +44,15 @@ from Luohao.optimation import readdata
 
 # from hmt.views.nodegraph import optimal  #路径必须这么写才行,django的根目录开始，默认从django的根目录开始识别
 # Create your views here.
+
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"  # 只看到 GPU 0 和 GPU 1
+
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'index.html', {'STATIC_URL': '/static/vue/'})
+
 class ReturnSysModelStatus(APIView):
     def post(self, request):
         sysmodel_obj = json.loads(request.body)
@@ -128,26 +143,269 @@ class ReturnUserModelStatus(APIView):
             # model, input = model_user()
 
         model, input = model_user()
-        
 
         print("Check pass cal start")
 
         Macs, Params = modelCalculate(model, input)
+        
+        print("*****\nMacs\n******: ", Macs)
+        
         Latency = modelLatency(model, input)
         Storage = modelStorage(model)
+        # return energy_total, Cl, Ml, cache_rate
+        Energy, Cl, Ml, Cache_rate = modelEnergy(model, input)
+        
+        modelStruct = getusermodelStruct(model)
+
+        # print("modelStruct: ", modelStruct)
 
         Latency = ('%.2f' % (Latency * 1000))
         Storage = ('%.2f' % Storage)
+        Energy = ('%.2f' % Energy)
+        Cl = ('%.2f' % (Cl/1000))
+        Ml = ('%.2f' % (Ml/1000))
+        Cache_rate = ('%.2f' % (Cache_rate * 100))
+
+        retEnergy = str(Energy) + ' (mJ)'
+        retCl = str(Cl) + ' (M)'
+        retMl = str(Ml) + ' (M)'
+        retCache_rate = str(Cache_rate) + ' %'
+
+        if Macs[-1] == 'G':
+            reMacs = float(Macs[0:-1]) * 1000
+        else:
+            reMacs = float(Macs[0:-1])
 
         return_data = {
-            "Computation": Macs[0:-1], "Parameter": Params[0:-1], "Latency": Latency, "Storage": Storage,
-            "Energy": "None", "Accuracy": "None"
+            "Computation": reMacs, "Parameter": Params[0:-1], "Latency": Latency, "Storage": Storage,
+            "Energy": retEnergy, "Accuracy": "None", "Cl": retCl, "Ml": retMl, "CacheRate": retCache_rate,
+            "Struct": modelStruct
         }
 
-        print("return_data: ", return_data)
+        # print("return_data: ", return_data)
 
         return Response(return_data)
+
+
+class ReturnUserModelStruct(APIView):
+    def post(self, request):
+        model, input = model_user()
+        modelStruct = getusermodelStruct(model)
         
+        # print("modelStruct: ", modelStruct)
+        
+        return Response(modelStruct)
+
+def getusermodelStruct(model):
+    structure = []
+    for name, layer in model.named_children():
+        layer_info = {}
+        layer_info['name'] = name
+        layer_info['type'] = layer.__class__.__name__
+        layer_info['params'] = sum(p.numel() for p in layer.parameters() if p.requires_grad)
+        structure.append(layer_info)
+        if len(list(layer.children())) > 0:
+            layer_info['children'] = getusermodelStruct(layer)
+
+    # print(structure)
+
+    json_structure = json.dumps(structure)
+
+    return json_structure
+
+def modelEnergy(Model, input):
+
+    # 计算 Cl：计算量
+    Macs, Params, Model_list = profile(Model, inputs=(input, ))
+    # 获得Cl
+    Cl = Macs
+
+    # 计算 Ml：访问量
+        # 对于每一层：
+                    # 输入大小 x 字节
+                    # 权重大小 x 字节
+                    # 输出大小 x 字节
+            # 内存访问量：（输入张量大小 + 输出张量大小 + 权重大小）x 数据类型字节数
+        # 计算每一层，求和
+
+    # 1. 获得每一层的名称
+    net_list = {'input': input.shape}
+
+    for key_i in Model_list.keys():
+        net_list.setdefault(str(key_i), {})
+
+    # 2. 获得每一层的weight和bias大小
+
+    for name, param in Model.named_parameters():
+        # print(name, param.shape)
+        layer_name = name.split(".")[0]
+        layer_name_para = name.split(".")[1]
+        if layer_name in net_list:
+            net_list[layer_name][layer_name_para] = param.shape
+
+    # input = torch.randn(2, 3, 32, 32)
+    # 获得输入
+    num_sample = net_list["input"][0]
+    C1 = net_list["input"][1]
+    W1 = net_list["input"][2]
+    H1 = net_list["input"][3]
+    input_size = W1 * H1 * C1
+
+    # 初始化参数
+    input_size_totle = 0
+    output_size_totle = 0
+    weight_size_totle = 0
+
+    # 定义字节
+    byte_size_float64 = 8
+    byte_size_float32 = 4
+
+    # 定义单元能耗
+    # 单位 pJ
+    energy_access = 100     # 内存访问: 100 pJ
+    energy_access_gpu = 0.05 * 10 ** 3   # GPU访存：0.05 mJ = 0.5 * 10 ** 9 pJ
+    energy_access_cache = 0.05      # 缓存访问：0.05 pJ
+    energy_mutpily_cpu = 5 * 10 ** 3    # 乘法操作：5 mJ = 5 * 10 ** 9 pJ
+    cache_rate = 0.5        # 初始化命中率：50%
+
+    for name, layer in Model.named_modules():
+        # 卷积层
+        if isinstance(layer, nn.Conv2d):
+            # 获取卷积核数量、输入大小、步长和填充
+            out_channels = layer.out_channels
+            in_channels = layer.in_channels
+            kernel_size = layer.kernel_size
+            stride = layer.stride
+            padding = layer.padding
+
+            # 获得参数
+            K = kernel_size[0]
+            P = padding[0]
+            S = stride[0]
+            C2 = out_channels
+            # 计算输出大小
+            W2 = (W1 - K + 2 * P) / S + 1
+            H2 = (H1 - K + 2 * P) / S + 1
+            output_size = W2 * H2 * C2
+
+            # 考虑偏置
+            if layer.bias is not None:
+                # 该层包含偏置参数
+                # K * K * C1 * C2 + C2 = (K * K * C1 + 1)* C2
+                weight_size = (K * K * C1 + 1) * C2
+            else:
+                # 该层不包含偏置参数
+                weight_size = K * K * C1 * C2
+
+            # 累加大小
+            weight_size_totle += weight_size
+            input_size_totle += input_size
+            output_size_totle += output_size
+
+            # 更新输入大小和长、宽
+            input_size = output_size
+            C1 = C2
+            W1 = W2
+            H1 = H2
+
+        # 全连接层
+        elif isinstance(layer, nn.Linear):
+            # 获得输入输出大小
+            output_features = layer.out_features
+            input_features = layer.in_features
+
+            # 计算输出大小
+            output_size = W1 * H1 * output_features
+
+            # 考虑偏置
+            if layer.bias is not None:
+                weight_size = input_size * output_size + output_size
+            else:
+                weight_size = input_size * output_size
+            # 累加大小
+
+            input_size_totle += input_size
+            output_size_totle += output_size
+            weight_size_totle += weight_size
+
+            # 更新输入大小、通道数
+            input_size = output_size
+            C1 = output_features
+
+        # 其他层，没有权重
+        else:
+            # 输出层信息
+            # print("name: ", name, "\tlayer: ", layer)
+            pass
+
+    # 计算：内存访问量 = ( 输入张量大小 + 输出张量大小 + 权重大小 ) × 数据类型字节数 × 每次样本输入数量
+    mem_access = (input_size_totle + output_size_totle + weight_size_totle) * byte_size_float32 * num_sample
+    print("Totle Memory Access: ", mem_access)
+    # Cl已经获得，获得Ml
+    Ml = mem_access
+
+    # 创建一个设备对象
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    if torch.cuda.is_available():
+        is_GPU = 1
+    else:
+        is_GPU = 0
+
+    # 获得cache命中率
+    cache_rate_get = getcacherate(Model, input, device)
+    if cache_rate_get < 1:
+        cache_rate = cache_rate_get
+    else:
+        print("cache_rate_get: ", cache_rate_get)
+
+    # 总能耗
+    
+    print("Cl: ", Cl)
+    print("Ml: ", Ml)
+    # energy_total = energy_mutpily_cpu * Cl + cache_rate * energy_access_cache * Ml + (1-cache_rate) * energy_access + is_GPU * Ml * energy_access_gpu
+    energy_total = energy_mutpily_cpu * Cl + cache_rate * energy_access_cache * Ml + (1-cache_rate) * energy_access
+    # energy_total = round(energy_total * 10 ** (-12) , 2)
+    energy_total = energy_total * 10 ** (-12 + 3)
+    
+    return energy_total, Cl, Ml, cache_rate
+
+def getcacherate(model, input, device):
+    
+    network = model.to(device)
+
+    input_tensor = input.to(device)
+
+    # 在 GPU 上运行网络并打印输出
+    with torch.no_grad():
+        output = network(input_tensor)
+        # print(output.shape)
+
+    # 测试模型运行时间
+    for i in range(100):
+        
+        time_taken = measure_model_time(network, input_tensor, device)
+        # print('Model took {:.6f} seconds to run on device {}'.format(time_taken * 1000, device))
+        if i == 0:
+            time1 = time_taken
+        elif i == 1:
+            time2 = time_taken
+
+    rate_cache_1 = 1 - (time1 - time2) / time1
+
+    # print("time1: ", time1)
+    # print("time2: ", time2)
+    # print("rate_cache_1: ", rate_cache_1 * 100, "%")
+    return rate_cache_1
+
+def measure_model_time(model, input_tensor, device):
+    model.eval()
+    input_tensor = input_tensor.to(device)
+    with torch.no_grad():
+        start_time = time.time()
+        output = model(input_tensor)
+        end_time = time.time()
+
+    return end_time - start_time
 
 def modelStorage(model):
     torch.save(model, "./uploadusermodel_temp.pth")
@@ -157,7 +415,7 @@ def modelStorage(model):
     return Storage
 
 def modelCalculate(model, input):
-    Macs, Params = profile(model, inputs=(input, ))
+    Macs, Params, List = profile(model, inputs=(input, ))
     Macs, Params = clever_format([Macs, Params], "%.2f")
     return Macs, Params
 
@@ -245,7 +503,6 @@ class ReturnSysModelDeviceLatency(APIView):
             if temp_v == -1 or temp_v is None:
                 sysdevicelatency_data[temp_k] = "None"
 
-
         print(sysdevicelatency_data)
 
         return Response(sysdevicelatency_data)
@@ -258,7 +515,6 @@ class ReturnDeviceStatus(APIView):
         serializer = DeviceSerializer(device)
         print(serializer.data)
         return Response(serializer.data)
-
 
 class ReturnMissionStatus(APIView):
     def post(self, request):
@@ -274,13 +530,12 @@ class ReturnMissionStatus(APIView):
                 return Response(serializer.data)
         raise Http404
 
-
 def find_closest_compress(compress_ratio, model_set):
     if compress_ratio >= model_set[-1]['CompressRate']:
-        serializer = ImageClassificationSerializer(model_set[-1])
+        serializer = ImagesClassificationSerializer(model_set[-1])
         return serializer
     elif compress_ratio <= model_set[0]['CompressRate']:
-        serializer = ImageClassificationSerializer(model_set[0])
+        serializer = ImagesClassificationSerializer(model_set[0])
         return serializer
     pos = 0
     for i in range(len(model_set)):
@@ -290,11 +545,95 @@ def find_closest_compress(compress_ratio, model_set):
     before = model_set[pos - 1]['CompressRate']
     after = model_set[pos]['CompressRate']
     if after - compress_ratio < compress_ratio - before:
-        serializer = ImageClassificationSerializer(model_set[pos])
+        serializer = ImagesClassificationSerializer(model_set[pos])
     else:
-        serializer = ImageClassificationSerializer(model_set[pos - 1])
+        serializer = ImagesClassificationSerializer(model_set[pos - 1])
     return serializer
 
+class ReturnClassDatasetModel(APIView):
+    def post(self, request):
+        class_dataset_name = json.loads(request.body)
+        
+        classname = class_dataset_name.get('ClassName')
+        dataset = class_dataset_name.get('DatasetName')
+        
+        modelnames = ClassDatasetModel.objects.filter(Q(ClassName=classname) & Q(DatasetName=dataset))
+        modelname_list = []
+        
+        for modelname in modelnames:
+            modelname_serializer = ClassDatasetModelSerializer(modelname)
+            temp_modelname = modelname_serializer.data
+            modelname_list.append(temp_modelname['ModelName'])
+        
+        if modelname_list[0] == '':
+            return Response(None)
+        
+        return Response(modelname_list)
+
+class ReturnClassDatasetModelInfo(APIView):
+    def post(self, request):
+        class_dataset_modelName = json.loads(request.body)
+        
+        classname = class_dataset_modelName.get('ClassName')
+        datasetname = class_dataset_modelName.get('DatasetName')
+        modelname = class_dataset_modelName.get('ModelName')
+        
+        # 不同classname对应不同数据库表
+            # '图像分类' -- hmt_imagesclassification
+        
+        if classname == '图像分类':
+            # 获取图像分类对应数据集对应模型的参数
+            # modelinfo = ImagesClassification.objects.filter(Q(Dataset=datasetname) & Q(ModelName=modelname))
+
+            modelinfos = ImagesClassification.objects.filter(Q(DatasetName=datasetname) & Q(ModelName=modelname))
+            
+            retmodelinfo = {}
+            
+            for modelinfo in modelinfos:
+                modelinfo_serializer = ImagesClassificationSerializer(modelinfo)
+                temp_modelname = modelinfo_serializer.data
+                
+                retmodelinfo['Computation'] = temp_modelname['Computation']
+                retmodelinfo['Parameter'] = temp_modelname['Parameter']
+                retmodelinfo['Energy'] = temp_modelname['Energy']
+                retmodelinfo['Storage'] = temp_modelname['Storage']
+                retmodelinfo['Accuracy'] = temp_modelname['Accuracy']
+
+            return Response(retmodelinfo)
+                
+        else:
+            pass
+        
+        return Response(None)
+
+class ReturnClassDatasetCompressModel(APIView):
+    def post(self, request):
+        
+        compress_rate_obj = json.loads(request.body)
+        compress_rate = compress_rate_obj.get('CompressRate')
+        classname = compress_rate_obj.get('ClassName')
+        datasetname = compress_rate_obj.get('DatasetName')
+        modelname = compress_rate_obj.get('ModelName')
+        
+        compress_ratio = float(compress_rate)
+        model_set = []
+        
+        if str(classname) == '图像分类':
+            compress_model = ImagesClassification.objects.filter(DatasetName=datasetname).values()
+            
+            for item in compress_model:
+                
+                if str(item['ModelName']).startswith(modelname):
+                    model = ImagesClassification.objects.get(ModelName=item['ModelName'])
+                    model_set.append(model.__dict__)
+                    
+            model_set = sorted(model_set, key=lambda x: x['CompressRate'])
+            serializer = find_closest_compress(compress_ratio, model_set)
+            return Response(serializer.data)
+        else:
+            pass
+        
+        return Response(None)
 
 class ReturnCompressModel(APIView):
     def post(self, request):
@@ -355,8 +694,6 @@ class DownloadModeldefinition(APIView):
             return JsonResponse({'status': status.HTTP_400_BAD_REQUEST, 'msg': '文件下载失败'},
                                 status=status.HTTP_400_BAD_REQUEST)
 
-
-
 class DownloadSysModelCode(APIView):
     def get(self, request):
         filename = request.GET.get('modelcode')
@@ -397,8 +734,6 @@ class DownloadSysModelCode(APIView):
         except Exception:
             return JsonResponse({'status': status.HTTP_400_BAD_REQUEST, 'msg': '模型代码下载失败'},
                                 status=status.HTTP_400_BAD_REQUEST)
-
-
 
 class DownloadSysModel(APIView):
     def get(self, request):
@@ -441,13 +776,12 @@ class DownloadSysModel(APIView):
             return JsonResponse({'status': status.HTTP_400_BAD_REQUEST, 'msg': '模型下载失败'},
                                 status=status.HTTP_400_BAD_REQUEST)
 
-
 class DownloadCompressModel(APIView):
     def get(self, request):
         filename = request.GET.get('model')
         filename = filename + ".pth"
         print(filename)
-        download_file_path = os.path.join(MEDIA_ROOT, filename)
+        download_file_path = os.path.join(COMPRESSSYSTEMMODEL_ROOT, filename)
         print("download_file_path", download_file_path)
 
         response = self.big_file_download(download_file_path, filename)
@@ -483,13 +817,13 @@ class DownloadCompressModel(APIView):
             return JsonResponse({'status': status.HTTP_400_BAD_REQUEST, 'msg': '模型下载失败'},
                                 status=status.HTTP_400_BAD_REQUEST)
 
-def ConnectReturnDevice(request):
-    ipaddress = json.loads(request.body)
-    print(ipaddress)
-    ipaddress = ipaddress.get('IPaddress')
+# def ConnectReturnDevice(request):
+#     ipaddress = json.loads(request.body)
+#     print(ipaddress)
+#     ipaddress = ipaddress.get('IPaddress')
     
-    model_set = []
-    return Response(serializer.data)
+#     model_set = []
+#     return Response(serializer.data)
 
 
 def getCPUinfo():
@@ -605,6 +939,7 @@ def get_resourceinfo(request):
         'MEM_Use':MEM_Use,
         'DISK_Free':DISK_Free,
     })
+
 data_raspberry = {"CPU_Arch": "armv7l", 
         "OS_Version": "Raspbian GNU/Linux 10", 
         "RAM_Total": 0, 
