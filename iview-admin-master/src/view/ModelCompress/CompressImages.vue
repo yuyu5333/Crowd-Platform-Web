@@ -2,7 +2,6 @@
   <div>
     <div>
       <!-- 数据集选择start -->
-      <card shadow>
         <Row>
           <div class="image-grid">
             <div class="image-class">
@@ -242,7 +241,6 @@
             <div class="image-item"></div>
           </div>
         </Row>
-      </card>
       <!-- 数据集选择end -->
     </div>
   </div>
