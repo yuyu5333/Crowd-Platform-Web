@@ -1,10 +1,9 @@
 from django.urls import path, re_path
 
 
-from djangoProject.hmt.views.android import android
-from . import  views
-from .views import android
-from django.views.generic import TemplateView
+from . import views
+from hmt.myviews import android
+
 urlpatterns = [
 
     path('get-sysmodel/', views.ReturnSysModelDeviceLatency.as_view()),
@@ -22,6 +21,13 @@ urlpatterns = [
 
 
     path('compress-model/', views.ReturnCompressModel.as_view()),
+    # path('ip-connect/', views.ConnectReturnDevice.as_view())
+
+    path('raspberry/',views.raspberry),
+    path('jetson/',views.jetson),
+    path('mcu/',views.mcu),
+    path('android/', android.DeviceAndroid.as_view()),
+    path('segmentationlatency/',views.segmentation_latency),
 
     re_path('^download-model/', views.DownloadCompressModel.as_view()),
     re_path('^download-sysmodel/', views.DownloadSysModel.as_view()),
@@ -29,10 +35,5 @@ urlpatterns = [
     re_path('^download-modeldefinition/', views.DownloadModeldefinition.as_view()),
     # path('ip-connect/', views.ConnectReturnDevice.as_view())
 
-    path('raspberry/',views.raspberry),
-    path('jetson/',views.jetson),
-    path('mcu/',views.mcu),
-    path('android/', android),
-    path('segmentationlatency/',views.segmentation_latency),
 
 ]
