@@ -1,49 +1,55 @@
 <template>
-  <div class="rotate-div" @mouseenter="rotate">
-    <p>鼠标触碰这个div会触发一次绕着div中心旋转的动画</p>
+  <div>
+    <button @click="showPopup">显示弹窗</button>
+    <div v-if="show" class="popup">
+      <h2>弹窗</h2>
+      <compress-component />
+      <button @click="hidePopup">关闭</button>
+    </div>
+    <div v-if="show" class="overlay" @click="hidePopup"></div>
   </div>
 </template>
 
-<style>
-.rotate-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: auto;
-  padding: 10px;
-  border: 1px solid black;
-  transition: transform 1s ease-in-out;
-}
-
-.rotate {
-  animation: rotate 1s ease-in-out;
-  animation-fill-mode: forwards;
-  pointer-events: none;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-</style>
-
 <script>
+import CompressComponent from "./CompressComponent.vue";
+
 export default {
-  methods: {
-    rotate() {
-      const rotateDiv = document.querySelector('.rotate-div');
-      if (!rotateDiv.classList.contains('rotate')) {
-        rotateDiv.classList.add('rotate');
-        setTimeout(() => {
-          rotateDiv.classList.remove('rotate');
-        }, 1000);
-      }
-    },
+  components: {
+    CompressComponent
   },
+  data() {
+    return {
+      show: false
+    };
+  },
+  methods: {
+    showPopup() {
+      this.show = true;
+    },
+    hidePopup() {
+      this.show = false;
+    }
+  }
 };
 </script>
+
+<style>
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 10;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+</style>

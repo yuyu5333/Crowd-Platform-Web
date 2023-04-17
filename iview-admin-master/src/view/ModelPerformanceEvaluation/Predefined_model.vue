@@ -235,20 +235,6 @@ export default {
           label: "VGG",
         },
       ],
-      sysdeviceList: [
-        {
-          value: "Windows",
-          label: "Windows",
-        },
-        {
-          value: "RaspberryPi4B",
-          label: "RaspberryPi4B",
-        },
-        {
-          value: "JetsonNx",
-          label: "JetsonNx",
-        },
-      ],
       split1: 0.618,
       split2: 0.382,
       sysmodel: [],
