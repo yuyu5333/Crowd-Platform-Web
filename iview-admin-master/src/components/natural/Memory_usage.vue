@@ -114,6 +114,24 @@ export default {
                     this.myChart.setOption(this.echartsOption);
                 })
             }
+            else if(this.DeviceName == 'Android'){
+                axios.get('/android/').then(response => {
+                    this.MEM_Use.push(parseFloat(response.data.MEM_Use).toFixed(3));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.MEM_Use;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
+            else if(this.DeviceName == 'Mcu'){
+                axios.get('/mcu/').then(response => {
+                    this.MEM_Use.push(parseFloat(response.data.MEM_Use).toFixed(3));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.MEM_Use;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
             else{
                 this.MEM_Use.push(0);
                 this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));

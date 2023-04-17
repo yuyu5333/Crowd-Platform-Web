@@ -186,6 +186,24 @@
                 that.RAM_Total = response.data.RAM_Total;
               })
             }
+            else if(device == 'Android'){
+              axios.get('/android/').then(response =>{
+                that.CPU_Type = response.data.CPU_Type;
+                that.GPU_Type = response.data.GPU_Type;
+                that.CPU_Arch = response.data.CPU_Arch;
+                that.OS_Version = response.data.OS_Version;
+                that.RAM_Total = response.data.RAM_Total;
+              })
+            }
+            else if(device == 'Mcu'){
+              axios.get('/mcu/').then(response =>{
+                that.CPU_Type = response.data.CPU_Type;
+                that.GPU_Type = response.data.GPU_Type;
+                that.CPU_Arch = response.data.CPU_Arch;
+                that.OS_Version = response.data.OS_Version;
+                that.RAM_Total = response.data.RAM_Total;
+              })
+            }
             else{
               that.CPU_Type = '';
               that.GPU_Type = '';

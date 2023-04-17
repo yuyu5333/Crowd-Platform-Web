@@ -116,6 +116,24 @@ export default {
                     this.myChart.setOption(this.echartsOption);
                 })
             }
+            else if(this.DeviceName == 'Android'){
+                axios.get('/android/').then(response => {
+                    this.CPU_Use.push(parseFloat(response.data.CPU_Use));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.CPU_Use;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
+            else if(this.DeviceName == 'Mcu'){
+                axios.get('/mcu/').then(response => {
+                    this.CPU_Use.push(parseFloat(response.data.CPU_Use));
+                    this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
+                    this.echartsOption.xAxis.data = this.date;
+                    this.echartsOption.series[0].data = this.CPU_Use;
+                    this.myChart.setOption(this.echartsOption);
+                })
+            }
             else{
                 this.CPU_Use.push(0);
                 this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));

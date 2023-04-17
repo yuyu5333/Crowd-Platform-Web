@@ -188,7 +188,7 @@ export default [
           icon: 'ios-bug',
           title: '模型分割'
         },
-        component: () => import('@/view/model_segmentation/segmentation_1.vue')
+        component: () => import('@/view/model_segmentation/segmentation_latency.vue')
       }
     ]
   }, 
