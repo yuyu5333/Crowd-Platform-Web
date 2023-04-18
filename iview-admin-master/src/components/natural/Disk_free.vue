@@ -63,7 +63,7 @@ export default {
         setTimeout(()=>{
             this.myChart.resize();
         },100)
-        setInterval(this.addData, 5000);	// 每1秒更新实时数据到折线图
+        setInterval(this.addData, 3000);	// 每1秒更新实时数据到折线图
     },
     methods: {
     	// 获取当前时间
