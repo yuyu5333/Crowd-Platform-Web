@@ -16,10 +16,10 @@
           <Divider style="margin: 12px 0px" />
           <Row>
             <Col span="6">
-            <Col span="4">
-            <img id="dog" src="../../assets/images/raspberry.jpg" alt="dog">
+            <Col span="6">
+            <img id="dog" src="../../assets/images/rasp3.jpg" alt="dog">
             </Col>
-            <Col span="20">设备名称:
+            <Col span="18">设备名称:
             <p class="text-font">{{ OS_Version_rasp }}</p>
             </Col>
             </Col>
@@ -36,10 +36,10 @@
           <Divider style="margin: 12px 0px" />
           <Row>
             <Col span="6">
-            <Col span="4">
-            <img id="dog" src="../../assets/images/jetson.jpg" alt="dog">
+            <Col span="6">
+            <img id="dog" src="../../assets/images/jetson2.jpg" alt="dog">
             </Col>
-            <Col span="20">设备名称:
+            <Col span="18">设备名称:
             <p class="text-font">{{ DEVICE_name_JET }}</p>
             </Col>
             </Col>
@@ -56,11 +56,11 @@
           <Divider style="margin: 12px 0px" />
           <Row>
             <Col span="6">
-            <Col span="4">
-            <img id="dog" src="../../assets/images/android.jpg" alt="dog">
+            <Col span="6">
+            <img id="dog" src="../../assets/images/jiqi1.jpg" alt="dog">
             </Col>
-            <Col span="20">设备名称:
-            <p class="text-font">{{ DEVICE_name_And }}</p>
+            <Col span="18">设备名称:
+            <p class="text-font"> Drone</p>
             </Col>
             </Col>
             <Col span="6">CPU_Use:
@@ -76,10 +76,10 @@
           <Divider style="margin: 12px 0px" />
           <Row>
             <Col span="6">
-            <Col span="4">
-            <img id="dog" src="../../assets/images/mcu.jpg" alt="dog">
+            <Col span="6">
+            <img id="dog" src="../../assets/images/MCU5.png" alt="dog">
             </Col>
-            <Col span="20">设备名称:
+            <Col span="18">设备名称:
             <p class="text-font">{{ DEVICE_name_mcu }}</p>
             </Col>
             </Col>
