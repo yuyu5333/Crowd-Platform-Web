@@ -51,7 +51,7 @@
             </el-aside>
             <el-main>
                 <div id="main" style="height:1500px;margin-left: 0px;">
-                    <card style="height: 300px;margin-bottom: 10px;">
+                    <!-- <card style="height: 300px;margin-bottom: 10px;">
                       <Row>
                         <h1 style="color:#2867a8">设备实物展示</h1>
                       </Row>
@@ -60,7 +60,7 @@
                           <show_img ref="showImage"></show_img>
                         </Col>
                       </Row>
-                    </card>
+                    </card> -->
                     <card style="height: 370px;margin-bottom: 10px;">
                       <Row>
                         <h1 style="color:#2867a8">CPU Usage</h1>
@@ -169,7 +169,7 @@
             that.$refs.Memory_usage.getChange();
             that.$refs.Disk_free.getChange();
             if(device == 'Raspberry'){
-              axios.get('/raspberry/').then(response =>{
+              axios.get('raspberry/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
                 that.GPU_Type = response.data.GPU_Type;
                 that.CPU_Arch = response.data.CPU_Arch;
@@ -178,7 +178,7 @@
               })
             }
             else if(device == 'Jetson'){
-              axios.get('/jetson/').then(response =>{
+              axios.get('jetson/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
                 that.GPU_Type = response.data.GPU_Type;
                 that.CPU_Arch = response.data.CPU_Arch;
@@ -187,7 +187,7 @@
               })
             }
             else if(device == 'Android'){
-              axios.get('/android/').then(response =>{
+              axios.get('android/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
                 that.GPU_Type = response.data.GPU_Type;
                 that.CPU_Arch = response.data.CPU_Arch;
@@ -196,7 +196,7 @@
               })
             }
             else if(device == 'Mcu'){
-              axios.get('/mcu/').then(response =>{
+              axios.get('mcu/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
                 that.GPU_Type = response.data.GPU_Type;
                 that.CPU_Arch = response.data.CPU_Arch;

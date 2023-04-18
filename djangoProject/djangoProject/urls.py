@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ModelCompress/', include('hmt.urls')),
     path('ModelPerformaceEvaluation/', include('hmt.urls')),
-
+    path('cog_natural/', include('hmt.urls')),
+    path('segmentation/', include('hmt.urls')),
     
 ]

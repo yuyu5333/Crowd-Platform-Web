@@ -152,9 +152,10 @@ export default {
 
 
 <style scoped>
+
 .background-image {
   background-size: cover;
-  /* background-position: center center; */
+  /* background-position: center center; scope表示仅在该页面使用style，不会收到其他页面的影响*/
   background-repeat: no-repeat;
   height: 300vh;
   background-attachment: fixed;
