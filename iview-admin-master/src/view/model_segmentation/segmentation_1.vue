@@ -334,7 +334,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .head-font {
   font-weight: bolder;
   font-size: 30px;
