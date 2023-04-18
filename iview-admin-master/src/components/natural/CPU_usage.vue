@@ -65,7 +65,7 @@ export default {
         setTimeout(()=>{
             this.myChart.resize();
         },100)
-        setInterval(this.addData, 5000);
+        setInterval(this.addData, 3000);
 
     },
     methods: {
