@@ -1,6 +1,5 @@
 from django.urls import path, re_path
 
-
 from . import views
 from hmt.myviews import android
 
@@ -34,6 +33,5 @@ urlpatterns = [
     re_path('^download-sysmodelcode/', views.DownloadSysModelCode.as_view()),
     re_path('^download-modeldefinition/', views.DownloadModeldefinition.as_view()),
     # path('ip-connect/', views.ConnectReturnDevice.as_view())
-
 
 ]
