@@ -96,7 +96,7 @@ export default {
                 this.myChart.setOption(this.echartsOption);
             });*/
             if(this.DeviceName == 'Raspberry'){
-                axios.get('/raspberry/').then(response => {
+                axios.get('raspberry/').then(response => {
                     this.DISK_Free.push(parseFloat(response.data.DISK_Free));
                     this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
                     this.echartsOption.xAxis.data = this.date;
@@ -105,7 +105,7 @@ export default {
                 })
             }
             else if(this.DeviceName == 'Jetson'){
-                axios.get('/jetson/').then(response => {
+                axios.get('jetson/').then(response => {
                     this.DISK_Free.push(parseFloat(response.data.DISK_Free));
                     this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
                     this.echartsOption.xAxis.data = this.date;
@@ -114,7 +114,7 @@ export default {
                 })
             }
             else if(this.DeviceName == 'Android'){
-                axios.get('/android/').then(response => {
+                axios.get('android/').then(response => {
                     this.DISK_Free.push(parseFloat(response.data.DISK_Free));
                     this.date.push(this.getTime(Math.round(new Date().getTime() / 1000)));
                     this.echartsOption.xAxis.data = this.date;

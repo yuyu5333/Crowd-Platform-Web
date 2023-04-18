@@ -226,7 +226,6 @@
             children: []
           }],
         device: [],
-        compressRate: 75,
         deviceStatus: [],
         missionStatus: [],
         compressStatus: [],
@@ -287,7 +286,7 @@
       addData() {
         axios
           // 3.1url地址
-          .get("/raspberry/")
+          .get("raspberry/")
           // 3.2成功时回调函数
           .then((response) => {
             console.log(response);
@@ -297,7 +296,7 @@
             this.CPU_Use_rasp = response.data.CPU_Use
             this.OS_Version_rasp = response.data.OS_Version
             this.RAM_Total_rasp = response.data.RAM_Total
-            this.MEM_Use_rasp = response.data.MEM_Use
+            this.MEM_Use_rasp = response.data.MEM_Use.toFixed(3)
             this.CPU_Arch_rasp = response.data.CPU_Arch
             this.DISK_Free_rasp = response.data.DISK_Free
   
@@ -311,12 +310,12 @@
       },
       addData_jetson() {
         axios
-          .get("/jetson/")
+          .get("jetson/")
           .then((response) => {
             console.log(response);
             this.CPU_Use_JET = response.data.CPU_Use
             this.DEVICE_name_JET = response.data.DEVICE_NAME
-            this.MEM_Use_JET = response.data.MEM_Use
+            this.MEM_Use_JET = response.data.MEM_Use.toFixed(3)
             this.DISK_Free_JET = response.data.DISK_Free
             this.GPU_Use_JET = response.data.GPU_Use
           })
@@ -327,7 +326,7 @@
                 this.showModal = false;
                 }, 6000);
         axios
-          .post("/segmentationlatency/", {
+          .post("segmentationlatency/", {
             device: this.formItem.device,
             task: this.formItem.task,
             target: this.formItem.target,
@@ -349,7 +348,7 @@
 
       android() {
         axios
-          .get("/android/")
+          .get("android/")
           .then((response) => {
             console.log(response.data);
             this.CPU_Use_And = parseFloat(response.data.CPU_Use).toFixed(3)
@@ -362,13 +361,13 @@
       },
       mcu() {
         axios
-          .get("/mcu/")
+          .get("mcu/")
           .then((response) => {
             console.log(response.data);
             this.CPU_Use_mcu = parseFloat(response.data.CPU_Use).toFixed(3)
             this.DEVICE_name_mcu = response.data.CPU_Arch
             this.MEM_Use_mcu = parseFloat(response.data.MEM_Use).toFixed(3)
-            this.MEM_Free_mcu = response.data.MEM_Free
+            this.MEM_Free_mcu = parseFloat(response.data.MEM_Free).toFixed(3)
             this.CPU_Type_mcu = response.data.CPU_Type
   
           })
@@ -384,7 +383,7 @@
   
   </script>
   
-  <style>
+  <style scoped>
   .head-font {
     font-weight: bolder;
     font-size: 30px;

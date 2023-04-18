@@ -1,9 +1,7 @@
 from django.urls import path, re_path
-
-
-from djangoProject.hmt.views.android import android
+# from djangoProject.hmt.views.android import android
 from . import  views
-from .views import android
+# from .view.android import android 
 from django.views.generic import TemplateView
 urlpatterns = [
 
@@ -32,7 +30,7 @@ urlpatterns = [
     path('raspberry/',views.raspberry),
     path('jetson/',views.jetson),
     path('mcu/',views.mcu),
-    path('android/', android),
+    path('android/', views.android),
     path('segmentationlatency/',views.segmentation_latency),
 
 ]
