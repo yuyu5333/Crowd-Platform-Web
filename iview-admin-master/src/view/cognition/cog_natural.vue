@@ -130,7 +130,7 @@
                 DeviceOptions: [
                   {
                     value: 'Android',
-                    label: 'Android',
+                    label: 'Drone',
                   }, 
                   {
                     value: 'Raspberry',
