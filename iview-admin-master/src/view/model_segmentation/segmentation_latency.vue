@@ -195,7 +195,7 @@
     </div>
 
   </template>
-  <script>
+  <script scoped>
   import axios from "axios";
   import cartoon3 from "./cartoon3.vue";
   // import modal from "./modal.vue";
@@ -203,32 +203,7 @@
     data() {
       return {
         showflag: false,
-        mission: [],
-        data: [
-          {
-            value: 'image_classification',
-            label: '图像分类',
-  
-            children: [
-              {
-                value: 'Vgg16',
-                label: 'Vgg16'
-              },
-              {
-                value: 'AlexNet',
-                label: 'AlexNet'
-              }
-            ]
-          }, {
-            value: 'semantic_segmentation',
-            label: '语义分割',
-            disabled: true,
-            children: []
-          }],
         device: [],
-        deviceStatus: [],
-        missionStatus: [],
-        compressStatus: [],
         CPU_Use_rasp: "",
         OS_Version_rasp: "",
         RAM_Total_rasp: 0.0,

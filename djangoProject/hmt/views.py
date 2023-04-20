@@ -963,7 +963,7 @@ def raspberry(request):
         # return response.Response('我是post请求')
         return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
     elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        print(data_raspberry)
+        # print(data_raspberry)
         print(type(data_raspberry))
         return JsonResponse(json.loads(data_raspberry))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
@@ -980,11 +980,15 @@ def jetson(request):
     global data_jetson   
     if request.method == 'POST':
         data_jetson=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
-        print(data_jetson)
+        # print(data_jetson)
         return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
     elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        print(data_jetson)
-        return JsonResponse(json.loads(data_jetson))#json.load(data)就是一个json字符串反序列化为python对象
+        # print("*****************\n\n\n")
+        # print(type(data_jetson))
+        # print(data_jetson)
+        # print("*****************\n\n\n")
+        
+        return JsonResponse(data_jetson)#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
 data_mcu = {
@@ -996,11 +1000,11 @@ def mcu(request):
     global data_mcu   
     if request.method == 'POST':
         data_mcu=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
-        print(data_mcu)
-        return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
-    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        print(data_mcu)
-        return JsonResponse(json.loads(data_mcu))#json.load(data)就是一个json字符串反序列化为python对象
+        # print(data_mcu)
+        return JsonResponse({"errorcode":0}) # JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
+    elif request.method == 'GET':            #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+        # print(data_mcu)
+        return JsonResponse(data_mcu) #json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
 # def segmentation(request):
