@@ -271,7 +271,7 @@
             this.CPU_Use_rasp = response.data.CPU_Use
             this.OS_Version_rasp = response.data.OS_Version
             this.RAM_Total_rasp = response.data.RAM_Total
-            this.MEM_Use_rasp = response.data.MEM_Use.toFixed(3)
+            this.MEM_Use_rasp = parseFloat(response.data.MEM_Use).toFixed(3)
             this.CPU_Arch_rasp = response.data.CPU_Arch
             this.DISK_Free_rasp = response.data.DISK_Free
   
@@ -290,7 +290,7 @@
             console.log(response);
             this.CPU_Use_JET = response.data.CPU_Use
             this.DEVICE_name_JET = response.data.DEVICE_NAME
-            this.MEM_Use_JET = response.data.MEM_Use.toFixed(3)
+            this.MEM_Use_JET = parseFloat(response.data.MEM_Use).toFixed(3)
             this.DISK_Free_JET = response.data.DISK_Free
             this.GPU_Use_JET = response.data.GPU_Use
           })

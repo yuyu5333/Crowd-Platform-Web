@@ -165,43 +165,83 @@
         </card>
         <!-- 数据集选择end -->
     </div>
-    <div>
-        <br />
-    </div>
+
+    <div><br/></div>
+
     <card shadow>
-        <p class="head-font" style="color: rgb(17, 75, 218)">模型压缩</p>
+        <p class="head-font" style="color: rgb(17, 75, 218)">压缩率压缩</p>
         <Divider style="margin: 12px 0px" />
         <Row>
-            <Col span="4" class="head-font"> 拖动以选择压缩率： </Col>
-            <Col span="10">
+            <Col span="3" class="head-font"> 拖动以选择压缩率： </Col>
+            <Col span="12">
             <Slider v-model="compressRate" style="margin-right: 40px" show-input></Slider>
             </Col>
-            <Col span="10">
+            <Col span="3">
             <!-- <Button @click="getCDCompressModel" type="primary">开始压缩</Button> -->
 
             <Button @click="getCDCompressModelandShow" type="primary">开始压缩</Button>
 
             </Col>
         </Row>
-
     </card>
 
-    <div>
-        <br />
-    </div>
+    <div><br/></div>
 
-    <card>
-
+    <card shadow>
+        <p class="head-font" style="color: rgb(17, 75, 218)">选择性能压缩</p>
+        <Divider style="margin: 12px 0px" />
         <Row>
+            <Col span="3" class="head-font"> 选择目标约束： </Col>
+            <Col span="3" class="head-font">
+                <label>
+                    <input type="radio" v-model="selectedValuePerformance" value="MinLatency" />
+                    时延最小
+                </label>
+            </Col>
+            <Col span="3" class="head-font">
+                <label>
+                    <input type="radio" v-model="selectedValuePerformance" value="MinEnergy" />
+                    能耗最小
+                </label>
+            </Col>
+            <Col span="3" class="head-font">
+                <label>
+                    <input type="radio" v-model="selectedValuePerformance" value="MinStorage" />
+                    存储最小
+                </label>
+            </Col>
+            <Col span="3" class="head-font">
+                <label>
+                    <input type="radio" v-model="selectedValuePerformance" value="MinCalculate" />
+                    计算量最小
+                </label>
+            </Col>
+            <Col span="3" class="head-font">
+                <label>
+                    <input type="radio" v-model="selectedValuePerformance" value="MaxAcc" />
+                    精确度最高
+                </label>
+            </Col>
+            <Col span="3">
+            <Button @click="getCDPCompressModelandShow" type="primary">开始压缩</Button>
+            </Col>
 
-            <compress-component ref="refCompressComponent"></compress-component>
+            <Col span="4" v-if="modelsClassDataset.length > 0">
+                <p style="margin-top: 5px;">
+                    当前选择的性能为: {{ selectedValuePerformance }}
+                </p>
+            </Col>
 
         </Row>
-
     </card>
-    <div>
-        <br />
-    </div>
+
+    <div><br/></div>
+    <card>
+        <Row>
+            <compress-net ref="refCompressComponent" style="margin-left: 220px;display: flex; justify-content: center; align-items: center;"></compress-net>
+        </Row>
+    </card>
+    <div><br/></div>    
     <card>
         <Row>
             <Row style="margin: 20px">
@@ -288,16 +328,14 @@
             </Button>
         </Row>
     </card>
-    <div>
-        <br />
-    </div>
-</div>
+    <div><br/></div></div>
 </template>
 
 <script scoped>
 import axios from "axios";
 import CompressImages from "./CompressImages.vue";
-import CompressComponent from "./CompressComponent.vue";
+import CompressNet from "./CompressNet.vue";
+
 
 export default {
     data() {
@@ -310,6 +348,7 @@ export default {
             selectedmodelsClassDataset: "",
             selectedValueClass: "",
             selectedValueDataSet: "",
+            selectedValuePerformance: "",
 
             modelsClassDatasetInfo: [],
 
@@ -383,7 +422,16 @@ export default {
             this.$nextTick(() => {
                 this.triggerColorChangeAndDisappear();
             });
+        },
+        // CDP : class dataset performance
+        getCDPCompressModelandShow() {
+            this.getCDPCompressModel();
+            //   this.showPopup();
 
+            // 确保在 DOM 更新后调用 triggerColorChangeAndDisappear
+            this.$nextTick(() => {
+                this.triggerColorChangeAndDisappear();
+            });
         },
         showPopup() {
             this.showCompress = true;
@@ -446,6 +494,27 @@ export default {
                 this.CDCompressModelStatus = [];
             }
         },
+        getCDPCompressModel() {
+            if (this.selectedValueClass && this.selectedValueDataSet) {
+                axios
+                    .post("get-cdpcompressmodel/", {
+                        ClassName: this.selectedValueClass,
+                        DatasetName: this.selectedValueDataSet,
+                        ModelName: this.selectedmodelsClassDataset,
+                        CompressRate: this.compressRate,
+                        CompressPerformance: this.selectedValuePerformance,
+                    })
+                    .then((response) => {
+                        this.CDCompressModelStatus = response.data;
+                        console.log(CDCompressModelStatus);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            } else {
+                this.CDCompressModelStatus = [];
+            }
+        },
       addDataAndroid() {
         axios
           .get("android/")
@@ -455,7 +524,7 @@ export default {
             this.DEVICE_name_And = response.data.OS_Version
             this.MEM_Use_And = parseFloat(response.data.MEM_Use).toFixed(3)
             this.DISK_Free_And = response.data.DISK_Free
-            this.GPU_Use_And = parseFloat(response.data.GPU_Use).toFixed(3)
+            this.GPU_Use_And = parseFloat(response.data.GPU_Use)
   
           })
       },
@@ -479,40 +548,31 @@ export default {
           // 3.2成功时回调函数
           .then((response) => {
             console.log(response);
-            // this.CPU_Use.push(parseFloat(response.data.CPU_Use));
-            // this.DISK_Free.push(parseFloat(response.data.DISK_Free));
-            // this.GPU_Use.push(parseFloat(response.data.GPU_Use).toFixed(3));
-            this.CPU_Use_rasp = response.data.CPU_Use
+            this.CPU_Use_rasp = parseFloat(response.data.CPU_Use).toFixed(3)
             this.OS_Version_rasp = response.data.OS_Version
             this.RAM_Total_rasp = response.data.RAM_Total
-            this.MEM_Use_rasp = response.data.MEM_Use.toFixed(3)
+            this.MEM_Use_rasp = parseFloat(response.data.MEM_Use).toFixed(3)
             this.CPU_Arch_rasp = response.data.CPU_Arch
-            this.DISK_Free_rasp = response.data.DISK_Free
+            this.DISK_Free_rasp = parseFloat(response.data.DISK_Free).toFixed(3)
   
-            // this.DISK_Free
-            // this.GPU_Use.p
           })
-        // //3.3失败时回调函数
-        // .catch((err) => {
-        //   console.log(err);
-        // });
       },
       addDataJetson() {
         axios
           .get("jetson/")
           .then((response) => {
             console.log(response);
-            this.CPU_Use_JET = response.data.CPU_Use
+            this.CPU_Use_JET = parseFloat(response.data.CPU_Use).toFixed(3)
             this.DEVICE_name_JET = response.data.DEVICE_NAME
-            this.MEM_Use_JET = response.data.MEM_Use.toFixed(3)
-            this.DISK_Free_JET = response.data.DISK_Free
-            this.GPU_Use_JET = response.data.GPU_Use
+            this.MEM_Use_JET = parseFloat(response.data.MEM_Use).toFixed(3)
+            this.DISK_Free_JET = parseFloat(response.data.DISK_Free).toFixed(3)
+            this.GPU_Use_JET = parseFloat(response.data.GPU_Use).toFixed(3)
           })
       },
     },
     components: {
         CompressImages,
-        CompressComponent,
+        CompressNet,
     },
 };
 </script>
