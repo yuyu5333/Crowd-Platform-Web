@@ -42,12 +42,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'djangoProject.urls'
@@ -137,3 +138,21 @@ UPLOADUSERMODEL_ROOT = os.path.join(BASE_DIR, 'uploadusermodel')
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': True,  # 禁用现有的日志记录器
+
+#     'loggers': {
+#         'django': {  # 禁用Django的默认日志记录器
+#             'handlers': [],  # 将handlers设置为空列表
+#             'propagate': False,
+#         },
+#     },
+# }
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+# CORS_ALLOW_CREDENTIALS = True
+
+

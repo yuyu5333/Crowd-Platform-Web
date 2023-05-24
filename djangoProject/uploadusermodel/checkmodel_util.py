@@ -83,15 +83,15 @@ class ResNet(nn.Module):
     def __init__(self, block, num_block, num_classes=100):
         super().__init__()
 
-        self.in_channels = 64
+        self.in_channels = 224
 
         self.conv1 = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=3, padding=1, bias=False),
-            nn.BatchNorm2d(64),
+            nn.Conv2d(3, 224, kernel_size=3, padding=1, bias=False),
+            nn.BatchNorm2d(224),
             nn.ReLU(inplace=True))
         #we use a different inputsize than the original paper
         #so conv2_x's stride is 1
-        self.conv2_x = self._make_layer(block, 64, num_block[0], 1)
+        self.conv2_x = self._make_layer(block, 224, num_block[0], 1)
         self.conv3_x = self._make_layer(block, 128, num_block[1], 2)
         self.conv4_x = self._make_layer(block, 256, num_block[2], 2)
         self.conv5_x = self._make_layer(block, 512, num_block[3], 2)
@@ -155,13 +155,13 @@ class ResNetSVD(nn.Module):
     def __init__(self, block, num_blocks, num_classes=100, divided_by=1):
         super(ResNetSVD, self).__init__()
 
-        self.in_planes = 64//divided_by
+        self.in_planes = 224//divided_by
 
-        self.conv1 = nn.Conv2d(3, 64//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64//divided_by)
-        self.layer1 = self._make_layer(block, 64//divided_by, num_blocks[0], stride=1)
+        self.conv1 = nn.Conv2d(3, 224//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(224//divided_by)
+        self.layer1 = self._make_layer(block, 224//divided_by, num_blocks[0], stride=1)
         self.layer2 = self._make_layer(block, 128//divided_by, num_blocks[1], stride=2)
-        self.layer3 = svd_block([128, 256, 256], [256, 256, 256], 2, 2)
+        self.layer3 = svd_block([512, 256, 256], [256, 256, 256], 2, 2)
         self.layer4 = svd_block([256, 512, 512], [512, 512, 512], 1, 1)
         self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
         self.linear = nn.Linear(512, num_classes)
@@ -220,14 +220,14 @@ class ResNetFire(nn.Module):
     def __init__(self, block, num_blocks, num_classes=100, divided_by=1):
         super(ResNetFire, self).__init__()
 
-        self.in_planes = 64//divided_by
+        self.in_planes = 224//divided_by
 
-        self.conv1 = nn.Conv2d(3, 64//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64//divided_by)
-        self.layer1 = self._make_layer(block, 64//divided_by, num_blocks[0], stride=1)
+        self.conv1 = nn.Conv2d(3, 224//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(224//divided_by)
+        self.layer1 = self._make_layer(block, 224//divided_by, num_blocks[0], stride=1)
         self.layer2 = self._make_layer(block, 128//divided_by, num_blocks[1], stride=2)
         
-        self.layer3 = fire_block([128, 256, 256], [256, 256, 256], 2, 2)
+        self.layer3 = fire_block([512, 256, 256], [256, 256, 256], 2, 2)
         self.layer4 = fire_block([256, 512, 512], [512, 512, 512], 1, 1)
         
         self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
@@ -267,14 +267,14 @@ class ResNetDpConv(nn.Module):
     def __init__(self, block, num_blocks, num_classes=100, divided_by=1):
         super(ResNetDpConv, self).__init__()
 
-        self.in_planes = 64//divided_by
+        self.in_planes = 224//divided_by
 
-        self.conv1 = nn.Conv2d(3, 64//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64//divided_by)
-        self.layer1 = self._make_layer(block, 64//divided_by, num_blocks[0], stride=1)
+        self.conv1 = nn.Conv2d(3, 224//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(224//divided_by)
+        self.layer1 = self._make_layer(block, 224//divided_by, num_blocks[0], stride=1)
         self.layer2 = self._make_layer(block, 128//divided_by, num_blocks[1], stride=2)
         
-        self.layer3 = deep_conv_layer(128, 256, 3, 1)
+        self.layer3 = deep_conv_layer(512, 256, 3, 1)
         self.layer4 = deep_conv_layer(256, 512, 2, 1)
         
         self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
@@ -321,14 +321,14 @@ class ResNetInception1(nn.Module):
     def __init__(self, block, num_blocks, num_classes=100, divided_by=1):
         super(ResNetInception1, self).__init__()
 
-        self.in_planes = 64//divided_by
+        self.in_planes = 224//divided_by
 
-        self.conv1 = nn.Conv2d(3, 64//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64//divided_by)
-        self.layer1 = self._make_layer(block, 64//divided_by, num_blocks[0], stride=1)
+        self.conv1 = nn.Conv2d(3, 224//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(224//divided_by)
+        self.layer1 = self._make_layer(block, 224//divided_by, num_blocks[0], stride=1)
         self.layer2 = self._make_layer(block, 128//divided_by, num_blocks[1], stride=2)
         
-        self.layer3 = inception1_block([128, 256, 256], [256, 256, 256], 2, 2)
+        self.layer3 = inception1_block([512, 256, 256], [256, 256, 256], 2, 2)
         self.layer4 = inception1_block([256, 512, 512], [512, 512, 512], 1, 1)
         
         self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
@@ -375,14 +375,14 @@ class ResNetInception2(nn.Module):
     def __init__(self, block, num_blocks, num_classes=100, divided_by=1):
         super(ResNetInception2, self).__init__()
 
-        self.in_planes = 64//divided_by
+        self.in_planes = 224//divided_by
 
-        self.conv1 = nn.Conv2d(3, 64//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64//divided_by)
-        self.layer1 = self._make_layer(block, 64//divided_by, num_blocks[0], stride=1)
+        self.conv1 = nn.Conv2d(3, 224//divided_by, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(224//divided_by)
+        self.layer1 = self._make_layer(block, 224//divided_by, num_blocks[0], stride=1)
         self.layer2 = self._make_layer(block, 128//divided_by, num_blocks[1], stride=2)
         
-        self.layer3 = inception2_block([128, 256, 256], [256, 256, 256], 2, 2)
+        self.layer3 = inception2_block([512, 256, 256], [256, 256, 256], 2, 2)
         self.layer4 = inception2_block([256, 512, 512], [512, 512, 512], 1, 1)
         
         self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
@@ -505,12 +505,39 @@ def resnet34(num_classes = 20):
     """
     return ResNet(BasicBlock, [3, 4, 6, 3], num_classes = num_classes)
 
-# resnet34 end
+# resnet34 end and resnet50 start
 
-def resnet50():
+def resnet50(num_classes = 101):
     """ return a ResNet 50 object
     """
-    return ResNet(BottleNeck, [3, 4, 6, 3])
+    return ResNet(BottleNeck, [3, 4, 6, 3], num_classes = num_classes)
+
+def resnet50svd(num_classes = 101):
+    """ return a ResNetSVD 50 object
+    """
+    return ResNetSVD(BottleNeck, [3, 4, 6, 3], num_classes = num_classes)
+
+def resnet50dpconv(num_classes = 101):
+    """ return a ResNetDpConv 50 object
+    """
+    return ResNetDpConv(BottleNeck, [3, 4, 6, 3], num_classes = num_classes)
+
+def resnet50fire(num_classes = 101):
+    """ return a ResNetFire 50 object
+    """
+    return ResNetFire(BottleNeck, [3, 4, 6, 3], num_classes = num_classes)
+
+def resnet50inception2(num_classes = 101):
+    """ return a ResNetInception2 50 Inception2 object
+    """
+    return ResNetInception2(BottleNeck, [3, 4, 6, 3], num_classes = num_classes)
+
+def resnet50inception1(num_classes = 101):
+    """ return a ResNetInception1 50 Inception1 object
+    """
+    return ResNetInception1(BottleNeck, [3, 4, 6, 3], num_classes = num_classes)
+
+# resnet50 end
 
 def resnet101():
     """ return a ResNet 101 object
@@ -522,11 +549,12 @@ def resnet152():
     """
     return ResNet(BottleNeck, [3, 8, 36, 3])
 
+    
 
 def test():
 
-    net = resnet18()
-    x = torch.randn(1, 3, 32, 32)
+    net = resnet50inception2()
+    x = torch.randn(1, 3, 224, 224)
     y = net(x)
     print(y.size())
 
@@ -536,9 +564,9 @@ def model_user():
 
     # ResNet_list = ["ResNet18", "ResNet34", "ResNet50", "ResNet101", "ResNet152"]
 
-    model = resnet34fire()
+    model = resnet50inception2()
 
-    input = torch.randn(1, 3, 32, 32)
+    input = torch.randn(1, 3, 224, 224)
 
     return model, input
 # model_ResNet()

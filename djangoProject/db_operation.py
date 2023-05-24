@@ -70,14 +70,14 @@ def add_table_col():
     
     try:
     
-        cur.execute("ALTER TABLE hmt_imageclassification ADD COLUMN Dataset varchar(100)")
+        cur.execute("ALTER TABLE hmt_imagesclassification ADD COLUMN Latency real")
         connect.commit()
         
         cur.close()
         # connect.close()
     
     
-        print("update table col success!")
+        print("add table col success!")
         return True
     
     except Exception as e:
@@ -89,7 +89,7 @@ def add_table_col():
 def delete_table_col():
     connect = sqlite3.connect()
 
-def insert_data_many():
+def insert_data_many_hmt_imagesclassification():
 
     connect = sqlite3.connect('./db.sqlite3')
     cur = connect.cursor()
@@ -97,27 +97,54 @@ def insert_data_many():
     try:
         inset_sql = """
             insert into hmt_imagesclassification
-            (id, DatasetName, ModelName, Computation, Parameter, Energy, Accuracy, CompressRate, Storage)
+            (id, DatasetName, ModelName, Computation, Parameter, Energy, Accuracy, CompressRate, Storage, Latency)
             values
             (
-                ?,?,?,?,?,?,?,?,?
+                ?,?,?,?,?,?,?,?,?,?
             );
         """
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                19, "PascalVOC", "ResNet34", 1160, 21.29, 5817.57, 39.29, 0, 81.37
+                34, "Food-101", "ResNet50-inception1", 164020, 5.34, 820214.39, 41.77, 79.75, 20.56, 5317024
             ),
             (
-                20, "PascalVOC", "ResNet34-svd", 637.25, 2.53, 3186.26, 20.11, 88.03, 9.74
+                35, "Food-101", "ResNet50-inception2", 173210, 7.07, 866080.95, 72.27, 73.28, 27.13, 7041440
             ),
+        ]
+
+        connect.executemany(inset_sql, datalist)
+
+        connect.commit()
+
+        print("insert success!")
+
+        return True
+    except Exception as e:
+        print(str(e))
+    finally:
+        cur.close()
+        connect.close()
+
+def insert_data_many_hmt_classdatasetmodel():
+    
+    connect = sqlite3.connect('./db.sqlite3')
+    cur = connect.cursor()
+
+    try:
+        inset_sql = """
+            insert into hmt_classdatasetmodel
+            (id, ClassName, DatasetName, ModelName)
+            values
             (
-                21, "PascalVOC", "ResNet34-dpconv", 564.36, 1.52, 2821.82, 31.15, 92.78, 5.87
-            ),
+                ?,?,?,?
+            );
+        """
+        datalist = [
+            # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                22, "PascalVOC", "ResNet34-fire", 641.44, 2.57, 3207.23, 16.81, 87.83, 9.90
+                25, "图像分类", "Food-101", "ResNet50"
             ),
-            
         ]
 
         connect.executemany(inset_sql, datalist)
@@ -138,11 +165,11 @@ def update_data():
     connect = sqlite3.connect('./db.sqlite3')
 
     try:
-        update_sql = 'update hmt_classdatasetmodel set ModelName = ? where id = ?;'
+        update_sql = 'update hmt_imagesclassification set Accuracy = ? where id = ?;'
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                "Vgg16", 18
+                37.35, 26
             ),
 
             
@@ -168,7 +195,7 @@ def insert_data():
     try:
         inset_sql = """
             insert into hmt_sysmodel
-            (id, ModelName, Flops, Params, Energy, Accuracy, MissionName2_id, CompressRate, Storage)
+            (id, DatasetName, Flops, Params, Energy, Accuracy, MissionName2_id, CompressRate, Storage)
             values
             (
                 13, "resnet18-Cifar100", 541.87, 3.19, 12.25, -1, 2740.26, -1,
@@ -288,7 +315,9 @@ if __name__ == "__main__":
 
     # insert_data()
 
-    insert_data_many()
+    insert_data_many_hmt_imagesclassification()
+    
+    # insert_data_many_hmt_classdatasetmodel()
 
     # update_data()
     
