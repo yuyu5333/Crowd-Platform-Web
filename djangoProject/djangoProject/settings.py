@@ -139,17 +139,32 @@ UPLOADUSERMODEL_ROOT = os.path.join(BASE_DIR, 'uploadusermodel')
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': True,  # 禁用现有的日志记录器
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['console'],
+            'level': 'WARNING',  # Only log WARNING and above
+            'propagate': False,
+        },
+    },
+}
 
-#     'loggers': {
-#         'django': {  # 禁用Django的默认日志记录器
-#             'handlers': [],  # 将handlers设置为空列表
-#             'propagate': False,
-#         },
-#     },
-# }
 
 CORS_ALLOW_ALL_ORIGINS = True
 

@@ -551,7 +551,7 @@ def find_closest_compress(compress_ratio, model_set):
         serializer = ImagesClassificationSerializer(model_set[pos - 1])
     return serializer
 
-def find_closest_performance(performance, model_set):
+def find_closest_performance(performance, model_set, weight_para):
     
     # performance: MinLatency MinEnergy MinStorage MinCalculate
     
@@ -559,7 +559,7 @@ def find_closest_performance(performance, model_set):
     model_original = [d for d in model_set if d.get('CompressRate') == 0]
     
     
-    # MinLatency = []
+    MinLatency = []
     MinEnergy = []
     MinStorage = []
     MinCalculate = []
@@ -572,32 +572,95 @@ def find_closest_performance(performance, model_set):
         # MinLatency.append(model_t[''])
         # print(model_set[model_i]['Energy'])
         
+        MinLatency.append(float(model_set[model_i]['Latency']) / float(model_original[0]['Latency']))
         MinEnergy.append(float(model_set[model_i]['Energy']) / float(model_original[0]['Energy']))
         MinStorage.append(float(model_set[model_i]['Storage']) / float(model_original[0]['Storage']))
         MinCalculate.append(float(model_set[model_i]['Computation']) / float(model_original[0]['Computation']))
         MaxAcc.append(float(model_set[model_i]['Accuracy']) / float(model_original[0]['Accuracy']))
     
+    # print("MinLatency: ", MinLatency)
     # print("MinEnergy: ", MinEnergy)
     # print("MinStorage: ", MinStorage)
     # print("MinCalculate: ", MinCalculate)
     # print("MaxAcc: ", MaxAcc)
     
-    if performance == 'MinLatency':
-        min_index = MinEnergy.index(min(MinEnergy))
-    elif performance == 'MinEnergy':
-        min_index = MinEnergy.index(min(MinEnergy))
-        # print("min_index: ", min_index)
-    elif performance == 'MinStorage':
-        min_index = MinStorage.index(min(MinStorage))
-        # print("min_index: ", min_index)
-    elif performance == 'MinCalculate':
-        min_index = MinCalculate.index(min(MinCalculate))
-        # print("min_index: ", min_index)
-    elif performance == 'MaxAcc':
-        min_index = MaxAcc.index(max(MaxAcc))
+    if len(performance) == 1:
+        if performance[0] == 'MinLatency':
+            min_index = MinLatency.index(min(MinLatency))
+            # min_index = MinEnergy.index(min(MinEnergy))
+        elif performance[0] == 'MinEnergy':
+            min_index = MinEnergy.index(min(MinEnergy))
+            # print("min_index: ", min_index)
+        elif performance[0] == 'MinStorage':
+            min_index = MinStorage.index(min(MinStorage))
+            # print("min_index: ", min_index)
+        elif performance[0] == 'MinCalculate':
+            min_index = MinCalculate.index(min(MinCalculate))
+            # print("min_index: ", min_index)
+        elif performance[0] == 'MaxAcc':
+            min_index = MaxAcc.index(max(MaxAcc))
+        else:
+            print("error performance")
+            return_model = ImagesClassificationSerializer(model_set[0])
+            return return_model
+    
+    elif len(performance) > 1:
+        print("here performance > 1")
+        
+        # MinLatency MinEnergy MinStorage MinCalculate MaxAcc
+        
+        sum_weight = 0
+        
+        for key, value in weight_para.items():
+            if value == None:
+                weight_para[key] = 0
+            else:
+                weight_para[key] = float(value)
+                sum_weight += float(value)
+
+        print("weight_para: ", weight_para)
+        
+        isMinLatency = 0
+        isMinEnergy = 0
+        isMinStorage = 0
+        isMinCalculate = 0
+        isMaxAcc = 0
+    
+        if 'MinLatency' in performance:
+            isMinLatency = 1
+        if 'MinEnergy' in performance:
+            isMinEnergy = 1
+        if 'MinStorage' in performance:
+            isMinStorage = 1
+        if 'MinCalculate' in performance:
+            isMinCalculate = 1
+        if 'MaxAcc' in performance:
+            isMaxAcc = 1
+        
+        # 计算加权后的得分，没有选择到参数则islabel为0，系数除以总系数
+        MinLatency = [x * isMinLatency * (weight_para['WeightLatency'] / sum_weight) for x in MinLatency]
+        MinEnergy = [x * isMinEnergy * (weight_para['WeightEnergy'] / sum_weight) for x in MinEnergy]
+        MinStorage = [x * isMinStorage * (weight_para['WeightStorge'] / sum_weight) for x in MinStorage]
+        MinCalculate = [x * isMinCalculate * (weight_para['WeightCal'] / sum_weight) for x in MinCalculate]
+        MaxAcc = [x * isMaxAcc * (weight_para['WeightAcc'] / sum_weight) for x in MaxAcc]
+
+        print("MinLatency: ", MinLatency)
+        print("MinEnergy: ", MinEnergy)
+        print("MinStorage: ", MinStorage)
+        print("MinCalculate: ", MinCalculate)
+        print("MaxAcc: ", MaxAcc)
+        
+        sumperf = [x1 + x2 + x3 + x4 - x5 for x1, x2, x3, x4, x5 in zip(MinLatency, MinEnergy, MinStorage, MinCalculate, MaxAcc)]
+        
+        print("sumperf: ", sumperf)
+        
+        min_index = sumperf.index(min(sumperf))
+    
     else:
         print("error performance")
-        return None
+        return_model = ImagesClassificationSerializer(model_set[0])
+        return return_model
+    
     
     return_model = ImagesClassificationSerializer(model_set[min_index])
     return return_model
@@ -611,12 +674,19 @@ class ReturnCDPCompressModel(APIView):
         modelname = compress_rate_obj.get('ModelName')
         performance = compress_rate_obj.get('CompressPerformance')
         
+        weight_para = {}
+        weight_para['WeightLatency'] = compress_rate_obj.get('WeightLatency')
+        weight_para['WeightEnergy'] = compress_rate_obj.get('WeightEnergy')
+        weight_para['WeightStorge'] = compress_rate_obj.get('WeightStorge')
+        weight_para['WeightCal'] = compress_rate_obj.get('WeightCal')
+        weight_para['WeightAcc'] = compress_rate_obj.get('WeightAcc')
+        
+        print("weight_para:", weight_para)
+        
         print("CDP")
         print("performance:", performance)
         
-        # performance: MinLatency MinEnergy MinStorage MinCalculate
-        
-        compress_ratio = float(compress_rate)
+        # performance: MinLatency MinEnergy MinStorage MinCalculate MaxAcc
         model_set = []
         
         if str(classname) == '图像分类':
@@ -630,7 +700,7 @@ class ReturnCDPCompressModel(APIView):
                     
             model_set = sorted(model_set, key=lambda x: x['CompressRate'])
             # print("model_set: ", model_set)
-            serializer1 = find_closest_performance(performance, model_set)
+            serializer1 = find_closest_performance(performance, model_set, weight_para)
             print(serializer1.data)
             return Response(serializer1.data)
         else:

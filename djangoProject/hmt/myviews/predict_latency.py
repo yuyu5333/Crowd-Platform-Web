@@ -40,6 +40,4 @@ class CompressUserInfo(APIView):
         userlatency = json.loads(request.body)
         sysmodel_name = sysmodel_obj.get('CompressUserInfo')
         
-        
-        
         return JsonResponse(None)

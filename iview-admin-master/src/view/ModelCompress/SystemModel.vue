@@ -190,57 +190,91 @@
     <card shadow>
         <p class="head-font" style="color: rgb(17, 75, 218)">选择性能压缩</p>
         <Divider style="margin: 12px 0px" />
+        <!-- 选择多个目标约束给与权重 -->
         <Row>
-            <Col span="3" class="head-font"> 选择目标约束： </Col>
+            <Col span="3" class="head-font"> 选择多个目标约束： </Col>
             <Col span="3" class="head-font">
                 <label>
-                    <input type="radio" v-model="selectedValuePerformance" value="MinLatency" />
+                    <input type="checkbox" v-model="selectedValuePerformanceMulti" value="MinLatency" />
                     时延最小
                 </label>
             </Col>
             <Col span="3" class="head-font">
                 <label>
-                    <input type="radio" v-model="selectedValuePerformance" value="MinEnergy" />
+                    <input type="checkbox" v-model="selectedValuePerformanceMulti" value="MinEnergy" />
                     能耗最小
                 </label>
             </Col>
             <Col span="3" class="head-font">
                 <label>
-                    <input type="radio" v-model="selectedValuePerformance" value="MinStorage" />
+                    <input type="checkbox" v-model="selectedValuePerformanceMulti" value="MinStorage" />
                     存储最小
                 </label>
             </Col>
             <Col span="3" class="head-font">
                 <label>
-                    <input type="radio" v-model="selectedValuePerformance" value="MinCalculate" />
+                    <input type="checkbox" v-model="selectedValuePerformanceMulti" value="MinCalculate" />
                     计算量最小
                 </label>
             </Col>
             <Col span="3" class="head-font">
                 <label>
-                    <input type="radio" v-model="selectedValuePerformance" value="MaxAcc" />
+                    <input type="checkbox" v-model="selectedValuePerformanceMulti" value="MaxAcc" />
                     精确度最高
                 </label>
             </Col>
             <Col span="3">
             <Button @click="getCDPCompressModelandShow" type="primary">开始压缩</Button>
             </Col>
-
-            <Col span="4" v-if="modelsClassDataset.length > 0">
+        </Row>
+        <br>
+        <!-- <br> -->
+        <Row>
+            <Col span="3" class="head-font"> 输入目标约束权重： </Col>
+            <Col span="3" class="head-font">
+                <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MinLatency')" 
+                    v-model="WeightLatency" @input="validateNumber" />
+                <p>输入的数字是: {{ WeightLatency }}</p>
+            </Col>
+            <Col span="3" class="head-font">
+                <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MinEnergy')" 
+                    v-model="WeightEnergy" @input="validateNumber" />
+                <p>输入的数字是: {{ WeightEnergy }}</p>
+            </Col>
+            <Col span="3" class="head-font">
+                <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MinStorage')" 
+                    v-model="WeightStorge" @input="validateNumber" />
+                <p>输入的数字是: {{ WeightStorge }}</p>
+            </Col>
+            <Col span="3" class="head-font">
+                <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MinCalculate')" 
+                    v-model="WeightCal" @input="validateNumber" />
+                <p>输入的数字是: {{ WeightCal }}</p>
+            </Col>
+            <Col span="3" class="head-font">
+                <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MaxAcc')" 
+                    v-model="WeightAcc" @input="validateNumber" />
+                <p>输入的数字是: {{ WeightAcc }}</p>
+            </Col>
+            <Col span="10" v-if="modelsClassDataset.length > 0">
                 <p style="margin-top: 5px;">
-                    当前选择的性能为: {{ selectedValuePerformance }}
+                    <!-- 当前选择的性能为: {{ selectedValuePerformanceMulti }} -->
+                    当前选择的性能为: {{ selectedValuePerformanceMulti.join(', ') }}
                 </p>
             </Col>
-
         </Row>
+
+
     </card>
 
-    <div><br/></div>
+    <!-- <div><br/></div>
     <card>
         <Row>
             <compress-net ref="refCompressComponent" style="margin-left: 220px;display: flex; justify-content: center; align-items: center;"></compress-net>
         </Row>
-    </card>
+    </card> -->
+
+
     <div><br/></div>    
     <card>
         <Row>
@@ -349,12 +383,19 @@ export default {
             selectedValueClass: "",
             selectedValueDataSet: "",
             selectedValuePerformance: "",
+            selectedValuePerformanceMulti: [],
 
             modelsClassDatasetInfo: [],
 
             CDCompressModelStatus: [],
 
             showCompress: false,
+
+            WeightLatency: null,
+            WeightEnergy: null,
+            WeightStorge: null,
+            WeightCal: null,
+            WeightAcc: null,
 
             CPU_Use_rasp: "",
             OS_Version_rasp: "",
@@ -397,6 +438,23 @@ export default {
       )
     },
     watch: {
+        selectedValuePerformanceMulti(newValue) {
+            if (!newValue.includes('MinLatency')) {
+                this.WeightLatency = null;
+            }
+            if (!newValue.includes('MinEnergy')) {
+                this.WeightEnergy = null;
+            }
+            if (!newValue.includes('MinStorage')) {
+                this.WeightStorge = null;
+            }
+            if (!newValue.includes('MinCalculate')) {
+                this.WeightCal = null;
+            }
+            if (!newValue.includes('MaxAcc')) {
+                this.WeightAcc = null;
+            }
+        },
         modelsClassDataset() {
             // 如果 originalModelsClassDataset 的值发生了变化，说明 modelsClassDataset 的值也发生了变化
             // 在这里更新 selectedModel 的值
@@ -411,6 +469,52 @@ export default {
         },
     },
     methods: {
+        validateNumber() {
+            if (this.WeightLatency !== null && this.WeightLatency.toString().length > 3) {
+            this.WeightLatency = parseInt(this.WeightLatency.toString().slice(0, 3));
+            }
+            if (this.WeightLatency !== null && this.WeightLatency < 1) {
+                this.WeightLatency = 0;
+            } else if (this.WeightLatency > 100) {
+                this.WeightLatency = 100;
+            }
+
+            if (this.WeightEnergy !== null && this.WeightEnergy.toString().length > 3) {
+            this.WeightEnergy = parseInt(this.WeightEnergy.toString().slice(0, 3));
+            }
+            if (this.WeightEnergy !== null && this.WeightEnergy < 1) {
+                this.WeightEnergy = 0;
+            } else if (this.WeightEnergy > 100) {
+                this.WeightEnergy = 100;
+            }
+
+            if (this.WeightStorge !== null && this.WeightStorge.toString().length > 3) {
+            this.WeightStorge = parseInt(this.WeightStorge.toString().slice(0, 3));
+            }
+            if (this.WeightStorge !== null && this.WeightStorge < 1) {
+                this.WeightStorge = 0;
+            } else if (this.WeightStorge > 100) {
+                this.WeightStorge = 100;
+            }
+
+            if (this.WeightCal !== null && this.WeightCal.toString().length > 3) {
+            this.WeightCal = parseInt(this.WeightCal.toString().slice(0, 3));
+            }
+            if (this.WeightCal !== null && this.WeightCal < 1) {
+                this.WeightCal = 0;
+            } else if (this.WeightCal > 100) {
+                this.WeightCal = 100;
+            }
+
+            if (this.WeightAcc !== null && this.WeightAcc.toString().length > 3) {
+            this.WeightAcc = parseInt(this.WeightAcc.toString().slice(0, 3));
+            }
+            if (this.WeightAcc !== null && this.WeightAcc < 1) {
+                this.WeightAcc = 0;
+            } else if (this.WeightAcc > 100) {
+                this.WeightAcc = 100;
+            }
+        },
         triggerColorChangeAndDisappear() {
             this.$refs.refCompressComponent.changeColorAndDisappear();
         },
@@ -502,7 +606,14 @@ export default {
                         DatasetName: this.selectedValueDataSet,
                         ModelName: this.selectedmodelsClassDataset,
                         CompressRate: this.compressRate,
-                        CompressPerformance: this.selectedValuePerformance,
+                        // CompressPerformance: this.selectedValuePerformance,
+                        CompressPerformance: this.selectedValuePerformanceMulti,
+                        // weight
+                        WeightLatency: this.WeightLatency,
+                        WeightEnergy: this.WeightEnergy,
+                        WeightStorge: this.WeightStorge,
+                        WeightCal: this.WeightCal,
+                        WeightAcc: this.WeightAcc,
                     })
                     .then((response) => {
                         this.CDCompressModelStatus = response.data;
@@ -599,6 +710,11 @@ export default {
     font-weight: bold;
     font-size: 17px;
     color: #6b25d3;
+}
+
+.number-input {
+    width: 100px; 
+    text-align: center;
 }
 
 .image-grid {
