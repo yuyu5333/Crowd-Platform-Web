@@ -42,12 +42,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'djangoProject.urls'
@@ -137,3 +138,36 @@ UPLOADUSERMODEL_ROOT = os.path.join(BASE_DIR, 'uploadusermodel')
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['console'],
+            'level': 'WARNING',  # Only log WARNING and above
+            'propagate': False,
+        },
+    },
+}
+
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+# CORS_ALLOW_CREDENTIALS = True
+
+

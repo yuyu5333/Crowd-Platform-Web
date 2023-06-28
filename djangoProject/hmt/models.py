@@ -30,6 +30,7 @@ class ImagesClassification(models.Model):
     Energy = models.FloatField(default=0.00)
     Storage = models.FloatField(default=0.00)
     Accuracy = models.FloatField(default=0.00)
+    Latency = models.FloatField(default=0.00)
     CompressRate = models.FloatField(default=0.00)
     ModelName = models.CharField(max_length=100)
     DatasetName = models.CharField(max_length=100)
