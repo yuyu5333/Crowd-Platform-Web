@@ -1,9 +1,5 @@
 import json
 import shutil, os, sys
-import re
-import socket
-import pickle
-import threading
 from tabnanny import check
 
 from django.conf import settings
@@ -15,6 +11,7 @@ from rest_framework import status
 from rest_framework import response
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from Luohao.exe.scp import scp_send_files
 
 from djangoProject.settings import COMPRESSSYSTEMMODEL_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
 from djangoProject.settings import DOWNLOADFILEDIR_ROOT, UPLOADUSERMODEL_ROOT
@@ -41,6 +38,7 @@ from uploadusermodel.checkmodel_util import test
 from uploadusermodel.checkmodel_util import model_user
 
 from Luohao.optimation import readdata
+from Luohao.exe.scp import scp_send_files
 
 # from hmt.views.nodegraph import optimal  #路径必须这么写才行,django的根目录开始，默认从django的根目录开始识别
 # Create your views here.
@@ -963,8 +961,8 @@ def raspberry(request):
         # return response.Response('我是post请求')
         return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
     elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        print(data_raspberry)
-        print(type(data_raspberry))
+        # print(data_raspberry)
+        # print(type(data_raspberry))
         return JsonResponse(json.loads(data_raspberry))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
@@ -973,17 +971,17 @@ data_jetson = {
         "DEVICE_NAME": "NVIDIA Jetson", 
         "CPU_Use": "1.5",
         "GPU_Use":'0', 
-        "MEM_Use": 15.99888854,
+        "MEM_Use": 0.0,
         "DISK_Free": "75"} 
 
 def jetson(request): 
     global data_jetson   
     if request.method == 'POST':
         data_jetson=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
-        print(data_jetson)
+        # print(data_jetson)
         return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
     elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        print(data_jetson)
+        # print(data_jetson)
         return JsonResponse(json.loads(data_jetson))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
@@ -996,10 +994,11 @@ def mcu(request):
     global data_mcu   
     if request.method == 'POST':
         data_mcu=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
-        print(data_mcu)
+        # print(data_mcu)
         return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
-    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        print(data_mcu)
+    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。
+        #但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+        # print(data_mcu)
         return JsonResponse(json.loads(data_mcu))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
@@ -1019,7 +1018,8 @@ def mcu(request):
 def segmentation_latency(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        # data = request.body#不知道为啥这个会报错，上边的就是对的哈哈哈哈，但是这个postman可以调通，然后前后端也能调通
+        # data = request.body
+        # 不知道为啥这个会报错，上边的就是对的哈哈哈哈，但是这个postman可以调通，然后前后端也能调通
         data_device = data.get('device')
         data_task = data.get('task')
         data_model = data.get('model')
@@ -1029,6 +1029,26 @@ def segmentation_latency(request):
         if data_model=="AlexNet":
             if data_dataset=="CIFAR10":
                op=readdata(26,data_target,"Luohao/files/alexnetcifar10.xlsx")
+               scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/alexnetcifar10/alexnet.pkl","/home/linaro/LH/exe")
+               scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/alexnetcifar10/alexnet.py","/home/linaro/LH/exe")
+               scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/alexnetcifar10/data.py","/home/linaro/LH/exe")
+               scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/initMobile.py","/home/linaro/LH/exe")
+            #    scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/initMobile.py","/home/linaro/LH/exe")
+
+               scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/alexnetcifar10/alexnet.pkl","/home/pi/LH/exe")
+               scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/alexnetcifar10/alexnet.py","/home/pi/LH/exe")
+               scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/alexnetcifar10/data.py","/home/pi/LH/exe")
+               scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/initCloud1.py","/home/pi/LH/exe")
+
+               scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/alexnetcifar10/alexnet.pkl","/home/nvidia/LH/exe")
+               scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/alexnetcifar10/alexnet.py","/home/nvidia/LH/exe")
+               scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/alexnetcifar10/data.py","/home/nvidia/LH/exe")
+               scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/initCloud2.py","/home/nvidia/LH/exe")
+            #    scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/initMobile.py","/home/nvidia/LH/exe")
+
+               
+            #    scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/initMobile.py","/home/pi/LH/exe")
+               
             else:
                op=readdata(42,data_target,"Luohao/files/vggcifar10.xlsx")
         else:
@@ -1037,8 +1057,41 @@ def segmentation_latency(request):
             else:
                op=readdata(26,data_target,"Luohao/files/alexnetcifar100.xlsx")
         # if op[0]>12:
-        #    op[0]=op[0]-12        
-        return JsonResponse({'id':op.id,'time':op.msum,'energy':op.esum})
+        #    op[0]=op[0]-12 
+        sta=[5,3,5]
+        # id=op.id
+        # if id<13:
+        #     for i in range(13):
+        #         if i<id:
+        #             sta[i]=0
+        #         else:
+        #             sta[i]=1
+        # else:
+        #     id=id-12
+        #     for i in range(13):
+        #         if i<id:
+        #             sta[i]=1
+        #         else:
+        #             sta[i]=0
+        with open("Luohao/exe/strategy.txt", 'w') as file: #路径直接是luohao，不需要../之类的
+          for item in sta:
+             file.write(str(item))
+             file.write(' ')
+          file.write('\n')
+          file.write(str('192.168.31.90'))
+          file.write('\n')
+          file.write(str('192.168.31.194'))
+          file.write('\n')
+          file.write(str('192.168.31.61'))
+        scp_send_files("192.168.31.61",22,"nvidia","nvidia","Luohao/exe/strategy.txt","/home/nvidia/LH/exe")
+        # scp_send_files("192.168.31.194",22,"nvidia","nvidia","Luohao/exe/strategy.txt","/home/nvidia/LH/exe")
+        scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/strategy.txt","/home/pi/LH/exe")
+        scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/strategy.txt","/home/linaro/LH/exe")
+        time.sleep(18)
+        global starttime,endtime,acc
+        runtime=(endtime-starttime)/100
+        print(runtime)
+        return JsonResponse({'id':sta,'time':runtime,'energy':op.esum})
         # else:
         #    return JsonResponse({'id':ops[0],'num':ops[1]})
 data_android = {"CPU_Arch": "armv7l", 
@@ -1057,9 +1110,32 @@ def android(request):
         # keys=data_android.keys()
         # data = json.loads(data_android.decode('utf-8'))
         # print(data_android["CPU_Use"])
-        print(data_android)
+        # print(data_android)
         return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
     elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        print(data_android)
+        # print(data_android)
         return JsonResponse(json.loads(data_android))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
+
+starttime=1111110.1
+endtime=1111120.1
+acc=100
+
+def segmentationResult(request):
+    global starttime
+    global endtime
+    global acc
+    if request.method == 'POST':
+        start=json.loads(request.body)
+        starttime= start.get("start")
+        print(start)
+        return JsonResponse({"errorcode":0})
+    if request.method == 'GET':
+        end=json.loads(request.body)
+        # endTime=end.get("endtime")
+        # acc = end.get("acc")
+        endtime=end.get("endtime")
+        acc=end.get("acc")
+        print(endtime,acc)
+        return JsonResponse({"errorcode":0})
+
