@@ -195,7 +195,7 @@
     </div>
 
   </template>
-  <script>
+  <script scoped>
   import axios from "axios";
   import cartoon3 from "./cartoon3.vue";
   // import modal from "./modal.vue";
@@ -203,32 +203,7 @@
     data() {
       return {
         showflag: false,
-        mission: [],
-        data: [
-          {
-            value: 'image_classification',
-            label: '图像分类',
-  
-            children: [
-              {
-                value: 'Vgg16',
-                label: 'Vgg16'
-              },
-              {
-                value: 'AlexNet',
-                label: 'AlexNet'
-              }
-            ]
-          }, {
-            value: 'semantic_segmentation',
-            label: '语义分割',
-            disabled: true,
-            children: []
-          }],
         device: [],
-        deviceStatus: [],
-        missionStatus: [],
-        compressStatus: [],
         CPU_Use_rasp: "",
         OS_Version_rasp: "",
         RAM_Total_rasp: 0.0,
@@ -296,7 +271,7 @@
             this.CPU_Use_rasp = response.data.CPU_Use
             this.OS_Version_rasp = response.data.OS_Version
             this.RAM_Total_rasp = response.data.RAM_Total
-            this.MEM_Use_rasp = response.data.MEM_Use.toFixed(3)
+            this.MEM_Use_rasp = parseFloat(response.data.MEM_Use).toFixed(3)
             this.CPU_Arch_rasp = response.data.CPU_Arch
             this.DISK_Free_rasp = response.data.DISK_Free
   
@@ -315,7 +290,7 @@
             console.log(response);
             this.CPU_Use_JET = response.data.CPU_Use
             this.DEVICE_name_JET = response.data.DEVICE_NAME
-            this.MEM_Use_JET = response.data.MEM_Use.toFixed(3)
+            this.MEM_Use_JET = parseFloat(response.data.MEM_Use).toFixed(3)
             this.DISK_Free_JET = response.data.DISK_Free
             this.GPU_Use_JET = response.data.GPU_Use
           })
