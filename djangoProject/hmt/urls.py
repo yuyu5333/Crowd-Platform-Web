@@ -25,8 +25,9 @@ urlpatterns = [
     path('raspberry/',views.raspberry),
     path('jetson/',views.jetson),
     path('mcu/',views.mcu),
-    path('android/', android.DeviceAndroid.as_view()),
+    path('android/', android.android),
     path('segmentationlatency/',views.segmentation_latency),
+    path('segmentationResult/',views.segmentationResult),
 
     re_path('^download-model/', views.DownloadCompressModel.as_view()),
     re_path('^download-sysmodel/', views.DownloadSysModel.as_view()),

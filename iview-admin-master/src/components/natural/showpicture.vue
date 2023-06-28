@@ -8,7 +8,7 @@
 import Raspberry from '@/assets/images/rasp3.jpg';
 import Jetson from '@/assets/images/jetson2.jpg';
 import Android from '@/assets/images/jiqi1.jpg';
-import Mcu from '@/assets/images/MCU5.png';
+import Mcu from '@/assets/images/mcu4.jpg';
 import Fpga from '@/assets/images/fpga.png';
 export default {
     name: 'showpicture',

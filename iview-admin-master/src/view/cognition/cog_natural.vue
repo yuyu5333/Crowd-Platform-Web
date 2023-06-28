@@ -138,7 +138,8 @@
                   }, 
                   {
                     value: 'Jetson',
-                    label: 'Jetson nano/TX2/xavier xn/AGX xavier'
+                    //label: 'Jetson nano/TX2/xavier xn/AGX xavier'
+                    label: 'Jetson Xavier NX'
                   }, 
                   {
                     value: 'Mcu',
@@ -157,7 +158,7 @@
                 OS_Version:'',
                 RAM_Total:'',
                 imgUrl:imgUrl,
-                name:'李瑶',
+                name:'UserName',
               }
         },
         methods:{
