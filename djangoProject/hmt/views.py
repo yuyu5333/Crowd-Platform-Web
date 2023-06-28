@@ -37,8 +37,8 @@ import time
 from thop import clever_format
 # from hmt.views.nodegraph import optimal
 from uploadusermodel.profile_my import profile
-from uploadusermodel.checkmodel_util import test
-from uploadusermodel.checkmodel_util import model_user
+# from uploadusermodel.checkmodel_util import test
+# from uploadusermodel.checkmodel_util import model_user
 
 from Luohao.optimation import readdata
 

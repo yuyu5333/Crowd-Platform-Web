@@ -294,8 +294,16 @@
               <p class="image-info-name" @click="selectedValueDataSet = 'Snli'">Snli</p>
               <p class="image-info" @click="selectedValueDataSet = 'Snli'">包含了大约57万个人工标注的英语句子对，分为三种关系类型：蕴含、矛盾和中立</p>
             </div>
-            <div class="image-item"></div>
-            <div class="image-item"></div>
+            <div class="image-item">
+              <img src="/images/dataset_images/Webtext.png" @click="selectedValueDataSet = 'Webtext'" alt="Image 1" />
+              <p class="image-info-name" @click="selectedValueDataSet = 'Webtext'">Webtext</p>
+              <p class="image-info" @click="selectedValueDataSet = 'Webtext'">由OpenAI创建的大规模文本数据集，用于自然语言处理任务的研究和训练，它是在GPT-2模型的训练过程中使用的一部分</p>
+            </div>
+            <div class="image-item">
+              <img src="/images/dataset_images/CommonCrawl.png" @click="selectedValueDataSet = 'CommonCrawl'" alt="Image 1" />
+              <p class="image-info-name" @click="selectedValueDataSet = 'CommonCrawl'">CommonCrawl</p>
+              <p class="image-info" @click="selectedValueDataSet = 'CommonCrawl'">使用网络爬虫技术来遍历互联网，并收集网页、文本和其他相关数据。爬取的范围包括网站、博客、论坛、新闻网站和其他公开可访问的在线资源</p>
+            </div>
             <div class="image-item"></div>
             <div class="image-item"></div>
             <div class="image-item"></div>

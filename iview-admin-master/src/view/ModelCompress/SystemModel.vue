@@ -169,7 +169,7 @@
     <div><br/></div>
 
     <card shadow>
-        <p class="head-font" style="color: rgb(17, 75, 218)">压缩率压缩</p>
+        <p class="head-font" style="color: rgb(17, 75, 218)">选择总体压缩率</p>
         <Divider style="margin: 12px 0px" />
         <Row>
             <Col span="3" class="head-font"> 拖动以选择压缩率： </Col>
@@ -188,7 +188,7 @@
     <div><br/></div>
 
     <card shadow>
-        <p class="head-font" style="color: rgb(17, 75, 218)">选择性能压缩</p>
+        <p class="head-font" style="color: rgb(17, 75, 218)">自定义性能目标</p>
         <Divider style="margin: 12px 0px" />
         <!-- 选择多个目标约束给与权重 -->
         <Row>
@@ -234,27 +234,32 @@
             <Col span="3" class="head-font">
                 <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MinLatency')" 
                     v-model="WeightLatency" @input="validateNumber" />
-                <p>输入的数字是: {{ WeightLatency }}</p>
+                    %
+                <!-- <p>输入权重为: {{ WeightLatency }}</p> -->
             </Col>
             <Col span="3" class="head-font">
                 <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MinEnergy')" 
                     v-model="WeightEnergy" @input="validateNumber" />
-                <p>输入的数字是: {{ WeightEnergy }}</p>
+                    %
+                <!-- <p>输入权重为: {{ WeightEnergy }}</p> -->
             </Col>
             <Col span="3" class="head-font">
                 <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MinStorage')" 
                     v-model="WeightStorge" @input="validateNumber" />
-                <p>输入的数字是: {{ WeightStorge }}</p>
+                    %
+                <!-- <p>输入权重为: {{ WeightStorge }}</p> -->
             </Col>
             <Col span="3" class="head-font">
                 <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MinCalculate')" 
                     v-model="WeightCal" @input="validateNumber" />
-                <p>输入的数字是: {{ WeightCal }}</p>
+                    %
+                <!-- <p>输入权重为: {{ WeightCal }}</p> -->
             </Col>
             <Col span="3" class="head-font">
                 <input type="number" class="number-input" :disabled="!selectedValuePerformanceMulti.includes('MaxAcc')" 
                     v-model="WeightAcc" @input="validateNumber" />
-                <p>输入的数字是: {{ WeightAcc }}</p>
+                    %
+                <!-- <p>输入权重为: {{ WeightAcc }}</p> -->
             </Col>
             <Col span="10" v-if="modelsClassDataset.length > 0">
                 <p style="margin-top: 5px;">

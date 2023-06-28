@@ -106,11 +106,11 @@ def insert_data_many_hmt_imagesclassification():
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                34, "Food-101", "ResNet50-inception1", 164020, 5.34, 820214.39, 41.77, 79.75, 20.56, 5317024
+                37, "Food-101", "Vgg16-dpconv-inception2", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
             ),
-            (
-                35, "Food-101", "ResNet50-inception2", 173210, 7.07, 866080.95, 72.27, 73.28, 27.13, 7041440
-            ),
+            # (
+            #     35, "Food-101", "ResNet50-inception2", 173210, 7.07, 866080.95, 72.27, 73.28, 27.13, 7041440
+            # ),
         ]
 
         connect.executemany(inset_sql, datalist)
@@ -165,13 +165,18 @@ def update_data():
     connect = sqlite3.connect('./db.sqlite3')
 
     try:
-        update_sql = 'update hmt_imagesclassification set Accuracy = ? where id = ?;'
+        update_sql = 'update hmt_imagesclassification set Latency = ? where id = ?;'
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                37.35, 26
+                123378432, 27
             ),
-
+            (
+                121850560, 28
+            ),
+            (
+                125028032, 29
+            ),
             
         ]
 
@@ -315,11 +320,11 @@ if __name__ == "__main__":
 
     # insert_data()
 
-    insert_data_many_hmt_imagesclassification()
+    # insert_data_many_hmt_imagesclassification()
     
     # insert_data_many_hmt_classdatasetmodel()
 
-    # update_data()
+    update_data()
     
     # update_table_name()
 
