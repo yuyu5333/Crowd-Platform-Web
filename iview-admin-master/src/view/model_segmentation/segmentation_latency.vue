@@ -77,7 +77,7 @@
           <Row>
             <Col span="6">
             <Col span="6">
-            <img id="dog" src="../../assets/images/mcu4.jpg" alt="dog">
+            <img id="dog" src="../../assets/images/MCU5.png" alt="dog">
             </Col>
             <Col span="18">设备名称:
             <p class="text-font">{{ DEVICE_name_mcu }}</p>
@@ -109,39 +109,39 @@
           <p class="head-font">模型选择：</p>
           </Col>
         </Row>
-        <Divider style="margin: 15px 0px" />
+        <Divider style="margin: 12px 0px" />
         <Form model="formItem" id="head">
-          <FormItem label="设备选择" class="head-font custom-label">
-            <CheckboxGroup v-model="formItem.device" class="head-font" size="larger">
-              <Checkbox label="raspberry" class="checkbox-label">设备1</Checkbox>
-              <Checkbox label="jetson" class="checkbox-label">设备2</Checkbox>
-              <Checkbox label="android" class="checkbox-label">设备3</Checkbox>
+          <FormItem label="设备选择">
+            <CheckboxGroup v-model="formItem.device" class="head-font" size="large">
+              <Checkbox label="raspberry">设备1</Checkbox>
+              <Checkbox label="jetson">设备2</Checkbox>
+              <Checkbox label="android">设备3</Checkbox>
             </CheckboxGroup>
           </FormItem>
-          <FormItem label="系统模型" class="head-font custom-label">
+          <FormItem label="系统模型" class="head-font">
             <RadioGroup v-model="formItem.model" size="large">
-              <Radio label="AlexNet" class="checkbox-label">AlexNet</Radio>
-              <Radio label="VGG" class="checkbox-label">VGG</Radio>
-              <Radio label="ResNet" class="checkbox-label">ResNet</Radio>
+              <Radio label="AlexNet">AlexNet</Radio>
+              <Radio label="VGG">VGG</Radio>
+              <Radio label="ResNet">ResNet</Radio>
             </RadioGroup>
           </FormItem>
-          <FormItem label="任务分类" class="head-font custom-label">
+          <FormItem label="任务分类" class="head-font">
             <RadioGroup v-model="formItem.task" size="large">
-              <Radio label="Image_classification" class="checkbox-label">图像分类</Radio>
-              <Radio label="Object_detection" class="checkbox-label">目标检测</Radio>
+              <Radio label="Image_classification">图像分类</Radio>
+              <Radio label="Object_detection">目标检测</Radio>
             </RadioGroup>
           </FormItem>
-          <FormItem label="目标约束" class="head-font custom-label">
+          <FormItem label="目标约束" class="head-font">
             <RadioGroup v-model="formItem.target" size="large">
-              <Radio label="latency" class="checkbox-label">时延最小</Radio>
-              <Radio label="energy" class="checkbox-label">能耗最小</Radio>
+              <Radio label="latency">时延最小</Radio>
+              <Radio label="energy">能耗最小</Radio>
             </RadioGroup>
           </FormItem>
-          <FormItem label="数据集合" class="head-font ">
+          <FormItem label="数据集" class="head-font">
             <RadioGroup v-model="formItem.dataset" size="large">
-              <Radio label="CIFAR10" class="checkbox-label">CIFAR-10</Radio>
-              <Radio label="CIFAR100" class="checkbox-label">CIFAR-100</Radio>
-              <Radio label="COCO" class="checkbox-label">COCO</Radio>
+              <Radio label="CIFAR10">CIFAR-10</Radio>
+              <Radio label="CIFAR100">CIFAR-100</Radio>
+              <Radio label="COCO">COCO</Radio>
             </RadioGroup>
           </FormItem>
           <br>
@@ -173,7 +173,7 @@
           <p class="text-font">{{ seg_model }}AlexNet</p>
           </Col>
           <Col span="6">分割策略:
-          <p class="text-font">{{ seg_id }}</p>
+          <p class="text-font">在{{ seg_device }}第{{ seg_id }}层分割</p>
           </Col>
           <Col span="6">推理能耗:
           <p class="text-font">{{ seg_energy }} J</p>
@@ -182,7 +182,6 @@
           <p class="text-font">{{ seg_time }} 秒</p>
           </Col>
         </Row>
-        <Divider style="margin: 12px 0px" />
         <!-- <div style="display: flex; justify-content: center; align-items: center; margin-left: -200px;">
           <cartoon3 />
         </div> -->
@@ -192,17 +191,11 @@
             <button @click="closeModal">Close</button>
           </div>
         </div>
-        <Row>
-          <div>
-            <p v-if="showText" style="font-size:22px">具体分割方案为在三个设备之间串行分割：设备1运行前{{seg_id[0]}}层，设备2运行中间的{{seg_id[1]}}层，设备3运行最后的{{seg_id[2]}}层</p>
-          </div>
-        </Row>
       </card>
-      
     </div>
 
   </template>
-  <script>
+  <script scoped>
   import axios from "axios";
   import cartoon3 from "./cartoon3.vue";
   // import modal from "./modal.vue";
@@ -210,32 +203,7 @@
     data() {
       return {
         showflag: false,
-        mission: [],
-        data: [
-          {
-            value: 'image_classification',
-            label: '图像分类',
-  
-            children: [
-              {
-                value: 'Vgg16',
-                label: 'Vgg16'
-              },
-              {
-                value: 'AlexNet',
-                label: 'AlexNet'
-              }
-            ]
-          }, {
-            value: 'semantic_segmentation',
-            label: '语义分割',
-            disabled: true,
-            children: []
-          }],
         device: [],
-        deviceStatus: [],
-        missionStatus: [],
-        compressStatus: [],
         CPU_Use_rasp: "",
         OS_Version_rasp: "",
         RAM_Total_rasp: 0.0,
@@ -259,7 +227,7 @@
         GPU_Use_And: "",
   
         showModal: false,
-        showText:true,
+
         CPU_Use_mcu :"",
         DEVICE_name_mcu:'',
         MEM_Use_mcu :'',
@@ -303,7 +271,7 @@
             this.CPU_Use_rasp = response.data.CPU_Use
             this.OS_Version_rasp = response.data.OS_Version
             this.RAM_Total_rasp = response.data.RAM_Total
-            this.MEM_Use_rasp = response.data.MEM_Use.toFixed(3)
+            this.MEM_Use_rasp = parseFloat(response.data.MEM_Use).toFixed(3)
             this.CPU_Arch_rasp = response.data.CPU_Arch
             this.DISK_Free_rasp = response.data.DISK_Free
   
@@ -322,7 +290,7 @@
             console.log(response);
             this.CPU_Use_JET = response.data.CPU_Use
             this.DEVICE_name_JET = response.data.DEVICE_NAME
-            this.MEM_Use_JET = response.data.MEM_Use.toFixed(3)
+            this.MEM_Use_JET = parseFloat(response.data.MEM_Use).toFixed(3)
             this.DISK_Free_JET = response.data.DISK_Free
             this.GPU_Use_JET = response.data.GPU_Use
           })
@@ -342,10 +310,9 @@
           })
           .then((response) => {
             console.log(response.data);
-            this.seg_id = response.data.id
-            this.seg_time = response.data.time.toFixed(5)
+            this.seg_id = response.data.id-12
+            this.seg_time = response.data.time
             this.seg_energy = response.data.energy
-            this.showText = true
             // this.seg_device = response.data.device
   
           }) 
@@ -390,24 +357,13 @@
   
   
   </script>
-  <!--scoped 是表示这个文件的style不会收到其他文件style设置的污染-->
-  <style scoped> 
+  
+  <style scoped>
   .head-font {
     font-weight: bolder;
     font-size: 30px;
   }
   
-  .custom-label .ivu-form-item-label {
-    font-size: 20px; /* 字体大小 */
-    color: black; /* 字体颜色 */
-    
-}
-
-.checkbox-label {
-  font-size: 24px; /* 这里可以设置你想要的字体大小 */
-  margin-left: 50px;
-}
-
   .result {
     font-weight: bold;
     font-size: 17px;

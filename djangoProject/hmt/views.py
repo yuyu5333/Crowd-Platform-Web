@@ -1,5 +1,9 @@
 import json
 import shutil, os, sys
+import re
+import socket
+import pickle
+import threading
 from tabnanny import check
 
 from django.conf import settings
@@ -11,7 +15,6 @@ from rest_framework import status
 from rest_framework import response
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from Luohao.exe.scp import scp_send_files
 
 from djangoProject.settings import COMPRESSSYSTEMMODEL_ROOT, SYSMODELDIA_ROOT, SYSMODELCODEDIA_ROOT
 from djangoProject.settings import DOWNLOADFILEDIR_ROOT, UPLOADUSERMODEL_ROOT
@@ -34,12 +37,13 @@ import time
 from thop import clever_format
 # from hmt.views.nodegraph import optimal
 from uploadusermodel.profile_my import profile
-from uploadusermodel.checkmodel_util import test
-from uploadusermodel.checkmodel_util import model_user
+# from uploadusermodel.checkmodel_util import test
+# from uploadusermodel.checkmodel_util import model_user
 
 from Luohao.optimation import readdata
+
 from Luohao.exe.scp import scp_send_files
-from Luohao.exe.scp import scp_send_files
+
 
 # from hmt.views.nodegraph import optimal  #路径必须这么写才行,django的根目录开始，默认从django的根目录开始识别
 # Create your views here.
@@ -419,6 +423,7 @@ def modelCalculate(model, input):
     return Macs, Params
 
 def modelLatency(model, input):
+    # return -1
     out = model(input)
     starttime = time.time()
     for i in range(10):
@@ -549,12 +554,172 @@ def find_closest_compress(compress_ratio, model_set):
         serializer = ImagesClassificationSerializer(model_set[pos - 1])
     return serializer
 
+def find_closest_performance(performance, model_set, weight_para):
+    
+    # performance: MinLatency MinEnergy MinStorage MinCalculate
+    
+    # 获得原始模型
+    model_original = [d for d in model_set if d.get('CompressRate') == 0]
+    
+    
+    MinLatency = []
+    MinEnergy = []
+    MinStorage = []
+    MinCalculate = []
+    MaxAcc = []
+    
+    # [{'_state': <django.db.models.base.ModelState object at 0x7f79e797b520>, 'id': 13, 'Computation': 557.88, 'Parameter': 11.17, 
+    # 'Energy': 2789.4, 'Storage': 42.8, 'Accuracy': 76.07, 'CompressRate': 0.0, 'ModelName': 'ResNet18', 'DatasetName': 'Cifar100'}]
+    
+    for model_i in range(len(model_set)):
+        # MinLatency.append(model_t[''])
+        # print(model_set[model_i]['Energy'])
+        
+        MinLatency.append(float(model_set[model_i]['Latency']) / float(model_original[0]['Latency']))
+        MinEnergy.append(float(model_set[model_i]['Energy']) / float(model_original[0]['Energy']))
+        MinStorage.append(float(model_set[model_i]['Storage']) / float(model_original[0]['Storage']))
+        MinCalculate.append(float(model_set[model_i]['Computation']) / float(model_original[0]['Computation']))
+        MaxAcc.append(float(model_set[model_i]['Accuracy']) / float(model_original[0]['Accuracy']))
+    
+    # print("MinLatency: ", MinLatency)
+    # print("MinEnergy: ", MinEnergy)
+    # print("MinStorage: ", MinStorage)
+    # print("MinCalculate: ", MinCalculate)
+    # print("MaxAcc: ", MaxAcc)
+    
+    if len(performance) == 1:
+        if performance[0] == 'MinLatency':
+            min_index = MinLatency.index(min(MinLatency))
+            # min_index = MinEnergy.index(min(MinEnergy))
+        elif performance[0] == 'MinEnergy':
+            min_index = MinEnergy.index(min(MinEnergy))
+            # print("min_index: ", min_index)
+        elif performance[0] == 'MinStorage':
+            min_index = MinStorage.index(min(MinStorage))
+            # print("min_index: ", min_index)
+        elif performance[0] == 'MinCalculate':
+            min_index = MinCalculate.index(min(MinCalculate))
+            # print("min_index: ", min_index)
+        elif performance[0] == 'MaxAcc':
+            min_index = MaxAcc.index(max(MaxAcc))
+        else:
+            print("error performance")
+            return_model = ImagesClassificationSerializer(model_set[0])
+            return return_model
+    
+    elif len(performance) > 1:
+        print("here performance > 1")
+        
+        # MinLatency MinEnergy MinStorage MinCalculate MaxAcc
+        
+        sum_weight = 0
+        
+        for key, value in weight_para.items():
+            if value == None:
+                weight_para[key] = 0
+            else:
+                weight_para[key] = float(value)
+                sum_weight += float(value)
+
+        print("weight_para: ", weight_para)
+        
+        isMinLatency = 0
+        isMinEnergy = 0
+        isMinStorage = 0
+        isMinCalculate = 0
+        isMaxAcc = 0
+    
+        if 'MinLatency' in performance:
+            isMinLatency = 1
+        if 'MinEnergy' in performance:
+            isMinEnergy = 1
+        if 'MinStorage' in performance:
+            isMinStorage = 1
+        if 'MinCalculate' in performance:
+            isMinCalculate = 1
+        if 'MaxAcc' in performance:
+            isMaxAcc = 1
+        
+        # 计算加权后的得分，没有选择到参数则islabel为0，系数除以总系数
+        MinLatency = [x * isMinLatency * (weight_para['WeightLatency'] / sum_weight) for x in MinLatency]
+        MinEnergy = [x * isMinEnergy * (weight_para['WeightEnergy'] / sum_weight) for x in MinEnergy]
+        MinStorage = [x * isMinStorage * (weight_para['WeightStorge'] / sum_weight) for x in MinStorage]
+        MinCalculate = [x * isMinCalculate * (weight_para['WeightCal'] / sum_weight) for x in MinCalculate]
+        MaxAcc = [x * isMaxAcc * (weight_para['WeightAcc'] / sum_weight) for x in MaxAcc]
+
+        print("MinLatency: ", MinLatency)
+        print("MinEnergy: ", MinEnergy)
+        print("MinStorage: ", MinStorage)
+        print("MinCalculate: ", MinCalculate)
+        print("MaxAcc: ", MaxAcc)
+        
+        sumperf = [x1 + x2 + x3 + x4 - x5 for x1, x2, x3, x4, x5 in zip(MinLatency, MinEnergy, MinStorage, MinCalculate, MaxAcc)]
+        
+        print("sumperf: ", sumperf)
+        
+        min_index = sumperf.index(min(sumperf))
+    
+    else:
+        print("error performance")
+        return_model = ImagesClassificationSerializer(model_set[0])
+        return return_model
+    
+    
+    return_model = ImagesClassificationSerializer(model_set[min_index])
+    return return_model
+
+class ReturnCDPCompressModel(APIView):
+    def post(self, request):
+        compress_rate_obj = json.loads(request.body)
+        compress_rate = compress_rate_obj.get('CompressRate')
+        classname = compress_rate_obj.get('ClassName')
+        datasetname = compress_rate_obj.get('DatasetName')
+        modelname = compress_rate_obj.get('ModelName')
+        performance = compress_rate_obj.get('CompressPerformance')
+        
+        weight_para = {}
+        weight_para['WeightLatency'] = compress_rate_obj.get('WeightLatency')
+        weight_para['WeightEnergy'] = compress_rate_obj.get('WeightEnergy')
+        weight_para['WeightStorge'] = compress_rate_obj.get('WeightStorge')
+        weight_para['WeightCal'] = compress_rate_obj.get('WeightCal')
+        weight_para['WeightAcc'] = compress_rate_obj.get('WeightAcc')
+        
+        print("weight_para:", weight_para)
+        
+        print("CDP")
+        print("performance:", performance)
+        
+        # performance: MinLatency MinEnergy MinStorage MinCalculate MaxAcc
+        model_set = []
+        
+        if str(classname) == '图像分类':
+            compress_model = ImagesClassification.objects.filter(DatasetName=datasetname).values()
+            
+            for item in compress_model:
+                # print("item: ", item)
+                if str(item['ModelName']).startswith(modelname):
+                    model = ImagesClassification.objects.get(ModelName=item['ModelName'], DatasetName=item['DatasetName'])
+                    model_set.append(model.__dict__)
+                    
+            model_set = sorted(model_set, key=lambda x: x['CompressRate'])
+            # print("model_set: ", model_set)
+            serializer1 = find_closest_performance(performance, model_set, weight_para)
+            print(serializer1.data)
+            return Response(serializer1.data)
+        else:
+            pass
+        
+        return Response(None)
+
 class ReturnClassDatasetModel(APIView):
     def post(self, request):
         class_dataset_name = json.loads(request.body)
         
         classname = class_dataset_name.get('ClassName')
         dataset = class_dataset_name.get('DatasetName')
+        
+        print("classname: ", classname)
+        print("dataset: ", dataset)
         
         modelnames = ClassDatasetModel.objects.filter(Q(ClassName=classname) & Q(DatasetName=dataset))
         modelname_list = []
@@ -564,10 +729,14 @@ class ReturnClassDatasetModel(APIView):
             temp_modelname = modelname_serializer.data
             modelname_list.append(temp_modelname['ModelName'])
         
-        if modelname_list[0] == '':
+        print("modelname_list: ", modelname_list)
+        
+        if len(modelname_list) == 1 and modelname_list[0] == '':
             return Response(None)
         
-        return Response(modelname_list)
+        new_modelname_list = list(filter(lambda x: x != '', modelname_list))
+        
+        return Response(new_modelname_list)
 
 class ReturnClassDatasetModelInfo(APIView):
     def post(self, request):
@@ -613,7 +782,7 @@ class ReturnClassDatasetCompressModel(APIView):
         classname = compress_rate_obj.get('ClassName')
         datasetname = compress_rate_obj.get('DatasetName')
         modelname = compress_rate_obj.get('ModelName')
-        
+                
         compress_ratio = float(compress_rate)
         model_set = []
         
@@ -621,9 +790,9 @@ class ReturnClassDatasetCompressModel(APIView):
             compress_model = ImagesClassification.objects.filter(DatasetName=datasetname).values()
             
             for item in compress_model:
-                
+                # print("item: ", item)
                 if str(item['ModelName']).startswith(modelname):
-                    model = ImagesClassification.objects.get(ModelName=item['ModelName'])
+                    model = ImagesClassification.objects.get(ModelName=item['ModelName'], DatasetName=item['DatasetName'])
                     model_set.append(model.__dict__)
                     
             model_set = sorted(model_set, key=lambda x: x['CompressRate'])
@@ -945,62 +1114,74 @@ data_raspberry = {"CPU_Arch": "armv7l",
         "CPU_Use": "1.5", 
         "MEM_Use": 15.99888854,
         "DISK_Free": ""}
-# class GetRaspberry(APIView):
-    # def post(self,request):
-    #     data=request.body    
-    #     return response.Response()
-
-    # def get(self, request):
-    #     print('GET方法')
-    #     return response.Response()
+    
+data_raspberry = json.dumps(data_raspberry)
     
 def raspberry(request):
     global data_raspberry
+    
     if request.method == 'POST':
-        data_raspberry=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
-        # print(data)
+        
+        data_raspberry = request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
         # return response.Response('我是post请求')
-        return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
-    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+        # JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
+        return JsonResponse({"errorcode":0})
+    
+    # 如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。
+    # 但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+    
+    elif request.method == 'GET':
+        
         # print(data_raspberry)
-        # print(type(data_raspberry))
-        return JsonResponse(json.loads(data_raspberry))#json.load(data)就是一个json字符串反序列化为python对象
-        #return JsonResponse(data)
+        return JsonResponse(json.loads(data_raspberry))# json.load(data)就是一个json字符串反序列化为python对象
+        # return JsonResponse(data)
 
-# python manage.py runserver 0.0.0.0:8000 0.0.0.0表示可以接受任何IP地址的请求（没有的话只能接受本机的请求），8000表示服务器监听的端口号，
+# python manage.py runserver 0.0.0.0:8000 0.0.0.0表示可以接受任何IP地址的请求（没有的话只能接受本机的请求），8000表示服务器监听的端口号
+
 data_jetson = {
         "DEVICE_NAME": "NVIDIA Jetson", 
         "CPU_Use": "1.5",
         "GPU_Use":'0', 
-        "MEM_Use": 0.0,
+        "MEM_Use": 15.99888854,
         "DISK_Free": "75"} 
+
+data_jetson = json.dumps(data_jetson)
 
 def jetson(request): 
     global data_jetson   
+    
     if request.method == 'POST':
-        data_jetson=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
-        # print(data_jetson)
-        return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
-    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        # print(data_jetson)
-        return JsonResponse(json.loads(data_jetson))#json.load(data)就是一个json字符串反序列化为python对象
-        #return JsonResponse(data)
+        
+        data_jetson=request.body   # request.body就是获取http请求的内容,data是一个json格式的bytes对象
+        
+        # JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 
+        # 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
+        return JsonResponse({"errorcode":0}) 
+    
+    # 如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。
+    # 但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+    elif request.method == 'GET':            
+        
+        # json.load(data)就是一个json字符串反序列化为python对象
+        return JsonResponse(json.loads(data_jetson)) 
 
 data_mcu = {
         "DEVICE_NAME": "ESP-32", 
         "CPU_Use": "1.5",
         "MEM_Use": 15.99888854} 
 
+data_mcu = json.dumps(data_mcu)
+
 def mcu(request): 
-    global data_mcu   
+    global data_mcu
+    
     if request.method == 'POST':
-        data_mcu=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
+        data_mcu = request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
         # print(data_mcu)
-        return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
-    elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。
-        #但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
+        return JsonResponse({"errorcode":0}) # JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
+    elif request.method == 'GET':            #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
         # print(data_mcu)
-        return JsonResponse(json.loads(data_mcu))#json.load(data)就是一个json字符串反序列化为python对象
+        return JsonResponse(json.loads(data_mcu)) #json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
 
 # def segmentation(request):
@@ -1020,7 +1201,7 @@ def segmentation_latency(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         # data = request.body
-        # 不知道为啥这个会报错，上边的就是对的哈哈哈哈，但是这个postman可以调通，然后前后端也能调通
+        # #不知道为啥这个会报错，上边的就是对的哈哈哈哈，但是这个postman可以调通，然后前后端也能调通
         data_device = data.get('device')
         data_task = data.get('task')
         data_model = data.get('model')
@@ -1030,26 +1211,6 @@ def segmentation_latency(request):
         if data_model=="AlexNet":
             if data_dataset=="CIFAR10":
                op=readdata(26,data_target,"Luohao/files/alexnetcifar10.xlsx")
-               scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/alexnetcifar10/alexnet.pkl","/home/linaro/LH/exe")
-               scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/alexnetcifar10/alexnet.py","/home/linaro/LH/exe")
-               scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/alexnetcifar10/data.py","/home/linaro/LH/exe")
-               scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/initMobile.py","/home/linaro/LH/exe")
-            #    scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/initMobile.py","/home/linaro/LH/exe")
-
-               scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/alexnetcifar10/alexnet.pkl","/home/pi/LH/exe")
-               scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/alexnetcifar10/alexnet.py","/home/pi/LH/exe")
-               scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/alexnetcifar10/data.py","/home/pi/LH/exe")
-               scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/initCloud1.py","/home/pi/LH/exe")
-
-               scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/alexnetcifar10/alexnet.pkl","/home/nvidia/LH/exe")
-               scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/alexnetcifar10/alexnet.py","/home/nvidia/LH/exe")
-               scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/alexnetcifar10/data.py","/home/nvidia/LH/exe")
-               scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/initCloud2.py","/home/nvidia/LH/exe")
-            #    scp_send_files("192.168.31.61",22,"nvidia","nvidia","./Luohao/exe/initMobile.py","/home/nvidia/LH/exe")
-
-               
-            #    scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/initMobile.py","/home/pi/LH/exe")
-               
             else:
                op=readdata(42,data_target,"Luohao/files/vggcifar10.xlsx")
         else:
@@ -1058,41 +1219,8 @@ def segmentation_latency(request):
             else:
                op=readdata(26,data_target,"Luohao/files/alexnetcifar100.xlsx")
         # if op[0]>12:
-        #    op[0]=op[0]-12 
-        sta=[5,3,5]
-        # id=op.id
-        # if id<13:
-        #     for i in range(13):
-        #         if i<id:
-        #             sta[i]=0
-        #         else:
-        #             sta[i]=1
-        # else:
-        #     id=id-12
-        #     for i in range(13):
-        #         if i<id:
-        #             sta[i]=1
-        #         else:
-        #             sta[i]=0
-        with open("Luohao/exe/strategy.txt", 'w') as file: #路径直接是luohao，不需要../之类的
-          for item in sta:
-             file.write(str(item))
-             file.write(' ')
-          file.write('\n')
-          file.write(str('192.168.31.90'))
-          file.write('\n')
-          file.write(str('192.168.31.194'))
-          file.write('\n')
-          file.write(str('192.168.31.61'))
-        scp_send_files("192.168.31.61",22,"nvidia","nvidia","Luohao/exe/strategy.txt","/home/nvidia/LH/exe")
-        # scp_send_files("192.168.31.194",22,"nvidia","nvidia","Luohao/exe/strategy.txt","/home/nvidia/LH/exe")
-        scp_send_files("192.168.31.194",22,"pi","raspberry","Luohao/exe/strategy.txt","/home/pi/LH/exe")
-        scp_send_files("192.168.31.90",22,"linaro","linaro","Luohao/exe/strategy.txt","/home/linaro/LH/exe")
-        time.sleep(18)
-        global starttime,endtime,acc
-        runtime=(endtime-starttime)/100
-        print(runtime)
-        return JsonResponse({'id':sta,'time':runtime,'energy':op.esum})
+        #    op[0]=op[0]-12        
+        return JsonResponse({'id':op.id,'time':op.msum,'energy':op.esum})
         # else:
         #    return JsonResponse({'id':ops[0],'num':ops[1]})
 data_android = {"CPU_Arch": "armv7l", 
@@ -1105,38 +1233,10 @@ data_android = {"CPU_Arch": "armv7l",
 def android(request): 
     global data_android   
     if request.method == 'POST':
-        data_android=request.body   #request.body就是获取http请求的内容,data是一个json格式的bytes对象
-        # json_string = data_android.decode('utf-8')
-        # data_android=json.loads(json_string)
-        # keys=data_android.keys()
-        # data = json.loads(data_android.decode('utf-8'))
-        # print(data_android["CPU_Use"])
-        # print(data_android)
+        data_android=request.body   # request.body就是获取http请求的内容,data是一个json格式的bytes对象
+
         return JsonResponse({"errorcode":0})# JsonResponse（）参数必须是字典对象，把其序列化为json格式，返回json格式的请求 如果参数不是Python对象，那么JsonResponse()将引发TypeError异常。
     elif request.method == 'GET':           #如果传入的参数不是一个字典对象，可以将JsonResponse()的第二个参数safe设置为False，这样JsonResponse()就可以处理其他Python对象类型，如列表、元组、数字、字符串等。但是，如果JsonResponse()的参数不是一个合法的Python对象，比如函数、类实例等，则依然会引发TypeError异常。
-        # print(data_android)
+        
         return JsonResponse(json.loads(data_android))#json.load(data)就是一个json字符串反序列化为python对象
         #return JsonResponse(data)
-
-starttime=1111110.1
-endtime=1111120.1
-acc=100
-
-def segmentationResult(request):
-    global starttime
-    global endtime
-    global acc
-    if request.method == 'POST':
-        start=json.loads(request.body)
-        starttime= start.get("start")
-        print(start)
-        return JsonResponse({"errorcode":0})
-    if request.method == 'GET':
-        end=json.loads(request.body)
-        # endTime=end.get("endtime")
-        # acc = end.get("acc")
-        endtime=end.get("endtime")
-        acc=end.get("acc")
-        print(endtime,acc)
-        return JsonResponse({"errorcode":0})
-

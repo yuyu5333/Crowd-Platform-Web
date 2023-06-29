@@ -17,6 +17,7 @@ urlpatterns = [
     path('get-classdatasetmodel/', views.ReturnClassDatasetModel.as_view()),
     path('get-classdatasetmodelInfo/', views.ReturnClassDatasetModelInfo.as_view()),
     path('get-classdatasetcompressmodel/', views.ReturnClassDatasetCompressModel.as_view()),
+    path('get-cdpcompressmodel/', views.ReturnCDPCompressModel.as_view()),
 
 
     path('compress-model/', views.ReturnCompressModel.as_view()),
@@ -25,9 +26,9 @@ urlpatterns = [
     path('raspberry/',views.raspberry),
     path('jetson/',views.jetson),
     path('mcu/',views.mcu),
-    path('android/', android.android),
+    path('android/', android.DeviceAndroid.as_view()),
+    path('android/', android.DeviceAndroid.as_view()),
     path('segmentationlatency/',views.segmentation_latency),
-    path('segmentationResult/',views.segmentationResult),
 
     re_path('^download-model/', views.DownloadCompressModel.as_view()),
     re_path('^download-sysmodel/', views.DownloadSysModel.as_view()),
