@@ -39,6 +39,7 @@ from uploadusermodel.checkmodel_util import model_user
 
 from Luohao.optimation import readdata
 from Luohao.exe.scp import scp_send_files
+from Luohao.exe.scp import scp_send_files
 
 # from hmt.views.nodegraph import optimal  #路径必须这么写才行,django的根目录开始，默认从django的根目录开始识别
 # Create your views here.
