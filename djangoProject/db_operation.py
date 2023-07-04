@@ -106,11 +106,8 @@ def insert_data_many_hmt_imagesclassification():
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                37, "Food-101", "Vgg16-dpconv-inception2", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+                38, "Caltech101", "ResNet34", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
             ),
-            # (
-            #     35, "Food-101", "ResNet50-inception2", 173210, 7.07, 866080.95, 72.27, 73.28, 27.13, 7041440
-            # ),
         ]
 
         connect.executemany(inset_sql, datalist)
@@ -143,7 +140,19 @@ def insert_data_many_hmt_classdatasetmodel():
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                25, "图像分类", "Food-101", "ResNet50"
+                26, "图像分类", "Caltech101", "ResNet34"
+            ),
+            (
+                27, "图像分类", "Caltech101", "NasNet"
+            ),
+            (
+                28, "图像分类", "Caltech101", "ResNext50"
+            ),
+            (
+                29, "图像分类", "Caltech101", "SeResNet34"
+            ),
+            (
+                30, "图像分类", "Caltech101", "Vgg16"
             ),
         ]
 
@@ -169,13 +178,40 @@ def update_data():
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                123378432, 27
+                11210432, 13
             ),
             (
-                121850560, 28
+                1892032, 14
             ),
             (
-                125028032, 29
+                890688, 15
+            ),
+            (
+                1932992, 16
+            ),
+            (
+                1528512, 17
+            ),
+            (
+                3182272, 18
+            ),
+            (
+                21270208, 19
+            ),
+            (
+                2514624, 20
+            ),
+            (
+                1513280, 21
+            ),
+            (
+                2555584, 22
+            ),
+            (
+                2151104, 23
+            ),
+            (
+                3804864, 24
             ),
             
         ]
@@ -322,9 +358,9 @@ if __name__ == "__main__":
 
     # insert_data_many_hmt_imagesclassification()
     
-    # insert_data_many_hmt_classdatasetmodel()
+    insert_data_many_hmt_classdatasetmodel()
 
-    update_data()
+    # update_data()
     
     # update_table_name()
 

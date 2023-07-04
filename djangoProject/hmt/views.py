@@ -36,9 +36,10 @@ import torch.nn as nn
 import time
 from thop import clever_format
 # from hmt.views.nodegraph import optimal
+
 from uploadusermodel.profile_my import profile
-# from uploadusermodel.checkmodel_util import test
-# from uploadusermodel.checkmodel_util import model_user
+from uploadusermodel.checkmodel_util import test
+from uploadusermodel.checkmodel_util import model_user
 
 from Luohao.optimation import readdata
 
@@ -143,6 +144,7 @@ class ReturnUserModelStatus(APIView):
 
         # if getCheck == True:
             # model, input = model_user()
+        # return Response("this function is loading")
 
         model, input = model_user()
 
@@ -191,6 +193,9 @@ class ReturnUserModelStatus(APIView):
 
 class ReturnUserModelStruct(APIView):
     def post(self, request):
+        
+        # return Response("this function is loading")
+    
         model, input = model_user()
         modelStruct = getusermodelStruct(model)
         
@@ -432,7 +437,11 @@ def modelLatency(model, input):
     print("Latency: ", Latency)
     return Latency
 
+
 def modelCheck(filename):
+    
+    # return Response("this function is loading")
+    
     is_error = 0
     ChangeUserModelCodeName(filename)
     print("修改数据完成")
@@ -452,6 +461,7 @@ def modelCheck(filename):
     
     print("Check pass")
     return True
+
 
 def ChangeUserModelCodeName(filename):
     # 修改文件名（修改内容重新到新的文件）
@@ -1110,8 +1120,8 @@ def get_resourceinfo(request):
 data_raspberry = {"CPU_Arch": "armv7l", 
         "OS_Version": "Raspbian GNU/Linux 10", 
         "RAM_Total": 0, 
-        "CPU_Use": "1.5", 
-        "MEM_Use": 15.99888854,
+        "CPU_Use": "24.5", 
+        "MEM_Use": 45.99888854,
         "DISK_Free": ""}
     
 data_raspberry = json.dumps(data_raspberry)
@@ -1140,8 +1150,8 @@ def raspberry(request):
 data_jetson = {
         "DEVICE_NAME": "NVIDIA Jetson", 
         "CPU_Use": "1.5",
-        "GPU_Use":'0', 
-        "MEM_Use": 15.99888854,
+        "GPU_Use":'18.18', 
+        "MEM_Use": 53.99888854,
         "DISK_Free": "75"} 
 
 data_jetson = json.dumps(data_jetson)
@@ -1166,7 +1176,7 @@ def jetson(request):
 
 data_mcu = {
         "DEVICE_NAME": "ESP-32", 
-        "CPU_Use": "1.5",
+        "CPU_Use": "7.5",
         "MEM_Use": 15.99888854} 
 
 data_mcu = json.dumps(data_mcu)
