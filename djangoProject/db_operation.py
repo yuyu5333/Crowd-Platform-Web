@@ -106,7 +106,34 @@ def insert_data_many_hmt_imagesclassification():
         datalist = [
             # 图像分类 语义分割 目标检测 行为识别 动作检测 语音文本
             (
-                38, "Caltech101", "ResNet34", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+                38, "Caltech101", "NasNet", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                39, "Caltech101", "ResNet34", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                40, "Caltech101", "ResNet34-dpconv", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                41, "Caltech101", "ResNet34-fire", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                42, "Caltech101", "ResNet34-inception1", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                43, "Caltech101", "ResNet34-inception2", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                44, "Caltech101", "ResNet34-svd", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                45, "Caltech101", "ResNext50", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                46, "Caltech101", "SeResNet34", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
+            ),
+            (
+                47, "Caltech101", "Vgg", 167460, 5.23, 837396.14, 53.33, 80.19, 20.11, 5207456
             ),
         ]
 
@@ -356,9 +383,9 @@ if __name__ == "__main__":
 
     # insert_data()
 
-    # insert_data_many_hmt_imagesclassification()
+    insert_data_many_hmt_imagesclassification()
     
-    insert_data_many_hmt_classdatasetmodel()
+    # insert_data_many_hmt_classdatasetmodel()
 
     # update_data()
     

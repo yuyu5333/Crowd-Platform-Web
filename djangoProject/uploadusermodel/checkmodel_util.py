@@ -597,13 +597,11 @@ def resnet152():
 
 
 
-
-
-
+inputsize = 64
 
 def test():
     net = resnet34()
-    x = torch.randn(2, 3, 32, 32)
+    x = torch.randn(2, 3, inputsize, inputsize)
     y = net(x)
     print(y.size())
     return y.size()
@@ -613,6 +611,6 @@ def test():
 def model_user():
 
     model = resnet34()
-    input = torch.randn(2, 3, 32, 32)
+    input = torch.randn(2, 3, inputsize, inputsize)
 
     return model, input

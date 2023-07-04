@@ -510,7 +510,6 @@ class ReturnSysModelDeviceLatency(APIView):
             sysdevicelatency_data.update({temp_device : temp_latency})
 
         sysdevicelatency_data.update(sysmodel_serializer.data)
-        
 
         for temp_k,temp_v in sysdevicelatency_data.items():
             if temp_v == -1 or temp_v is None:
