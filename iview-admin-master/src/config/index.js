@@ -2,7 +2,7 @@ export default {
   /**
    * @description 配置显示在浏览器标签的title
    */
-  title: 'iView-admin',
+  title: '“太易”中间件',
   /**
    * @description token在Cookie中存储的天数，默认1天
    */
@@ -18,7 +18,8 @@ export default {
    */
   baseUrl: {
     dev: 'https://www.easy-mock.com/mock/5add9213ce4d0e69998a6f51/iview-admin/',
-    pro: 'https://produce.com'
+    // pro: 'https://produce.com'
+    pro: 'http://taiyi.crowdhmt.com:8122/'
   },
   /**
    * @description 默认打开的首页的路由name值，默认为home

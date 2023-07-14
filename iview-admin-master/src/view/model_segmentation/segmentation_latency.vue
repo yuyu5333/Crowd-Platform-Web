@@ -145,7 +145,7 @@
             </RadioGroup>
           </FormItem>
           <br>
-          <Button type="primary" @click="segmentation">推理评估</Button>
+          <Button type="primary" @click="openModal">推理评估</Button>
           <!-- <Button type="primary" style="margin-left: 33px">模型推理</Button> -->
         </Form>
       </card>
@@ -185,12 +185,23 @@
         <!-- <div style="display: flex; justify-content: center; align-items: center; margin-left: -200px;">
           <cartoon3 />
         </div> -->
-        <div v-if="showModal" class="modal">
+        <!-- <div v-if="showModal" class="modal">
           <div class="modal-content">
             <cartoon3 />
             <button @click="closeModal">Close</button>
           </div>
-        </div>
+        </div> 原本动画-->
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+          <Row>
+          <img class="modal-image" src="../../assets/images/contact.png" alt="弹窗图片">
+              <span class="close">&times;</span>
+          </Row>
+          <Row>
+              <button class="close-button" @click="closeModal">关闭</button>
+          </Row>
+          </div>
+        </div> 
       </card>
     </div>
 
@@ -261,7 +272,7 @@
       addData() {
         axios
           // 3.1url地址
-          .get("raspberry/")
+          .get("api/raspberry/")
           // 3.2成功时回调函数
           .then((response) => {
             console.log(response);
@@ -285,7 +296,7 @@
       },
       addData_jetson() {
         axios
-          .get("jetson/")
+          .get("api/jetson/")
           .then((response) => {
             console.log(response);
             this.CPU_Use_JET = response.data.CPU_Use
@@ -301,7 +312,7 @@
                 this.showModal = false;
                 }, 6000);
         axios
-          .post("segmentationlatency/", {
+          .post("api/segmentationlatency/", {
             device: this.formItem.device,
             task: this.formItem.task,
             target: this.formItem.target,
@@ -323,7 +334,7 @@
 
       android() {
         axios
-          .get("android/")
+          .get("api/android/")
           .then((response) => {
             console.log(response.data);
             this.CPU_Use_And = parseFloat(response.data.CPU_Use).toFixed(3)
@@ -336,7 +347,7 @@
       },
       mcu() {
         axios
-          .get("mcu/")
+          .get("api/mcu/")
           .then((response) => {
             console.log(response.data);
             this.CPU_Use_mcu = parseFloat(response.data.CPU_Use).toFixed(3)
@@ -346,6 +357,12 @@
             this.CPU_Type_mcu = response.data.CPU_Type
   
           })
+      },
+      openModal() {
+        document.getElementById('myModal').style.display = 'block';
+      },
+            closeModal() {
+        document.getElementById('myModal').style.display = 'none';
       }
   
     },
@@ -395,7 +412,7 @@
     font-size: 24px;
   }
 
-  .modal {
+  /* .modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -411,7 +428,41 @@
     background-color: white;
     padding: 20px;
     border-radius: 4px;
-  }
+  } 原来动画*/
+  .modal {
 
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 5%;
+    top: 25%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, );
+    overflow: auto;
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+  }
+  .modal-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+  }
   </style>
   

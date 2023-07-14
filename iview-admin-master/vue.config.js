@@ -13,6 +13,7 @@ const resolve = dir => {
 // 需要将它改为'/my-app/'
 // iview-admin线上演示打包路径： https://file.iviewui.com/admin-dist/
 const BASE_URL = process.env.NODE_ENV === 'production'
+  // ? 'http://taiyi.crowdhmt.com:8122/'
   ? '/'
   : '/'
 
@@ -45,6 +46,6 @@ module.exports = {
   // //       changeOrigin: false,
   // //     }
   // //   }
-    proxy: 'http://127.0.0.0:8000'
+    // proxy: 'http://47.108.143.39:8123'
   }
 }

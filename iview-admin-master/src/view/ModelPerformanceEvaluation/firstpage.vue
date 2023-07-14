@@ -28,21 +28,22 @@
             </p>
           </div>
           <Row style="margin-top: 10px">
-            <Button
+            <!-- <Button
               icon="md-download"
               :loading="exportLoading"
             >
                 <a 
               :href=
               "
-              'download-modeldefinition/?modeldefinition=Modeldefinition'
+              'api/download-modeldefinition/?modeldefinition=Modeldefinition'
               " 
               >
               点击下载《模型定义规范》
               </a>
-                <!-- Model definition -->
-            </Button>
+            </Button> -->
             
+            <Button type="primary" @click="openModal">点击下载《模型定义规范》</Button>
+
           </Row>
           <Row style="margin-top: 10px">
             <Button
@@ -55,7 +56,19 @@
         </i-col>
         
       </row>
-      
+    
+    
+      <div id="myModal" class="modal">
+          <div class="modal-content">
+          <Row>
+          <img class="modal-image" src="../../assets/images/contact.png" alt="弹窗图片">
+              <span class="close">&times;</span>
+          </Row>
+          <Row>
+              <button class="close-button" @click="closeModal">关闭</button>
+          </Row>
+          </div>
+      </div> 
     </Card>
 
     <!-- 模型定义规范 -->
@@ -163,6 +176,8 @@
         </div>
       </row>
     </Card> -->
+
+
   </div>
 </template>
 
@@ -258,8 +273,14 @@ export default {
       return highlight(code, languages.js); //returns html
     },
     goBack() {
-      this.$router.push('/hmthome/hmthome')
-    }
+      this.$router.push('/')
+    },
+    openModal() {
+        document.getElementById('myModal').style.display = 'block';
+      },
+    closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+      }
   },
 };
 </script>
@@ -317,5 +338,40 @@ export default {
   background-color: #0069d9;
 }
 
+.modal {
+
+display: none;
+position: fixed;
+z-index: 9999;
+left: 5%;
+top: 25%;
+width: 100%;
+height: 100%;
+background-color: rgba(255, 255, 255, );
+overflow: auto;
+}
+
+.modal-content {
+position: relative;
+background-color: #fff;
+margin: auto;
+padding: 20px;
+width: 80%;
+max-width: 600px;
+text-align: center;
+}
+.modal-image {
+max-width: 100%;
+max-height: 100%;
+}
+.close {
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 20px;
+font-weight: bold;
+color: #000;
+cursor: pointer;
+}
 
 </style>

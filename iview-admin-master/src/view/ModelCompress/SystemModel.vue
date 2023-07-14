@@ -361,13 +361,33 @@
             </p>
         </Row>
         <Row>
-            <Button type="primary" style="margin-left: 45%">
+        <!-- 
+        <Button type="primary" style="margin-left: 45%">
                 <a :href="'download-model/?model=' + CDCompressModelStatus.ModelName" style="color: white">下载模型
                 </a>
             </Button>
+         -->
+             <Button type="primary" @click="openModal" style="margin-left: 45%">下载模型</Button>
         </Row>
+
     </card>
-    <div><br/></div></div>
+    <div><br/></div>
+    
+            <div id="myModal" class="modal">
+          <div class="modal-content">
+          <Row>
+
+            <img class="modal-image" src="../../assets/images/contact.png" alt="弹窗图片">
+            <div class="my-image-close"></div>
+
+            <span class="close">&times;</span>
+          </Row>
+          <Row>
+              <button class="close-button" @click="closeModal">关闭</button>
+          </Row>
+          </div>
+        </div> 
+    </div>
 </template>
 
 <script scoped>
@@ -555,7 +575,7 @@ export default {
         },
         getClassDatasetModelsInfo() {
             axios
-                .post("get-classdatasetmodelInfo/", {
+                .post("api/get-classdatasetmodelInfo/", {
                     ClassName: this.selectedValueClass,
                     DatasetName: this.selectedValueDataSet,
                     ModelName: this.selectedmodelsClassDataset,
@@ -570,7 +590,7 @@ export default {
         getClassDatasetModelsName() {
             if (this.selectedValueClass && this.selectedValueDataSet) {
                 axios
-                    .post("get-classdatasetmodel/", {
+                    .post("api/get-classdatasetmodel/", {
                         ClassName: this.selectedValueClass,
                         DatasetName: this.selectedValueDataSet,
                     })
@@ -587,7 +607,7 @@ export default {
         getCDCompressModel() {
             if (this.selectedValueClass && this.selectedValueDataSet) {
                 axios
-                    .post("get-classdatasetcompressmodel/", {
+                    .post("api/get-classdatasetcompressmodel/", {
                         ClassName: this.selectedValueClass,
                         DatasetName: this.selectedValueDataSet,
                         ModelName: this.selectedmodelsClassDataset,
@@ -606,7 +626,7 @@ export default {
         getCDPCompressModel() {
             if (this.selectedValueClass && this.selectedValueDataSet) {
                 axios
-                    .post("get-cdpcompressmodel/", {
+                    .post("api/get-cdpcompressmodel/", {
                         ClassName: this.selectedValueClass,
                         DatasetName: this.selectedValueDataSet,
                         ModelName: this.selectedmodelsClassDataset,
@@ -633,7 +653,7 @@ export default {
         },
       addDataAndroid() {
         axios
-          .get("android/")
+          .get("api/android/")
           .then((response) => {
             console.log(response.data);
             this.CPU_Use_And = parseFloat(response.data.CPU_Use).toFixed(3)
@@ -646,7 +666,7 @@ export default {
       },
       addDataMcu() {
         axios
-          .get("mcu/")
+          .get("api/mcu/")
           .then((response) => {
             console.log(response.data);
             this.CPU_Use_mcu = parseFloat(response.data.CPU_Use).toFixed(3)
@@ -660,7 +680,7 @@ export default {
       addDataRaspberry() {
         axios
           // 3.1url地址
-          .get("raspberry/")
+          .get("api/raspberry/")
           // 3.2成功时回调函数
           .then((response) => {
             console.log(response);
@@ -675,7 +695,7 @@ export default {
       },
       addDataJetson() {
         axios
-          .get("jetson/")
+          .get("api/jetson/")
           .then((response) => {
             console.log(response);
             this.CPU_Use_JET = parseFloat(response.data.CPU_Use).toFixed(3)
@@ -685,6 +705,12 @@ export default {
             this.GPU_Use_JET = parseFloat(response.data.GPU_Use).toFixed(3)
           })
       },
+      openModal() {
+        document.getElementById('myModal').style.display = 'block';
+      },
+            closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+      }
     },
     components: {
         CompressImages,
@@ -754,14 +780,14 @@ export default {
     margin-top: 15px;
     font-size: 17px;
 }
-
+/*
 img {
     vertical-align: middle;
     border-radius: 50%;
     width: 110px;
     height: 110px;
 }
-
+*/
 .popup {
     position: fixed;
     top: 50%;
@@ -788,5 +814,51 @@ img {
     width: 50px;
     filter: grayscale(0%);
   }
+
+  .modal {
+
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 5%;
+    top: 25%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, );
+    overflow: auto;
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+  }
+  .modal-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+  }
+  .my-image-close {
+  background-image: url('../../assets/images/contact.png');
+
+  background-repeat: no-repeat;
+  background-position: center center; /* 图片在容器中居中显示 */
+  width: 100%; /* 宽度自适应父容器 */
+  height: 100%; /* 高度自适应父容器 */
+}
+
+
 
 </style>

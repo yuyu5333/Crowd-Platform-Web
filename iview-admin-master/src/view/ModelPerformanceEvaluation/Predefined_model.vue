@@ -155,36 +155,39 @@
                 <Divider style="margin: 12px 0px" />
                 
                 <Row style="margin-top: 10px">
-                  <Button
+                  <!-- <Button
                     type="primary"
                     style="font-size: 18px"
                     class="model-evaluation"
                   >
                     <a
                       :href="
-                        'download-sysmodel/?model=' +
+                        'api/download-sysmodel/?model=' +
                         sysmodelStatus.SysModelName
                       "
                       style="color: white"
                     >
                       下载模型
                     </a>
-                  </Button>
-                  <Button
+                  </Button> -->
+                  <Button type="primary" @click="openModal">下载模型</Button>
+
+                  <!-- <Button
                     type="primary"
                     style="margin-left: 10px; font-size: 18px"
                     class="model-evaluation"
                   >
                     <a
                       :href="
-                        'download-sysmodelcode/?modelcode=' +
+                        'api/download-sysmodelcode/?modelcode=' +
                         sysmodelStatus.SysModelName
                       "
                       style="color: white"
                     >
                       下载模型源代码
                     </a>
-                  </Button>
+                  </Button> -->
+                  <Button type="primary" @click="openModal">下载模型源代码</Button>
                 </Row>
               </card>
               <Divider style="margin: 10px 0px" />
@@ -201,6 +204,19 @@
                   </p>
                 </Row>
                 <br>
+
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                  <Row>
+                  <img class="modal-image" src="../../assets/images/contact.png" alt="弹窗图片">
+                      <span class="close">&times;</span>
+                  </Row>
+                  <Row>
+                      <button class="close-button" @click="closeModal">关闭</button>
+                  </Row>
+                  </div>
+                </div> 
+
               </card>
             </div>
           </template>
@@ -249,7 +265,7 @@ export default {
     checkSysModelChange(sysmodel) {
       let that = this;
       axios
-        .post("get-sysmodel/", {
+        .post("api/get-sysmodel/", {
           SysModelName: sysmodel,
         })
         .then((response) => {
@@ -259,7 +275,13 @@ export default {
     },
     goBackhome() {
       this.$router.push('/')
-    }
+    },
+    openModal() {
+        document.getElementById('myModal').style.display = 'block';
+      },
+    closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+      }
   },
 };
 </script>
@@ -299,5 +321,41 @@ export default {
 
 .back-btn:hover {
   background-color: #0069d9;
+}
+
+.modal {
+
+display: none;
+position: fixed;
+z-index: 9999;
+left: 5%;
+top: 25%;
+width: 100%;
+height: 100%;
+background-color: rgba(255, 255, 255, );
+overflow: auto;
+}
+
+.modal-content {
+position: relative;
+background-color: #fff;
+margin: auto;
+padding: 20px;
+width: 80%;
+max-width: 600px;
+text-align: center;
+}
+.modal-image {
+max-width: 100%;
+max-height: 100%;
+}
+.close {
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 20px;
+font-weight: bold;
+color: #000;
+cursor: pointer;
 }
 </style>

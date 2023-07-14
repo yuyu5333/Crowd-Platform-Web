@@ -288,7 +288,7 @@ export default {
       return false;
     },
     goBackhome() {
-      this.$router.push('/hmthome/hmthome')
+      this.$router.push('/')
     }
   },
 };

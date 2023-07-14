@@ -169,7 +169,7 @@
             that.$refs.Memory_usage.getChange();
             that.$refs.Disk_free.getChange();
             if(device == 'Raspberry'){
-              axios.get('raspberry/').then(response =>{
+              axios.get('api/raspberry/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
                 that.GPU_Type = response.data.GPU_Type;
                 that.CPU_Arch = response.data.CPU_Arch;
@@ -178,7 +178,7 @@
               })
             }
             else if(device == 'Jetson'){
-              axios.get('jetson/').then(response =>{
+              axios.get('api/jetson/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
                 that.GPU_Type = response.data.GPU_Type;
                 that.CPU_Arch = response.data.CPU_Arch;
@@ -187,7 +187,7 @@
               })
             }
             else if(device == 'Android'){
-              axios.get('android/').then(response =>{
+              axios.get('api/android/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
                 that.GPU_Type = response.data.GPU_Type;
                 that.CPU_Arch = response.data.CPU_Arch;
@@ -196,7 +196,7 @@
               })
             }
             else if(device == 'Mcu'){
-              axios.get('mcu/').then(response =>{
+              axios.get('api/mcu/').then(response =>{
                 that.CPU_Type = response.data.CPU_Type;
                 that.GPU_Type = response.data.GPU_Type;
                 that.CPU_Arch = response.data.CPU_Arch;
